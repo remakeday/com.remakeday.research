@@ -1,0 +1,13 @@
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+vendor/
+.bundle/
+Gemfile.lock
+.DS_Store
+*.log
+
+# 기획서 원문·대화 노트 — 비공개. 글로브로 막는다 (NFD 파일명 대응)
+REMAKE_DAY_*
+TalkFile_*

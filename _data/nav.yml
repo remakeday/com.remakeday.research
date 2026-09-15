@@ -1,0 +1,17 @@
+- section: "개요"
+  items:
+    - { title: "홈 · Abstract",      url: "/",              icon: "◈" }
+    - { title: "Statement",          url: "/statement/",    icon: "❝" }
+    - { title: "Testbed",            url: "/testbed/",      icon: "⟳" }
+
+- section: "실험"
+  items:
+    - { title: "Exp 1 · 모델 선정",  url: "/experiments/model-selection/",    icon: "01" }
+    - { title: "Exp 2 · 행동 관찰",  url: "/experiments/human-observations/", icon: "02" }
+    - { title: "사전등록",           url: "/prereg/",       icon: "◎" }
+
+- section: "부록"
+  items:
+    - { title: "Plain Summary",      url: "/plain-summary/", icon: "◌" }
+    - { title: "Limitations",        url: "/limitations/",  icon: "△" }
+    - { title: "Lab Notes",          url: "/lab-notes/",    icon: "✎" }

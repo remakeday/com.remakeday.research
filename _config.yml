@@ -1,0 +1,45 @@
+# ─────────────────────────────────────────────────────────────
+#  REMAKE DAY · Research — 실험 기록 사이트 (Jekyll)
+# ─────────────────────────────────────────────────────────────
+title:       "REMAKE DAY Research"
+tagline:     "측정하지 않은 것은 주장하지 않는다"
+description: "REMAKE DAY를 재현 가능한 Human–AI Interaction 실험환경으로 정의하고, 시스템 평가와 행동 관찰을 실측 기준으로 적립하는 연구 기록입니다."
+url:         "https://research.remakeday.com"
+baseurl:     ""
+lang:        ko-KR
+timezone:    Asia/Seoul
+
+# 프로젝트 핵심 상수
+project:
+  code_name:   "BeyondBob"
+  repo_app:    "https://github.com/remakeday/com.remakeday"
+  repo_site:   "https://github.com/remakeday/research.remakeday.com"
+  hub_site:    "https://beyondbob.remakeday.com"
+  spec_doc:    "REMAKE_DAY 프로젝트 기획서 확정본 v9.0"
+
+defaults:
+  - scope: { path: "" }
+    values: { layout: "page" }
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+sass:
+  style: compressed
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  toc_levels: 2..3
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+  - .github
+  - "REMAKE_DAY_*"   # 기획서 원문 — 비공개
+  - "TalkFile_*"     # 대화 원문 노트 — 비공개

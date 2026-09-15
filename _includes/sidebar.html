@@ -1,0 +1,33 @@
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="{{ '/' | relative_url }}">
+    <div class="brand__name">REMAKE DAY</div>
+    <div class="brand__sub">Research · {{ site.tagline }}</div>
+  </a>
+
+  <nav>
+    {% for group in site.data.nav %}
+    <div class="nav__section">
+      <div class="nav__label">{{ group.section }}</div>
+      {% for item in group.items %}
+        {% assign target = item.url | relative_url %}
+        {% assign active = false %}
+        {% if page.url == item.url %}{% assign active = true %}{% endif %}
+        <a class="nav__link{% if active %} is-active{% endif %}" href="{{ target }}">
+          <span class="nav__icon">{{ item.icon }}</span>
+          <span>{{ item.title }}</span>
+        </a>
+      {% endfor %}
+    </div>
+    {% endfor %}
+
+    <div class="nav__section">
+      <div class="nav__label">바깥 링크</div>
+      <a class="nav__link" href="{{ site.project.hub_site }}">
+        <span class="nav__icon">⌂</span><span>개발 허브</span>
+      </a>
+      <a class="nav__link" href="{{ site.project.repo_app }}">
+        <span class="nav__icon">⌥</span><span>앱 저장소</span>
+      </a>
+    </div>
+  </nav>
+</aside>
