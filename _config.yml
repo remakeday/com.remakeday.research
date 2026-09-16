@@ -14,7 +14,7 @@ project:
   code_name:   "BeyondBob"
   repo_app:    "https://github.com/remakeday/com.remakeday"
   repo_site:   "https://github.com/remakeday/research.remakeday.com"
-  hub_site:    "https://beyondbob.remakeday.com"
+  hub_site:    "https://blog.remakeday.com"
   spec_doc:    "REMAKE_DAY 프로젝트 기획서 확정본 v9.0"
 
 defaults:
