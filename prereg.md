@@ -3,7 +3,7 @@ title: "사전등록 — Rationale → Acceptance"
 permalink: /prereg/
 eyebrow: "Preregistration · 설계 고정"
 status: "미실행"
-description: 결과를 보기 전에 가설·조건·측정값·판정 기준을 고정해 공개한다. Anchor Experiment: AI 제안에 이유(rationale)를 붙이면 수용률이 달라지는가.
+description: "결과를 보기 전에 가설·조건·측정값·판정 기준을 고정해 공개한다. Anchor Experiment: AI 제안에 이유(rationale)를 붙이면 수용률이 달라지는가."
 ---
 
 <div class="callout">

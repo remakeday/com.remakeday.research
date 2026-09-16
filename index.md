@@ -3,7 +3,7 @@ title: "AI 제안 수용 측정을 위한 게임 기반 Human–AI 상호작용 
 short_title: "REMAKE DAY Research"
 permalink: /
 eyebrow: "Research Report · 작성 중"
-status: "Exploratory · 사람 세션 6판"
+status: "Exploratory · 사람 세션 7판"
 description: "REMAKE DAY: A Game-Based Testbed for Measuring Human Reliance on AI Suggestions in Iterative Failure-Recovery Loops"
 ---
 
@@ -77,7 +77,8 @@ as a **reproducible behavioral testbed** for studying human–AI decision making
 | 트랙 | 상태 | 페이지 |
 |---|---|---|
 | System Evaluation — 모델 선정 (E7/E6) | **완료**: Funnel 5단계 실측, Core·NPC 슬롯 채택 | [Exp 1]({{ '/experiments/model-selection/' | relative_url }}) |
-| Behavioral Observation — 사람 플레이 | **진행 중**: DB 전수 판별로 사람 세션 6판 분리, RQ1 예비 집계 완료 | [Exp 2]({{ '/experiments/human-observations/' | relative_url }}) |
+| System Evaluation — 외부 API 서빙 (A.19) | **완료**: 같은 러너·게이트로 비열등 판정, 제출 조합 Core Sonnet 5 · NPC Haiku 4.5 확정 | [Exp 1 · A.19]({{ '/experiments/model-selection/' | relative_url }}) |
+| Behavioral Observation — 사람 플레이 | **진행 중**: DB 전수 판별로 사람 세션 6판 분리·RQ1 예비 집계, 9/16 테스터6 5회차 완주 판 케이스 추가 | [Exp 2]({{ '/experiments/human-observations/' | relative_url }}) |
 | Rationale A/B (Anchor Experiment) | **사전등록**: 설계 고정, 미실행 | [사전등록]({{ '/prereg/' | relative_url }}) |
 
 이 사이트의 원칙은 하나다. **측정하지 않은 것은 주장하지 않는다.**

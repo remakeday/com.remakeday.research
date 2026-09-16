@@ -79,6 +79,20 @@ Human-written Rule
 | Trace | 모든 이벤트 append-only 기록 |
 | Harness | 스키마 검증 · 재생성 · 위반 계측 |
 
+### 모델 구성 — 평가 구성과 서빙 구성
+
+LLM은 어댑터 뒤에 있어 provider 전환은 설정 두 줄(provider·모델 이름)로 끝나고 엔진
+코드는 바뀌지 않는다. 그래서 같은 러너·같은 게이트로 로컬 모델과 외부 API를 나란히 잴 수 있다.
+
+| 슬롯 | 로컬 채택 구성 (개발·평가) | 제출 서빙 구성 (2026-09-17 확정) |
+|---|---|---|
+| Core (채점·관리자 검사·신의 질문·계획·발화 분류) | `ollama:gemma4:12b` (think off) | `anthropic:claude-sonnet-5` |
+| NPC (인물 대화) | `ollama:kanana1.5:8b` | `anthropic:claude-haiku-4-5` |
+
+서빙 구성을 따로 둔 것은 모델 품질 때문이 아니다. 심사 기간의 서빙 제약 때문이다.
+GPU 1장에서는 동시 접속이 1명으로 묶이고 홈서버는 가용성이 약하다. 근거와 비열등 판정은
+[Exp 1 · A.19]({{ '/experiments/model-selection/' | relative_url }})에 있다.
+
 ---
 
 ## Evaluation은 두 층으로 분리한다

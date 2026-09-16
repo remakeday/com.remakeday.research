@@ -11,3 +11,6 @@ Gemfile.lock
 # 기획서 원문·대화 노트 — 비공개. 글로브로 막는다 (NFD 파일명 대응)
 REMAKE_DAY_*
 TalkFile_*
+
+# 공개 범위 규칙(스포일러·운영 금지어 포함) — 비공개
+_private/

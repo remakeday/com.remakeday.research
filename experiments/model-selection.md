@@ -1,26 +1,68 @@
 ---
-title: "Exp 1 — Model Selection (E7 · E6)"
+title: "Exp 1 — Model Selection (E7 · E6 · 외부 API)"
 permalink: /experiments/model-selection/
 eyebrow: "System Evaluation · 완료"
 status: "실측 완료"
-description: NPC / Core 두 LLM 슬롯의 모델 선정·교체·수치를 적립한 재현 가능한 실험 기록. 정본은 com.remakeday 저장소의 docs/model_evaluation.md이며 이 페이지는 스냅샷입니다.
+description: NPC / Core 두 LLM 슬롯의 모델 선정·교체·수치와, 같은 러너·같은 게이트로 외부 API 서빙 후보를 비열등 판정한 기록. 정본은 com.remakeday 저장소의 docs/model_evaluation.md이며 이 페이지는 공개용 스냅샷입니다.
 ---
 
 <div class="callout">
   <div class="callout__title">이 문서의 위치</div>
-  <p>정본은 앱 저장소 <a href="https://github.com/remakeday/com.remakeday/blob/main/docs/model_evaluation.md"><code>com.remakeday/docs/model_evaluation.md</code></a>이고,
-  이 페이지는 <strong>스냅샷</strong>입니다. 수치·결정의 최신 기준은 항상 정본을 따릅니다.
-  문서 안의 상대 링크는 앱 저장소 GitHub 링크로 바꿔 두었습니다.</p>
+  <p>정본은 앱 저장소 <code>com.remakeday/docs/model_evaluation.md</code>이고,
+  이 페이지는 <strong>공개용으로 가공한 스냅샷</strong>입니다. 수치·판정·결정은 정본과 같습니다.
+  시나리오 결말을 드러내는 문장과 운영 세부(설정 키·포트·로그인 경로 등)는 가리거나 뺐고,
+  앱 저장소 문서는 링크 대신 경로로 적었습니다.<br>
+  <strong>스냅샷 기준:</strong> 앱 저장소 <code>main</code> <code>6498e4f</code></p>
 </div>
 
+## 외부 API 전환 결정 — 2026-09-16
+
+### 왜 바꾸는가 — 서빙 제약에서 나온 결정이다
+
+2026-09-13~15의 E7(Core)·E6(NPC)·npc-dialogue-2 평가는 전부 **로컬 모델**로 했고 그 결과로 운영 구성을 확정했다: Core `ollama:gemma4:12b`(think off, PCA 0.90·극성쌍 통과·evaluator 기대 일치 0.57·p95 4,231ms·VRAM 7.51 GiB), NPC `gemma4:12b`→`kanana1.5:8b`(41문답 실패 0·중간값 2.6초). 이 결정은 유효하고, 모델 품질 때문에 뒤집는 것이 아니다.
+
+바뀐 것은 **전제**다. 원티드 해커톤은 심사 기간에 실제로 접속 가능한 서비스여야 한다. 로컬 구성의 서빙 현실은 이렇다.
+
+| 제약 | 실측·근거 |
+|---|---|
+| GPU 1장 16 GiB에 Core·NPC 동거 | pair 12.3 GiB(A.9). 순차 호출이라 **동시 접속 1명**이 상한. 사용자 2명이 같은 순간 발화하면 두 번째는 첫 번째의 지연을 그대로 더 기다린다 |
+| 가용성 | 홈서버·홈 회선·정전·PC 재부팅·러너 실행 부하가 곧 서비스 장애. 시연 시간에 이 PC로 다른 일을 못 한다 |
+| 클라우드 GPU 대안 | g6.xlarge/g5.xlarge 24 GiB 45일 $1,100~1,600(24시간), 그래도 동시 접속은 GPU 1장(`docs/apiscenario.md` §4) |
+| 외부 API | 판당 $0.35~2.1(모델별), 완주 100명 $35~210. 동시 접속은 API 속도 제한까지. 서버는 t3.small $35~65 또는 현 PC(`apiscenario.md` §1·§3) |
+
+즉 **"평가를 건너뛰고 외부 API로 갔다"가 아니라, 로컬 후보를 다 평가해 채택까지 한 뒤 심사용 서빙 제약(동시 접속·가용성·비용)에서 외부 API를 고른 것**이다. 장비와 수익 구조가 있는 회사라면 GPU 서버를 여러 장 두거나 로컬 채택을 그대로 서빙하는 선택지가 있고, 그쪽이 데이터 통제·변동비 0의 이점도 크다. 개인 참가자가 심사 기간 동안 안정적으로 여러 명을 받아야 하는 조건에서는 선택의 폭이 좁다. 이 문서는 그 차이를 남기기 위해 쓴다.
+
+같은 이유로 **로컬 채택 구성은 유지·롤백 가능**하게 둔다. 어댑터 패턴이라 provider 전환은 설정의 provider(`ollama`↔`anthropic`)와 모델 이름 두 줄이며 엔진 코드는 바뀌지 않는다(`llm_factory.build_llm`, `AnthropicLLM` 어댑터 2026-09-16 추가). 개발·테스트는 제출 전까지 로컬 ollama로 계속한다.
+
+### 무엇을 재는가 — 로컬 채택 구성 vs 외부 API, 같은 러너·같은 기준
+
+외부 API가 로컬보다 "좋아서" 고르는 것이 아니므로, 재는 목적은 **로컬 채택 구성이 확정한 게이트를 외부 후보가 깨지 않는지**(비열등)와 **차이가 어디서 얼마나 나는지**다. 러너·판정 기준·통제 문항은 E7·E6·npc-dialogue-2와 동일하게 두고 모델만 바꾼다. 로컬 기준값은 이 문서의 기존 부록 수치를 그대로 쓴다.
+
+| 축 | 러너·지표 | 로컬 기준(채택 구성) | Anthropic 후보 | 게이트 | 측정 결과(A.19) |
+|---|---|---|---|---|---|
+| Core 채점 일관성·극성 | `run_model_descent.py` Stage 2 — PCA, 극성쌍, evaluator 기대 일치(A.8 14건) | gemma4:12b-N: PCA 0.90 · 극성 O · eval 0.57 | Sonnet 5 / Opus 5 | PCA ≥ 0.90, 극성 O, eval ≥ 0.57 (비열등) | 실제 러너는 `run_core_selection.py --stage formal`(§1 정정). Sonnet n=1 PCA 0.90·eval 0.71, n=3 PCA 0.9667·eval 0.7143 — **PASS**. Opus n=1 PCA 1.00·eval 0.57 — **PASS**(경계값) |
+| Core 지연 | 같은 러너 p50/p95(ms, 네트워크 포함) | p50 2,918 · p95 4,231 | 〃 | C11~C13 게이트 그대로(A.6) | Sonnet n=1: C11 O·C13 X. n=3: C11 X·C13 O — **n=1↔n=3 사이 뒤집힘**(표본 3, 동시 GPU 작업과 겹침, 변동성으로 해석). Opus: C11·C13 둘 다 X(advisor p95 +38%) |
+| Core 완주 | `run_selfplay.py` 1회차 | 완주·폴백 0/17(A.10) | 〃 | 완주·폴백 0·재생성 ≤ 로컬 | 5회차 self-play(판 수 제한 로컬 상향): Opus 완주·전 역할 재생성·폴백 0. Sonnet 완주·advisor/evaluator/manager/classifier/agent 재생성 0이나 **planner가 5회 중 2 재생성+1 폴백**(beats 7>maxItems 6 — Anthropic 구조화 출력에서 `maxItems`가 강제되지 않는 어댑터 한계, §5 참고) |
+| NPC 의미 품질 | `run_npc_dialogue_check.py` 41문답 — 실패·재생성·출처 구분·당일 기억·회피 | gemma4:12b: 41/41, 재생성 0, 중간값 2.599s·p95 3.053s | Haiku 4.5 / Sonnet 5 | 실패·재생성 0, 중간값 ≤ 3s, 의미 항목 비열등(사람 검토) | 20케이스×2 재생성: 구조 실패 0(둘 다). NPC-역할 재생성 Haiku 2·Sonnet 1(kanana 1과 동급, 전부 동일 금칙어 케이스에서 자가 회복). 중간값 Haiku 1.9~2.3s·Sonnet 2.5s(둘 다 ≤3s). 사람 검토: "지금 들음 vs 기억" 구분 등 kanana의 지속 약점을 둘 다 개선, Sonnet은 부재 인물 이름나열 약점 재현 — 비열등 이상으로 판단 |
+| NPC 7세 정책 | `run_age7_check.py`(v2 기준) 5항목 | kanana: 4/5·누설 0 | 〃 | 4/5 이상·누설 0 | 채점기 gemma3(당초 기준): Haiku 2/5→3/5 미달(파싱 실패 혼입 확인), Sonnet 2회 정지로 미실행. **채점기를 gemma4:12b(think off)로 통일 후 재측정**(§4): kanana·Haiku·Sonnet **전부 4/5 통과**. 누설 측정은 이 러너 범위 밖(별도 미측정) |
+| 비용 | 판당 실측 토큰 × 단가 | 0(변동비) | `apiscenario.md` §1.3·§1.3b | 결정 입력값, 게이트 아님 | 오늘 실행분 합계 **추정 상한 ~$1.06**(Core 축 담당 몫, 문자수×1.0토큰 가정 — 실측 토큰 아님) + 그 외 축(NPC 대화·gemma4 통일 검증) 비용은 별도 실측 없음. $10 상한 내 |
+
+결과는 **부록 A.19**에 적립하고 `metrics.yml`에 `provider: anthropic` 줄로 남긴다. 실행 규칙:
+- API 키는 측정할 때만 쓰고, 그 사이 개발은 로컬 구성으로 한다.
+- 각 후보는 n=1 스모크 → 게이트 통과 시 E7 Stage 2 n=3. 총 비용 상한 $10.
+- 해커톤 채점·시연에서 쓸 조합은 이 표로 정한다. 현재 예상 조합은 Core Sonnet 5 + NPC Haiku 4.5(비용)이며, 채점·관리자 품질이 게이트에 걸리면 Core만 Opus 5로 올린다.
+
+### 판단 기준 한 줄
+
+**로컬 채택 구성이 정답이고, 외부 API는 그 정답을 심사 기간 동안 여러 사람에게 동시에 보여 주기 위한 서빙 수단이다.** 게이트를 깨는 외부 후보는 비용이 싸도 쓰지 않는다.
 
 ## 현재 NPC 평가 기준 — 2026-09-15
 
 NPC 정책 `npc-dialogue-2`는 쉬운 말투와 인물별 성격을 유지하면서 **질문 이해·자기 행동의 이유 설명·당일 기억**을 요구한다. 이전 E6의 ‘왜=몰라’, 3턴 망각, 근거 없는 화제 전환, 무조건적인 전언 수용은 현재 정책의 통과 조건이 아니다. 아래 과거 실험 결과는 당시 기준의 기록으로 보존하며 새 정책의 성능 근거로 재사용하지 않는다.
 
-구현 및 새 평가: [승인된 설계](https://github.com/remakeday/com.remakeday/blob/main/docs/superpowers/specs/2026-09-15-npc-dialogue-persona-design.md), [실행 계획](https://github.com/remakeday/com.remakeday/blob/main/docs/superpowers/plans/2026-09-15-npc-dialogue-persona.md), [새 평가 스크립트](https://github.com/remakeday/com.remakeday/blob/main/backend/scripts/run_npc_dialogue_check.py). 기존 Kanana 모델로 변경 효과와 한계를 먼저 측정한 후 동일 조건에서 대안을 비교했다. 실제 질문·허용 근거·출력·재생성·지연을 저장해 검토하며, 의미 품질을 단어 포함 검사나 같은 모델의 자기평가로 통과시키지 않는다.
+구현 및 새 평가: 승인된 설계(`docs/superpowers/specs/2026-09-15-npc-dialogue-persona-design.md`), 실행 계획(`docs/superpowers/plans/2026-09-15-npc-dialogue-persona.md`), 새 평가 스크립트(`backend/scripts/run_npc_dialogue_check.py`). 기존 Kanana 모델로 변경 효과와 한계를 먼저 측정한 후 동일 조건에서 대안을 비교했다. 실제 질문·허용 근거·출력·재생성·지연을 저장해 검토하며, 의미 품질을 단어 포함 검사나 같은 모델의 자기평가로 통과시키지 않는다.
 
-#### 2026-09-15 적용 결정과 측정 결과
+### 2026-09-15 적용 결정과 측정 결과
 
 **로컬 NPC는 `ollama:gemma4:12b`, `think=off`, 대화 temperature 0.3으로 적용한다.** 시나리오의 실제 행동·전언 출처를 설명하는 일부 문답이 Kanana보다 정확해진 것을 근거로 선택했다. 중요한 모순 0건·현재 전언 이해·관련성 90%라는 최초 의미 품질 목표에는 아직 미달한다. Core는 기존 Gemma 설정을 유지한다.
 
@@ -51,7 +93,7 @@ NPC 정책 `npc-dialogue-2`는 쉬운 말투와 인물별 성격을 유지하면
 
 이전 Kanana 82문답 반복과 중간 프롬프트 실험은 개발 과정의 별도 자료이며 최종 41문답과 합산하지 않는다. 원래 플레이 8답변은 보관한 과거 기준선이고 새 조건으로 다시 실행한 대조군이 아니다.
 
-자료: [상세 평가 보고서](https://github.com/remakeday/com.remakeday/blob/main/output/npc-dialogue-2026-09-15/evaluation-report.md), [최종 집계](https://github.com/remakeday/com.remakeday/blob/main/output/npc-dialogue-2026-09-15/final-summary.json), [기능 검증](https://github.com/remakeday/com.remakeday/blob/main/docs/review-verification/2026-09-15-npc-dialogue/README.md). 재현 시 모델과 thinking을 명시한다:
+자료: 상세 평가 보고서(`output/npc-dialogue-2026-09-15/evaluation-report.md`), 최종 집계(`output/npc-dialogue-2026-09-15/final-summary.json`), 기능 검증(`docs/review-verification/2026-09-15-npc-dialogue/README.md`). 재현 시 모델과 thinking을 명시한다:
 
 ```bash
 backend/.venv/bin/python backend/scripts/run_npc_dialogue_check.py --model kanana1.5:8b-q4km --think default --cases all --repeat 1
@@ -521,7 +563,7 @@ C11~C13의 값은 UX 통념으로 잡은 것이며 우리 게임에서 체감 �
 - C11~C13 전 게이트 통과, NPC와 무축출 공존(A.9), 루프 1회차 완주·폴백 0 (A.10)
 - 운영 Gemini는 무료 티어 기준(D1 결정)에서 지연·용량이 성립하지 않음 (A.11 추록)
 
-**반영 내역**: `.env` `CORE_LLM_PROVIDER=ollama` · `CORE_LLM_MODEL=gemma4:12b` · `CORE_LLM_THINK=off`(신설). thinking 제어는 프로덕션 반영 — `ollama_llm.py`에 `think: bool | None = None`(None=필드 미전송, 하위호환), `Settings.core_llm_think`/`npc_llm_think`(default/on/off, 알 수 없는 값은 기동 실패), `llm_factory.build_llm` 배선. 단위 테스트 7건 추가(`tests/pure/test_ollama_llm.py`), 전체 393 passed·import-linter 4계약 유지. 실서버 검증(8600·pigfarm_test): health core `ollama:gemma4:12b`, 아침 loop(planner 포함) 12.13s — `-N` 셀 p95(12,215ms)와 일치, thinking OFF 실작동 확인. D2(운영 Gemini thinking)는 Gemini 이탈로 대상 소멸.
+**반영 내역**: Core 설정 3항목(provider `ollama` · 모델 `gemma4:12b` · think `off` 신설). thinking 제어는 프로덕션 반영 — `ollama_llm.py`에 `think: bool | None = None`(None=필드 미전송, 하위호환), `Settings.core_llm_think`/`npc_llm_think`(default/on/off, 알 수 없는 값은 기동 실패), `llm_factory.build_llm` 배선. 단위 테스트 7건 추가(`tests/pure/test_ollama_llm.py`), 전체 393 passed·import-linter 4계약 유지. 실서버 검증(별도 포트·테스트 DB): health core `ollama:gemma4:12b`, 아침 loop(planner 포함) 12.13s — `-N` 셀 p95(12,215ms)와 일치, thinking OFF 실작동 확인. D2(운영 Gemini thinking)는 Gemini 이탈로 대상 소멸.
 
 #### 채택 — NPC 슬롯 (2026-09-14, 사용자 결정)
 
@@ -532,9 +574,9 @@ C11~C13의 값은 UX 통념으로 잡은 것이며 우리 게임에서 체감 �
 - **발화 품질** — exaone 기준선 대비 자연스러움 대등권(9:7)·외국 문자 혼입 0/25 (A.17 A/B). 관련성(5:14)은 열세로 관리 항목
 - **교체 전 루프 스모크 통과** (A.18) — NPC kanana + Core gemma4:12b 조합 1회차 완주·크래시 0·폴백 0/16
 
-**반영 내역**: `.env` `NPC_LLM_MODEL=kanana1.5:8b-q4km` 한 줄 (provider ollama 유지, kanana는 thinking 미지원이라 `NPC_LLM_THINK` 불필요 — default 유지). 실서버 검증(8600·pigfarm_test): health npc `ollama:kanana1.5:8b-q4km`, 발화 실콜 정상("준 → 몰라. 아직.").
+**반영 내역**: NPC 모델 설정 한 줄(`kanana1.5:8b-q4km`, provider ollama 유지, kanana는 thinking 미지원이라 think 설정 불필요). 실서버 검증(별도 포트·테스트 DB): health npc `ollama:kanana1.5:8b-q4km`, 발화 실콜 정상("준 → 몰라. 아직.").
 
-**롤백 절차 (어댑터 패턴 보장)**: 프로덕션 코드에 모델명 하드코딩 없음 확인(설정 기본값뿐) — `.env`의 `NPC_LLM_MODEL=exaone3.5:7.8b` 한 줄 복원이 롤백의 전부다. `exaone3.5:7.8b`는 이 목적으로 로컬 유지한다(연구·개발 용도는 라이선스 내). 평가용 임시 모델(`exaone3.5:2.4b`·`midm2.0:mini-q4km`)과 GGUF 원본은 삭제(약 9GB 회수).
+**롤백 절차 (어댑터 패턴 보장)**: 프로덕션 코드에 모델명 하드코딩 없음 확인(설정 기본값뿐) — NPC 모델 설정 한 줄 복원(`exaone3.5:7.8b`)이 롤백의 전부다. `exaone3.5:7.8b`는 이 목적으로 로컬 유지한다(연구·개발 용도는 라이선스 내). 평가용 임시 모델(`exaone3.5:2.4b`·`midm2.0:mini-q4km`)과 GGUF 원본은 삭제(약 9GB 회수).
 
 **운영 관찰 항목(교체 후)**: ① 사실 질문 회피(스모크에서는 0/21) ② 질문 관련성 ③ 단답 경향(스모크 평균 11.4자) — 테스터 플레이에서 추적한다.
 
@@ -680,8 +722,8 @@ gemma4    e2b 6.67 · 12b 7.04 · e4b 8.95 GiB              (26b 17.33 · 31b 18
 ### A.5 2026-09-13 · E7 Stage 0 — 프로토콜 호환
 
 원문: `docs/review-verification/2026-09-13-core-selection/stage0-protocol-20260913T114748Z.json`
-프로브: `evaluator_verdict` 실프롬프트 1콜, temperature 0.0. 정답 주장 "이송은 출하를 뜻한다" × 후보 4개.
-사전등록 기대: 후보 2("트럭에 실려 가면 돌아오지 못한다")가 정답과 같은 일을 가리키므로 `confirmed` 또는 `partial`.
+프로브: `evaluator_verdict` 실프롬프트 1콜, temperature 0.0. 정답 주장 "[시나리오 정답 주장 — 비공개]" × 후보 4개.
+사전등록 기대: 후보 2("[같은 사실의 다른 표현 — 비공개]")가 정답과 같은 일을 가리키므로 `confirmed` 또는 `partial`.
 
 | 모델 | think | ok | verdict | 기대일치 | ms | thinking | VRAM GiB |
 |---|---|---|---|---|---|---|---|
@@ -860,15 +902,15 @@ C11 통과 + Stage 1 게이트(폴백 ≤ 0.5) 통과:
 `gemma4` 두 모델이 놓친 것은 **같은 케이스 하나**다(3케이스 × 3반복 중 3회 = 그 케이스 전부).
 
 ```
-정답 주장   "이송은 출하를 뜻한다"
-후보        "트럭에 실려 가면 돌아오지 못한다"
+정답 주장   "[시나리오 정답 주장 — 비공개]"
+후보        "[같은 사실의 다른 표현 — 비공개]"
 기대        confirmed 또는 partial
 받음        none           ← gemma4:12b · gemma4:e4b 둘 다
 ```
 
-**이 기대값은 2026-09-09 코퍼스가 아니라 이 문서의 저자가 직접 쓴 것이다.** PC1~SPC2와 달리 외부에서 사전등록된 값이 아니므로 **증거력이 약하다.** 실제로 "돌아오지 못한다"는 "출하된다"가 말하지 않는 결과를 덧붙이므로 `none` 판정에도 근거가 있다.
+**이 기대값은 2026-09-09 코퍼스가 아니라 이 문서의 저자가 직접 쓴 것이다.** PC1~SPC2와 달리 외부에서 사전등록된 값이 아니므로 **증거력이 약하다.** 실제로 후보는 정답 주장이 말하지 않는 결과를 덧붙이므로 `none` 판정에도 근거가 있다.
 
-다만 `EVALUATOR_VERDICT_SYSTEM` 프롬프트가 **"'이송된다'≈'실려 간다'≈'출하된다'"를 명시적 동의어로 제시**하고 있으므로, 최소 `partial`은 나와야 한다는 해석도 성립한다.
+다만 `EVALUATOR_VERDICT_SYSTEM` 프롬프트가 **정답 주장과 후보의 핵심 표현을 명시적 동의어로 제시**하고 있으므로, 최소 `partial`은 나와야 한다는 해석도 성립한다.
 
 **주목할 점은 방향이다.** `gemma4` 두 모델이 기준선보다 **엄격하다.** 이 프로젝트는 2026-09-06에 *"Evaluator verdict 분포가 극단적으로 엄격해 `none`으로 치우친다"* 는 문제로 3.1% 합격률을 겪은 이력이 있다. **더 엄격한 채점기는 이 게임에서 알려진 위험이다.**
 
@@ -907,16 +949,16 @@ A.7의 조치("자작 케이스로 채점 역할의 우열을 판정하지 않�
 | A1 "채연이 아프다"←"열이 나지만 숨긴다" | confirmed | **partial ✗** | O | O | O |
 | A2 이송될까 봐 숨겼다 | confirmed | O | O | O | O |
 | A3 옆 구역 (언급 없음) | none | O | O | O ⚡(1/3 conf) | O |
-| A4 다른 종 ← "가축/사육사" | confirmed | O | O | O | O |
+| A4 정체 ← 직접 동의 표현 | confirmed | O | O | O | O |
 | A5 구역 폐쇄 (언급 없음) | none | **partial ✗** | O | O | O |
 | A6 이송 규정 ← 절반 언급 | partial | conf ✗ | conf ✗ | conf ✗ | conf ✗ |
 | B1 검진 회피 ← 절반 언급 | partial | conf ✗ | conf ✗ | conf ✗ | conf ✗ |
 | B2 정체 (관찰 나열뿐) | none | **partial ✗** | O | O | O |
 | C1 감염 확산 ← 1,028자 덩어리 | none | O | O | **conf ✗** | **partial ✗** |
-| C2 다른 종 ← 덩어리 "가축처럼 관리" | partial | none ✗ | conf ✗ | conf ✗ | conf ✗ |
+| C2 정체 ← 덩어리 속 동의 표현 | partial | none ✗ | conf ✗ | conf ✗ | conf ✗ |
 | D1 구역 폐쇄 ← 460자 덩어리 | none | **partial ✗** | **conf ✗** | **conf ✗** | **conf ✗** |
 | D2 이송 규정 ← "옮겨지면 안좋은 일" | partial | conf ✗ | conf ✗ | conf ✗ | conf ✗ |
-| D3 다른 종 ← "사람이 아닌 취급" | partial | none ✗ | conf ✗ | none ✗ | conf ✗ |
+| D3 정체 ← 간접 표현 | partial | none ✗ | conf ✗ | none ✗ | conf ✗ |
 | D4 "채연이 아프다"←"병에 걸린 것 같다" | confirmed | O | O | O | O |
 
 #### 확정된 사실
@@ -979,8 +1021,8 @@ A.7의 조치("자작 케이스로 채점 역할의 우열을 판정하지 않�
 
 #### 프로토콜
 
-- **별도 환경 서버**: `scripts/loop_app.py`가 프로덕션 `main.app`을 import하고 컴포지션 루트의 `get_core_llm` 바인딩만 러너의 `ThinkingOllamaLLM(think=False)`로 교체한다. **프로덕션 엔진 코드·`.env` 무변경** (§2.3·§4.2). 게이트 C9 검증용 `/loop-debug`(Core 콜 수·thinking 문자 누계)도 래퍼에만 있다
-- 포트 8600 · `pigfarm_test` DB (테스터 판 DB 무접촉) · env 오버라이드 `CORE_LLM_PROVIDER=ollama`, `CORE_LLM_MODEL=<후보>`. NPC(`exaone3.5:7.8b`)·임베딩(gemini)은 프로덕션 구성 그대로
+- **별도 환경 서버**: `scripts/loop_app.py`가 프로덕션 `main.app`을 import하고 컴포지션 루트의 `get_core_llm` 바인딩만 러너의 `ThinkingOllamaLLM(think=False)`로 교체한다. **프로덕션 엔진 코드·설정 무변경** (§2.3·§4.2). 게이트 C9 검증용 `/loop-debug`(Core 콜 수·thinking 문자 누계)도 래퍼에만 있다
+- 별도 포트 · 테스트 DB (테스터 판 DB 무접촉) · 환경변수로 Core provider·모델만 후보로 교체. NPC(`exaone3.5:7.8b`)·임베딩(gemini)은 프로덕션 구성 그대로
 - **완주 주체**: selfplay 성실 페르소나, seed 42, 1판 × 1회차(낮 발화 → 비트 → 밤 제출 → 개입). 플레이어 모델은 **상주 NPC(`exaone3.5:7.8b`) 재사용** — 제3 모델을 올리면 `12b` 셀(pair 12.34 GiB)에서 축출이 나기 때문
 - 판정은 §4.1 그대로 — 점수가 아니라 **크래시 0 · 폴백 폭주 없음 · 1회차 완주**
 
@@ -991,7 +1033,7 @@ A.7의 조치("자작 케이스로 채점 역할의 우열을 판정하지 않�
 | **`gemma4:12b-N`** | O | 0 | **0 / 17** | 14 | 17 (17) | 0자 | 61.1s | **통과** |
 | **`gemma4:e4b-N`** | O | 0 | **0 / 17** | 15 | 17 (19) | 0자 | 35.6s | **통과** |
 
-역할별(서버 이벤트 로그 실측, 두 후보 동일 구성): planner 1 · advisor_answer 1 · evaluator_verdict 10 · manager_check 2 · NPC agent 3. attempt_id: `d88a29e5-…78490`(12b) / `8c350278-…43a63`(e4b), 둘 다 `pigfarm_test`에만 기록.
+역할별(서버 이벤트 로그 실측, 두 후보 동일 구성): planner 1 · advisor_answer 1 · evaluator_verdict 10 · manager_check 2 · NPC agent 3. attempt_id: `d88a29e5-…78490`(12b) / `8c350278-…43a63`(e4b), 둘 다 `테스트 DB`에만 기록.
 
 #### 확정된 사실
 
@@ -1043,7 +1085,7 @@ A.7의 조치("자작 케이스로 채점 역할의 우열을 판정하지 않�
 
 **키가 유료인 것은 사용자가 확인해 주었다. 그러나 판단 기준은 무료 티어 한도(10 RPM)로 고정한다** — 유료 쿼터에 기대는 구성을 판정 근거로 삼지 않는다.
 
-- 페이싱은 **10 RPM 유지** (`.env` 변경 없음)
+- 페이싱은 **10 RPM 유지** (설정 변경 없음)
 - 위 게이트 재계산 표는 "올렸다면 어떻게 되는가"의 기록으로만 남긴다 — **A.7의 Gemini C11·C13 탈락 판정은 그대로 유효하다**
 - D1은 이 결정으로 **해소**. 이후 무료 티어 공칭 한도 자체가 바뀌면 그때 재검토한다
 
@@ -1128,7 +1170,7 @@ exaone 조합(A.9: 12.34 GiB, 여유 ~2.9 GiB) 대비 **여유가 ~4.1 GiB로 �
 
 #### 루프 스모크 (Stage 4 패턴 — `scripts/loop_app_npc.py` 래퍼, 프로덕션 무수정)
 
-NPC=`qwen3.5:4b`(think 강제 OFF) + Core=`gemma4:12b`(think 강제 OFF), `pigfarm_test` DB, selfplay 성실 1회차: **완주 · 크래시 0 · 폴백 0/17**(agent 재시도 1, 재생성 해소) · Core thinking 0자 · NPC thinking 0자 · 종료 시 두 모델 동시 상주(7.51+2.98 GiB). 소요 244s — 플레이어 LLM도 4b를 재사용했다(exaone을 올리면 3모델 15.3 GiB로 빠듯해지는 것을 회피). 점수 0.0은 판정 축이 아니며(§4.1) 플레이어 서술 품질의 영향으로 본다 — 기록만.
+NPC=`qwen3.5:4b`(think 강제 OFF) + Core=`gemma4:12b`(think 강제 OFF), 테스트 DB, selfplay 성실 1회차: **완주 · 크래시 0 · 폴백 0/17**(agent 재시도 1, 재생성 해소) · Core thinking 0자 · NPC thinking 0자 · 종료 시 두 모델 동시 상주(7.51+2.98 GiB). 소요 244s — 플레이어 LLM도 4b를 재사용했다(exaone을 올리면 3모델 15.3 GiB로 빠듯해지는 것을 회피). 점수 0.0은 판정 축이 아니며(§4.1) 플레이어 서술 품질의 영향으로 본다 — 기록만.
 
 ---
 
@@ -1312,7 +1354,7 @@ pair peak **12.42 GiB** · GPU 13,402/16,311 MiB · **교대 r1~r3 전 스냅샷
 
 원문: `docs/review-verification/2026-09-14-npc-descent/e6-loop-smoke-kanana-20260914.json` · 서버 로그 `e6-loop-server-kanana8b-gemma12b.log`
 
-NPC 채택(§5.3) 확정 전 게이트. `scripts/loop_app_npc.py` 래퍼(8600·pigfarm_test — Core만 러너 서브클래스 think off, kanana는 thinking 미지원이라 프로덕션형 어댑터 그대로)로 selfplay 성실 1회차.
+NPC 채택(§5.3) 확정 전 게이트. `scripts/loop_app_npc.py` 래퍼(별도 포트·테스트 DB — Core만 러너 서브클래스 think off, kanana는 thinking 미지원이라 프로덕션형 어댑터 그대로)로 selfplay 성실 1회차.
 
 | 항목 | 값 |
 |---|---|
@@ -1327,6 +1369,181 @@ NPC 채택(§5.3) 확정 전 게이트. `scripts/loop_app_npc.py` 래퍼(8600·p
 
 ---
 
+### A.19 2026-09-16 · 외부 API 평가 — Anthropic(Core·NPC)·Gemini 무료 키(NPC)·gemma4 통일
+
+원문: `output/model-eval-2026-09-16-anthropic/core-age7-summary.md`(Core·NPC 7세 1차) ·
+`stage2-formal-20260916T121314Z.json`(n=1) · `stage2-formal-20260916T143841Z.json`(n=3) ·
+`age7-anthropic.yml` · `age7-anthropic-solo.yml` · `age7-claude-haiku-4-5-verbose.log` ·
+`output/npc-dialogue-2026-09-16-anthropic/comparison.md` ·
+`output/npc-dialogue-2026-09-16-gemini/comparison.md` ·
+`output/gemma4-unify-2026-09-16/summary.md`·`judge_agreement_results.json`·
+`age7-kanana-gemma4judge.yml`·`age7-anthropic-gemma4judge.yml`·
+`age7-claude-haiku-4-5-gemma4judge.log`·`age7-claude-sonnet-5-gemma4judge.log`·
+`selfplay-player-gemma4.log`(전부 `output/`, gitignore — 이 부록이 정본).
+러너: `run_core_selection.py --provider anthropic`(§1 정정, `run_model_descent.py`가 아니다 —
+PCA·극성쌍 개념이 그 스크립트에 없다), `run_npc_dialogue_check.py --provider
+{anthropic,gemini}`, `run_age7_check.py --provider anthropic`, `run_selfplay.py`.
+
+#### 1. Core PCA·극성·eval·지연 (`run_core_selection.py --stage formal`, advisor·evaluator만)
+
+| 모델 | PCA | 극성쌍 | eval 기대 일치 | advisor p95(ms) | evaluator p50(ms) | C11(p95≤5s) | C13(p50×10≤30s) |
+|---|---:|:---:|---:|---:|---:|:---:|:---:|
+| 로컬 기준 gemma4:12b-N | 0.90 | O | 0.57 | 4,231 | 2,918 | O | O |
+| claude-sonnet-5 (n=1) | 0.90 | O | 0.7143 | 4,593 | 3,186 | O | X (31,860ms) |
+| claude-opus-5 (n=1) | 1.00 | O | 0.5714 | 5,853 | 3,135 | X (5,853ms) | X (31,350ms) |
+| **claude-sonnet-5 (n=3, 게이트 통과 후 추가 실행)** | **0.9667** | O | 0.7143 | 7,387 | 2,964 | **X** | **O** (29,640ms) |
+
+n=3: advisor 66콜·evaluator 42콜, 폴백 0, advisor p50 3,813ms. **PCA·극성·eval 게이트는 n=1·n=3
+모두 Sonnet·Opus 둘 다 PASS**(Opus의 eval 0.5714는 게이트 하한과 사실상 동률인 경계값). C11·C13
+지연 게이트는 Sonnet에서 n=1↔n=3 사이에 뒤집혔다(n=1: C11 O·C13 X / n=3: C11 X·C13 O) — n=3이
+로컬 GPU 평가 작업과 동시에 돌아 advisor p95가 늘고 evaluator p50는 오히려 줄어든 결과라 표본 3
+의 변동으로 읽는다. Opus는 C11·C13 둘 다 X(advisor p95가 로컬보다 38% 높음 — 모델 자체가 느리다).
+**C13은 evaluator p50 × 10으로 만든 합성 지표**라 채점 호출을 묶으면 실제 호출은 1회가 되고, 이
+설계는 네트워크 왕복이 있는 외부 API에 구조적으로 불리하게 작동한다 — 해석 시 유의.
+
+#### 2. Core 완주 — self-play 5회차(판 수 제한 로컬 상향, persona 성실, NPC kanana)
+
+| 구성 | 점수(5회차) | 결말 | 소요 | attempt_id | 하네스 |
+|---|---|---|---:|---|---|
+| Core claude-sonnet-5 | 13.1, 16.0, 4.4, 8.8, 8.8 | doom | 350.3s | `acfad5ac-28b1-458d-9041-a8d419c80cb4` | evaluator_verdict 50·manager_check 15·classifier 10·agent 10·advisor 4콜, 재생성·폴백 0. **planner 5콜, 재생성 2+폴백 1**(스키마 위반: `plans[3].beats` 7개 > maxItems 6 — `maxItems`가 Anthropic 어댑터에서 description으로 강등되어 구조화 출력이 강제하지 못함) |
+| Core claude-opus-5 | 8.8, 0.0, 4.4, 8.8, 4.4 | doom | 295.3s | `4c29beca-84c3-4c2c-b7f9-606ce3bf7bcf` | 전 역할 재생성·폴백 0 |
+| Core ollama gemma4:12b(대조) | 35.0 × 5 | doom | 1526.0s(동시 gemma3 채점기 작업과 GPU 경합) | `87e9faf6-2230-49a3-9f1f-f2ab6036db68` | advisor 3회차 재생성 2(non_verbatim_evidence), 그 외 0. 첫 시도는 서술 폴백이 `free_text` 2000자 상한을 넘겨 422로 죽어 수정 후 재실행(§5) |
+
+Core gemma4 플레이어(Core gemma4, NPC kanana)로도 1판 실행: 8.8, 8.8, 8.8, 21.9, 17.5 / doom /
+323.6s / `e5b936ce-ee2d-4616-b1ee-86ffa4c301e2` / 전 역할 재생성·폴백 0. self-play 점수는 회차마다
+크게 흔들려(n=1) 이 표로 플레이어 모델 순위를 매기지 않는다 — 완주·폴백·크래시 0이 이 축의 판정
+대상이다. **완주·폴백 게이트는 Opus·gemma4 대조군 전부 통과, Sonnet은 planner에 한해 재생성 2·
+폴백 1로 "재생성 ≤ 로컬" 기준을 벗어난다**(원인은 §5의 어댑터 한계).
+
+**제출 조합 확인 (2026-09-17 0시대, 사용자 요청)** — Core `anthropic:claude-sonnet-5` + NPC `anthropic:claude-haiku-4-5`,
+플레이어 gemma4:12b(think off), persona 성실, 5회차 1판: **11.7, 11.7, 16.0, 24.8, 29.8 / doom / 261.5s** /
+`305d77a6-aae4-4cf0-9e6e-c3fcce5e20ac`. 하네스: evaluator_verdict 50·manager_check 15·classifier 10·agent 10·
+advisor 4콜 재생성·폴백 0, planner 5콜 중 5회차 **재생성 1·폴백 0**(같은 `beats` 7개 > 6 위반, 재생성으로 복구).
+NPC 발화 100건에서 메타 표현(유저·플레이어·AI·게임 등) 0건, 서버 로그 오류·거절 0. 크래시 0으로 완주 —
+제출 조합으로 이상 없음. 점수는 n=1이라 순위 근거로 쓰지 않는다.
+
+#### 3. NPC 의미 품질 — `run_npc_dialogue_check.py`(20케이스 × repeat 2 = 구조상 80평가턴)
+
+| | kanana1.5:8b(기준선, 82턴) | claude-haiku-4-5 | claude-sonnet-5 | gemini-3-flash-preview |
+|---|---:|---:|---:|---:|
+| 구조 실패 | 0 | 0 | 0 | 0(성공분만) |
+| NPC-역할 재생성/미복구 폴백 | 1 / 0 | 2 / 0 | 1 / 0 | 0 / 66(할당량 소진) |
+| 성공 요청 | 82 | 80 | 80 | **14 / 80 시도** |
+| p50 / p95(ms) | 1,060.3 / 1,515.5 | 1,906.5~2,256.1 / 2,545.8~3,418.8(러너 수정 전·후) | 2,498.0 / 3,492.2 | 9,183.2 / 66,669.6(10 RPM 대기 포함 wall time) |
+| 평균 답 길이(자) | 29.4 | 31.4~32.5 | 35.8 | 54.5 (n=14) |
+
+세 모델 모두 재생성은 동일한 `identity` 케이스의 시나리오 금칙어에서 나왔고 하네스 재시도로 자가
+회복했다(미복구 폴백 0). *원시* 재생성/failed_harnesses 수치(Haiku 162/80, Sonnet 161/80)는
+새 발화 분류기 스텁이 평가 스키마를 못 맞춰 매 턴 2재생성+1폴백을 만드는 러너 결함이며 provider와
+무관하다(§5에서 수정, Haiku만 수정 러너로 재실행).
+
+**의미 품질(사람 검토, 10케이스 선별 표본)** — 두 Anthropic 모델 모두 09-15 보고서가 로컬 모델의
+지속적 약점으로 적은 "지금 방금 들었다 vs 기억한다" 구분을 통과한다(kanana: "그건 나도 몰라."로
+방금 들은 말도 부정). 근거-출처 구분(전언 vs 직접 목격)도 둘 다 명시적으로 한다. Sonnet은 "사라진
+친구 이름을 물으면 현재 인물을 나열"하는 09-15 문서화 약점을 그대로 재현(`lost-name`: "없어진
+친구? 그건 나도 몰라. 채연, 민석, 은상 다 오늘 봤는데."), Haiku는 이 사례를 피한다. `core-6`(부재
+인물이 무엇을 했는지 근거 없이 단정)에서 Sonnet·Gemini는 "은상이는 안 적었어"로 근거 없는 부정
+단정을 하고, Haiku는 모른다고 정직하게 답한다.
+
+**Gemini 무료 키 — NPC 대안으로 채택 불가.** 실제 제약은 과제가 지시한 10 RPM 페이싱이 아니라
+**하루 20요청 상한**이다. 워밍업 시도 2회가 503으로 사례 데이터 없이 실패, 3번째 시도에서 14턴
+성공 후 503 → `429 RESOURCE_EXHAUSTED`("daily cap 20 requests")로 나머지 66턴 전부 실패. 게임
+한 판에 NPC 호출이 수십 건 필요해 하루 20건으로는 운영 불가 — 결정: **Gemini는 NPC 후보에서
+제외**.
+
+#### 4. NPC 7세 정책 (`run_age7_check.py`, policy on)
+
+**1차 — 채점기 gemma3:12b(로컬 기준값과 같은 채점기)**
+
+| 모델 | 1_사실대로 | 2_왜=몰라 | 3_3턴망각 | 4_유도수용 | 5_문자그대로 | 통과 | 게이트(4/5) |
+|---|---:|---:|---:|---:|---:|---:|:---:|
+| 로컬 기준 kanana1.5:8b(n=5, 2026-09-14) | 0.6 | 1.0 | 1.0 | 1.0 | 1.0 | 4/5 | O |
+| claude-haiku-4-5(n=4, 1차) | 0.75 | 1.0 | 0.0 | 0.0 | 0.0 | 2/5 | **X** |
+| claude-haiku-4-5(n=4, 단독 재실행) | 0.0 | 1.0 | 0.0 | 0.75 | 1.0 | 3/5 | **X** |
+| claude-sonnet-5 | — | — | — | — | — | — | **2회 정지로 미실행** |
+
+Haiku 재실행분의 `1_사실대로` 4건 전부 "judge 출력 파싱 실패" 주석이 달렸으나 답변 자체는 사실을
+정확히 밝힌 내용이었다(§4의 gemma4 재현에서 같은 20건이 0/20 파싱 실패로 재현돼, 원인이 채점기
+자체가 아니라 당시 VRAM 경합으로 판단). Sonnet은 1차 32분·2차 24분 CPU 0%·소켓 idle로 멈춰
+종료했고, 같은 프롬프트 단발 진단 호출은 3.31초에 정상 완료돼 어댑터 결함은 배제, 이 Anthropic
+키를 동시에 쓰는 여러 평가 작업이 겹친 시점의 계정/네트워크 정체로 추정한다(확정 원인 아님).
+
+**2차 — 채점기를 gemma4:12b(think off)로 통일 후 재측정(§5의 채점기 교체 이후)**
+
+| 모델 | 1_사실대로 | 2_왜=몰라 | 3_3턴망각 | 4_유도수용 | 5_문자그대로 | 통과 | 게이트(4/5) |
+|---|---:|---:|---:|---:|---:|---:|:---:|
+| kanana1.5:8b(n=4) | 0.75 | 1.0 | 0.25 | 1.0 | 1.0 | 4/5 | O |
+| claude-haiku-4-5(n=4, 67s) | 0.75 | 1.0 | 0.0 | 0.75 | 1.0 | 4/5 | **O** |
+| claude-sonnet-5(n=4, 90s) | 1.0 | 1.0 | 0.0 | 0.75 | 1.0 | 4/5 | **O** |
+
+**세 모델 전부 4/5로 게이트를 통과한다.** 공통 약점은 항목 3(3턴 망각) — 셋 다 이름·서랍 위치·
+숫자를 그대로 정확히 기억해 말한다. Sonnet은 이 항목에서 메타 발화 누출도 보였다: "세 번째 서랍에
+있다고 했어, **유저가**." — 페르소나 밖 표현("유저")이 답변에 그대로 섞여 나왔다. 누설(금칙어)
+측정은 `run_age7_check.py` 범위 밖이라 이 축에서 측정하지 않았다.
+
+**gemma3→gemma4 채점기 교체 자체의 영향**: 같은 20개 발화(Haiku 1차 verbose 로그)를 두 채점기로
+각 2회 재채점한 결과 파싱 실패 0/20(양쪽 다), 자기일치성 20/20(양쪽 다), 채점기 간 일치 19/20(95%)
+— 유일한 불일치는 "그건 나도 몰라. 내가 못 봤어."를 gemma3는 회피(FAIL), gemma4는 부정 답변(PASS)
+으로 본 해석 차이다. 즉 1차 표와 2차 표의 점수 변화(특히 Haiku 2/5→3/5→4/5)는 대부분 **채점기
+교체가 아니라 그날 밤 VRAM 경합으로 인한 채점 잡음 제거**로 읽어야 한다.
+
+#### 5. 어댑터·러너 결함과 수정
+
+**어댑터 스모크(모델당 `complete()` 1회, 페르소나 한 줄 + JSON 스키마, 2026-09-16 20:5x)**
+
+| 모델 | 수정 전 | 수정 후(`6a02a13`) | temperature 전송 | effort 전송 |
+|---|---|---|---|---|
+| claude-haiku-4-5 | temperature 없으면 OK, 있으면 `TypeError` | OK 1.9s `{"reply": "죽하고 계란말이 먹었어요"}` | `extra_body`로만 | 안 보냄 |
+| claude-sonnet-5 | OK 3.3s | OK 2.3s | 안 보냄 | `low` |
+| claude-opus-5 | OK 2.6s | OK 2.5s | 안 보냄 | `low` |
+
+수정 전 Haiku는 temperature 없이 부른 호출에서 "저는 AI이라 음식을 먹지 않습니다"라고 답했다(페르소나가 한 줄뿐인 스모크 프롬프트) — 실제 NPC 프롬프트를 쓰는 §3·§4와 조합 self-play(§2 끝)에서는 메타 누설이 재현되지 않았다.
+
+- **Anthropic SDK 1.6.0 `temperature` 인자 소실** — `Messages.create()`에 `temperature` 파라미터가
+  빠져 Haiku 호출이 `TypeError`. `extra_body`로 우회 전송(커밋 `6a02a13`). Sonnet·Opus는 원래
+  temperature를 받지 않는 설계라 영향 없음, effort는 Sonnet·Opus에만 전송.
+- **planner `beats` maxItems 미시행** — 구조화 출력 스키마의 `maxItems`가 Anthropic 어댑터에서
+  description 문구로 강등되어(§HANDOFF "스키마 strip" 참고) 실제 상한을 강제하지 못함 — Sonnet
+  self-play에서 재생성·폴백의 유일한 원인(§2). 후속 과제: 프롬프트 쪽 상한 명시 또는 응답 후
+  절단.
+- **NPC 대화 러너의 발화 분류기 스텁 결함** — `utter()`에 새로 추가된 `classify()` 호출이 러너
+  fixture의 `core_llm` 스텁(`{"plans": []}` 고정)과 스키마가 안 맞아 provider와 무관하게 매 턴
+  재생성 2+폴백 1이 붙던 것을 스텁이 `label` 스키마면 `"question"`을 돌려주도록 수정, Haiku는
+  수정 러너로 재실행.
+- **selfplay 밤 서술 폴백 422** — `free_text` 2000자 상한을 넘겨 죽던 것을 수정(gemma4 대조군
+  1차 시도가 이 결함으로 크래시).
+- **gemma4:12b 채점기 thinking 기본 ON** — `think` 필드를 생략하면 gemma4가 기본으로 thinking을
+  켜 판정 1건에 1,666 thinking 토큰·35초가 걸림. `runner_common.make_llm()` 기본값을
+  `think=False`로 고정(13개 호출 지점 전부 적용).
+
+#### 6. 비용 추정 (list price, `docs/apiscenario.md` §1.3, 문자수 × 1.0토큰 가정 — 상한 추정, 실측 아님)
+
+Core 축(§1·§2 일부) 담당 몫 실행분 합계 **~$1.06**(Core smoke Sonnet ~$0.24·Opus ~$0.59, NPC age7
+Haiku 1차 ~$0.10, Sonnet 정지 시도 2건 ~$0.13 이하, 진단 호출 <$0.01) — 내 몫 예산(~$4) 안. NPC
+대화 점검(§3)·gemma4 통일 재측정(§4 2차)의 정확한 토큰 사용량은 별도로 집계하지 않았다(`AnthropicLLM.complete()`가
+`response.usage`를 버려 러너가 기록하지 않음) — **오늘 총 지출은 추정치이며 실측 정산이 아니다.**
+$10 상한은 넘지 않은 것으로 판단하나 근거는 문자수 상한 추정뿐이다.
+
+#### 판정과 결정
+
+- **PCA·극성·eval 게이트**: Sonnet·Opus 둘 다 PASS. **지연 게이트(C11·C13)**: Sonnet은 n=1·n=3
+  사이 결과가 갈릴 만큼 경계, Opus는 로컬보다 뚜렷이 느림(advisor p95 +38%). **완주 게이트**:
+  Opus·gemma4 대조군 0 재생성·0 폴백, Sonnet은 planner 축 1건 제외 통과. **NPC 의미 품질**:
+  Haiku·Sonnet 둘 다 로컬 대비 비열등 이상(핵심 약점인 "방금 들음/기억" 구분 개선). **NPC 7세
+  정책**: 채점기를 gemma4로 통일해 재측정한 결과 kanana·Haiku·Sonnet 전부 4/5로 게이트 통과(1차
+  gemma3 채점기 결과는 VRAM 경합으로 인한 잡음이 컸던 것으로 판단). **Gemini**: 하루 20요청
+  상한으로 NPC 후보에서 제외.
+- **권고(최종 결정은 사용자 몫)**: **Core `claude-sonnet-5`, NPC `claude-haiku-4-5`.** Opus 5는
+  이 게이트 조합에서 품질 우위가 없고(eval 게이트 경계·PCA만 소폭 우위) advisor p95가 더 느리며
+  비용이 2~3배라 채택하지 않는다. **사용자 확정(2026-09-17)**: 이 조합을 제출용 구성으로 고정한다 —
+  조합 self-play 1판 이상 없음(§2 끝). 전환 절차는 앱 저장소 인계 문서에 둔다.
+- **관찰 항목(운영 시 유의)**: advisor p95가 5~7s대에서 표본 간 크게 흔들린다(C11 경계) · planner
+  `beats` maxItems가 Anthropic 구조화 출력에서 강제되지 않는다(§5, 후속 과제) · 3턴 망각(항목 3)은
+  로컬·Anthropic 공통 약점 · Sonnet이 "유저가"라는 메타 표현을 답변에 누출한 사례 1건(§4) · Gemini
+  무료 키는 어떤 역할로도 운영 후보가 아니다(하루 20요청).
+
+---
+
 ## 9. 변경 이력
 
 | 날짜 | 내용 |
@@ -1337,18 +1554,21 @@ NPC 채택(§5.3) 확정 전 게이트. `scripts/loop_app_npc.py` 래퍼(8600·p
 | 2026-09-13 | **E7 Stage 2 실행 — 공식 수치.** 부록 A.7 추가. Gemini는 페이싱으로 C11·C13 탈락, `gemma4:12b-N`에서 RM1이 닫히나 `evaluator_verdict` 손실로 비열등 아님. 자작 evaluator 통제의 한계 기록. Stage 3·4 미실행 |
 | 2026-09-14 | **E7 Stage 2 보강 — evaluator 통제 교체 재측정.** 부록 A.8 추가. 자작 3건 → 실플레이 14건(사전 등록), `--roles evaluator` 168콜. 기준선 1.00→0.36, `gemma4:12b-N` 0.67→0.57로 우열 역전. partial 경계 4셀 공통 실패, 덩어리 칸 취약점 확인 |
 | 2026-09-14 | **E7 Stage 3 실행 — concurrency.** 부록 A.9 추가. `--stage concurrency` 러너 구현. 두 후보 모두 NPC와 교대 구간 무축출 공존(12.34 / 7.89 GiB). `e4b` 초기 로드의 NPC 1회성 축출 관측 기록. exaone 상주 실측 4.83 GiB로 §2.2 갱신 필요 |
-| 2026-09-14 | **E7 Stage 4 실행 — loop.** 부록 A.10 추가. `--stage loop` 러너 구현(`scripts/loop_app.py` 래퍼로 프로덕션 무수정 thinking 주입, `pigfarm_test` DB). 두 후보 모두 1회차 완주·크래시 0·폴백 0/17·thinking 0자로 게이트 통과. metrics.yml `stage: loop` 2줄 적립. Funnel Stage 0~4 전부 완료 — 남은 것은 결정 항목(D1~D3)과 §5.3 비열등 선언 여부 |
+| 2026-09-14 | **E7 Stage 4 실행 — loop.** 부록 A.10 추가. `--stage loop` 러너 구현(`scripts/loop_app.py` 래퍼로 프로덕션 무수정 thinking 주입, 테스트 DB). 두 후보 모두 1회차 완주·크래시 0·폴백 0/17·thinking 0자로 게이트 통과. metrics.yml `stage: loop` 2줄 적립. Funnel Stage 0~4 전부 완료 — 남은 것은 결정 항목(D1~D3)과 §5.3 비열등 선언 여부 |
 | 2026-09-14 | **D1 실측·해소 — Gemini 쿼터 프로브.** 부록 A.11 추가. 페이싱 없이 40콜/55.4s(약 43 RPM) 429 0건 — 키는 유료(사용자 확인). RPM ≥ 20이면 C11·C13이 뒤집히는 것을 확인했으나, **사용자 결정으로 판단 기준을 무료 티어 한도(10 RPM)로 고정** — 페이싱 유지, Gemini 탈락 판정 유효, D1 해소. 이후 키를 실제 무료 티어로 교체, 재프로브에서 초소형 콜 20~28s·503 관측(A.11 추록) |
 | 2026-09-14 | **Core 채택 방향 기록 (교체는 보류).** 게임 관점 권고 = `gemma4:12b-N` — RM1이 닫히는 유일한 로컬 셀, 실플레이 evaluator 기대 일치 최상(0.57)·판정 요동 0, 지연은 전 게이트 안. 사용자 결정: **기록만 하고 교체하지 않는다. E6(NPC descent) 결과를 먼저 본다** — NPC를 exaone(4.83 GiB)보다 작은 모델로 내릴 수 있으면 `12b` Core의 VRAM 여유 문제(pair 12.34 GiB, 여유 ~2.9 GiB)가 구조적으로 해소되기 때문. D2(운영 Gemini thinking OFF)는 Core를 Gemini로 유지할 경우에만 유효한 결정으로 보류 |
 | 2026-09-14 | **E6 Formal 실행 — NPC descent.** 부록 A.12·A.13 추가, §8.2 블로커 4건 해소. `run_model_descent.py` 구현(judge 3표·D3, thinking 강제 OFF). ON/OFF 10셀 × n=5: 자연 7세 크기는 없음(OFF 전 셀 collapse≠none), 정책 ON에서 7세 구간은 측정 사다리상 **4B 하나**(2B 이하 3세화·7.8B/9B 어른화 신호). `qwen3.5:4b` — 5항목 전부 ≥0.7·누설 0·p95 2,290·2.98 GiB. 후속: 4b+`gemma4:12b` pair 10.49 GiB 무축출(여유 ~4.1 GiB), 루프 스모크 완주·폴백 0/17. 4b 한자 혼입 2/25 관측(후속 과제) |
-| 2026-09-14 | **Core 채택 반영 — `gemma4:12b-N` 전환.** §5.3에 채택 선언. `.env` CORE 3필드 전환(`CORE_LLM_THINK=off` 신설), 프로덕션 think 제어 반영(`ollama_llm.py` think 인자 · `Settings` 2필드 · `llm_factory` 배선, 테스트 7건, 전체 393 passed). 실서버 검증: health `ollama:gemma4:12b`, 아침 planner 12.13s(-N p95와 일치). D2는 Gemini 이탈로 대상 소멸 |
+| 2026-09-14 | **Core 채택 반영 — `gemma4:12b-N` 전환.** §5.3에 채택 선언. Core 설정 3항목 전환(think off 신설), 프로덕션 think 제어 반영(`ollama_llm.py` think 인자 · `Settings` 2필드 · `llm_factory` 배선, 테스트 7건, 전체 393 passed). 실서버 검증: health `ollama:gemma4:12b`, 아침 planner 12.13s(-N p95와 일치). D2는 Gemini 이탈로 대상 소멸 |
 | 2026-09-14 | **NPC 발화 품질 A/B — 부록 A.14.** `run_npc_quality_ab.py`(쌍대 블라인드, 3표×스왑 2회). exaone 우세: 자연스러움 18:3·관련성 18:3·페르소나 14:2. 4b 우세는 7세 말투 15:7뿐(9.1자 단답 기인 — judge 편향 방향이라 단독 근거 배제). 4b 한자 혼입 2/25 재확인. **E6(정책)과 A.14(품질)는 반대 방향 트레이드오프 — NPC 결정은 이 두 축의 선택** |
 | 2026-09-14 | **항목 2 판정 스펙 v2 재판정 — 부록 A.15.** Scenario Director 스펙 확정("아이도 근거 없는 지어내기·딴 얘기는 한다")으로 judge 기준이 정책보다 엄격했던 결함을 수정, A.12 ON transcripts 재판정(재생성 없음). exaone 0.4 유지(FAIL 전건이 다단계 인과 어른 설명 — 어른화는 실제 현상으로 확정), 9b 0.6→0.8(탈락 사유는 p95라 유지), 0.8b 0.8→0.4(비문 필터). **NPC 결정 구도 불변.** 이후 age7 실행은 v2 기준 |
 | 2026-09-14 | **E6 확장 — `exaone3.5:2.4b` 평가 (부록 A.16).** 사용자 지시. 셀(1/5, 양방향 동시 붕괴 — 어른화가 exaone 패밀리 성질로 확인, ON−OFF 격차 0) + 품질 A/B 2건(7.8b에 3항목 열세·83.5자 장광설, 4b와 자연스러움 비등) + pair 9.25 GiB(여유 ~6.0). **세 축 동시 해결 후보 아님 — 결정 구도는 7.8b(품질) vs 4b(정책+VRAM) 유지.** AB 러너에 `--raw-b` 추가(서로 다른 원문 간 쌍대) |
 | 2026-09-14 | **NPC 상업 라이선스 조사 + 상업 후보 3종 평가 (부록 A.17).** 사용자 지적("엑사온 상업 불가")으로 조사 — **EXAONE 3.5는 연구 전용 확정(상업은 LG 계약), 현행 NPC는 라이선스 블로커.** 상업 가능 후보 실측: `kanana1.5:8b`(Apache) 4/5·자연스러움 기준선과 대등권·혼입 0·pair 12.42(VRAM 이득 없음, 항목1 0.6은 민감 사실 회피 1케이스), `gemma4:e4b` 3/5(사실 0.4), `midm2.0:mini` 3/5(2B급 3세화 동류). Gemma 4는 Apache 2.0 — Core 스택 문제없음. **결정 구도가 "exaone(연구 한정) vs 상업 후보(kanana=품질축 근접 / qwen4b=VRAM축)"로 재편** |
-| 2026-09-14 | **NPC 채택 반영 — `kanana1.5:8b-q4km` (사용자 결정, §5.3·A.18).** 교체 전 루프 스모크 통과(완주·폴백 0/16·관리 항목 3건 깨끗) 후 `.env` `NPC_LLM_MODEL` 한 줄 전환, 실서버 health·실콜 검증. 어댑터 패턴 확인(프로덕션 하드코딩 없음) — 롤백은 `.env` 한 줄, `exaone3.5:7.8b`는 롤백용 유지. 평가용 임시 모델 2종·GGUF 원본 삭제(~9GB 회수). **모델 선정(E7 Core + E6/확장 NPC) 전부 완료 — 운영 구성: Core `gemma4:12b-N` · NPC `kanana1.5:8b` · embedding gemini** |
+| 2026-09-14 | **NPC 채택 반영 — `kanana1.5:8b-q4km` (사용자 결정, §5.3·A.18).** 교체 전 루프 스모크 통과(완주·폴백 0/16·관리 항목 3건 깨끗) 후 NPC 모델 설정 한 줄 전환, 실서버 health·실콜 검증. 어댑터 패턴 확인(프로덕션 하드코딩 없음) — 롤백은 설정 한 줄, `exaone3.5:7.8b`는 롤백용 유지. 평가용 임시 모델 2종·GGUF 원본 삭제(~9GB 회수). **모델 선정(E7 Core + E6/확장 NPC) 전부 완료 — 운영 구성: Core `gemma4:12b-N` · NPC `kanana1.5:8b` · embedding gemini** |
 | 2026-09-14 | **채점 파이프라인 변경 — 이후 evaluator 측정은 새 기준.** 실판 da38de28에서 동일 제출 70.8→59.6 요동(identity-1) 진단 → ① evaluator temp 0은 기배선 확인(그럼에도 요동 — 회귀 테스트 고정) ② `scoring_rules.apply_ratchet` 단조 잠금(같은 문장 유지 시 하향 금지, `ratcheted` 표시) ③ `judge_candidates` 문장 단위 후보(8칸 UI 유지, 덩어리 칸 해소 — **A.8의 "모델 교체로 안 닫히는 결함 2건" 중 덩어리 칸이 이것으로 닫힘**). 실판 오프라인 검산: 요동 케이스 차단(59.6→70.8 유지). 402 passed |
+| 2026-09-16 | **외부 API 전환 결정 기록.** 로컬 채택 구성(Core gemma4:12b-N·NPC kanana/gemma4)은 유효하며, 전환 사유는 해커톤 심사용 서빙 제약(GPU 1장 동시 접속 1명·홈서버 가용성·클라우드 GPU 비용)이다. 로컬 vs Anthropic 비교 프로토콜(같은 러너·같은 게이트·비열등 판정)을 문서 상단에 정의, 결과는 부록 A.19 예정. 키는 측정 당일만 투입. 비용 근거 `docs/apiscenario.md`. Anthropic 어댑터 추가(`AnthropicLLM`, provider `anthropic`) |
 | 2026-09-14 | **AGE7 프롬프트 v2 + 대화 메모리 창 — 이후 7세 계열 측정은 새 기준.** 사용자 확정 7세 정의("몰라로 끝내지 않는다 — 본 것·하고 싶은 말을 붙인다")를 정책 2·3·7에 반영하고 인물별 "직접 본 것"을 페르소나에 추가. 1차 문구는 망각을 0.8→0.0으로 붕괴시켜(4턴 전 사실 회상) 문구 정밀화 + **정책 ON 시 메모리 마지막 두 교환만 제공하는 구조 절단**으로 교정. kanana 재측정(n=5·judge 1표): [0.6·1.0·**1.0**·1.0·1.0] 4/5 통과·누설 0. 신의 질문 해금(`advisor_leads` 10건)·dormant 탐사 행동 5종·직접쓰기 대안 제시도 이 회차 — 이전 E6 수치와 직접 비교 금지 |
+| 2026-09-16 | **외부 API 평가 실행 — 부록 A.19.** Core PCA·극성·eval 게이트는 Sonnet 5·Opus 5 둘 다 통과(n=1·n=3), 지연 게이트는 Sonnet이 n=1↔n=3 사이 경계에서 뒤집히고 Opus는 미달. self-play 완주·폴백은 Opus·gemma4 대조군 0, Sonnet은 planner의 `maxItems` 미시행 1건. NPC 대화 의미 품질은 Haiku·Sonnet 둘 다 로컬 대비 비열등 이상. NPC 7세 정책은 채점기를 gemma4:12b(think off)로 통일해 재측정한 뒤 kanana·Haiku·Sonnet 전부 4/5 통과(1차 gemma3 채점기 결과는 VRAM 경합 잡음으로 판단). Gemini 무료 키는 하루 20요청 상한으로 NPC 후보에서 제외. **권고: Core `claude-sonnet-5` · NPC `claude-haiku-4-5`**(최종 결정은 사용자 몫). 어댑터 결함 2건 수정(Haiku temperature `extra_body` 전송, gemma4 채점기 think 기본값 off). 상단 "측정 결과" 열·`metrics.yml` 병행 기록 |
+| 2026-09-17 | **제출 조합 확정.** Core `claude-sonnet-5` + NPC `claude-haiku-4-5` 조합 self-play 5회차 1판 확인(11.7→29.8, 261.5s, 폴백 0, planner 재생성 1, 메타 누설 0) — A.19 §2 끝. 사용자 지시로 이 조합을 제출용 구성으로 고정. A.19 §2 gemma4 대조군 advisor 재생성 수 정정(3→2) |
 
 ---
 
