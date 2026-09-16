@@ -44,4 +44,4 @@ bundle exec jekyll serve
 
 ## 배포
 
-GitHub Pages + CNAME `research.remakeday.com`. DNS에 서브도메인 CNAME 레코드 필요.
+GitHub Pages(저장소 `remakeday/com.remakeday.research`) + CNAME `research.remakeday.com`. DNS에 서브도메인 CNAME 레코드 필요.

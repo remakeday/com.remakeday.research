@@ -13,7 +13,7 @@ timezone:    Asia/Seoul
 project:
   code_name:   "BeyondBob"
   repo_app:    "https://github.com/remakeday/com.remakeday"
-  repo_site:   "https://github.com/remakeday/research.remakeday.com"
+  repo_site:   "https://github.com/remakeday/com.remakeday.research"
   hub_site:    "https://blog.remakeday.com"
   spec_doc:    "REMAKE_DAY 프로젝트 기획서 확정본 v9.0"
 
