@@ -1,0 +1,29 @@
+<nav class="model-reading-routes" data-model-routes aria-label="모델 선정 읽기 경로">
+  <a href="#current-models"><small>01</small>현재 결정</a>
+  <a href="#3-측정-설계"><small>02</small>평가 방법</a>
+  <a href="#model-evidence"><small>03</small>역할별 근거</a>
+  <a href="#부록-a--실측-이력"><small>04</small>날짜별 기록</a>
+</nav>
+<section class="model-decisions" id="current-models" aria-labelledby="current-models-title">
+  <p class="eyebrow">DOCUMENTED DECISIONS · 2026-09-18 기준</p>
+  <h2 id="current-models-title">지금 문서에 기록된 모델 구성</h2>
+  <p>Core는 게임 진행·판정, NPC는 인물 대화, 임베딩은 대안 규칙의 순위를 맡습니다.
+  아래는 채택 결정 기록입니다. 실제 배포 설정을 실시간으로 표시하는 표는 아닙니다.</p>
+  <table>
+    <caption>용도별 채택 모델과 결정일</caption>
+    <thead><tr><th scope="col">역할</th><th scope="col">로컬 개발</th><th scope="col">제출 서빙</th><th scope="col">결정 기록</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Core</th><td><code>gemma4:12b</code><br>thinking off</td><td><code>claude-sonnet-5</code></td><td><a href="#a19">9/17 · A.19</a></td></tr>
+      <tr><th scope="row">NPC</th><td><code>kanana1.5:8b</code></td><td><code>claude-haiku-4-5</code></td><td><a href="#a19">9/17 · A.19</a></td></tr>
+      <tr><th scope="row">대안 규칙 정렬</th><td><code>bge-m3</code><br>1024차원</td><td><code>gemini-embedding-001</code><br>2560차원</td><td><a href="#a21">9/18 · A.21</a></td></tr>
+    </tbody>
+  </table>
+  <h3 id="model-evidence">통과한 기준과 남은 예외</h3>
+  <ul>
+    <li><strong>Core:</strong> 측정한 의미 품질 기준은 통과했습니다. Sonnet의 지연 기준은 1회·3회 반복에서 엇갈렸고, 계획 생성의 재시도·대체 처리 사례가 남아 있습니다. <a href="#a19">역할·반복별 표</a></li>
+    <li><strong>NPC:</strong> 선별 대화 사례와 7세 정책 평가가 채택 근거입니다. 채점기·발화가 함께 달라진 실행이 있어 채점기 효과만 분리한 비교로 읽을 수 없습니다. 로컬 NPC가 Gemma에서 Kanana로 돌아온 경위도 추가 확인이 필요합니다. <a href="#a19">대화·정책 평가</a></li>
+    <li><strong>임베딩:</strong> 시나리오 제작자(Scenario Director)가 검수한 22문장의 적중률과 지연, 여러 모델을 같은 GPU 메모리에 함께 올리는 조건을 비교했습니다. 초기 30문장의 3회 반복은 별도 결과입니다. <a href="#a21">정렬 평가와 채택 이유</a></li>
+  </ul>
+  <p class="figure-caution">채택은 모든 기준의 일괄 통과나 통계적 비열등성 증명을 뜻하지 않습니다.
+  제출 조합의 원숭이손·채점 캘리브레이션·누설 평가에는 미완료 항목이 있습니다.</p>
+</section>

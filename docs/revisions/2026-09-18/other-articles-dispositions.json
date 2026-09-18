@@ -1,0 +1,667 @@
+[
+  {
+    "id": "OA-01",
+    "status": "clarified",
+    "files": [
+      "index.md",
+      "statement.md",
+      "limitations.md",
+      "experiments/human-observations.md",
+      "plain-summary.md"
+    ],
+    "summary": "기존 집계 6판(확정 5·유력 1)과 후속 사례 1판을 분리하고 판수와 참가자 수를 구분했다.",
+    "evidence_remaining": [
+      "고유 참가자 수"
+    ]
+  },
+  {
+    "id": "OA-02",
+    "status": "qualified",
+    "files": [
+      "index.md",
+      "testbed.md",
+      "experiments/human-observations.md"
+    ],
+    "summary": "Abstract·기여·측정표를 규칙 출처 집계/게임 점수 사례/미실행·미정 지표로 나눴다.",
+    "evidence_remaining": [
+      "질문 품질·이해도 변화의 조작적 정의와 타당도",
+      "부작용 인지율의 측정 가능성",
+      "Rationale A/B 실행"
+    ]
+  },
+  {
+    "id": "OA-03",
+    "status": "qualified",
+    "files": [
+      "index.md",
+      "testbed.md",
+      "limitations.md",
+      "statement.md",
+      "plain-summary.md"
+    ],
+    "summary": "독립 행동 결과 재현 완료 주장을 반복 실행·정의된 기록 지원으로 좁혔다.",
+    "evidence_remaining": [
+      "입력 trace 버전·명령·산출물 해시를 갖춘 독립 재현 묶음"
+    ]
+  },
+  {
+    "id": "OA-04",
+    "status": "clarified",
+    "files": [
+      "index.md",
+      "testbed.md"
+    ],
+    "summary": "operationalize·trace·explanation exposure·deterministic·비트·Advisor·Harness를 프로젝트의 기록·설계 범위로 풀었다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-05",
+    "status": "clarified",
+    "files": [
+      "statement.md"
+    ],
+    "summary": "14/20·6/20의 분모와 원숭이손 6·추천 8 합산, 반복 선택·버전 혼재를 명시했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-06",
+    "status": "qualified",
+    "files": [
+      "statement.md"
+    ],
+    "summary": "분야 전체의 측정 방법 부재 주장을 이 프로젝트 동기로 좁히고 이미 확인된 두 일차 논문을 인용했다.",
+    "evidence_remaining": [
+      "체계적 문헌 고찰이나 동일 게임기구 신규성 검증은 수행하지 않음"
+    ]
+  },
+  {
+    "id": "OA-07",
+    "status": "qualified",
+    "files": [
+      "statement.md"
+    ],
+    "summary": "가장 빠르다는 제목·결론을 하루 단위 모델 평가와 사람 관찰 성과로 수정하고 원 제목 앵커를 남겼다.",
+    "evidence_remaining": [
+      "대안 환경 대비 속도 비교",
+      "자발적 반복·몰입 측정"
+    ]
+  },
+  {
+    "id": "OA-08",
+    "status": "clarified",
+    "files": [
+      "statement.md",
+      "plain-summary.md"
+    ],
+    "summary": "신뢰라는 심리 상태와 직접 센 카드·규칙 선택을 구분했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-09",
+    "status": "qualified",
+    "files": [
+      "statement.md",
+      "testbed.md",
+      "plain-summary.md"
+    ],
+    "summary": "모든 판단·빠짐없는 기록을 정의된 선택·제출·규칙 적용으로 좁히고 점수와 이해도 상승을 분리했다.",
+    "evidence_remaining": [
+      "이벤트 누락 검사 범위와 단계별 매핑 검증"
+    ]
+  },
+  {
+    "id": "OA-10",
+    "status": "qualified",
+    "files": [
+      "index.md",
+      "statement.md",
+      "testbed.md",
+      "limitations.md",
+      "lab-notes.md"
+    ],
+    "summary": "API 채택 날짜·역할과 측정 게이트 결과를 분리하고 지연 예외·남은 세 평가를 명시했다. 비열등은 운영 판정이다.",
+    "evidence_remaining": [
+      "원숭이손·채점 캘리브레이션·누설의 제출 조합 평가"
+    ]
+  },
+  {
+    "id": "OA-11",
+    "status": "qualified",
+    "files": [
+      "statement.md",
+      "testbed.md",
+      "lab-notes.md"
+    ],
+    "summary": "9/14 kanana·9/15 gemma4·9/17 kanana 개발 기록을 날짜별 보존하고 복귀 경위를 미확인으로 표시했다.",
+    "evidence_remaining": [
+      "복귀 결정·적용 시점·정책 버전"
+    ]
+  },
+  {
+    "id": "OA-12",
+    "status": "clarified",
+    "files": [
+      "testbed.md"
+    ],
+    "summary": "Core·NPC 표를 9/17 기록으로 명명하고 9/18 서빙 Gemini2560·로컬 bge-m31024 임베딩의 대안 순위 역할을 추가했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-13",
+    "status": "qualified",
+    "files": [
+      "testbed.md",
+      "statement.md",
+      "lab-notes.md"
+    ],
+    "summary": "설정 전환 전 호환성 수정 필요와 이번 어댑터·러너·상한 수정을 밝혔고 확인된 수정 커밋6a02a13을 적었다.",
+    "evidence_remaining": [
+      "모든 러너·출력 상한 수정 전후 커밋 연결"
+    ]
+  },
+  {
+    "id": "OA-14",
+    "status": "qualified",
+    "files": [
+      "testbed.md",
+      "lab-notes.md"
+    ],
+    "summary": "GPU 한 장 일반 한계를 이번 로컬 운영의 동시 플레이 1명 전제로 한정했다.",
+    "evidence_remaining": [
+      "정확한 제한 정책·부하 실측 근거"
+    ]
+  },
+  {
+    "id": "OA-15",
+    "status": "qualified",
+    "files": [
+      "testbed.md",
+      "index.md"
+    ],
+    "summary": "전체 실측 완료를 모델·러너·지표별 상태로 바꾸고 메타 표현 관찰과 정식 누설 측정을 분리했다.",
+    "evidence_remaining": [
+      "미실행 축별 결과"
+    ]
+  },
+  {
+    "id": "OA-16",
+    "status": "clarified",
+    "files": [
+      "testbed.md"
+    ],
+    "summary": "실패 설명과 미실행 Rationale를 분리하고 원숭이손 수락/거절·추천·직접 작성·거부 시 대안 분기를 표시했다.",
+    "evidence_remaining": [
+      "선택-이벤트의 정확한 단계별 매핑 공개 검증"
+    ]
+  },
+  {
+    "id": "OA-17",
+    "status": "clarified",
+    "files": [
+      "plain-summary.md"
+    ],
+    "summary": "로봇 카드를 원숭이손과 AI 추천 옵션으로 넓히고 14/20과6/9의 분모를 설명했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-18",
+    "status": "qualified",
+    "files": [
+      "plain-summary.md"
+    ],
+    "summary": "검증되지 않은 Cochrane·PLOS 준수 표기를 지우고 비전문가 요약 형식 참고로 범위를 정했다.",
+    "evidence_remaining": [
+      "실제로 참고한 특정 지침과 준수 범위는 확인하지 않음"
+    ]
+  },
+  {
+    "id": "OA-19",
+    "status": "clarified",
+    "files": [
+      "plain-summary.md"
+    ],
+    "summary": "추가 사례를 한 판 안에서5회차를 완료한 사례로 풀어 기존6판과 분리했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-20",
+    "status": "corrected",
+    "files": [
+      "limitations.md"
+    ],
+    "summary": "현재 관찰은 무작위 배정이 없고 Rationale A/B는 미실행임을 명시했다. 회차 학습은 현재 관찰·향후 실험에서 고려할 사항이다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-21",
+    "status": "corrected",
+    "files": [
+      "limitations.md",
+      "experiments/human-observations.md"
+    ],
+    "summary": "수정 전후 합산하지 않았다는 서술을 원칙+기존6판 예외로 수정하고 확인 가능한 세션별 변경 조건표를 추가했다.",
+    "evidence_remaining": [
+      "세션별 모델·프롬프트·채점기·커밋 매핑",
+      "버전별 분리 집계"
+    ]
+  },
+  {
+    "id": "OA-22",
+    "status": "clarified",
+    "files": [
+      "limitations.md",
+      "lab-notes.md"
+    ],
+    "summary": "Haiku 1차 로그20발화·채점기별2회 재채점·발화기준19/20을 명시하고 일반적 동등성과 구분했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-23",
+    "status": "clarified",
+    "files": [
+      "limitations.md",
+      "lab-notes.md"
+    ],
+    "summary": "문자→토큰 환산·당시 입출력 단가·통화·기준일·산식·thinking/재생성/임베딩 제외를 명시했다.",
+    "evidence_remaining": [
+      "실측 토큰 정산",
+      "단가 최신 검증은 이번 역사 기록 대조 범위 밖"
+    ]
+  },
+  {
+    "id": "OA-24",
+    "status": "qualified",
+    "files": [
+      "limitations.md"
+    ],
+    "summary": "내부 근거 위치와 독립 실행 재현 묶음을 구분하고 공개 접근 범위를 설명했다.",
+    "evidence_remaining": [
+      "고정 환경·입력 fixture·명령·기대 산출물의 공개 재현 묶음"
+    ]
+  },
+  {
+    "id": "OA-25",
+    "status": "clarified",
+    "files": [
+      "_includes/research/prereg-notes.html"
+    ],
+    "summary": "고정 원문 밖에 목표표본·배정·모집·제외·중단·기구·동일조건·분석·불확실성의 미정 목록과 변경 등록 원칙을 적었다.",
+    "evidence_remaining": [
+      "목록에 명시한 미정 연구 설계 항목의 별도 등록"
+    ]
+  },
+  {
+    "id": "OA-26",
+    "status": "clarified",
+    "files": [
+      "_includes/research/prereg-notes.html"
+    ],
+    "summary": "주 결과 분모와 분석 단위·반복·무응답·보조 척도 정의를 미정으로 명시하고14/20·6/9 대입을 금했다.",
+    "evidence_remaining": [
+      "A/B 주 결과·보조 결과의 실행 전 조작적 정의"
+    ]
+  },
+  {
+    "id": "OA-27",
+    "status": "clarified",
+    "files": [
+      "_includes/research/prereg-notes.html"
+    ],
+    "summary": "최초·최근 git 커밋 시각과 보존본 SHA를 기록하되 게시/결과 열람 전 확정 증명과 구분했다.",
+    "evidence_remaining": [
+      "실제 최초 등록·공개 시각",
+      "A/B 결과 열람 이전 고정의 독립 근거"
+    ]
+  },
+  {
+    "id": "OA-28",
+    "status": "clarified",
+    "files": [
+      "_includes/research/prereg-notes.html"
+    ],
+    "summary": "RQ1–3와 보조 결과·supported/contradicted/unknown·극성 쌍을 한국어로 해설했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-29",
+    "status": "qualified",
+    "files": [
+      "_includes/research/prereg-notes.html"
+    ],
+    "summary": "원문은 보존하고 극성 쌍 실패가 내부 원인 확정이 아니라 통제 기준 미충족임을 해설했다.",
+    "evidence_remaining": [
+      "질문 표면·기록 교란을 분리한 원인 검증"
+    ]
+  },
+  {
+    "id": "OA-30",
+    "status": "clarified",
+    "files": [
+      "_includes/research/prereg-notes.html"
+    ],
+    "summary": "PCA를 원문 식의 통제 일치율로 풀이하고 문항·반복 분모를 Exp1 조건으로 연결했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-31",
+    "status": "clarified",
+    "files": [
+      "_includes/research/prereg-notes.html"
+    ],
+    "summary": "9/09 시스템 통제와 사람 A/B를 구분하고 합성 에이전트 완료형 문구를 선택적 파일럿 보고 예시로 해설했다.",
+    "evidence_remaining": [
+      "해당 합성 파일럿 수행 결과는 미확인"
+    ]
+  },
+  {
+    "id": "OA-32",
+    "status": "qualified",
+    "files": [
+      "_includes/research/prereg-notes.html"
+    ],
+    "summary": "방향성 비교의 변수·부호·0/불확실 결과 처리 규칙이 아직 공개되지 않았음을 명시했다.",
+    "evidence_remaining": [
+      "실행 전 방향성 보존 판정 규칙의 별도 등록"
+    ]
+  },
+  {
+    "id": "OA-33",
+    "status": "corrected",
+    "files": [
+      "lab-notes.md"
+    ],
+    "summary": "검수22문장과 미검수30문장3회 반복을 분리하고8문장 제외 외14·15번 수정도 반영했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-34",
+    "status": "corrected",
+    "files": [
+      "lab-notes.md"
+    ],
+    "summary": "절단 무해를 제거하고τ0.90과top-1 0.909→0.818을 함께 보고했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-35",
+    "status": "corrected",
+    "files": [
+      "lab-notes.md"
+    ],
+    "summary": "Qwen0.909에2560차원을 붙이고 검수Gemini의1024·1536·2560 측정 범위만 열거했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-36",
+    "status": "qualified",
+    "files": [
+      "lab-notes.md",
+      "testbed.md"
+    ],
+    "summary": "추천 순위의 직접 채점 경로와 사람 선택에 대한 영향 가능성을 구분하고 기구 버전 분리를 적었다.",
+    "evidence_remaining": [
+      "추천 후보 변화의 사람 행동 효과는 미측정"
+    ]
+  },
+  {
+    "id": "OA-37",
+    "status": "qualified",
+    "files": [
+      "lab-notes.md"
+    ],
+    "summary": "공통 오답을 해당 검수 세트로, 반복 일치를 해당 입력·설정3회로 한정했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-38",
+    "status": "corrected",
+    "files": [
+      "lab-notes.md"
+    ],
+    "summary": "A.19 후속 과제 닫음을 출력 상한 결함 수정으로 좁히고 남은 세 평가를 따로 표시했다.",
+    "evidence_remaining": [
+      "제출 조합의 원숭이손·채점 캘리브레이션·누설 평가"
+    ]
+  },
+  {
+    "id": "OA-39",
+    "status": "clarified",
+    "files": [
+      "lab-notes.md"
+    ],
+    "summary": "날짜별 불릿을 조건·관측·결정으로 풀고 용어 정의와 Exp1/Exp2 근거 링크를 추가했다.",
+    "evidence_remaining": [
+      "9/10 loop 조건별 산출물 연결 등 미확인 역사 기록"
+    ]
+  },
+  {
+    "id": "OA-40",
+    "status": "qualified",
+    "files": [
+      "lab-notes.md"
+    ],
+    "summary": "VRAM·파싱 영향은 해석으로 남기고 동일 발화 재채점과 새 응답 정책 재측정을 분리했다.",
+    "evidence_remaining": [
+      "조건을 고정한 원인별 통제 비교"
+    ]
+  },
+  {
+    "id": "OA-41",
+    "status": "clarified",
+    "files": [
+      "lab-notes.md"
+    ],
+    "summary": "n=1 판·n=3 통제 반복·4/5 정책 항목·EGR의12응답 분모를 풀고 E6 실행과E7 설계를 구분했다.",
+    "evidence_remaining": [
+      "9/10 종단간 검증의 판수·구성·산출물 연결"
+    ]
+  },
+  {
+    "id": "OA-42",
+    "status": "clarified",
+    "files": [
+      "lab-notes.md"
+    ],
+    "summary": "원시db-summary의submitted65·passed2를 대조해2/65(3.1%) 밤 제출 통과로 명시했다. UTC/KST 시각도 기록했다.",
+    "evidence_remaining": [
+      "당시 passed 문턱의 실행 버전",
+      "스냅샷의 사람/자동 구성"
+    ]
+  },
+  {
+    "id": "OA-43",
+    "status": "qualified",
+    "files": [
+      "experiments/human-observations.md"
+    ],
+    "summary": "CV를 보조 단서로 낮추고 문턱/관측범위·계산·검증 표본 미확인과 오분류 한계를 명시했다.",
+    "evidence_remaining": [
+      "CV 계산 이벤트·제외 간격·최소 수·문턱 결정 시점·검증 표본"
+    ]
+  },
+  {
+    "id": "OA-44",
+    "status": "qualified",
+    "files": [
+      "experiments/human-observations.md"
+    ],
+    "summary": "기존 분류표를 보존하되 상호 배타성·전수 포괄 미검증을 바로 아래 밝혀 미분류50을 확정하지 않았다.",
+    "evidence_remaining": [
+      "스냅샷248판 범주 중복·합계·활동/빈 판·날짜 경계 검증"
+    ]
+  },
+  {
+    "id": "OA-45",
+    "status": "qualified",
+    "files": [
+      "experiments/human-observations.md"
+    ],
+    "summary": "유력1판을 유지하고 신원 확정과 규칙 부합을 구분하며 확정5판·세션별 보조 집계 공백을 밝혔다.",
+    "evidence_remaining": [
+      "확정5판 보조 집계",
+      "세션별 선택 건수",
+      "식별 규칙 원 작성 시점·접속 기록 연결"
+    ]
+  },
+  {
+    "id": "OA-46",
+    "status": "clarified",
+    "files": [
+      "experiments/human-observations.md",
+      "plain-summary.md"
+    ],
+    "summary": "적용 규칙 출처14/20과 원숭이손 제안 수락6/9를 분리하고 source와 실제 적용 내용의 불일치 사례를 연결했다.",
+    "evidence_remaining": [
+      "전체 사용자 선택 출처와 실제 적용 내용의 일치 검증"
+    ]
+  },
+  {
+    "id": "OA-47",
+    "status": "qualified",
+    "files": [
+      "experiments/human-observations.md"
+    ],
+    "summary": "12회·0회 역사값을 보존하되 판별/기간합계·기회 수·5루프3판ID 대응 미확인을 표 안에 표시했다.",
+    "evidence_remaining": [
+      "판 ID별 질문 사용/기회 수",
+      "5루프 완주3판 명단과 모집단 대응"
+    ]
+  },
+  {
+    "id": "OA-48",
+    "status": "qualified",
+    "files": [
+      "experiments/human-observations.md",
+      "lab-notes.md"
+    ],
+    "summary": "동일 자유서술을 전체 입력 동일로 확대하지 않고 provider 원인 확정을 제거했다.",
+    "evidence_remaining": [
+      "전체 채점 요청 해시 또는 통제 재생"
+    ]
+  },
+  {
+    "id": "OA-49",
+    "status": "corrected",
+    "files": [
+      "experiments/human-observations.md"
+    ],
+    "summary": "통계와 사례의 대립을 집계값과 세션별 사례를 함께 제시한다는 보고 방식으로 고쳤다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-50",
+    "status": "clarified",
+    "files": [
+      "experiments/human-observations.md",
+      "lab-notes.md"
+    ],
+    "summary": "0468b70c를1회차 밤 제출 완료로 통일하고5회차 완주와 구분했다.",
+    "evidence_remaining": [
+      "해당 판의 정확한 종료 이벤트 상태"
+    ]
+  },
+  {
+    "id": "OA-51",
+    "status": "qualified",
+    "files": [
+      "experiments/human-observations.md",
+      "lab-notes.md"
+    ],
+    "summary": "최소 하한 주장을11자 단문1건의8.8점 사례로 좁혔으며 참가자 인용은 그대로 유지했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-52",
+    "status": "corrected",
+    "files": [
+      "experiments/human-observations.md",
+      "index.md"
+    ],
+    "summary": "밤 자유서술을 규칙 직접 작성 증거로 읽던 문장을 수정하고 실제 규칙 출처 사례와 구분했다.",
+    "evidence_remaining": [
+      "0468b70c의 직접 규칙 작성/적용 이벤트는 미확인"
+    ]
+  },
+  {
+    "id": "OA-53",
+    "status": "clarified",
+    "files": [
+      "experiments/human-observations.md"
+    ],
+    "summary": "게임 점수로 한정하고 하위항목 뜻·범위·스냅샷1568438의가중치/반올림·근거 건수 한계를 설명했다.",
+    "evidence_remaining": [
+      "당시 실행 버전과 스냅샷 산식 연결",
+      "탭한 근거 중복 포함 여부",
+      "이해도 척도 타당도"
+    ]
+  },
+  {
+    "id": "OA-54",
+    "status": "clarified",
+    "files": [
+      "experiments/human-observations.md"
+    ],
+    "summary": "R5에 규칙 내용 생략을 표시해 새 개인 원문 공개 없이 누락 성격을 설명했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-55",
+    "status": "qualified",
+    "files": [
+      "experiments/human-observations.md"
+    ],
+    "summary": "266자는 길이만 확인됨을 밝히고 중복177건을 이전 회차에 일괄 귀속하지 않았다.",
+    "evidence_remaining": [
+      "제출문 내용 비교/해시",
+      "중복 정확일치·정규화 규칙 및 회차별 귀속"
+    ]
+  },
+  {
+    "id": "OA-56",
+    "status": "corrected",
+    "files": [
+      "index.md",
+      "statement.md",
+      "testbed.md",
+      "plain-summary.md",
+      "lab-notes.md",
+      "experiments/human-observations.md"
+    ],
+    "summary": "지적된 저자 서술 연결어미 쉼표를 정리하고 참가자 직접 인용의 쉼표는 보존했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-57",
+    "status": "clarified",
+    "files": [
+      "experiments/human-observations.md",
+      "_includes/research/prereg-notes.html"
+    ],
+    "summary": "관찰과 사전등록 결과 문구를 분석이 뒷받침될 때 쓸 예시로 표시하고 미실행 상태를 명확히 했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "OA-58",
+    "status": "clarified",
+    "files": [
+      "experiments/human-observations.md"
+    ],
+    "summary": "2026-09-18 상태·Tester2–4 상세 사례·버전분리·인지율 공백과 기존6판 관계를 적었다.",
+    "evidence_remaining": [
+      "Tester2–4 상세 사례",
+      "Tester4와 집계 명단 대응",
+      "버전별 분리 집계"
+    ]
+  },
+  {
+    "id": "OA-59",
+    "status": "clarified",
+    "files": [
+      "lab-notes.md"
+    ],
+    "summary": "폴백0과planner재생성1회 후 복구를 구분하고 메타0/100의한판 관측 범위를 밝혔다.",
+    "evidence_remaining": [
+      "제출 조합의 정식 누설 평가"
+    ]
+  }
+]

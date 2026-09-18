@@ -1,0 +1,111 @@
+# 화면 문구·그림·탐색 검토
+
+47개 단위를 개별 검토했다. 전체 소프트웨어 보안 감사가 아니라 연구 내용·독해 경로 검토다.
+
+## PR-01 · high · 모델 선정 페이지의 질문은 전체 AI 구성인데, 요약은 절차와 최근 임베딩 비교로 끝나 현재 Core/NPC 결정을 바로 찾을 수 없다. reading.yml의 “단계별로 통과시키며”라는 완료형 요약은 역할별 예외를 가릴 수 있다. 단계 그림 자체는 이미 절차임을 밝히고 있다.
+
+위치: _data/reading.yml:41, _includes/research/figures/model-selection.html:1, _includes/research/figures/model-selection.html:16, experiments/model-selection.md:1536, experiments/model-selection.md:1766
+
+원문: 선정 과정과 최근 보조 모델 비교
+
+수정안: 맨 위에 문서상 최신 결정일·용도·Core·NPC·임베딩·검증 범위·근거 절을 담은 현재 구성표를 둔다. 9월 17일 제출 모델 결정과 9월 18일 보조 모델 결정을 연결하되 실제 배포 설정이라고 단정하지 않는다. reading.yml의 요약은 “단계별 평가 결과와 역할별 예외를 함께 검토해 구성을 정했습니다”로 범위를 드러낸다. 5단계 그림의 기존 절차 안내는 유지하고 각 후보의 통과·예외 근거 표를 연결한다. 상세 연대기는 그대로 남긴다.
+
+보존할 것: 모든 과거 후보, 날짜별 변경, 역할별 예외 및 보조 모델 수치
+
+확인 수준: public_document
+
+## PR-02 · medium · 요약층에서 러너·Scenario Director·GPU 동주가 설명 없이 나오며 공통 용어집에도 없다. 검수 주체를 사람으로 오해할 가능성도 있다.
+
+위치: _data/reading.yml:14, _data/reading.yml:41, _includes/research/figures/model-selection.html:16, _includes/research/glossary.html:1
+
+원문: 모델 교체도 같은 러너와 통과 기준으로 다시 확인했습니다.
+
+수정안: 러너는 “평가 실행 프로그램”으로 풀고, GPU 동주는 “여러 모델을 같은 GPU 메모리에 함께 올리는 조건”으로 설명한다. Scenario Director는 실제 검수 역할·사람/에이전트 여부와 판단 책임을 확인한 뒤 첫 용례에 설명한다. 역할 이름을 임의로 “전문가 검수”로 바꾸지 않는다. 공통 용어집은 유지하고 필요한 용어를 해당 페이지에서 먼저 푼다.
+
+보존할 것: 검수 주체의 고유명사, 절차, 모델 역할 구분
+
+확인 수준: needs_source
+
+## PR-03 · medium · 관찰 점수는 별도 연구 척도처럼 보이고, 단조 잠금이라는 내부 용어가 그래프 제목·설명에 먼저 나온다.
+
+위치: _data/reading.yml:55, _includes/research/figures/human-observations.html:22
+
+원문: Tester 6의 회차별 관찰 점수
+
+수정안: 제목과 SVG title을 “Tester 6의 회차별 게임 총점”으로 맞춘다. “단조 잠금” 첫 용례를 “앞 회차에서 인정된 문장이 그대로 남아 있으면 해당 판정을 낮추지 않는 처리(단조 잠금)”로 풀이한다. 무조건 총점을 보장하는 처리로 설명하지 않는다. 3–5회차의 동일한 266자 제출문과 해당 판정 하락 방지 설명, 학습·채점 안정성으로 해석할 수 없다는 제한을 유지한다.
+
+보존할 것: 8.8→64.2→94.2→94.2→94.2, 사례 분리, 같은 제출문 및 기구 변경의 한계
+
+확인 수준: public_document
+
+## PR-04 · high · 어간 겹침의 0ms를 모델 비호출의 결과로 설명하지만 실행 프로그램은 이 기준선도 시간을 재고 0.1ms 단위로 반올림한다. 측정값의 표시 정밀도와 실제 시간 0을 구분해야 한다.
+
+위치: _includes/research/figures/model-selection.html:16, app:backend/scripts/run_rule_alternatives_eval.py:124, app:backend/scripts/run_rule_alternatives_eval.py:154
+
+원문: 어간 겹침은 모델을 호출하지 않는 기준선이어서 시간이 0ms로 기록됐습니다.
+
+수정안: “어간 겹침은 외부 모델을 호출하지 않는 기준선입니다. 원시 결과의 지연 p50은 0.1ms 단위 반올림에서 0.0ms로 기록됐으며, 연산 시간이 정확히 0이라는 뜻은 아닙니다.”로 교체한다. 공개 수치 0은 보존하고 표시 정밀도를 각주에 명시한다.
+
+보존할 것: 기준선 방식, 공개 0ms 값, 나머지 모델의 지연값
+
+확인 수준: raw_checked
+
+## PR-05 · low · 요약 그림의 사이트 공통 번호와 본문 원래 그림 번호가 다른 체계다. 예를 들어 같은 System Loop가 위에서는 그림 2, 근거에서는 Figure 1이다.
+
+위치: _includes/research/figures/human-observations.html:1, _includes/research/figures/human-observations.html:22, _includes/research/figures/model-selection.html:1, _includes/research/figures/model-selection.html:16, _includes/research/figures/prereg-ab.html:1, _includes/research/figures/system-loop.html:1, _includes/research/home.html:10
+
+원문: 그림 2.
+
+수정안: 새 그림은 “요약 그림 S1–S5”처럼 별도 접두사를 붙인다. 본문 Figure 번호·앵커는 그대로 두고 캡션에서 원문 그림과 연결한다. 장기적으로 정본의 그림 번호를 바꿀 때에는 인용도 함께 갱신한다.
+
+보존할 것: 정본 번호·기존 앵커·원본 ASCII 도식·출처 링크
+
+확인 수준: public_document
+
+## PR-06 · medium · 상세 모델 기록의 모든 h2/h3가 같은 탐색 구조에 나와 현재 결정·평가 방법·과거 기록을 구분하기 어렵다. 본문 보존과 별개로 읽는 순서를 안내할 필요가 있다.
+
+위치: _layouts/page.html:4, _includes/sidebar.html:1, assets/js/app.js:65, assets/js/app.js:82
+
+원문: 이 페이지 목차
+
+수정안: Exp 1 첫머리에 “현재 결정 → 평가 방법 → 역할별 근거 → 날짜별 변경”의 네 경로를 둔다. 전체 목차는 유지하되 날짜별 부록은 묶고 핵심 절로 먼저 이동하게 한다. 원문 절을 숨기거나 제거해서 분량을 줄이지 않는다.
+
+보존할 것: 526개 Exp 1 검토 단위에 해당하는 상세 기록 및 기존 해시 링크
+
+확인 수준: public_document
+
+## PR-07 · low · A/B 조건은 쉬운 한국어로 설명했지만 그 아래 rationale absent/present는 같은 내용을 영어로 중복해 표시한다.
+
+위치: _includes/research/figures/prereg-ab.html:1
+
+원문: rationale {{ condition.rationale }}
+
+수정안: 화면의 보조 라벨을 “이유 설명 없음 / 있음”으로 바꾸고 rationale 변수명과 absent/present 원값은 정본 방법 절에서 유지한다. 미실행 표시와 결과 막대가 없다는 설명은 그대로 둔다.
+
+보존할 것: A/B 조작, 무작위 배정, 주요 결과값, NOT RUN 상태
+
+확인 수준: public_document
+
+## PR-08 · medium · AI 개입 수락과 AI 추천 선택의 횟수·분모는 명확하지만 처음 읽는 사람에게 두 선택이 언제 발생하는지 설명이 없다.
+
+위치: _data/reading.yml:55, _includes/research/figures/human-observations.html:1, experiments/human-observations.md:59
+
+원문: 기존 집계에서는 AI 개입 수락, AI 추천 선택, 직접 작성을 서로 나누어 셌습니다.
+
+수정안: 그림 옆에 각 선택이 나타나는 화면·이벤트를 한 줄씩 정의하고 직접 작성과 구분한다. 정확한 이벤트 매핑은 Exp 2의 분류 기준과 대조해 적는다. 6판의 선택 20회라는 분모와 6+8+6은 그대로 유지한다.
+
+보존할 것: 20회, AI 계열 14회, 세 분류 및 혼합 기구 버전 경고
+
+확인 수준: public_document
+
+## PR-09 · low · 메타 설명의 “실측 기준으로 적립”은 기록을 쌓는다는 뜻을 추상적인 명사로 표현한다. 이는 im-not-ai의 확정 패턴 판정이 아닌 일반 문장 편집 제안이다.
+
+위치: _config.yml:1
+
+원문: 시스템 평가와 행동 관찰을 실측 기준으로 적립하는 연구 기록입니다.
+
+수정안: “시스템 평가와 행동 관찰의 측정 결과를 쌓아 가는 연구 기록입니다.”로 다듬는다. 검색 결과의 설명에서도 실험환경·측정 중심이라는 뜻을 유지한다.
+
+보존할 것: 프로젝트명, 연구 대상, 재현 가능성의 지향
+
+확인 수준: public_document

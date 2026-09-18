@@ -1,0 +1,10 @@
+{
+  "snapshot_matches_public_transform": true,
+  "app_snapshot_commit": "156843815d4233410835e21e353187ce6f092c6e",
+  "app_current_commit": "f92001a7c1bbfdb8e85038eb59aad9cbae32198c",
+  "public_snapshot_sha256": "dbe2ec03aa0d86559e0fcf027cc1a89bfd5d5b3bf67e069aa2a4bdc98f423d23",
+  "app_document_changed_since_snapshot": true,
+  "public_last_appendix": "A.21",
+  "current_app_has_later_appendix": true,
+  "scope": "새 정본의 비공개 내용은 이 검토 문서로 옮기지 않았다. 정정은 공개 규칙을 적용한 스냅샷 생성 경로에서 반영해야 한다."
+}

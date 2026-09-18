@@ -1,0 +1,20 @@
+{
+  "baseline_commit": "ff6afd0b3d0625b443cabbf5a2e9be34f9ac1037",
+  "app_source_commit": "00d4f86412bd6ff7e28db7cd1adad9cea91dcf22",
+  "dispositions": 182,
+  "status_counts": {
+    "clarified": 61,
+    "qualified": 88,
+    "corrected": 33
+  },
+  "exact_unique_coverage": true,
+  "prereg_sha256": "08009848cc8c18d3c406786858af6daa6a9face4b7ba250509ee0c670cbb6ab7",
+  "public_snapshot_matches_committed_source": true,
+  "python_tests_passed": 16,
+  "built_pages_checked": 9,
+  "historic_anchors_preserved": true,
+  "private_appendix_excluded": true,
+  "browser_checks_passed": 36,
+  "final_review": "approved; no remaining P1/P2",
+  "audit_baseline_units_verified": 775
+}

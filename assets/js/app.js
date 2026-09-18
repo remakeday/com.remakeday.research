@@ -68,12 +68,25 @@
   if (headings.length && outline && linksContainer) {
     var fragment = document.createDocumentFragment();
     var links = new Map();
+    var historyGroup;
     headings.forEach(function (heading) {
       var link = document.createElement('a');
       link.href = '#' + encodeURIComponent(heading.id);
       link.textContent = heading.textContent;
       if (heading.tagName === 'H3') link.className = 'is-subheading';
-      fragment.appendChild(link);
+      if (location.pathname === '/experiments/model-selection/' && /^A\.\d+\s/.test(heading.textContent)) {
+        if (!historyGroup) {
+          historyGroup = document.createElement('details');
+          historyGroup.className = 'outline-history';
+          var historySummary = document.createElement('summary');
+          historySummary.textContent = '날짜별 실측 이력';
+          historyGroup.appendChild(historySummary);
+          fragment.appendChild(historyGroup);
+        }
+        historyGroup.appendChild(link);
+      } else {
+        fragment.appendChild(link);
+      }
       links.set(heading.id, link);
     });
     linksContainer.appendChild(fragment);

@@ -3,7 +3,7 @@
 # ─────────────────────────────────────────────────────────────
 title:       "REMAKE DAY Research"
 tagline:     "측정하지 않은 것은 주장하지 않는다"
-description: "REMAKE DAY를 재현 가능한 Human–AI Interaction 실험환경으로 정의하고, 시스템 평가와 행동 관찰을 실측 기준으로 적립하는 연구 기록입니다."
+description: "REMAKE DAY를 재현 가능한 Human–AI Interaction 실험환경으로 정의하고, 시스템 평가와 행동 관찰의 측정 결과를 쌓아 가는 연구 기록입니다."
 url:         "https://research.remakeday.com"
 baseurl:     ""
 lang:        ko-KR

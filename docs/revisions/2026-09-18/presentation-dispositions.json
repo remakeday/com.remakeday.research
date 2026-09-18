@@ -1,0 +1,102 @@
+[
+  {
+    "id": "PR-01",
+    "status": "clarified",
+    "files": [
+      "_includes/research/model-decisions.html",
+      "_data/reading.yml"
+    ],
+    "summary": "날짜·용도·Core/NPC/임베딩 구성표를 상세 기록 앞에 두고 측정 통과·운영 채택·예외를 구분했다.",
+    "evidence_remaining": [
+      "실시간 배포 설정 확인은 별도이며 로컬 NPC 복귀 시점 연결과 미완료 평가가 남아 있다."
+    ]
+  },
+  {
+    "id": "PR-02",
+    "status": "clarified",
+    "files": [
+      "_data/reading.yml",
+      "_includes/research/glossary.html",
+      "_includes/research/model-decisions.html"
+    ],
+    "summary": "러너·GPU 동주를 풀어 쓰고 Scenario Director는 프로젝트가 선언한 사람 시나리오 제작자 역할로 설명했다.",
+    "evidence_remaining": [
+      "서명된 문항별 독립 검수 기록은 확보하지 못했다."
+    ]
+  },
+  {
+    "id": "PR-03",
+    "status": "qualified",
+    "files": [
+      "_includes/research/figures/human-observations.html",
+      "_data/reading.yml",
+      "scripts/refresh_research_data.py"
+    ],
+    "summary": "게임 총점으로 명명하고 문장이 유지될 때의 판정 하락 방지 조건을 설명했다. 추가 대조에서 내용 동일성은 검증 불가해 같은 길이와 구분했다.",
+    "evidence_remaining": [
+      "3~5회차 제출 원문·해시가 없어 내용 동일성과 잠금의 실제 작동을 독립 확인하지 못했다."
+    ]
+  },
+  {
+    "id": "PR-04",
+    "status": "corrected",
+    "files": [
+      "_includes/research/figures/model-selection.html"
+    ],
+    "summary": "기준선 0ms를 그대로 두고 원시 결과의 0.1ms 단위 반올림으로 설명했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "PR-05",
+    "status": "clarified",
+    "files": [
+      "_includes/research/home.html",
+      "_includes/research/figures/system-loop.html",
+      "_includes/research/figures/model-selection.html",
+      "_includes/research/figures/human-observations.html",
+      "_includes/research/figures/prereg-ab.html"
+    ],
+    "summary": "요약 그림 S1~S5를 별도 번호로 표시하고 원문 번호·출처·앵커를 유지했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "PR-06",
+    "status": "clarified",
+    "files": [
+      "_includes/research/model-decisions.html",
+      "assets/js/app.js",
+      "assets/css/style.scss"
+    ],
+    "summary": "현재 결정·평가 방법·역할별 근거·날짜별 기록의 정적 링크와 접어 읽는 날짜별 목차를 추가했다. 상세 본문은 계속 표시한다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "PR-07",
+    "status": "clarified",
+    "files": [
+      "_includes/research/figures/prereg-ab.html",
+      "_includes/research/prereg-notes.html",
+      "_layouts/page.html"
+    ],
+    "summary": "이유 설명 없음/있음으로 화면 라벨을 바꾸고 고정 원문 밖에서 설계·버전·미정의 항목을 해설했다. NOT RUN과 원 변수는 보존했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "PR-08",
+    "status": "clarified",
+    "files": [
+      "_includes/research/figures/human-observations.html"
+    ],
+    "summary": "AI 개입 수락·추천 선택·직접 작성의 발생 단계와 출처를 설명했다. 적용 규칙 20건과 제안 수락 6/9·신뢰 측정을 구분했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "PR-09",
+    "status": "corrected",
+    "files": [
+      "_config.yml"
+    ],
+    "summary": "메타 설명을 측정 결과를 쌓아 가는 기록이라는 구체적 문장으로 다듬었다.",
+    "evidence_remaining": []
+  }
+]

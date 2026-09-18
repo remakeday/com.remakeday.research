@@ -14,7 +14,9 @@ layout: default
         <p class="formal-title">{{ page.title }}</p>
         <p class="paper-lead">{{ reading.summary | default: page.description }}</p>
       </header>
+      {% if page.url == '/experiments/model-selection/' %}{% include research/model-decisions.html %}{% endif %}
       {% if reading %}{% include research/overview.html reading=reading %}{% endif %}
+      {% if page.url == '/prereg/' %}{% include research/prereg-notes.html %}{% endif %}
     {% endif %}
     {% include research/glossary.html %}
     {% if page.url == '/' %}

@@ -3,7 +3,7 @@
   "sources": [
     {
       "path": "testbed.md",
-      "sha256": "ce52b1ff2e6ecc3ef781e3fa8de001d2be754049852e4d7159c54d5278fa653a"
+      "sha256": "a10aaa49af4eb5983e7e5d28b7c04f5fbf0f8b2ef32b35f77e94359e59a383e2"
     },
     {
       "path": "prereg.md",
@@ -11,11 +11,11 @@
     },
     {
       "path": "experiments/model-selection.md",
-      "sha256": "dbe2ec03aa0d86559e0fcf027cc1a89bfd5d5b3bf67e069aa2a4bdc98f423d23"
+      "sha256": "8fd8908d30df48a4950f5f2417d313cd81eb314d86869ebd8861c39b983f00df"
     },
     {
       "path": "experiments/human-observations.md",
-      "sha256": "ccef72f16dfd12db7e33db29a128bc5616d6d1991505a54d394fd9025c6b1397"
+      "sha256": "ffef80e1df07c625ac97ad3429d78bb4b9706fd68bde24a45e7b576f7da6813c"
     }
   ],
   "system_loop": {
@@ -182,13 +182,14 @@
           "score": 94.2
         }
       ],
-      "same_text_rounds": [
+      "equal_length_rounds": [
         3,
         4,
         5
       ],
-      "same_text_length": 266,
-      "monotonic_scoring_lock": true,
+      "submission_length": 266,
+      "content_identity_verified": false,
+      "monotonic_scoring_lock": "conditional",
       "source_anchor": "case--tester-6-2026-09-16--5회차-완주"
     }
   },

@@ -186,6 +186,25 @@ tbody tr:hover { background: rgba(226,235,216,.3); }
 .mobile-outline { display: none; }
 /* Reading-layer figures share the same paper vocabulary. */
 .reading-overview { margin-bottom: 40px; }
+.model-reading-routes { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; }
+.model-reading-routes a { flex: 1 1 130px; padding: 12px 15px; border: 1px solid var(--line); border-radius: 7px; text-decoration: none; font-size: 13px; }
+.model-reading-routes small { color: var(--muted); margin-right: 8px; }
+.model-decisions { margin-bottom: 40px; padding-bottom: 25px; border-bottom: 1px solid var(--line); }
+.model-decisions h2 { font-size: 25px; margin: 12px 0 18px; }
+.model-decisions h3 { font-size: 18px; margin: 24px 0 14px; }
+.model-decisions p, .model-decisions li { font-size: 14px; line-height: 1.9; }
+.model-decisions li + li { margin-top: 10px; }
+.model-decisions code, .prereg-notes code { overflow-wrap: anywhere; word-break: break-word; white-space: normal; }
+.model-decisions caption { text-align: left; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.selection-definitions { font-size: 12px; line-height: 1.9; margin: 18px 0; }
+.selection-definitions div + div { margin-top: 8px; }
+.selection-definitions dt { font-weight: 650; }
+.selection-definitions dd { margin: 0; color: var(--muted); }
+.prereg-notes { margin-bottom: 32px; }
+.prereg-notes h2 { font-size: 21px; }
+.prereg-notes h3 { font-size: 16px; margin-top: 22px; }
+.prereg-notes p, .prereg-notes li { font-size: 13px; line-height: 1.9; }
+.outline-history summary { padding: 8px 0; cursor: pointer; font-size: 11px; color: var(--green); }
 .reading-overview h2 { font-size: 25px; letter-spacing: -.03em; margin-bottom: 18px; }
 .reading-overview h3 { font-size: 18px; }
 .reading-overview > p:not(.figure-eyebrow), .reading-overview > ul > li, .reading-overview > ol > li { max-width: 760px; font-size: 15px; color: #4f5e54; }

@@ -1,0 +1,425 @@
+[
+  {
+    "id": "F10-U001",
+    "file": "_data/reading.yml",
+    "start": 1,
+    "end": 12,
+    "kind": "template",
+    "text": "\"/\":\n  section: \"Research Report\"\n  label: \"연구 개요\"\n  question: \"사람은 반복되는 실패 속에서 AI의 제안을 어떻게 판단할까?\"\n  summary: \"REMAKE DAY는 AI 제안을 받아들이거나 거부하고 직접 규칙을 쓰는 선택을 반복해서 관찰하는 게임 기반 실험환경입니다.\"\n  overview_title: \"이 연구가 세운 경계\"\n  findings:\n    - \"게임의 실패–수정 루프를 반복 가능한 관찰 환경으로 만들었습니다.\"\n    - \"시스템이 제대로 작동하는지 먼저 검증하고, 사람 행동은 그다음에 관찰합니다.\"\n    - \"아직 실행하지 않은 실험과 적은 표본의 관찰을 완료된 결과처럼 쓰지 않습니다.\"\n  caution: \"사람 행동 결과는 탐색적 관찰입니다. 기존 집계와 이후 완주 사례는 기구 버전이 달라 분리해서 읽습니다.\"\n  terms: [\"실험환경\", \"이벤트 기록\", \"탐색적 관찰\"]",
+    "sha256": "5b11a40bf3b1c27fb17972ee367237989b6de1b856fc5e2850ba8c2ab502220c"
+  },
+  {
+    "id": "F10-U002",
+    "file": "_data/reading.yml",
+    "start": 14,
+    "end": 25,
+    "kind": "template",
+    "text": "\"/statement/\":\n  section: \"Research Statement\"\n  label: \"연구의 출발점\"\n  question: \"왜 AI 연구를 게임 안에서 했을까?\"\n  summary: \"게임은 사람이 AI의 제안을 여러 번 마주하고 판단하게 만드는 실험기구입니다. 선택과 그 뒤의 변화를 같은 형식으로 기록할 수 있습니다.\"\n  overview_title: \"핵심 주장\"\n  findings:\n    - \"측정 대상은 AI가 만든 콘텐츠가 아니라 AI 제안 앞에서 사람이 내리는 선택입니다.\"\n    - \"모델 검증과 사람 행동 관찰을 두 층으로 나누어, 기구의 오류를 행동으로 오해하지 않게 했습니다.\"\n    - \"모델 교체도 같은 러너와 통과 기준으로 다시 확인했습니다.\"\n  caution: \"시스템 검증은 모델 역할별 통과 여부이고, 사람 행동 근거는 작은 탐색적 관찰입니다. 두 층의 측정을 하나의 성능 주장으로 합치지 않습니다.\"\n  terms: [\"AI 제안 수용\", \"통과 기준\"]",
+    "sha256": "ef410c6ce8eeb88d5639cb28820495c250c51bde9888ad8c331484a3c53019bd"
+  },
+  {
+    "id": "F10-U003",
+    "file": "_data/reading.yml",
+    "start": 27,
+    "end": 39,
+    "kind": "template",
+    "text": "\"/testbed/\":\n  section: \"System Design\"\n  label: \"실험환경\"\n  question: \"게임 한 회차는 어떻게 관찰 가능한 데이터가 될까?\"\n  summary: \"플레이어가 실패를 설명하고 AI 조언을 판단해 규칙을 바꾼 뒤 다시 실행하는 순환을 이벤트 단위로 기록합니다.\"\n  overview_title: \"한 번의 선택이 기록이 되기까지\"\n  findings:\n    - \"관찰과 추론에서 시작해 실패 설명, AI 조언, 사람의 선택, 규칙 적용, 재실행으로 이어집니다.\"\n    - \"사람은 AI 제안을 수용하거나 거부할 수 있고, 직접 규칙을 작성할 수도 있습니다.\"\n    - \"각 단계의 이벤트 기록이 이후 시스템 검증과 행동 관찰의 공통 재료가 됩니다.\"\n  caution: \"루프가 기록된다는 사실만으로 사람의 의도나 학습을 알 수 있는 것은 아닙니다. 해석에는 별도의 측정 정의가 필요합니다.\"\n  figure: \"system-loop\"\n  terms: [\"실험환경\", \"이벤트 기록\", \"AI 제안 수용\"]",
+    "sha256": "488901065d7b3f91b58e09ee7b6a819782d33d0add98e4cc6df7fcd130d6aaf5"
+  },
+  {
+    "id": "F10-U004",
+    "file": "_data/reading.yml",
+    "start": 41,
+    "end": 53,
+    "kind": "template",
+    "text": "\"/experiments/model-selection/\":\n  section: \"System Evaluation\"\n  label: \"Exp 1 · 실측 기록\"\n  question: \"어떤 AI 모델이 이 실험기구를 안정적으로 움직일까?\"\n  summary: \"후보를 한 번의 점수로 줄 세우지 않고, 형식·품질·지연·메모리·실제 루프를 단계별로 통과시키며 역할별 구성을 정했습니다.\"\n  overview_title: \"선정 과정과 최근 보조 모델 비교\"\n  findings:\n    - \"후보는 응답 형식 확인부터 실제 게임 실행까지 단계별로 평가했습니다.\"\n    - \"임베딩 비교 그림은 Scenario Director가 검수한 공개 표만 사용합니다.\"\n    - \"보조 기능의 첫 추천 적중과 계산 시간을 나란히 보되, 지연과 GPU 동주 조건은 별도 축으로 판단했습니다.\"\n  caution: \"임베딩 첫 추천 적중과 지연은 같은 검수 세트 안에서만 비교합니다. 앞선 미검수 결과, Core/NPC 품질, 사람 행동을 이 수치와 섞지 않습니다.\"\n  figure: \"model-selection\"\n  terms: [\"형식 통과율\", \"대체 처리\", \"통과 기준\", \"응답 지연 p95\"]",
+    "sha256": "be908ba9c411a46107f3b33e0c3e6f2ce89824a021507d1c4241500c7f851171"
+  },
+  {
+    "id": "F10-U005",
+    "file": "_data/reading.yml",
+    "start": 55,
+    "end": 67,
+    "kind": "template",
+    "text": "\"/experiments/human-observations/\":\n  section: \"Behavioral Evaluation\"\n  label: \"Exp 2 · 탐색적 관찰\"\n  question: \"실제 플레이어는 AI 제안과 직접 작성 중 무엇을 골랐을까?\"\n  summary: \"분리한 사람 세션에서 규칙 선택의 출처를 세었고, 이후 다른 기구 버전의 완주 판은 별도 사례로 남겼습니다.\"\n  overview_title: \"집계와 사례를 분리해서 읽기\"\n  findings:\n    - \"기존 집계에서는 AI 개입 수락, AI 추천 선택, 직접 작성을 서로 나누어 셌습니다.\"\n    - \"후속 완주 사례의 회차별 총점은 원문에 기록된 값을 그대로 보여 줍니다.\"\n    - \"후속 사례는 기구 버전이 달라 기존 집계에 더하지 않았습니다.\"\n  caution: \"기존 집계는 기구 버전이 섞인 작은 표본이며 선택은 무작위 배정이 아닙니다. 후속 사례의 같은 제출문과 단조 잠금 구간은 학습이나 채점 안정성의 증거가 아닙니다.\"\n  figure: \"human-observations\"\n  terms: [\"탐색적 관찰\", \"AI 제안 수용\", \"이벤트 기록\"]",
+    "sha256": "ef895835946a099898ea50b46fd8323fef5019173d3d14e3c0f39a5d82e7bc5f"
+  },
+  {
+    "id": "F10-U006",
+    "file": "_data/reading.yml",
+    "start": 69,
+    "end": 81,
+    "kind": "template",
+    "text": "\"/prereg/\":\n  section: \"Preregistration\"\n  label: \"설계 고정 · 미실행\"\n  question: \"AI 제안에 이유를 붙이면 수용률이 달라질까?\"\n  summary: \"결과를 보기 전에 A 조건과 B 조건, 측정값과 해석 규칙을 고정한 사전등록입니다. 이 실험은 아직 실행하지 않았습니다.\"\n  overview_title: \"측정 전에 고정한 비교\"\n  findings:\n    - \"A는 AI 제안만, B는 같은 종류의 제안에 이유를 함께 보여 주는 조건입니다.\"\n    - \"주요 결과값은 AI 제안 수용률입니다.\"\n    - \"두 조건의 결과 데이터는 아직 없습니다.\"\n  caution: \"NOT RUN은 효과가 0이라는 뜻이 아니라 아직 측정하지 않았다는 뜻입니다. 아래 그림에는 결과 막대나 추정값이 없습니다.\"\n  figure: \"prereg-ab\"\n  terms: [\"사전등록\", \"미실행\", \"AI 제안 수용\"]",
+    "sha256": "5e14bbac58629952194430c2368b0701f3144dbc8d407b09f83ab9d2b153dd57"
+  },
+  {
+    "id": "F10-U007",
+    "file": "_data/reading.yml",
+    "start": 83,
+    "end": 94,
+    "kind": "template",
+    "text": "\"/limitations/\":\n  section: \"Appendix\"\n  label: \"한계와 재현\"\n  question: \"이 기록으로 무엇까지 말할 수 있고, 무엇은 말할 수 없을까?\"\n  summary: \"작은 표본, 자발적 선택, 단일 시나리오, 관찰 중 기구 변경이 해석을 제한합니다. 재현할 때는 조건과 원문 기록을 함께 확인해야 합니다.\"\n  overview_title: \"결론보다 먼저 확인할 것\"\n  findings:\n    - \"현재 사람 행동 관찰은 전체 사용자에게 일반화할 수 없습니다.\"\n    - \"무작위 배정이 아닌 선택은 인과 효과로 해석하지 않습니다.\"\n    - \"모델·프롬프트·채점기 중 하나라도 바뀌면 별도 조건으로 다룹니다.\"\n  caution: \"서빙 구성의 시스템 통과가 관찰 구성과 같은 사람 행동을 보장하지 않습니다. 기존 집계에는 기구 버전이 섞여 있어 경향 주장에 쓰지 않으며, 이후 완주 사례와 서빙 구성의 세션은 별도로 읽습니다.\"\n  terms: [\"탐색적 관찰\", \"통과 기준\", \"미실행\"]",
+    "sha256": "8f8a2fa8629945b71c5a8331674413b50542501b33c63da6255f212dfdad129d"
+  },
+  {
+    "id": "F10-U008",
+    "file": "_data/reading.yml",
+    "start": 96,
+    "end": 107,
+    "kind": "template",
+    "text": "\"/lab-notes/\":\n  section: \"Appendix\"\n  label: \"날짜별 연구 기록\"\n  question: \"어떤 측정과 결정이 언제 바뀌었을까?\"\n  summary: \"실험 설계, 모델 평가, 사람 세션, 기구 수정과 판단을 최신 날짜부터 추적하는 변경 기록입니다.\"\n  overview_title: \"이 페이지를 읽는 방법\"\n  findings:\n    - \"각 날짜는 새 측정, 수정, 결정이 생긴 시점을 보여 줍니다.\"\n    - \"후속 측정이 앞선 결론을 좁히거나 바꾼 경우 그 경위를 함께 남깁니다.\"\n    - \"정확한 표와 조건은 연결된 실험 기록에서 확인할 수 있습니다.\"\n  caution: \"날짜별 메모는 서로 다른 조건의 수치를 포함합니다. 같은 이름의 지표라도 모델, 반복 수, 데이터 세트가 다르면 직접 비교하지 않습니다.\"\n  terms: [\"통과 기준\", \"대체 처리\", \"탐색적 관찰\"]",
+    "sha256": "b43e092d0982e5f09ffffbf002af4a37022108189e05a8acd12c4dc3c524d8a9"
+  },
+  {
+    "id": "F10-U009",
+    "file": "_data/reading.yml",
+    "start": 109,
+    "end": 120,
+    "kind": "template",
+    "text": "\"/plain-summary/\":\n  section: \"Appendix\"\n  label: \"쉬운 말 요약\"\n  question: \"이 연구를 블록탑 놀이로 설명하면 무엇일까?\"\n  summary: \"무너진 탑을 다시 쌓을 때 로봇의 카드를 받을지 자기 방법을 쓸지 기록하는 놀이로 연구 구조를 설명합니다.\"\n  overview_title: \"비유에서 기억할 세 가지\"\n  findings:\n    - \"무너지는 블록탑은 반복되는 게임 실패와 재실행을 뜻합니다.\"\n    - \"로봇의 카드는 AI 제안, 직접 쌓기는 사람이 쓴 규칙에 해당합니다.\"\n    - \"공책은 선택과 결과를 남기는 이벤트 기록입니다.\"\n  caution: \"비유는 구조를 이해하기 위한 설명입니다. 정확한 측정 정의, 수치, 한계는 본편의 실험 기록을 기준으로 합니다.\"\n  terms: [\"실험환경\", \"이벤트 기록\", \"AI 제안 수용\"]",
+    "sha256": "6e1361e26467b8f8bebe188a683b31e45ef4f79150b9849f8f39b0dcbe513426"
+  },
+  {
+    "id": "F11-U001",
+    "file": "_data/nav.yml",
+    "start": 1,
+    "end": 15,
+    "kind": "list",
+    "text": "- section: \"연구 이해하기\"\n  items:\n    - { title: \"연구 개요\", subtitle: \"Abstract\", url: \"/\", icon: \"01\" }\n    - { title: \"왜 게임인가\", subtitle: \"Statement\", url: \"/statement/\", icon: \"02\" }\n    - { title: \"실험환경 설계\", subtitle: \"Methods\", url: \"/testbed/\", icon: \"03\" }\n- section: \"실험과 근거\"\n  items:\n    - { title: \"AI 모델 선정\", subtitle: \"Experiment 1\", url: \"/experiments/model-selection/\", icon: \"04\" }\n    - { title: \"사람의 선택 관찰\", subtitle: \"Experiment 2\", url: \"/experiments/human-observations/\", icon: \"05\" }\n    - { title: \"다음 실험의 설계\", subtitle: \"Preregistration\", url: \"/prereg/\", icon: \"06\" }\n- section: \"더 깊이 읽기\"\n  items:\n    - { title: \"비유로 읽는 연구\", subtitle: \"Plain summary\", url: \"/plain-summary/\", icon: \"07\" }\n    - { title: \"한계와 재현 방법\", subtitle: \"Limitations\", url: \"/limitations/\", icon: \"08\" }\n    - { title: \"날짜별 연구 기록\", subtitle: \"Lab notes\", url: \"/lab-notes/\", icon: \"09\" }",
+    "sha256": "8c162cff4cd0d74589f4b3201dae9d46f5c482324e21d581d34db5eba59936e6"
+  },
+  {
+    "id": "F12-U001",
+    "file": "_data/research_figures.json",
+    "start": 1,
+    "end": 213,
+    "kind": "template",
+    "text": "{\n  \"schema_version\": 1,\n  \"sources\": [\n    {\n      \"path\": \"testbed.md\",\n      \"sha256\": \"ce52b1ff2e6ecc3ef781e3fa8de001d2be754049852e4d7159c54d5278fa653a\"\n    },\n    {\n      \"path\": \"prereg.md\",\n      \"sha256\": \"08009848cc8c18d3c406786858af6daa6a9face4b7ba250509ee0c670cbb6ab7\"\n    },\n    {\n      \"path\": \"experiments/model-selection.md\",\n      \"sha256\": \"dbe2ec03aa0d86559e0fcf027cc1a89bfd5d5b3bf67e069aa2a4bdc98f423d23\"\n    },\n    {\n      \"path\": \"experiments/human-observations.md\",\n      \"sha256\": \"ccef72f16dfd12db7e33db29a128bc5616d6d1991505a54d394fd9025c6b1397\"\n    }\n  ],\n  \"system_loop\": {\n    \"source_path\": \"testbed.md\",\n    \"source_anchor\": \"figure-1--system-loop\",\n    \"steps\": [\n      \"관찰·대화·추론\",\n      \"실패 설명\",\n      \"AI 조언\",\n      \"수용·거부·직접 작성\",\n      \"규칙 적용\",\n      \"재실행\"\n    ]\n  },\n  \"model_selection\": {\n    \"source_path\": \"experiments/model-selection.md\",\n    \"stages\": [\n      {\n        \"number\": 0,\n        \"id\": \"protocol\",\n        \"label\": \"응답 형식 확인\"\n      },\n      {\n        \"number\": 1,\n        \"id\": \"smoke\",\n        \"label\": \"기본 동작 확인\"\n      },\n      {\n        \"number\": 2,\n        \"id\": \"formal\",\n        \"label\": \"역할별 정식 평가\"\n      },\n      {\n        \"number\": 3,\n        \"id\": \"concurrency\",\n        \"label\": \"메모리에 함께 올리기\"\n      },\n      {\n        \"number\": 4,\n        \"id\": \"loop\",\n        \"label\": \"실제 게임 실행\"\n      }\n    ],\n    \"stages_source_anchor\": \"41-funnel\",\n    \"embedding\": {\n      \"source_path\": \"experiments/model-selection.md\",\n      \"source_anchor\": \"6-정본-수치--scenario-director-검수-골든22문장--반복-n3--서버-실경로--vram-동주\",\n      \"source_section\": \"A.21 §6\",\n      \"measured_on\": \"2026-09-18\",\n      \"reviewed_items\": 22,\n      \"repeat_check\": {\n        \"items\": 30,\n        \"review_status\": \"unreviewed\",\n        \"repetitions\": 3,\n        \"applies_to_reviewed_table\": false\n      },\n      \"conditions\": [\n        {\n          \"id\": \"stem\",\n          \"label\": \"어간 겹침\",\n          \"dimensions\": null,\n          \"top1_correct\": 8,\n          \"top1_rate\": 0.364,\n          \"latency_p50_ms\": 0.0\n        },\n        {\n          \"id\": \"qwen-2560\",\n          \"label\": \"Qwen\",\n          \"dimensions\": 2560,\n          \"top1_correct\": 20,\n          \"top1_rate\": 0.909,\n          \"latency_p50_ms\": 86.0\n        },\n        {\n          \"id\": \"qwen-1536\",\n          \"label\": \"Qwen\",\n          \"dimensions\": 1536,\n          \"top1_correct\": 18,\n          \"top1_rate\": 0.818,\n          \"latency_p50_ms\": 84.0\n        },\n        {\n          \"id\": \"bge-1024\",\n          \"label\": \"bge-m3\",\n          \"dimensions\": 1024,\n          \"top1_correct\": 20,\n          \"top1_rate\": 0.909,\n          \"latency_p50_ms\": 109.0\n        },\n        {\n          \"id\": \"gemini-1536\",\n          \"label\": \"Gemini\",\n          \"dimensions\": 1536,\n          \"top1_correct\": 21,\n          \"top1_rate\": 0.955,\n          \"latency_p50_ms\": 418.0\n        },\n        {\n          \"id\": \"gemini-2560\",\n          \"label\": \"Gemini\",\n          \"dimensions\": 2560,\n          \"top1_correct\": 21,\n          \"top1_rate\": 0.955,\n          \"latency_p50_ms\": 407.0\n        }\n      ],\n      \"latency_context\": \"후보 문구를 미리 준비한 뒤, 대안 순서를 한 번 계산하는 시간\"\n    }\n  },\n  \"human_observations\": {\n    \"source_path\": \"experiments/human-observations.md\",\n    \"aggregate\": {\n      \"group\": \"six-session-aggregate\",\n      \"measured_on\": \"2026-09-15\",\n      \"sessions\": 6,\n      \"denominator\": 20,\n      \"ai_total\": 14,\n      \"instrument_versions\": \"mixed\",\n      \"selections\": [\n        {\n          \"id\": \"intervention\",\n          \"label\": \"AI 개입 수락\",\n          \"count\": 6\n        },\n        {\n          \"id\": \"recommendation\",\n          \"label\": \"AI 추천 선택\",\n          \"count\": 8\n        },\n        {\n          \"id\": \"custom\",\n          \"label\": \"직접 작성\",\n          \"count\": 6\n        }\n      ],\n      \"source_anchor\": \"집계-결과-확정--유력-6판-exploratory\"\n    },\n    \"tester6\": {\n      \"group\": \"separate-case\",\n      \"measured_on\": \"2026-09-16\",\n      \"session_id\": \"2338ec9f\",\n      \"denominator\": 5,\n      \"ai_selections\": 3,\n      \"custom_selections\": 2,\n      \"trajectory\": [\n        {\n          \"round\": 1,\n          \"score\": 8.8\n        },\n        {\n          \"round\": 2,\n          \"score\": 64.2\n        },\n        {\n          \"round\": 3,\n          \"score\": 94.2\n        },\n        {\n          \"round\": 4,\n          \"score\": 94.2\n        },\n        {\n          \"round\": 5,\n          \"score\": 94.2\n        }\n      ],\n      \"same_text_rounds\": [\n        3,\n        4,\n        5\n      ],\n      \"same_text_length\": 266,\n      \"monotonic_scoring_lock\": true,\n      \"source_anchor\": \"case--tester-6-2026-09-16--5회차-완주\"\n    }\n  },\n  \"preregistration\": {\n    \"status\": \"NOT RUN\",\n    \"conditions\": [\n      {\n        \"id\": \"A\",\n        \"rationale\": \"absent\",\n        \"label\": \"AI 제안만\"\n      },\n      {\n        \"id\": \"B\",\n        \"rationale\": \"present\",\n        \"label\": \"AI 제안 + 이유\"\n      }\n    ],\n    \"primary_outcome\": \"AI 제안 수용률\",\n    \"source_path\": \"prereg.md\",\n    \"source_anchor\": \"anchor-experiment-설계\"\n  }\n}",
+    "sha256": "7e0f965e9838744c3347a3e765ee3da411d562121818b086e46da3dfbb1cefa2"
+  },
+  {
+    "id": "F13-U001",
+    "file": "_config.yml",
+    "start": 1,
+    "end": 10,
+    "kind": "heading",
+    "text": "# ─────────────────────────────────────────────────────────────\n#  REMAKE DAY · Research — 실험 기록 사이트 (Jekyll)\n# ─────────────────────────────────────────────────────────────\ntitle:       \"REMAKE DAY Research\"\ntagline:     \"측정하지 않은 것은 주장하지 않는다\"\ndescription: \"REMAKE DAY를 재현 가능한 Human–AI Interaction 실험환경으로 정의하고, 시스템 평가와 행동 관찰을 실측 기준으로 적립하는 연구 기록입니다.\"\nurl:         \"https://research.remakeday.com\"\nbaseurl:     \"\"\nlang:        ko-KR\ntimezone:    Asia/Seoul",
+    "sha256": "4d7ac378aa942ee41fe386e938f4e4b0ddd486a93c44e7bb303d37f6bfa82fea"
+  },
+  {
+    "id": "F13-U002",
+    "file": "_config.yml",
+    "start": 12,
+    "end": 18,
+    "kind": "heading",
+    "text": "# 프로젝트 핵심 상수\nproject:\n  code_name:   \"BeyondBob\"\n  repo_app:    \"https://github.com/remakeday/com.remakeday\"\n  repo_site:   \"https://github.com/remakeday/com.remakeday.research\"\n  hub_site:    \"https://blog.remakeday.com\"\n  spec_doc:    \"REMAKE_DAY 프로젝트 기획서 확정본 v9.0\"",
+    "sha256": "fd71a83b43e18ea611316370e075f81178d87380e62fe76a11efad04cfa3acd0"
+  },
+  {
+    "id": "F13-U003",
+    "file": "_config.yml",
+    "start": 20,
+    "end": 22,
+    "kind": "template",
+    "text": "defaults:\n  - scope: { path: \"\" }\n    values: { layout: \"page\" }",
+    "sha256": "5f80809a7ba820f674337335ca88083bb7595b27da66411f15901b51ffd49bd2"
+  },
+  {
+    "id": "F13-U004",
+    "file": "_config.yml",
+    "start": 24,
+    "end": 27,
+    "kind": "template",
+    "text": "plugins:\n  - jekyll-feed\n  - jekyll-sitemap\n  - jekyll-seo-tag",
+    "sha256": "c4e92ef73918000a2a6ae8052c15a231d5fd925d2e3d21552bcf0e9f2d20d3c6"
+  },
+  {
+    "id": "F13-U005",
+    "file": "_config.yml",
+    "start": 29,
+    "end": 30,
+    "kind": "template",
+    "text": "sass:\n  style: compressed",
+    "sha256": "ea7371d86eb013d24266162da3746126c76ea392e2254ff6396098121cb90a59"
+  },
+  {
+    "id": "F13-U006",
+    "file": "_config.yml",
+    "start": 32,
+    "end": 36,
+    "kind": "template",
+    "text": "markdown: kramdown\nkramdown:\n  input: GFM\n  syntax_highlighter: rouge\n  toc_levels: 2..3",
+    "sha256": "f8b6bb9dcf2c43f93ccc371bb968afe465e0ced4ba375d63b7e69bb4f8e6f45e"
+  },
+  {
+    "id": "F13-U007",
+    "file": "_config.yml",
+    "start": 38,
+    "end": 50,
+    "kind": "template",
+    "text": "exclude:\n  - Gemfile\n  - Gemfile.lock\n  - vendor\n  - README.md\n  - .github\n  - docs\n  - scripts\n  - tests\n  - artwork\n  - .superpowers\n  - \"REMAKE_DAY_*\"   # 기획서 원문 — 비공개\n  - \"TalkFile_*\"     # 대화 원문 노트 — 비공개",
+    "sha256": "c949b7236065d0a8c32fbaa5e979dcdbbb6b17267253e7812cabb1b073650eff"
+  },
+  {
+    "id": "F14-U001",
+    "file": "_layouts/default.html",
+    "start": 1,
+    "end": 27,
+    "kind": "template",
+    "text": "<!doctype html>\n<html lang=\"{{ site.lang }}\">\n<head>{% include head.html %}</head>\n<body>\n<a class=\"skip-link\" href=\"#main-content\">본문으로 바로 가기</a>\n<header class=\"site-header\">\n  <div class=\"site-header__inner\">\n    <a class=\"brand\" href=\"{{ '/' | relative_url }}\" aria-label=\"REMAKE DAY Research 홈\"><span class=\"brand-mark\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i></span><span>REMAKE DAY <small>Research</small></span></a>\n    <nav class=\"primary-nav\" aria-label=\"주요 메뉴\">\n      <a href=\"{{ '/' | relative_url }}\"{% if page.url == '/' %} aria-current=\"page\"{% endif %}>연구 개요</a>\n      <a href=\"{{ '/experiments/model-selection/' | relative_url }}\"{% if page.url contains '/experiments/' %} aria-current=\"true\"{% endif %}>실험과 결과</a>\n      <a href=\"{{ '/testbed/' | relative_url }}\"{% if page.url == '/testbed/' or page.url == '/limitations/' or page.url == '/prereg/' %} aria-current=\"true\"{% endif %}>방법과 한계</a>\n      <a href=\"{{ '/lab-notes/' | relative_url }}\"{% if page.url == '/lab-notes/' %} aria-current=\"page\"{% endif %}>연구 기록</a>\n    </nav>\n    <a class=\"development-link\" href=\"{{ site.project.hub_site }}\">개발 이야기 <span aria-hidden=\"true\">↗</span></a>\n    <button class=\"menu-btn\" type=\"button\" data-menu-toggle aria-expanded=\"false\" aria-controls=\"mobile-navigation\">메뉴 <span aria-hidden=\"true\">☰</span></button>\n  </div>\n  <nav class=\"mobile-navigation\" id=\"mobile-navigation\" aria-label=\"전체 연구 메뉴\">\n    {% for group in site.data.nav %}<div><p class=\"nav-group-label\">{{ group.section }}</p>{% for item in group.items %}<a href=\"{{ item.url | relative_url }}\"{% if page.url == item.url %} aria-current=\"page\"{% endif %}><span>{{ item.title }}</span><small>{{ item.subtitle }}</small></a>{% endfor %}</div>{% endfor %}\n    <a href=\"{{ site.project.hub_site }}\">개발 이야기 ↗</a>\n  </nav>\n</header>\n<main id=\"main-content\" tabindex=\"-1\">{{ content }}</main>\n{% include footer.html %}\n<script src=\"{{ '/assets/js/app.js' | relative_url }}?v={{ site.time | date: '%s' }}\" defer></script>\n</body>\n</html>",
+    "sha256": "b2b064eb9712bfbd22e866bc426fcd7c9784802f3a15de70d3654e41099d19c3"
+  },
+  {
+    "id": "F15-U001",
+    "file": "_layouts/page.html",
+    "start": 1,
+    "end": 3,
+    "kind": "metadata",
+    "text": "---\nlayout: default\n---",
+    "sha256": "6d88ba2334a01c6719ef0ae56af7c19978f9e78c6a4fca3712113e0399c37b63"
+  },
+  {
+    "id": "F15-U002",
+    "file": "_layouts/page.html",
+    "start": 4,
+    "end": 40,
+    "kind": "template",
+    "text": "{% assign reading = site.data.reading[page.url] %}\n<div class=\"paper-shell{% if page.url == '/' %} paper-shell--home{% endif %}\">\n  <article class=\"paper\" aria-labelledby=\"paper-title\">\n    {% if page.url == '/' %}\n      {% include research/home.html %}\n    {% else %}\n      <header class=\"paper-head\">\n        <div class=\"eyebrow\"><a href=\"{{ '/' | relative_url }}\">RESEARCH</a><span aria-hidden=\"true\">/</span>{{ reading.section | default: page.eyebrow }}</div>\n        <p class=\"paper-category\">{{ reading.label | default: page.short_title }}</p>\n        <h1 id=\"paper-title\">{{ reading.question | default: page.title }}</h1>\n        <p class=\"formal-title\">{{ page.title }}</p>\n        <p class=\"paper-lead\">{{ reading.summary | default: page.description }}</p>\n      </header>\n      {% if reading %}{% include research/overview.html reading=reading %}{% endif %}\n    {% endif %}\n    {% include research/glossary.html %}\n    {% if page.url == '/' %}\n    <details class=\"source-disclosure\" id=\"original-record\">\n      <summary><span><span class=\"eyebrow\">FULL RECORD</span><strong>연구 전문과 English Abstract</strong></span><span class=\"disclosure-indicator\" aria-hidden=\"true\">+</span></summary>\n      <div class=\"prose original-content\" data-original-content>{{ content }}</div>\n    </details>\n    {% else %}\n    <section class=\"source-record\" id=\"original-record\" aria-labelledby=\"record-heading\">\n      <div class=\"section-heading\"><div><span class=\"eyebrow\">FULL RECORD</span><h2 id=\"record-heading\">상세 연구 기록</h2></div><a class=\"back-to-summary\" href=\"#paper-title\">요약으로 ↑</a></div>\n      <p class=\"record-intro\">방법, 수치, 판단 근거와 당시의 한계를 담은 전체 기록입니다. 먼저 위의 설명을 읽고, 필요한 절을 목차에서 찾아보세요.</p>\n      <div class=\"prose original-content\" data-original-content>{{ content }}</div>\n    </section>\n    {% endif %}\n    <nav class=\"continue-reading\" aria-label=\"이어 읽기\">\n      <span class=\"eyebrow\">CONTINUE READING</span>\n      {% if page.url == '/experiments/model-selection/' %}<a href=\"{{ '/experiments/human-observations/' | relative_url }}\">실제 사람에게는 어떤 행동이 관찰됐을까요? <span aria-hidden=\"true\">↗</span></a>\n      {% elsif page.url == '/experiments/human-observations/' or page.url == '/prereg/' %}<a href=\"{{ '/limitations/' | relative_url }}\">이 결과는 어디까지 해석할 수 있을까요? <span aria-hidden=\"true\">↗</span></a>\n      {% else %}<a href=\"{{ '/experiments/model-selection/' | relative_url }}\">어떤 기준으로 AI 모델을 선택했을까요? <span aria-hidden=\"true\">↗</span></a>{% endif %}\n    </nav>\n  </article>\n  {% include sidebar.html %}\n</div>",
+    "sha256": "db154b44961d20bc75812276e5cb9031efd86c735a1245491c30e5b2d66f05df"
+  },
+  {
+    "id": "F16-U001",
+    "file": "_includes/head.html",
+    "start": 1,
+    "end": 11,
+    "kind": "template",
+    "text": "<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"theme-color\" content=\"#f6f7f3\">\n{% assign _t = page.short_title | default: page.title %}\n<title>{% if _t and page.url != \"/\" %}{{ _t }} · {{ site.title }}{% else %}{{ site.title }} · {{ site.tagline }}{% endif %}</title>\n<meta name=\"description\" content=\"{{ page.description | default: site.description }}\">\n<link rel=\"icon\" href=\"{{ '/assets/images/favicon.svg' | relative_url }}\" type=\"image/svg+xml\">\n<link rel=\"preconnect\" href=\"https://cdn.jsdelivr.net\" crossorigin>\n<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css\">\n<link rel=\"stylesheet\" href=\"{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}\">\n<link rel=\"alternate\" type=\"application/atom+xml\" title=\"{{ site.title }}\" href=\"{{ '/feed.xml' | relative_url }}\">",
+    "sha256": "b45dc3f202655ed306a531b60140b9c3086b9dbb14a7aad90f20b4e8f4afedb7"
+  },
+  {
+    "id": "F17-U001",
+    "file": "_includes/footer.html",
+    "start": 1,
+    "end": 5,
+    "kind": "template",
+    "text": "<footer class=\"site-footer\"><div class=\"site-footer__inner\">\n  <div><a class=\"footer-brand\" href=\"{{ '/' | relative_url }}\">REMAKE DAY <span>Research</span></a><p>실험을 기록하고, 판단의 근거를 남깁니다.</p></div>\n  <nav aria-label=\"관련 사이트\"><a href=\"{{ site.project.hub_site }}\">개발 이야기 ↗</a><a href=\"{{ site.project.repo_app }}\">앱 저장소 ↗</a><a href=\"{{ site.project.repo_site }}\">연구 사이트 저장소 ↗</a></nav>\n  <div class=\"footer-note\">측정하지 않은 것은 주장하지 않는다.<br><span>사이트 빌드 {{ site.time | date: \"%Y.%m.%d\" }} · 연구별 측정일은 본문에 표기</span></div>\n</div></footer>",
+    "sha256": "739b80e1c80e8ad3f3fb9914616ba1798c87a4f20e6d46b6d9d4366ab7a51f13"
+  },
+  {
+    "id": "F18-U001",
+    "file": "_includes/sidebar.html",
+    "start": 1,
+    "end": 13,
+    "kind": "template",
+    "text": "<aside class=\"reading-rail\" aria-label=\"연구 탐색\">\n  <div class=\"reading-rail__inner\">\n    <div class=\"rail-label\">RESEARCH INDEX <span aria-hidden=\"true\">↙</span></div>\n    <nav class=\"research-index\" aria-label=\"전체 연구 목차\">\n      {% for group in site.data.nav %}<div class=\"nav-group\"><p class=\"nav-group-label\">{{ group.section }}</p>\n        {% for item in group.items %}<a href=\"{{ item.url | relative_url }}\"{% if page.url == item.url %} aria-current=\"page\"{% endif %}><span class=\"nav-number\">{{ item.icon }}</span><span>{{ item.title }}</span>{% if page.url == item.url %}<span class=\"nav-current\" aria-hidden=\"true\">●</span>{% endif %}</a>{% endfor %}\n      </div>{% endfor %}\n    </nav>\n    <div class=\"page-outline\" data-outline hidden><p class=\"rail-label\">이 페이지에서</p><nav aria-label=\"이 페이지 목차\" data-outline-links></nav></div>\n    <a class=\"rail-glossary\" href=\"#reading-glossary\">용어를 쉽게 읽기 <span aria-hidden=\"true\">↗</span></a>\n    <p class=\"rail-principle\">측정하지 않은 것은<br>주장하지 않는다.</p>\n  </div>\n</aside>",
+    "sha256": "f3e00f198c993c2196113a90c4e37286ab246cd49178396d6e5a383f56f7026c"
+  },
+  {
+    "id": "F19-U001",
+    "file": "assets/js/app.js",
+    "start": 1,
+    "end": 4,
+    "kind": "template",
+    "text": "/* Progressive enhancement: the full research record is readable without JS. */\n(function () {\n  'use strict';\n  document.documentElement.classList.add('enhanced');",
+    "sha256": "328bcb3f5e746e63ed52df1be01147aed1e6abfd179b103312366644d3611c1b"
+  },
+  {
+    "id": "F19-U002",
+    "file": "assets/js/app.js",
+    "start": 6,
+    "end": 28,
+    "kind": "template",
+    "text": "  var menuButton = document.querySelector('[data-menu-toggle]');\n  var menu = document.getElementById('mobile-navigation');\n  function setMenu(open, returnFocus) {\n    if (!menu || !menuButton) return;\n    menu.classList.toggle('is-open', open);\n    menuButton.setAttribute('aria-expanded', String(open));\n    if (returnFocus) menuButton.focus();\n  }\n  if (menuButton && menu) {\n    menuButton.addEventListener('click', function () {\n      setMenu(menuButton.getAttribute('aria-expanded') !== 'true', false);\n    });\n    document.addEventListener('keydown', function (event) {\n      if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') setMenu(false, true);\n    });\n    document.addEventListener('click', function (event) {\n      if (!event.target.closest('.site-header') && menuButton.getAttribute('aria-expanded') === 'true') setMenu(false, menu.contains(document.activeElement));\n      if (event.target.closest('#mobile-navigation a')) setMenu(false, false);\n    });\n    window.matchMedia('(min-width: 601px)').addEventListener('change', function (event) {\n      if (event.matches) setMenu(false, false);\n    });\n  }",
+    "sha256": "ae70f20ca53130eb1fe8c5836bb2bef9e5ba40985578985889f9add0b1377e0f"
+  },
+  {
+    "id": "F19-U003",
+    "file": "assets/js/app.js",
+    "start": 30,
+    "end": 50,
+    "kind": "template",
+    "text": "  function revealTarget(hash, scroll) {\n    if (!hash || hash === '#') return;\n    var id;\n    try { id = decodeURIComponent(hash.slice(1)); } catch (error) { return; }\n    var target = document.getElementById(id);\n    if (!target) return;\n    var node = target;\n    while (node) {\n      if (node.tagName === 'DETAILS') node.open = true;\n      node = node.parentElement;\n    }\n    if (scroll) requestAnimationFrame(function () { target.scrollIntoView({block: 'start'}); });\n  }\n  document.addEventListener('click', function (event) {\n    var link = event.target.closest('a[href]');\n    if (!link) return;\n    var url = new URL(link.href, location.href);\n    if (url.origin === location.origin && url.pathname === location.pathname && url.search === location.search && url.hash) revealTarget(url.hash, true);\n  });\n  window.addEventListener('hashchange', function () { revealTarget(location.hash, true); });\n  revealTarget(location.hash, true);",
+    "sha256": "4bc6990727388e5ccd21bcee84c735ebdf6b46cfa30c1d27b2bbd2e20932844a"
+  },
+  {
+    "id": "F19-U004",
+    "file": "assets/js/app.js",
+    "start": 52,
+    "end": 63,
+    "kind": "template",
+    "text": "  // Original ASCII figures stay available as selectable text.\n  document.querySelectorAll('[data-original-content] pre').forEach(function (pre) {\n    if (!/[┌└├│↓→]/.test(pre.textContent)) return;\n    var container = pre.closest('.highlighter-rouge') || pre;\n    var details = document.createElement('details');\n    details.className = 'diagram-source';\n    var summary = document.createElement('summary');\n    summary.textContent = '원본 도식 · 텍스트로 펼쳐 읽기';\n    container.parentNode.insertBefore(details, container);\n    details.appendChild(summary);\n    details.appendChild(container);\n  });",
+    "sha256": "be688a5b8ee3c537566470ba1084b09e8fd65c9205a03ace7a262dacf8563088"
+  },
+  {
+    "id": "F19-U005",
+    "file": "assets/js/app.js",
+    "start": 65,
+    "end": 80,
+    "kind": "template",
+    "text": "  var headings = Array.from(document.querySelectorAll('.paper h2[id], .paper h3[id]'));\n  var outline = document.querySelector('[data-outline]');\n  var linksContainer = document.querySelector('[data-outline-links]');\n  if (headings.length && outline && linksContainer) {\n    var fragment = document.createDocumentFragment();\n    var links = new Map();\n    headings.forEach(function (heading) {\n      var link = document.createElement('a');\n      link.href = '#' + encodeURIComponent(heading.id);\n      link.textContent = heading.textContent;\n      if (heading.tagName === 'H3') link.className = 'is-subheading';\n      fragment.appendChild(link);\n      links.set(heading.id, link);\n    });\n    linksContainer.appendChild(fragment);\n    outline.hidden = false;",
+    "sha256": "ae7b30d72dc157daba8a16a97919bcacfbe3eb69385fe293f73813b5ec4dc424"
+  },
+  {
+    "id": "F19-U006",
+    "file": "assets/js/app.js",
+    "start": 82,
+    "end": 106,
+    "kind": "template",
+    "text": "    var mobileOutline = document.createElement('div');\n    mobileOutline.className = 'mobile-outline';\n    var label = document.createElement('label');\n    label.htmlFor = 'section-jump'; label.textContent = '이 페이지 목차';\n    var select = document.createElement('select');\n    select.id = 'section-jump';\n    var placeholder = document.createElement('option');\n    placeholder.value = ''; placeholder.textContent = '읽을 절을 선택하세요';\n    select.appendChild(placeholder);\n    headings.forEach(function (heading) {\n      var option = document.createElement('option');\n      option.value = heading.id;\n      option.textContent = (heading.tagName === 'H3' ? '　' : '') + heading.textContent;\n      select.appendChild(option);\n    });\n    select.addEventListener('change', function () {\n      if (select.value) {\n        var hash = '#' + encodeURIComponent(select.value);\n        revealTarget(hash, false);\n        location.hash = hash;\n        revealTarget(hash, true);\n      }\n    });\n    mobileOutline.appendChild(label); mobileOutline.appendChild(select);\n    document.querySelector('.paper-head').insertAdjacentElement('afterend', mobileOutline);",
+    "sha256": "47df56481494f2ba12cd811208cc521ae280fd3145a8b7e571846abfa6ec6e54"
+  },
+  {
+    "id": "F19-U007",
+    "file": "assets/js/app.js",
+    "start": 108,
+    "end": 120,
+    "kind": "template",
+    "text": "    if ('IntersectionObserver' in window) {\n      var active;\n      var observer = new IntersectionObserver(function (entries) {\n        var visible = entries.filter(function (entry) { return entry.isIntersecting; });\n        if (!visible.length) return;\n        visible.sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });\n        if (active) active.removeAttribute('aria-current');\n        active = links.get(visible[0].target.id);\n        if (active) active.setAttribute('aria-current', 'location');\n      }, {rootMargin: '-90px 0px -65% 0px', threshold: 0});\n      headings.forEach(function (heading) { observer.observe(heading); });\n    }\n  }",
+    "sha256": "1107b16fe1e6f4ee6b0904fa32a80bbb85bbb05c67162f3246b39ae95aaef381"
+  },
+  {
+    "id": "F19-U008",
+    "file": "assets/js/app.js",
+    "start": 122,
+    "end": 132,
+    "kind": "template",
+    "text": "  // Ensure native print dialogs include every original section and restore state.\n  var beforePrintClosed = [];\n  window.addEventListener('beforeprint', function () {\n    beforePrintClosed = Array.from(document.querySelectorAll('details:not([open])'));\n    beforePrintClosed.forEach(function (details) { details.open = true; });\n  });\n  window.addEventListener('afterprint', function () {\n    beforePrintClosed.forEach(function (details) { details.open = false; });\n    beforePrintClosed = [];\n  });\n})();",
+    "sha256": "bd1f307d71a9718f90ae81a2aa646b468ac17663b3e2e7570b4bec9bba186145"
+  },
+  {
+    "id": "F20-U001",
+    "file": "_includes/research/figures/human-observations.html",
+    "start": 1,
+    "end": 20,
+    "kind": "template",
+    "text": "{% assign human = site.data.research_figures.human_observations %}\n{% assign aggregate = human.aggregate %}\n{% assign tester = human.tester6 %}\n{% assign ai_total = aggregate.ai_total %}\n{% capture selection_aria %}{% for selection in aggregate.selections %}{{ selection.label }} {{ selection.count }}회{% unless forloop.last %}, {% endunless %}{% endfor %}{% endcapture %}\n<figure class=\"research-figure\" aria-labelledby=\"selection-title\">\n  <p class=\"figure-eyebrow\">FIGURE 04A · {{ aggregate.measured_on }} 집계</p>\n  <h3 class=\"figure-title\" id=\"selection-title\">{{ aggregate.sessions }}판에서 기록된 규칙 선택 {{ aggregate.denominator }}회</h3>\n  <div class=\"selection-grid\" role=\"img\" aria-label=\"{{ selection_aria }}\">\n    {% for selection in aggregate.selections %}\n      {% for i in (1..selection.count) %}<span class=\"selection-tile{% if selection.id == 'recommendation' %} selection-tile--recommended{% elsif selection.id == 'custom' %} selection-tile--custom{% endif %}\" title=\"{{ selection.label }}\" aria-hidden=\"true\"></span>{% endfor %}\n    {% endfor %}\n  </div>\n  <p class=\"figure-legend\">\n    {% for selection in aggregate.selections %}<span><i class=\"selection-tile{% if selection.id == 'recommendation' %} selection-tile--recommended{% elsif selection.id == 'custom' %} selection-tile--custom{% endif %}\"></i>{{ selection.label }} {{ selection.count }}회</span>{% endfor %}\n  </p>\n  <p class=\"figure-caution\">확정·유력 사람 세션 {{ aggregate.sessions }}판의 탐색적 집계입니다. 관찰 기간의 기구 버전이 섞였고, 선택은 무작위 배정이 아닙니다.</p>\n  <p class=\"figure-source\"><a href=\"{{ '/experiments/human-observations/' | relative_url }}#{{ aggregate.source_anchor }}\">출처: Exp 2 · 집계 결과</a></p>\n  <figcaption><strong>그림 4A · {{ aggregate.measured_on }}.</strong> AI 계열 선택 {{ ai_total }}회는 {{ aggregate.selections[0].label }} {{ aggregate.selections[0].count }}회와 {{ aggregate.selections[1].label }} {{ aggregate.selections[1].count }}회를 합친 값입니다. {{ aggregate.selections[2].label }}은 {{ aggregate.selections[2].count }}회였습니다.</figcaption>\n</figure>",
+    "sha256": "b8bd3fcc7c48f46d9f31cdf59c9f7b9ebdfd07a0688c18d973b86752a2670d56"
+  },
+  {
+    "id": "F20-U002",
+    "file": "_includes/research/figures/human-observations.html",
+    "start": 22,
+    "end": 59,
+    "kind": "template",
+    "text": "{% assign same_text_start = tester.same_text_rounds | first %}\n{% assign same_text_end = tester.same_text_rounds | last %}\n<figure class=\"research-figure\" aria-labelledby=\"tester6-title\">\n  <p class=\"figure-eyebrow\">FIGURE 04B · {{ tester.measured_on }} 별도 사례</p>\n  <h3 class=\"figure-title\" id=\"tester6-title\">Tester 6의 회차별 관찰 점수</h3>\n  <svg class=\"trajectory-chart\" viewBox=\"0 0 560 280\" role=\"img\" aria-labelledby=\"tester6-chart-title tester6-chart-desc\">\n    <title id=\"tester6-chart-title\">Tester 6의 {{ tester.trajectory.size }}회차 관찰 점수 선 그래프</title>\n    <desc id=\"tester6-chart-desc\">점수는 차례로 {% for point in tester.trajectory %}{{ point.score }}점{% unless forloop.last %}, {% endunless %}{% endfor %}입니다. {{ same_text_start }}회차부터 {{ same_text_end }}회차까지는 같은 제출문이며 단조 잠금이 적용됐습니다.</desc>\n    <rect class=\"trajectory-lock-area\" x=\"245\" y=\"10\" width=\"270\" height=\"220\" rx=\"8\" fill=\"#eef2e8\" opacity=\"0.8\"></rect>\n    <g class=\"trajectory-grid\" aria-hidden=\"true\">\n      <line x1=\"58\" y1=\"20\" x2=\"530\" y2=\"20\" stroke=\"#d7ddd1\"></line>\n      <line x1=\"58\" y1=\"120\" x2=\"530\" y2=\"120\" stroke=\"#d7ddd1\"></line>\n      <line x1=\"58\" y1=\"220\" x2=\"530\" y2=\"220\" stroke=\"#aeb9a8\"></line>\n      <text x=\"48\" y=\"25\" text-anchor=\"end\" fill=\"#68736a\">100</text>\n      <text x=\"48\" y=\"125\" text-anchor=\"end\" fill=\"#68736a\">50</text>\n      <text x=\"48\" y=\"225\" text-anchor=\"end\" fill=\"#68736a\">0</text>\n    </g>\n    <text class=\"trajectory-lock-label\" x=\"380\" y=\"247\" text-anchor=\"middle\" fill=\"#65735f\">{{ same_text_start }}–{{ same_text_end }}회차: 같은 글 · 단조 잠금</text>\n    <polyline class=\"trajectory-line\" fill=\"none\" stroke=\"#637b58\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" points=\"{% for point in tester.trajectory %}{% assign x = forloop.index0 | times: 105 | plus: 78 %}{% assign y = 100 | minus: point.score | times: 2 | plus: 20 %}{{ x }},{{ y }} {% endfor %}\"></polyline>\n    {% for point in tester.trajectory %}\n      {% assign x = forloop.index0 | times: 105 | plus: 78 %}\n      {% assign y = 100 | minus: point.score | times: 2 | plus: 20 %}\n      <g class=\"trajectory-point\" aria-hidden=\"true\">\n        <circle cx=\"{{ x }}\" cy=\"{{ y }}\" r=\"6\" fill=\"#fff\" stroke=\"#637b58\" stroke-width=\"3\"></circle>\n        <text x=\"{{ x }}\" y=\"{{ y | minus: 13 }}\" text-anchor=\"middle\" fill=\"#26342c\">{{ point.score }}</text>\n        <text x=\"{{ x }}\" y=\"268\" text-anchor=\"middle\" fill=\"#4f5e54\">{{ point.round }}회차</text>\n      </g>\n    {% endfor %}\n  </svg>\n  <ol class=\"trajectory-values\" aria-label=\"Tester 6의 정확한 {{ tester.trajectory.size }}회차 총점\">\n    {% for point in tester.trajectory %}\n    <li><strong>{{ point.round }}회차</strong> {{ point.score }}점{% if point.round >= same_text_start %} <small>같은 {{ tester.same_text_length }}자 제출문</small>{% endif %}</li>\n    {% endfor %}\n  </ol>\n  <p class=\"figure-caution\">이 사례는 위 {{ aggregate.sessions }}판 집계에 포함하지 않았습니다. {{ same_text_start }}–{{ same_text_end }}회차는 같은 글을 제출했고 단조 잠금이 점수 하락을 막았으므로, 상승 뒤 정체를 학습이나 채점기 안정성으로 해석할 수 없습니다.</p>\n  <p class=\"figure-source\"><a href=\"{{ '/experiments/human-observations/' | relative_url }}#{{ tester.source_anchor }}\">출처: Exp 2 · Case — Tester 6</a></p>\n  <figcaption><strong>그림 4B · {{ tester.measured_on }}.</strong> 다른 기구 버전에서 수집된 단일 완주 사례입니다. 원문에 기록된 당시 총점을 그대로 표시합니다.</figcaption>\n</figure>",
+    "sha256": "2e355fb5e8c44538550a996c8a2ecf4ef3d5a2e745c9317950beed28d04c5cd0"
+  },
+  {
+    "id": "F21-U001",
+    "file": "_includes/research/figures/model-selection.html",
+    "start": 1,
+    "end": 14,
+    "kind": "template",
+    "text": "{% assign model = site.data.research_figures.model_selection %}\n{% assign embedding = model.embedding %}\n<figure class=\"research-figure\" aria-labelledby=\"model-funnel-title\">\n  <p class=\"figure-eyebrow\">FIGURE 03A · MODEL GATE</p>\n  <h3 class=\"figure-title\" id=\"model-funnel-title\">후보를 실제 게임 실행까지 확인하는 {{ model.stages.size }}단계</h3>\n  <ol class=\"flow-steps\" aria-label=\"모델 선정의 {{ model.stages.size }}단계\">\n    {% for stage in model.stages %}\n    <li><small>STAGE {{ stage.number }}</small><strong>{{ stage.label }}</strong>{% unless forloop.last %}<span class=\"flow-arrow\" aria-hidden=\"true\">→</span>{% endunless %}</li>\n    {% endfor %}\n  </ol>\n  <p class=\"figure-caution\">이 흐름은 절차를 보여 줍니다. 단계별 후보 수는 공개 원문에 단일 확정값이 없어 그림에 넣지 않았습니다.</p>\n  <p class=\"figure-source\"><a href=\"{{ '/experiments/model-selection/' | relative_url }}#{{ model.stages_source_anchor }}\">출처: Exp 1 · §4.1 Funnel</a></p>\n  <figcaption><strong>그림 3A.</strong> 응답 형식부터 역할별 평가, 메모리 조건, 실제 게임 실행까지 순서대로 확인한 뒤 모델을 채택합니다.</figcaption>\n</figure>",
+    "sha256": "2a175dd69998bf495eccd0fa0776e9ecc3c2c41b8d9de69e993c150e0ed52ca1"
+  },
+  {
+    "id": "F21-U002",
+    "file": "_includes/research/figures/model-selection.html",
+    "start": 16,
+    "end": 35,
+    "kind": "template",
+    "text": "<figure class=\"research-figure\" aria-labelledby=\"embedding-title\">\n  <p class=\"figure-eyebrow\">FIGURE 03B · {{ embedding.measured_on }} 측정</p>\n  <h3 class=\"figure-title\" id=\"embedding-title\">검수한 {{ embedding.reviewed_items }}문장에서 첫 추천 적중과 계산 시간</h3>\n  <p>직접 쓴 규칙을 적용할 수 없을 때, 뜻이 가까운 대안 규칙을 먼저 보여 주는 보조 기능을 비교했습니다.</p>\n  <div class=\"metric-comparison\" role=\"group\" aria-label=\"대안 정렬 방식별 첫 추천 적중 수와 가운데 응답 시간\">\n    {% for condition in embedding.conditions %}\n    <div class=\"metric-row\">\n      <strong>{{ condition.label }}</strong>\n      <small>{% if condition.dimensions %}벡터 {{ condition.dimensions }}차원{% else %}단어 형태를 비교하는 기준선{% endif %}</small>\n      <span class=\"metric-bar\"><meter min=\"0\" max=\"{{ embedding.reviewed_items }}\" value=\"{{ condition.top1_correct }}\" aria-label=\"{{ condition.label }}{% if condition.dimensions %} 벡터 {{ condition.dimensions }}차원{% endif %}: 첫 추천 적중 {{ condition.top1_correct }}/{{ embedding.reviewed_items }}\">{{ condition.top1_correct }}/{{ embedding.reviewed_items }}</meter> <b>{{ condition.top1_correct }}/{{ embedding.reviewed_items }}</b></span>\n      <span class=\"metric-latency\">가운데 응답 시간(p50) {{ condition.latency_p50_ms | round }}ms</span>\n    </div>\n    {% endfor %}\n  </div>\n  <p class=\"figure-legend\"><span><i style=\"background:#647c58\"></i>막대: 첫 번째로 보여 준 대안이 맞은 문장 수</span><span>p50: 측정값을 빠른 순서로 놓았을 때 가운데 시간</span><span>ms: 1,000분의 1초</span></p>\n  <p>모델 이름 옆 차원은 문장을 숫자로 표현하는 벡터의 길이이며 점수가 아닙니다. 시간은 {{ embedding.latency_context }}입니다.</p>\n  <p class=\"figure-caution\">Scenario Director가 검수한 {{ embedding.reviewed_items }}문장 결과만 표시했습니다. 앞선 미검수 {{ embedding.repeat_check.items }}문장 수치는 포함하지 않았습니다. 어간 겹침은 모델을 호출하지 않는 기준선이어서 시간이 0ms로 기록됐습니다.</p>\n  <p class=\"figure-source\"><a href=\"{{ '/experiments/model-selection/' | relative_url }}#{{ embedding.source_anchor }}\">출처: Exp 1 · {{ embedding.source_section }} 정본 수치</a></p>\n  <figcaption><strong>그림 3B · {{ embedding.measured_on }}.</strong> 첫 추천 적중(top-1)은 처음 보여 준 대안이 검수 정답과 맞은 문장 수입니다. 이 그림은 검수한 {{ embedding.reviewed_items }}문장 표의 공개값을 그대로 보여 줍니다. 같은 절의 반복 n={{ embedding.repeat_check.repetitions }} 검사는 별도의 초기 {{ embedding.repeat_check.items }}문장 미검수 골든에 대한 결과이며 이 표의 반복 근거가 아닙니다. 계산 시간은 적중 수와 별도 축으로 읽습니다.</figcaption>\n</figure>",
+    "sha256": "6b8133f00be2d5d5a385194d266f5600dcd7df8bbf59712ab427839d319c0e78"
+  },
+  {
+    "id": "F22-U001",
+    "file": "_includes/research/figures/prereg-ab.html",
+    "start": 1,
+    "end": 19,
+    "kind": "template",
+    "text": "{% assign prereg = site.data.research_figures.preregistration %}\n<figure class=\"research-figure\" aria-labelledby=\"prereg-title\">\n  <p class=\"figure-eyebrow\">FIGURE 05 · PREREGISTERED DESIGN</p>\n  <h3 class=\"figure-title\" id=\"prereg-title\">결과를 보기 전에 고정한 두 조건</h3>\n  <div class=\"ab-flow\" aria-label=\"참가자를 무작위 배정해 A 또는 B 조건을 보여 준 뒤 AI 제안 수용률을 측정하는 설계\">\n    <div class=\"ab-flow__node ab-flow__start\"><small>PARTICIPANTS</small><strong>참가자</strong></div>\n    <span class=\"ab-flow__arrow\" aria-hidden=\"true\">↓ 무작위 배정</span>\n    <div class=\"ab-flow__branches\">\n      {% for condition in prereg.conditions %}\n      <div class=\"ab-flow__node\"><small>CONDITION {{ condition.id }}</small><strong>{{ condition.label }}</strong><span>rationale {{ condition.rationale }}</span></div>\n      {% endfor %}\n    </div>\n    <span class=\"ab-flow__arrow\" aria-hidden=\"true\">↓ 두 조건을 같은 기준으로 측정</span>\n    <div class=\"ab-flow__node ab-flow__outcome\"><small>PRIMARY OUTCOME</small><strong>{{ prereg.primary_outcome }}</strong><span class=\"status-not-run\">{{ prereg.status }}</span></div>\n  </div>\n  <p class=\"figure-caution\">아직 측정값이 없습니다. NOT RUN을 0%나 효과 없음으로 읽지 마세요.</p>\n  <p class=\"figure-source\"><a href=\"{{ '/prereg/' | relative_url }}#{{ prereg.source_anchor }}\">출처: 사전등록 · Anchor Experiment 설계</a></p>\n  <figcaption><strong>그림 5.</strong> 무작위로 배정할 A/B 조건과 주요 결과값만 보여 줍니다. 결과 막대와 효과 크기는 실험 실행 뒤에만 추가할 수 있습니다.</figcaption>\n</figure>",
+    "sha256": "499fefc6facaa07b5529181f16d61bc60774ea8f960b033b8e0abd4647da952f"
+  },
+  {
+    "id": "F23-U001",
+    "file": "_includes/research/figures/system-loop.html",
+    "start": 1,
+    "end": 13,
+    "kind": "template",
+    "text": "{% assign loop = site.data.research_figures.system_loop %}\n<figure class=\"research-figure\" aria-labelledby=\"system-loop-title\">\n  <p class=\"figure-eyebrow\">FIGURE 02 · SYSTEM LOOP</p>\n  <h3 class=\"figure-title\" id=\"system-loop-title\">실패를 설명하고 규칙을 바꿔 다시 실행하는 순환</h3>\n  <ol class=\"flow-steps\" aria-label=\"실험환경의 여섯 단계\">\n    {% for step in loop.steps %}\n    <li><small>STEP {{ forloop.index }}</small><strong>{{ step }}</strong><span class=\"flow-arrow{% if forloop.last %} flow-arrow--loop{% endif %}\" aria-hidden=\"true\">{% if forloop.last %}↺{% else %}→{% endif %}</span></li>\n    {% endfor %}\n  </ol>\n  <p class=\"figure-caution\">각 선택은 이벤트로 기록되지만, 기록만으로 플레이어의 마음이나 인과관계를 단정하지 않습니다.</p>\n  <p class=\"figure-source\"><a href=\"{{ '/testbed/' | relative_url }}#{{ loop.source_anchor }}\">출처: Testbed · Figure 1 — System Loop</a></p>\n  <figcaption><strong>그림 2.</strong> 플레이어의 선택이 다음 실행으로 이어지는 실험환경의 기본 단위입니다. 마지막 재실행은 다시 첫 단계로 연결됩니다.</figcaption>\n</figure>",
+    "sha256": "4db21e78b5951f57a64a71a5f733c38957c91c5e705b3ec89d4b0147e9ffbfc6"
+  },
+  {
+    "id": "F24-U001",
+    "file": "_includes/research/glossary.html",
+    "start": 1,
+    "end": 15,
+    "kind": "template",
+    "text": "<details class=\"glossary\" id=\"reading-glossary\">\n  <summary><span><span class=\"glossary-icon\" aria-hidden=\"true\">Aa</span>용어를 쉽게 읽기 <small>배경지식 없이 읽는 연구</small></span><span class=\"disclosure-indicator\" aria-hidden=\"true\">+</span></summary>\n  <dl>\n    <div><dt>실험환경 <span>Testbed</span></dt><dd>조건을 정해 두고 같은 과정을 반복해서 실험할 수 있는 환경입니다.</dd></div>\n    <div><dt>AI 제안 수용 <span>Acceptance</span></dt><dd>사람이 AI가 제안한 방법을 선택하는 행동입니다. AI를 믿는 마음 자체를 측정한 것은 아닙니다.</dd></div>\n    <div><dt>이벤트 기록 <span>Event-level trace</span></dt><dd>제안, 선택, 규칙 적용 같은 일이 일어날 때마다 남긴 기록입니다.</dd></div>\n    <div><dt>형식 통과율 <span>Schema pass rate</span></dt><dd>AI가 프로그램이 읽을 수 있도록 정해진 응답 형식을 지킨 비율입니다.</dd></div>\n    <div><dt>대체 처리 <span>Fallback</span></dt><dd>AI 응답에 문제가 있을 때 준비된 다른 처리로 넘어가는 것입니다. 평가에서는 정상 응답과 구분합니다.</dd></div>\n    <div><dt>통과 기준 <span>Gate</span></dt><dd>다음 평가 단계로 넘어가기 위해 미리 정한 조건입니다.</dd></div>\n    <div><dt>탐색적 관찰 <span>Exploratory</span></dt><dd>적은 사례에서 어떤 일이 일어나는지 살펴보는 초기 관찰입니다. 전체 사람들의 경향으로 일반화하지 않습니다.</dd></div>\n    <div><dt>사전등록 <span>Preregistration</span></dt><dd>결과를 보기 전에 질문, 방법, 판정 기준을 고정해서 공개하는 것입니다.</dd></div>\n    <div><dt>응답 지연 p95</dt><dd>측정한 요청의 약 95%가 이 시간 안에 응답했다는 뜻입니다. 평균 응답 시간과 다릅니다.</dd></div>\n    <div><dt>미실행 <span>NOT RUN</span></dt><dd>아직 측정하지 않았다는 뜻입니다. 측정 결과가 0이라는 뜻이 아닙니다.</dd></div>\n  </dl>\n</details>",
+    "sha256": "7551daf1ac6d21d6f8f3eb0a7721bf884221d38783a2cd40a370cc92d4199395"
+  },
+  {
+    "id": "F25-U001",
+    "file": "_includes/research/home.html",
+    "start": 1,
+    "end": 8,
+    "kind": "template",
+    "text": "<header class=\"paper-head paper-head--home\">\n  <div class=\"eyebrow\"><span class=\"status-dot\" aria-hidden=\"true\"></span>REMAKE DAY RESEARCH <span class=\"eyebrow-divider\">/</span> HUMAN–AI INTERACTION</div>\n  <div class=\"paper-kicker\"><span>게임으로 관찰하는 사람과 AI</span><span class=\"status-badge\">진행 중인 연구</span></div>\n  <h1 id=\"paper-title\">AI 제안 수용 측정을 위한<br class=\"desktop-break\"> 게임 기반 Human–AI 상호작용<br class=\"desktop-break\"> 실험환경의 설계 및 검증</h1>\n  <p class=\"home-question\">사람은 언제 AI의 제안을 받아들일까요?</p>\n  <p class=\"paper-lead\">실패하고 다시 도전하는 게임 속에서, 사람이 AI의 제안을<br class=\"desktop-break\"> 선택하거나 직접 수정하는 순간을 기록합니다.</p>\n  <div class=\"hero-actions\"><a class=\"button button--primary\" href=\"#research-abstract\">연구 요약 읽기 <span aria-hidden=\"true\">↓</span></a><a class=\"text-link\" href=\"{{ '/plain-summary/' | relative_url }}\">비유로 먼저 이해하기 <span aria-hidden=\"true\">↗</span></a></div>\n</header>",
+    "sha256": "dfb341a4900704f75d007d6c3da6d471d94ede812045a96aa9bb8a9d75ac1202"
+  },
+  {
+    "id": "F25-U002",
+    "file": "_includes/research/home.html",
+    "start": 10,
+    "end": 15,
+    "kind": "template",
+    "text": "<figure class=\"instrument-figure\" id=\"research-instrument\" aria-labelledby=\"instrument-caption\">\n  <div class=\"figure-topline\"><span>FIGURE 01</span><span>반복되는 선택, 쌓이는 관찰</span></div>\n  <img src=\"{{ '/assets/images/research-instrument.webp' | relative_url }}\" width=\"1600\" height=\"1000\" alt=\"게임 공간, AI 제안 카드, 사람의 선택, 기록 장치를 순서대로 배치한 실험환경의 3D 개념 모형\" fetchpriority=\"high\">\n  <ol class=\"instrument-labels\"><li><span>01</span><strong>게임에서 관찰</strong><small>단서를 보고 질문합니다</small></li><li><span>02</span><strong>AI가 제안</strong><small>다음 방법을 제시합니다</small></li><li><span>03</span><strong>사람이 선택</strong><small>수용하거나 직접 씁니다</small></li><li><span>04</span><strong>선택을 기록</strong><small>수정하고 다시 관찰합니다</small></li></ol>\n  <figcaption id=\"instrument-caption\"><strong>그림 1. 게임이 실험환경이 되는 과정.</strong> 선택과 규칙 적용을 기록하고 다음 회차에서 다시 관찰합니다. 작동 원리를 설명하는 개념 모형입니다. <a href=\"{{ '/testbed/' | relative_url }}\">실험환경 자세히 읽기 ↗</a></figcaption>\n</figure>",
+    "sha256": "7f944f58675b57c8d7dccaf6bf52561ad12f8d3e89dda0b09b8bfdd36c7c0d30"
+  },
+  {
+    "id": "F25-U003",
+    "file": "_includes/research/home.html",
+    "start": 17,
+    "end": 23,
+    "kind": "template",
+    "text": "<section class=\"abstract-section\" id=\"research-abstract\" aria-labelledby=\"abstract-heading\">\n  <div class=\"section-heading\"><div><span class=\"eyebrow\">01 / ABSTRACT</span><h2 id=\"abstract-heading\">이 연구가 묻는 것</h2></div><span class=\"section-note\">배경지식 없이 읽는 요약</span></div>\n  <p class=\"abstract-lead\">AI가 방법을 제안해도, 마지막 선택은 사람이 합니다.<br class=\"desktop-break\"> 그 선택을 반복해서 관찰할 수 있을까요?</p>\n  <p>REMAKE DAY는 실패, 설명, 제안, 선택, 재실행이 이어지는 게임입니다. 플레이어가 AI의 제안을 받아들이는지, 직접 규칙을 쓰는지, 이후 어떤 설명을 적는지를 기록합니다. 게임을 실제로 작동하는 <strong>사람–AI 상호작용 실험환경</strong>으로 설계했습니다.</p>\n  <p>먼저 AI 모델과 측정 도구가 제대로 작동하는지 평가하고, 그 환경에서 실제 사람의 플레이를 관찰했습니다. 현재 행동 관찰은 적은 사례를 살펴보는 초기 단계입니다. <strong>AI의 설명이 선택에 영향을 주는지는 아직 실험하지 않았습니다.</strong></p>\n  <a class=\"text-link\" href=\"#original-record\">정식 Abstract와 전체 연구 설명 읽기 <span aria-hidden=\"true\">↗</span></a>\n</section>",
+    "sha256": "4ff23fc84aa3c6a307332149bbf647aa29434ef0b54e73f42446bfbca7baf258"
+  },
+  {
+    "id": "F25-U004",
+    "file": "_includes/research/home.html",
+    "start": 25,
+    "end": 32,
+    "kind": "template",
+    "text": "<section class=\"contributions-section\" id=\"research-contributions\" aria-labelledby=\"contributions-heading\">\n  <div class=\"section-heading\"><div><span class=\"eyebrow\">02 / CONTRIBUTIONS</span><h2 id=\"contributions-heading\">무엇을 만들고 검증했나</h2></div></div>\n  <div class=\"contribution-list\">\n    <a href=\"{{ '/testbed/' | relative_url }}\"><span class=\"contribution-id\">C1</span><div><h3>반복해서 실험할 수 있는 게임</h3><p>실패 → AI 제안 → 사람의 선택 → 규칙 수정 → 재실행의 과정을 구성했습니다.</p><span class=\"contribution-type\">Experimental environment · 실험환경</span></div><span class=\"row-arrow\" aria-hidden=\"true\">↗</span></a>\n    <a href=\"{{ '/experiments/human-observations/' | relative_url }}\"><span class=\"contribution-id\">C2</span><div><h3>선택을 확인할 수 있는 행동 기록</h3><p>AI 제안을 고른 순간과 직접 작성한 순간을 구분하고, 실제 플레이 사례로 확인했습니다.</p><span class=\"contribution-type\">Behavioral measurement · 행동 측정</span></div><span class=\"row-arrow\" aria-hidden=\"true\">↗</span></a>\n    <a href=\"{{ '/experiments/model-selection/' | relative_url }}\"><span class=\"contribution-id\">C3</span><div><h3>같은 기준으로 다시 평가하는 방법</h3><p>모델의 판단과 고정된 게임 규칙을 분리하고, 평가 절차와 채택 근거를 기록했습니다.</p><span class=\"contribution-type\">Reproducible evaluation · 재현 가능한 평가</span></div><span class=\"row-arrow\" aria-hidden=\"true\">↗</span></a>\n  </div>\n</section>",
+    "sha256": "e22039a4aebcc31774f50008cf2074ab5e0f7cd736ff14b9bbffb3d7aa5499d9"
+  },
+  {
+    "id": "F25-U005",
+    "file": "_includes/research/home.html",
+    "start": 34,
+    "end": 42,
+    "kind": "template",
+    "text": "<section class=\"evidence-section\" id=\"research-evidence\" aria-labelledby=\"evidence-heading\">\n  <div class=\"section-heading\"><div><span class=\"eyebrow\">03 / EVIDENCE</span><h2 id=\"evidence-heading\">지금까지 확인한 범위</h2></div></div>\n  <div class=\"evidence-grid\">\n    <a class=\"evidence-card\" href=\"{{ '/experiments/model-selection/' | relative_url }}\"><span class=\"status-badge status-badge--measured\">시스템 · 실측 기록</span><span class=\"evidence-number\">01</span><h3>어떤 AI를<br>사용할 것인가</h3><p>정해진 형식, 판단 품질, 응답 시간과 실제 게임 실행을 평가했습니다.</p><span class=\"card-link\">모델 선정 근거 <span aria-hidden=\"true\">↗</span></span></a>\n    <a class=\"evidence-card\" href=\"{{ '/experiments/human-observations/' | relative_url }}\"><span class=\"status-badge status-badge--observed\">행동 · 탐색적 관찰</span><span class=\"evidence-number\">02</span><h3>사람은 무엇을<br>선택했는가</h3><p>실제 선택을 기록했습니다. 표본이 작고 실험환경이 바뀌어 해석에 제한이 있습니다.</p><span class=\"card-link\">선택과 사례 기록 <span aria-hidden=\"true\">↗</span></span></a>\n    <a class=\"evidence-card\" href=\"{{ '/prereg/' | relative_url }}\"><span class=\"status-badge status-badge--planned\">다음 실험 · 미실행</span><span class=\"evidence-number\">03</span><h3>이유를 설명하면<br>선택이 달라질까</h3><p>설명이 있는 조건과 없는 조건을 비교할 방법을 미리 정했습니다. 결과는 아직 없습니다.</p><span class=\"card-link\">사전등록된 설계 <span aria-hidden=\"true\">↗</span></span></a>\n  </div>\n  <div class=\"research-principle\"><span class=\"principle-mark\" aria-hidden=\"true\">↳</span><div><strong>측정하지 않은 것은 주장하지 않는다.</strong><p>관찰한 사실, 아직 모르는 것, 실험환경의 한계를 함께 기록합니다.</p></div><a href=\"{{ '/limitations/' | relative_url }}\">한계 읽기 ↗</a></div>\n</section>",
+    "sha256": "bd41df228090ab9dcfb89c836c77bb6ec266fc99b7b73ab7a0842b056bd8e2d3"
+  },
+  {
+    "id": "F26-U001",
+    "file": "_includes/research/overview.html",
+    "start": 1,
+    "end": 7,
+    "kind": "template",
+    "text": "<section class=\"reading-overview\" aria-labelledby=\"reading-overview-title\">\n  <h2 id=\"reading-overview-title\">{{ include.reading.overview_title | default: \"먼저 읽을 내용\" }}</h2>\n  {% if include.reading.findings %}\n  <ul class=\"reading-findings\">\n    {% for finding in include.reading.findings %}<li>{{ finding }}</li>{% endfor %}\n  </ul>\n  {% endif %}",
+    "sha256": "0ab7fe857b8ff1f5198ae40ce05543d2b293bbb06f29be7226c2c91b743f183c"
+  },
+  {
+    "id": "F26-U002",
+    "file": "_includes/research/overview.html",
+    "start": 9,
+    "end": 14,
+    "kind": "template",
+    "text": "  {% case include.reading.figure %}\n    {% when \"system-loop\" %}{% include research/figures/system-loop.html %}\n    {% when \"model-selection\" %}{% include research/figures/model-selection.html %}\n    {% when \"human-observations\" %}{% include research/figures/human-observations.html %}\n    {% when \"prereg-ab\" %}{% include research/figures/prereg-ab.html %}\n  {% endcase %}",
+    "sha256": "fbc77a4411af64f6fb2b8954d19627f804dcc46412740426782025682117a9f5"
+  },
+  {
+    "id": "F26-U003",
+    "file": "_includes/research/overview.html",
+    "start": 16,
+    "end": 18,
+    "kind": "template",
+    "text": "  <p class=\"reading-caution\"><strong>해석 주의.</strong> {{ include.reading.caution }}</p>\n  <p class=\"figure-source\"><a href=\"#original-record\">전체 연구 기록과 근거 표 보기 ↓</a></p>\n</section>",
+    "sha256": "d3618f06538944d51b5d36d173ce9db58d28fdd72baff168da82f121bff9e120"
+  }
+]

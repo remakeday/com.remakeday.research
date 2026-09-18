@@ -1,0 +1,1440 @@
+[
+  {
+    "id": "F01-U001",
+    "verdict": "clarify",
+    "reason": "7판은 기존 집계 6판과 별도 후속 1판을 합한 기록 범위다. 메타데이터에도 두 묶음과 확정·유력을 표시해야 한다.",
+    "finding_ids": [
+      "OA-01"
+    ]
+  },
+  {
+    "id": "F01-U002",
+    "verdict": "keep",
+    "reason": "영문 초록의 절 제목으로 학술 장르에 맞고 한국어 문체 교정 대상이 아니다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F01-U003",
+    "verdict": "keep",
+    "reason": "AI 제안에 대한 수용·거부를 반복 관찰하기 어렵다는 영문 배경이며 분야 전체에 방법이 없다고 단정하지 않는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F01-U004",
+    "verdict": "verify",
+    "reason": "환경이 side-effect recognition과 understanding을 기록한다는 문장을 실제 완료된 척도·집계와 대조해야 한다.",
+    "finding_ids": [
+      "OA-02"
+    ]
+  },
+  {
+    "id": "F01-U005",
+    "verdict": "verify",
+    "reason": "reproducible testbed 기여가 구현 반복 가능성인지 독립 재현 완료인지 근거 범위를 분명히 해야 한다.",
+    "finding_ids": [
+      "OA-03"
+    ]
+  },
+  {
+    "id": "F01-U006",
+    "verdict": "keep",
+    "reason": "초록과 포지셔닝을 구분하는 구획선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F01-U007",
+    "verdict": "keep",
+    "reason": "프로젝트의 위치를 설명하는 짧은 절 제목이며 과도한 장식이 아니다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F01-U008",
+    "verdict": "keep",
+    "reason": "프로젝트의 한 차례 핵심 대비 문장이다. 다른 페이지 출현을 합쳐 C-8 위반으로 보지 않는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F01-U009",
+    "verdict": "copy_edit",
+    "reason": "저자 자신의 강조문이므로 만들어진 직접 발화 인용으로 보호할 필요는 없다. 만들고 뒤 쉼표만 국소 수정 가능하다.",
+    "finding_ids": [
+      "OA-56"
+    ]
+  },
+  {
+    "id": "F01-U010",
+    "verdict": "keep",
+    "reason": "한국어 주장에 대응하는 영문 프로젝트 선언이다. 실험 횟수나 새 결과를 추가하지 않으므로 영문은 보존한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F01-U011",
+    "verdict": "keep",
+    "reason": "게임·대시보드·보고서의 세 층 도식으로 구조 파악에 필요하다. 코드 블록은 그대로 둔다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F01-U012",
+    "verdict": "keep",
+    "reason": "포지셔닝과 기여 목록 사이의 구획선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F01-U013",
+    "verdict": "keep",
+    "reason": "C1–C3 학술 기여 절의 실제 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F01-U014",
+    "verdict": "clarify",
+    "reason": "operationalize와 Human Approval을 풀이하고 루프의 실패 설명과 A/B의 이유 제시를 구분해야 한다.",
+    "finding_ids": [
+      "OA-04",
+      "OA-16"
+    ]
+  },
+  {
+    "id": "F01-U015",
+    "verdict": "verify",
+    "reason": "기록된 사건과 아직 정의·집계하지 못한 부작용 인지·질문 품질·이해도 변화를 같은 완료 동사로 묶었다.",
+    "finding_ids": [
+      "OA-02",
+      "OA-04"
+    ]
+  },
+  {
+    "id": "F01-U016",
+    "verdict": "verify",
+    "reason": "deterministic domain logic 등의 풀이가 필요하며 동일 trace로 두 평가를 재현했다는 실행 근거가 필요하다.",
+    "finding_ids": [
+      "OA-03",
+      "OA-04"
+    ]
+  },
+  {
+    "id": "F01-U017",
+    "verdict": "keep",
+    "reason": "기여와 현재 상태 표를 나누는 구획선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F01-U018",
+    "verdict": "keep",
+    "reason": "현재 진행 상태를 모아 보여 주는 기능적인 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F01-U019",
+    "verdict": "verify",
+    "reason": "6판+후속 1판의 단위와 외부 API 게이트별 통과·미달·미실행을 완료라는 표기에서 분리해야 한다.",
+    "finding_ids": [
+      "OA-01",
+      "OA-10"
+    ]
+  },
+  {
+    "id": "F01-U020",
+    "verdict": "keep",
+    "reason": "미측정 NOT RUN과 작은 표본 공개 원칙을 명시한 필요한 제한 문장이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F02-U001",
+    "verdict": "keep",
+    "reason": "프로젝트 제출문 제목·설명이며 수용 측정 환경이라는 내용은 본문 목적과 맞는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F02-U002",
+    "verdict": "keep",
+    "reason": "저자의 대표 선언문이며 단독 대구를 AI 문체 신호로 세지 않는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F02-U003",
+    "verdict": "keep",
+    "reason": "연구 동기 절의 짧은 제목으로 기능이 명확하다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F02-U004",
+    "verdict": "verify",
+    "reason": "측정 방법의 전면 부재를 입증할 근거와 믿음·수용 행동의 구분이 필요하다.",
+    "finding_ids": [
+      "OA-06",
+      "OA-08"
+    ]
+  },
+  {
+    "id": "F02-U005",
+    "verdict": "keep",
+    "reason": "구현 결과를 소개하는 간결한 절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F02-U006",
+    "verdict": "verify",
+    "reason": "모든 판단이라는 기록 범위의 과장이 있고 게임이며 뒤 연결 쉼표를 국소 정리할 수 있다.",
+    "finding_ids": [
+      "OA-09",
+      "OA-56"
+    ]
+  },
+  {
+    "id": "F02-U007",
+    "verdict": "verify",
+    "reason": "자발적 반복·몰입과 가장 빠름은 설계 의도인지 비교 실측인지 확인해야 한다.",
+    "finding_ids": [
+      "OA-07"
+    ]
+  },
+  {
+    "id": "F02-U008",
+    "verdict": "keep",
+    "reason": "시스템 검증과 행동 관찰이라는 두 범위를 안내하는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F02-U009",
+    "verdict": "keep",
+    "reason": "곧 나오는 두 층의 수행 내용을 연결하는 짧은 도입문이며 독립적인 과장 수치는 없다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F02-U010",
+    "verdict": "keep",
+    "reason": "16GB·5단계 게이트·Core/NPC 채택의 실측 범위를 제시하고 상세 근거 링크를 둔다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F02-U011",
+    "verdict": "clarify",
+    "reason": "6판 안의 규칙 선택 20건이 비율의 분모이며 확정 5판·유력 1판, 후속 1판 별도를 함께 안내해야 한다.",
+    "finding_ids": [
+      "OA-01",
+      "OA-05"
+    ]
+  },
+  {
+    "id": "F02-U012",
+    "verdict": "keep",
+    "reason": "앞 문단의 실측 범위를 제한하는 연구 원칙이며 제거할 상투구로 보지 않는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F02-U013",
+    "verdict": "verify",
+    "reason": "제목의 가장 빠른 검증 환경이라는 최상급은 비교 근거가 필요하다.",
+    "finding_ids": [
+      "OA-07"
+    ]
+  },
+  {
+    "id": "F02-U014",
+    "verdict": "verify",
+    "reason": "NPC 교체 방향이 현재 표와 다르므로 과거 결정·복귀·현재 구성의 날짜를 확인해야 한다.",
+    "finding_ids": [
+      "OA-11"
+    ]
+  },
+  {
+    "id": "F02-U015",
+    "verdict": "verify",
+    "reason": "하루 저녁의 채택 결정과 모든 게이트 비열등 통과는 다르다. 연결 쉼표는 별도 국소 수정할 수 있다.",
+    "finding_ids": [
+      "OA-10",
+      "OA-56"
+    ]
+  },
+  {
+    "id": "F02-U016",
+    "verdict": "verify",
+    "reason": "최상급 결말을 프로젝트에서 실제 관찰한 모델 교체·사람 선택의 범위로 좁힐지 저자 판단이 필요하다.",
+    "finding_ids": [
+      "OA-07"
+    ]
+  },
+  {
+    "id": "F03-U001",
+    "verdict": "keep",
+    "reason": "실험환경 설명이라는 메타데이터와 게임·연구 관계는 본문 목적에 맞는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F03-U002",
+    "verdict": "keep",
+    "reason": "게임과 연구라는 두 역할을 연결하는 절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F03-U003",
+    "verdict": "clarify",
+    "reason": "도식의 이해도·부작용·질문 품질 계측은 완료와 설계 목표를 구분하는 안내가 필요하다.",
+    "finding_ids": [
+      "OA-02"
+    ]
+  },
+  {
+    "id": "F03-U004",
+    "verdict": "keep",
+    "reason": "게임이 실험기구라는 한 차례 핵심 정의를 요약한다. 부정 대구만으로 삭제하지 않는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F03-U005",
+    "verdict": "keep",
+    "reason": "바로 아래 정의문을 소개하는 짧은 문구이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F03-U006",
+    "verdict": "clarify",
+    "reason": "이해도 관계 측정의 진행 상태를 붙이고 저자 정의문의 거부하며 뒤 쉼표는 제거 가능하다.",
+    "finding_ids": [
+      "OA-02",
+      "OA-56"
+    ]
+  },
+  {
+    "id": "F03-U007",
+    "verdict": "keep",
+    "reason": "정의와 시스템 루프를 분리하는 구획선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F03-U008",
+    "verdict": "keep",
+    "reason": "Figure 1의 실제 학술 도식 제목이므로 콜론·영문 제목 규칙으로 축약하지 않는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F03-U009",
+    "verdict": "clarify",
+    "reason": "실패 설명과 제안 이유를 별개로 해설하고 수락·거절·직접 작성의 실제 단계 관계를 안내해야 한다.",
+    "finding_ids": [
+      "OA-16"
+    ]
+  },
+  {
+    "id": "F03-U010",
+    "verdict": "clarify",
+    "reason": "신의개입이 원숭이손·신의 질문·추천 옵션 가운데 어느 기능을 묶은 말인지 특정해야 한다.",
+    "finding_ids": [
+      "OA-16"
+    ]
+  },
+  {
+    "id": "F03-U011",
+    "verdict": "clarify",
+    "reason": "AI Option 1–3와 Human-written Rule을 보존하되 실제 제안 분기의 도식인지 설명이 필요하다.",
+    "finding_ids": [
+      "OA-16"
+    ]
+  },
+  {
+    "id": "F03-U012",
+    "verdict": "verify",
+    "reason": "나열된 이벤트가 선택뿐 아니라 채점·세션 종료도 포함한다. 측정 항목과 이벤트의 매핑을 확인해야 한다.",
+    "finding_ids": [
+      "OA-02",
+      "OA-16"
+    ]
+  },
+  {
+    "id": "F03-U013",
+    "verdict": "keep",
+    "reason": "선택·이벤트 구조와 시스템 구성 표를 나누는 구획선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F03-U014",
+    "verdict": "keep",
+    "reason": "시스템 구성요소 역할 표의 기능적인 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F03-U015",
+    "verdict": "clarify",
+    "reason": "비트·근거 기반 억제·Harness를 설명하고 모든 이벤트라는 기록 범위를 정의해야 한다.",
+    "finding_ids": [
+      "OA-04",
+      "OA-09"
+    ]
+  },
+  {
+    "id": "F03-U016",
+    "verdict": "keep",
+    "reason": "개발 평가와 제출 서빙을 구분하는 제목은 필요한 조건 구분이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F03-U017",
+    "verdict": "verify",
+    "reason": "설정 두 줄 전환은 지원 어댑터 수정·검증을 마친 조건인지 실제 변경 기록과 맞춰야 한다.",
+    "finding_ids": [
+      "OA-13"
+    ]
+  },
+  {
+    "id": "F03-U018",
+    "verdict": "verify",
+    "reason": "로컬 NPC 상태와 9/18 임베딩 추가를 확인해 역사 표인지 현재 구성표인지 결정해야 한다.",
+    "finding_ids": [
+      "OA-11",
+      "OA-12"
+    ]
+  },
+  {
+    "id": "F03-U019",
+    "verdict": "verify",
+    "reason": "GPU 한 장=한 명의 범위를 이번 운영 조건으로 한정하고 비열등 판정의 미달 축을 함께 밝혀야 한다.",
+    "finding_ids": [
+      "OA-10",
+      "OA-14"
+    ]
+  },
+  {
+    "id": "F03-U020",
+    "verdict": "keep",
+    "reason": "서빙 구성과 평가 방법을 나누는 구획선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F03-U021",
+    "verdict": "keep",
+    "reason": "시스템과 행동 평가를 분리한다는 핵심 구조를 정확히 소개한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F03-U022",
+    "verdict": "keep",
+    "reason": "시스템 평가라는 첫 층 제목은 역할 구분에 유용하다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F03-U023",
+    "verdict": "keep",
+    "reason": "실험기구 동작 여부를 묻는 저자의 질문이며 구체적인 평가 목적이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F03-U024",
+    "verdict": "verify",
+    "reason": "지표 설명과 실제 측정 범위가 필요하고 모든 누설·채점 축 실측 완료로 읽히는 표현을 좁혀야 한다.",
+    "finding_ids": [
+      "OA-04",
+      "OA-15"
+    ]
+  },
+  {
+    "id": "F03-U025",
+    "verdict": "keep",
+    "reason": "행동 평가라는 둘째 층 제목은 구조상 필요하다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F03-U026",
+    "verdict": "keep",
+    "reason": "관찰된 행동을 묻는 질문으로 심리 상태나 인과를 단정하지 않는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F03-U027",
+    "verdict": "clarify",
+    "reason": "영문 지표를 풀어 주고 Rationale 효과·부작용 인지의 미실행 상태를 각 항목에 연결해야 한다.",
+    "finding_ids": [
+      "OA-02",
+      "OA-04"
+    ]
+  },
+  {
+    "id": "F03-U028",
+    "verdict": "keep",
+    "reason": "기구 검증 뒤 행동 실험을 배치한 두 단계 코드 도식은 방법 순서를 간단히 보여 준다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F03-U029",
+    "verdict": "verify",
+    "reason": "선후 순서만으로 행동 측정 타당성이 확보된 듯 읽히지 않게 검증 범위·남은 한계를 연결해야 한다.",
+    "finding_ids": [
+      "OA-03"
+    ]
+  },
+  {
+    "id": "F04-U001",
+    "verdict": "clarify",
+    "reason": "Cochrane·PLOS 관례의 실제 참고 지침 링크와 준수 범위를 보완해야 한다.",
+    "finding_ids": [
+      "OA-18"
+    ]
+  },
+  {
+    "id": "F04-U002",
+    "verdict": "clarify",
+    "reason": "비전문가 요약 관례의 근거 링크가 필요하며 없으며 뒤 쉼표는 국소 수정 가능하다.",
+    "finding_ids": [
+      "OA-18",
+      "OA-56"
+    ]
+  },
+  {
+    "id": "F04-U003",
+    "verdict": "keep",
+    "reason": "비전문가가 연구 목적부터 읽도록 하는 간결한 절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F04-U004",
+    "verdict": "keep",
+    "reason": "언제 AI 제안을 받아들이는지라는 관찰 행동 중심의 한 문장 요약은 정확하다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F04-U005",
+    "verdict": "keep",
+    "reason": "교육용 핵심 비유임을 명확히 알리는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F04-U006",
+    "verdict": "keep",
+    "reason": "블록탑이 실제 게임 내용이 아니라 구조 비유임을 분명히 한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F04-U007",
+    "verdict": "copy_edit",
+    "reason": "비유 내용과 선택의 가능성은 유지하고 있고 뒤 연결 쉼표만 덜어낼 수 있다.",
+    "finding_ids": [
+      "OA-56"
+    ]
+  },
+  {
+    "id": "F04-U008",
+    "verdict": "verify",
+    "reason": "빠짐없는 기록과 탑이 튼튼해짐을 로그 완전성·이해도 개선으로 확장하지 않도록 실제 측정 대응을 확인한다.",
+    "finding_ids": [
+      "OA-09"
+    ]
+  },
+  {
+    "id": "F04-U009",
+    "verdict": "clarify",
+    "reason": "로봇을 믿는 마음과 카드를 선택하는 행동의 차이를 비유 안에서 밝혀야 한다.",
+    "finding_ids": [
+      "OA-08"
+    ]
+  },
+  {
+    "id": "F04-U010",
+    "verdict": "keep",
+    "reason": "현재까지의 집계라는 시점을 드러내는 쉬운 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F04-U011",
+    "verdict": "clarify",
+    "reason": "20번 분모와 작은 표본 경고는 적절하나 다섯 번째 탑이 한 판의 5회차라는 설명을 보완한다.",
+    "finding_ids": [
+      "OA-19"
+    ]
+  },
+  {
+    "id": "F04-U012",
+    "verdict": "keep",
+    "reason": "비유와 실제 개념을 짝짓는 표의 제목은 학습에 유용하다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F04-U013",
+    "verdict": "clarify",
+    "reason": "카드를 원숭이손만으로 대응하면 추천 옵션 8건이 빠지므로 두 AI 출처를 함께 써야 한다.",
+    "finding_ids": [
+      "OA-17"
+    ]
+  },
+  {
+    "id": "F04-U014",
+    "verdict": "keep",
+    "reason": "설계와 실제 집계로 돌아가는 두 링크는 독자에게 충분히 명확하다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U001",
+    "verdict": "keep",
+    "reason": "한계와 재현 위치라는 부록 목적을 메타데이터가 제대로 나타낸다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U002",
+    "verdict": "keep",
+    "reason": "한계 목록의 실제 학술 절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U003",
+    "verdict": "keep",
+    "reason": "작은 표본이라는 한계의 명칭이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U004",
+    "verdict": "clarify",
+    "reason": "참가자 수와 세션 수를 구분하고 5건 이상 대신 현재 6판 집계+별도 1판 범위를 써야 한다.",
+    "finding_ids": [
+      "OA-01"
+    ]
+  },
+  {
+    "id": "F05-U005",
+    "verdict": "keep",
+    "reason": "자발적 선택 편향을 다루는 절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U006",
+    "verdict": "clarify",
+    "reason": "현재 관찰에는 랜덤 배정이 없고 별도 Rationale A/B는 아직 미실행임을 시제상 구분해야 한다.",
+    "finding_ids": [
+      "OA-20"
+    ]
+  },
+  {
+    "id": "F05-U007",
+    "verdict": "keep",
+    "reason": "합성 에이전트를 인간 대체로 보지 않는 정확한 한계 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U008",
+    "verdict": "keep",
+    "reason": "인간 대체 검증 부재와 가설 생성·스트레스 테스트 용도 제한은 핵심 유보다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U009",
+    "verdict": "keep",
+    "reason": "시나리오 하나의 일반화 한계를 소개하는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U010",
+    "verdict": "keep",
+    "reason": "다른 도메인 일반화는 미검증이라고 정확히 제한한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U011",
+    "verdict": "keep",
+    "reason": "반복 게임 학습효과의 개념을 나타내는 학술 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U012",
+    "verdict": "clarify",
+    "reason": "treatment가 이미 시행된 것처럼 읽히므로 현재 관찰과 향후 Rationale 조작의 시점을 나눠야 한다.",
+    "finding_ids": [
+      "OA-20"
+    ]
+  },
+  {
+    "id": "F05-U013",
+    "verdict": "keep",
+    "reason": "기구 변경이 관찰에 미치는 영향을 다루는 필요한 절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U014",
+    "verdict": "verify",
+    "reason": "합산하지 않는다는 선언과 6판 혼합 집계의 예외, 세션별 버전 병기 현황을 일치시켜야 한다.",
+    "finding_ids": [
+      "OA-21"
+    ]
+  },
+  {
+    "id": "F05-U015",
+    "verdict": "keep",
+    "reason": "서빙과 관찰 구성이 다르다는 중요한 조건 구분을 제목에 명시했다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U016",
+    "verdict": "clarify",
+    "reason": "관찰·서빙 세션을 합치지 않는 경고는 유지하되 외부 API 비열등 통과의 범위를 축별로 밝혀야 한다.",
+    "finding_ids": [
+      "OA-10"
+    ]
+  },
+  {
+    "id": "F05-U017",
+    "verdict": "keep",
+    "reason": "채점기 변경의 영향을 별도 한계로 다루는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U018",
+    "verdict": "clarify",
+    "reason": "19/20의 대상이 Haiku 기존 발화 표본이라는 정보를 붙여 일반적 채점기 동등성으로 읽히지 않게 한다.",
+    "finding_ids": [
+      "OA-22"
+    ]
+  },
+  {
+    "id": "F05-U019",
+    "verdict": "keep",
+    "reason": "비용이 추정치라는 핵심 상태를 제목부터 알린다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U020",
+    "verdict": "verify",
+    "reason": "문자→토큰 환산과 제외 비용·단가 기준일이 필요하며 실측이 없다는 경고는 유지한다.",
+    "finding_ids": [
+      "OA-23"
+    ]
+  },
+  {
+    "id": "F05-U021",
+    "verdict": "keep",
+    "reason": "한계와 재현 정보를 나누는 구획선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U022",
+    "verdict": "keep",
+    "reason": "재현 관련 부록의 실제 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U023",
+    "verdict": "restructure",
+    "reason": "내부 경로 목록을 공개 근거 위치와 독립 실행 가능한 재현 정보로 구분해 접근 범위·명령·버전을 안내해야 한다.",
+    "finding_ids": [
+      "OA-24"
+    ]
+  },
+  {
+    "id": "F05-U024",
+    "verdict": "keep",
+    "reason": "뒤 세 가지 원칙을 예고하는 짧은 도입이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F05-U025",
+    "verdict": "keep",
+    "reason": "조건 변경·후보 답의 정답화 금지·NOT RUN 원칙은 재현성에 필요한 목록이다. 수사 한 문장만으로 일괄 삭제하지 않는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U001",
+    "verdict": "clarify",
+    "reason": "고정 사전등록의 최초 등록일·버전·상태 확인일을 원문 밖에서 추적할 수 있어야 한다.",
+    "finding_ids": [
+      "OA-27"
+    ]
+  },
+  {
+    "id": "F06-U002",
+    "verdict": "verify",
+    "reason": "설계 고정 범위·세부 계획·데이터 이전이라는 시간 주장을 근거로 연결하되 고정 안내 자체를 수정하지 않는다.",
+    "finding_ids": [
+      "OA-25",
+      "OA-27"
+    ]
+  },
+  {
+    "id": "F06-U003",
+    "verdict": "keep",
+    "reason": "세 연구 질문을 묶는 고정 원문 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U004",
+    "verdict": "keep",
+    "reason": "RQ1의 명칭과 번호를 고정 기록으로 보존한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U005",
+    "verdict": "clarify",
+    "reason": "영문 질문은 그대로 두고 수용과 직접 작성 선택이라는 한국어 안내를 원문 밖에 둔다.",
+    "finding_ids": [
+      "OA-28"
+    ]
+  },
+  {
+    "id": "F06-U006",
+    "verdict": "keep",
+    "reason": "RQ2와 핵심 실험 지위를 나타내는 고정 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U007",
+    "verdict": "clarify",
+    "reason": "영문 질문은 그대로 두고 이유 제공에 따른 수용 확률 차이라는 한국어 설명을 외부에 둔다.",
+    "finding_ids": [
+      "OA-28"
+    ]
+  },
+  {
+    "id": "F06-U008",
+    "verdict": "keep",
+    "reason": "RQ3의 이름과 번호는 고정 기록이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U009",
+    "verdict": "clarify",
+    "reason": "개입 전략과 이해·부작용 인지의 연관성 질문을 한국어로 원문 밖에서 풀어 준다.",
+    "finding_ids": [
+      "OA-28"
+    ]
+  },
+  {
+    "id": "F06-U010",
+    "verdict": "keep",
+    "reason": "연구 질문과 설계를 나누는 고정 구획선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U011",
+    "verdict": "keep",
+    "reason": "핵심 실험 설계라는 고정 절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U012",
+    "verdict": "keep",
+    "reason": "독립변수 블록의 실제 학술 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U013",
+    "verdict": "verify",
+    "reason": "A/B의 정의는 보존하고 두 조건에서 이유 외 제안·시점·기구를 어떻게 고정하는지 별도 계획을 확인한다.",
+    "finding_ids": [
+      "OA-25"
+    ]
+  },
+  {
+    "id": "F06-U014",
+    "verdict": "keep",
+    "reason": "주 결과 블록의 고정 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U015",
+    "verdict": "verify",
+    "reason": "수용률이 어떤 사건·분모·분석 단위인지 등록된 정의를 확인하고 외부 안내에 연결해야 한다.",
+    "finding_ids": [
+      "OA-26"
+    ]
+  },
+  {
+    "id": "F06-U016",
+    "verdict": "keep",
+    "reason": "보조 결과 블록의 고정 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U017",
+    "verdict": "verify",
+    "reason": "보조 지표 원어를 보존하고 조작적 정의·채점 시점·분모를 확인해 한국어 외부 설명을 제공한다.",
+    "finding_ids": [
+      "OA-26",
+      "OA-28"
+    ]
+  },
+  {
+    "id": "F06-U018",
+    "verdict": "keep",
+    "reason": "배정 도식의 간결한 고정 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U019",
+    "verdict": "verify",
+    "reason": "참가자 무작위 배정 개념은 명확하나 구현·반복 참가·탈락·분석 처리 계획의 등록 여부가 필요하다.",
+    "finding_ids": [
+      "OA-25"
+    ]
+  },
+  {
+    "id": "F06-U020",
+    "verdict": "verify",
+    "reason": "N=24는 예시이지 목표 표본이 아니므로 정해진 모집·중단 기준이 별도로 있는지 확인해야 한다.",
+    "finding_ids": [
+      "OA-25"
+    ]
+  },
+  {
+    "id": "F06-U021",
+    "verdict": "keep",
+    "reason": "기록할 이벤트 이름 블록을 소개하는 고정 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U022",
+    "verdict": "keep",
+    "reason": "코드 이벤트 식별자는 그대로 보존한다. 임의 번역하거나 이벤트를 추가하지 않는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U023",
+    "verdict": "keep",
+    "reason": "필수 로그와 시스템 통제 문항을 나누는 구획선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U024",
+    "verdict": "keep",
+    "reason": "advisor_answer 의미 축이라는 고정 통제 영역 명칭이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U025",
+    "verdict": "verify",
+    "reason": "극성 쌍 실패의 원인을 질문 표면 의존으로 확정하는 해석은 외부 주석에서 제한해야 한다.",
+    "finding_ids": [
+      "OA-29"
+    ]
+  },
+  {
+    "id": "F06-U026",
+    "verdict": "clarify",
+    "reason": "PC/SPC ID와 기대 상태는 보존하고 지원·모순·판단 불가 및 극성 쌍을 한국어로 외부 안내한다.",
+    "finding_ids": [
+      "OA-28"
+    ]
+  },
+  {
+    "id": "F06-U027",
+    "verdict": "clarify",
+    "reason": "PCA의 수식은 보존하고 이 프로젝트의 통제 일치율 명칭이라는 설명을 원문 밖에 붙인다.",
+    "finding_ids": [
+      "OA-30"
+    ]
+  },
+  {
+    "id": "F06-U028",
+    "verdict": "clarify",
+    "reason": "이미 사용한 시스템 통제와 미실행 Rationale A/B의 시간 관계를 원문 밖에서 구분한다.",
+    "finding_ids": [
+      "OA-31"
+    ]
+  },
+  {
+    "id": "F06-U029",
+    "verdict": "keep",
+    "reason": "통제 설명과 해석 원칙을 나누는 고정 구획선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U030",
+    "verdict": "keep",
+    "reason": "사전에 정한 해석 원칙을 나타내는 고정 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U031",
+    "verdict": "clarify",
+    "reason": "인과 제한·폴백·음성 결과 보고 원칙은 유지하고 영문 문장은 현재 결과가 아닌 보고 예시임을 외부에 표시한다.",
+    "finding_ids": [
+      "OA-57"
+    ]
+  },
+  {
+    "id": "F06-U032",
+    "verdict": "keep",
+    "reason": "해석 원칙과 선택적 합성 파일럿을 나누는 구획선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U033",
+    "verdict": "keep",
+    "reason": "P1이 선택 사항임을 드러내는 고정 절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U034",
+    "verdict": "keep",
+    "reason": "LLM 플레이어 파일럿은 조건부 계획으로 표현되어 있고 인간 대체라고 주장하지 않는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F06-U035",
+    "verdict": "clarify",
+    "reason": "영문 사용 완료형 인용이 실제 이력인지 보고 예시인지 확인해 원문 밖에서 구별한다.",
+    "finding_ids": [
+      "OA-31"
+    ]
+  },
+  {
+    "id": "F06-U036",
+    "verdict": "verify",
+    "reason": "방향성 보존의 비교 변수·판정 규칙이 등록됐는지 확인하고 한국어 설명과 미정 범위를 외부에 둔다.",
+    "finding_ids": [
+      "OA-28",
+      "OA-32"
+    ]
+  },
+  {
+    "id": "F07-U001",
+    "verdict": "keep",
+    "reason": "날짜별 연구 기록이며 최신이 위라는 설명이 실제 순서와 맞는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F07-U002",
+    "verdict": "keep",
+    "reason": "9/18 기록의 실제 날짜 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F07-U003",
+    "verdict": "verify",
+    "reason": "전체 9/18 불릿을 읽었으며 검수·반복 세트, MRL 손실, 차원 조건, 추천 영향, 결정론 범위, 남은 평가를 각각 확인해야 한다.",
+    "finding_ids": [
+      "OA-33",
+      "OA-34",
+      "OA-35",
+      "OA-36",
+      "OA-37",
+      "OA-38",
+      "OA-39"
+    ]
+  },
+  {
+    "id": "F07-U004",
+    "verdict": "keep",
+    "reason": "9/17 기록의 실제 날짜 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F07-U005",
+    "verdict": "verify",
+    "reason": "self-play 1판·비용 추정·로컬 개발 구성의 조건을 분리하고 NPC 현재 상태·토큰 환산·폴백과 재생성을 확인한다.",
+    "finding_ids": [
+      "OA-11",
+      "OA-23",
+      "OA-41",
+      "OA-59"
+    ]
+  },
+  {
+    "id": "F07-U006",
+    "verdict": "keep",
+    "reason": "9/16 기록의 실제 날짜 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F07-U007",
+    "verdict": "verify",
+    "reason": "외부 평가의 지연 미달·GPU 조건·채점기 원인 추정·표본 단위를 분명히 한다. 테스터6·7 분리와 실제 인용은 보존한다.",
+    "finding_ids": [
+      "OA-10",
+      "OA-14",
+      "OA-39",
+      "OA-40",
+      "OA-41",
+      "OA-56"
+    ]
+  },
+  {
+    "id": "F07-U008",
+    "verdict": "keep",
+    "reason": "9/15 기록의 실제 날짜 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F07-U009",
+    "verdict": "verify",
+    "reason": "248판 판별·6판 집계·첫 실플레이·NPC 교체 모든 불릿을 확인했다. 완주 단위와 하한 주장, 교체 이력을 정리해야 한다.",
+    "finding_ids": [
+      "OA-11",
+      "OA-39",
+      "OA-50",
+      "OA-51"
+    ]
+  },
+  {
+    "id": "F07-U010",
+    "verdict": "keep",
+    "reason": "9/14 기록의 실제 날짜 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F07-U011",
+    "verdict": "clarify",
+    "reason": "Core·NPC 채택 기록은 보존하고 E6 formal의 n=5 단위와 정책·산출물 링크를 보완한다.",
+    "finding_ids": [
+      "OA-39",
+      "OA-41"
+    ]
+  },
+  {
+    "id": "F07-U012",
+    "verdict": "keep",
+    "reason": "9/13 기록의 실제 날짜 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F07-U013",
+    "verdict": "clarify",
+    "reason": "9셀·C1–C13·Stage 0/1·VRAM 값은 보존하고 내부 실험 ID와 게이트를 원문 정의로 연결한다.",
+    "finding_ids": [
+      "OA-39"
+    ]
+  },
+  {
+    "id": "F07-U014",
+    "verdict": "keep",
+    "reason": "9/10 기록의 실제 날짜 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F07-U015",
+    "verdict": "clarify",
+    "reason": "5-loop 검증 한 줄만으로 실행 조건·완료 산출물을 확인하기 어려우므로 판수·근거 링크를 붙인다.",
+    "finding_ids": [
+      "OA-41"
+    ]
+  },
+  {
+    "id": "F07-U016",
+    "verdict": "keep",
+    "reason": "9/09 기록의 실제 날짜 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F07-U017",
+    "verdict": "clarify",
+    "reason": "테스터 의미 변형·원숭이손 불일치라는 기구 이슈는 유지하고 EGR 분수 정의·실험 조건·근거를 연결한다.",
+    "finding_ids": [
+      "OA-39",
+      "OA-41"
+    ]
+  },
+  {
+    "id": "F07-U018",
+    "verdict": "keep",
+    "reason": "9/08 기록의 실제 날짜 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F07-U019",
+    "verdict": "verify",
+    "reason": "66판·81루프·밤 제출65에서 3.1%의 정확한 분자·분모와 사람/자동 범위를 확인해야 한다.",
+    "finding_ids": [
+      "OA-42"
+    ]
+  },
+  {
+    "id": "F08-U001",
+    "verdict": "clarify",
+    "reason": "N=5+ 상태를 현재 기존 6판과 별도 후속 1판, 확정·유력 구분으로 맞춰야 한다.",
+    "finding_ids": [
+      "OA-01"
+    ]
+  },
+  {
+    "id": "F08-U002",
+    "verdict": "clarify",
+    "reason": "확정·유력·보류와 후속 1판 분리는 적절하다. 자료 정리 진행이라는 일반 문구는 남은 작업과 확인일로 구체화한다.",
+    "finding_ids": [
+      "OA-58"
+    ]
+  },
+  {
+    "id": "F08-U003",
+    "verdict": "keep",
+    "reason": "이 페이지가 묻는 관찰 질문이라는 목적을 제목에 명확히 했다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U004",
+    "verdict": "copy_edit",
+    "reason": "질문 내용과 연관성 범위는 적절하며 저자 질문의 수정하며 뒤 쉼표만 국소 정리한다.",
+    "finding_ids": [
+      "OA-56"
+    ]
+  },
+  {
+    "id": "F08-U005",
+    "verdict": "keep",
+    "reason": "뒤에 나오는 관찰 지표 목록을 소개하는 짧은 문구이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U006",
+    "verdict": "clarify",
+    "reason": "측정 목표와 실제 집계 완료 항목을 나누고 Understanding과 게임 총점의 대응을 설명해야 한다.",
+    "finding_ids": [
+      "OA-02",
+      "OA-53"
+    ]
+  },
+  {
+    "id": "F08-U007",
+    "verdict": "keep",
+    "reason": "연구 질문과 세션 분리 방법 사이의 구획선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U008",
+    "verdict": "keep",
+    "reason": "DB 분류 스냅샷 날짜를 제목에 명시해 시간 범위를 고정한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U009",
+    "verdict": "verify",
+    "reason": "CV 문턱을 보조 휴리스틱으로 한정하고 계산·검증 조건을 확인해야 한다.",
+    "finding_ids": [
+      "OA-43"
+    ]
+  },
+  {
+    "id": "F08-U010",
+    "verdict": "verify",
+    "reason": "전수 248판의 미분류 행 수와 범주 중복 여부를 확인해 합계를 닫아야 한다.",
+    "finding_ids": [
+      "OA-44"
+    ]
+  },
+  {
+    "id": "F08-U011",
+    "verdict": "verify",
+    "reason": "사전 식별 규칙 부합과 신원 확정은 구분해야 하며 실제 규칙 시점을 확인한다. 연결 쉼표도 국소 수정 가능하다.",
+    "finding_ids": [
+      "OA-45",
+      "OA-56"
+    ]
+  },
+  {
+    "id": "F08-U012",
+    "verdict": "keep",
+    "reason": "분류 설명과 집계 결과를 나누는 구획선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U013",
+    "verdict": "clarify",
+    "reason": "확정+유력이라는 제목은 정확하나 확정 5판만의 보조 집계와 세션별 건수로 불확실성을 확인할 수 있어야 한다.",
+    "finding_ids": [
+      "OA-45"
+    ]
+  },
+  {
+    "id": "F08-U014",
+    "verdict": "clarify",
+    "reason": "적용 규칙의 출처를 센 것과 제안 수락률의 분모를 명시적으로 구분한다.",
+    "finding_ids": [
+      "OA-46"
+    ]
+  },
+  {
+    "id": "F08-U015",
+    "verdict": "verify",
+    "reason": "14/20·6/20·6/9 자체는 일치한다. 질문 12회의 단위와 확정 표본 보조집계, 출처 비율과 수락률 차이를 보완한다.",
+    "finding_ids": [
+      "OA-45",
+      "OA-46",
+      "OA-47"
+    ]
+  },
+  {
+    "id": "F08-U016",
+    "verdict": "verify",
+    "reason": "자유서술 해시 동일만으로 전체 채점 입력 동일·provider 변동 원인을 확정할 수 없으므로 원 입력을 대조해야 한다.",
+    "finding_ids": [
+      "OA-48"
+    ]
+  },
+  {
+    "id": "F08-U017",
+    "verdict": "copy_edit",
+    "reason": "버전 혼합 집계와 경향 주장 보류는 반드시 유지한다. 쓰지 않고 뒤 쉼표만 제거 가능하다.",
+    "finding_ids": [
+      "OA-56"
+    ]
+  },
+  {
+    "id": "F08-U018",
+    "verdict": "keep",
+    "reason": "집계 결과와 개별 사례를 나누는 구획선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U019",
+    "verdict": "keep",
+    "reason": "정성 관찰 사례라는 자료 유형을 분명히 표시한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U020",
+    "verdict": "clarify",
+    "reason": "작은 표본의 가장 정직한 형식이라는 대립보다 집계값과 사례를 병용한다는 실제 보고 방식을 쓰는 편이 정확하다.",
+    "finding_ids": [
+      "OA-49"
+    ]
+  },
+  {
+    "id": "F08-U021",
+    "verdict": "keep",
+    "reason": "Tester 1 사례의 날짜와 발췌 지위를 명확히 한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U022",
+    "verdict": "keep",
+    "reason": "특정 판의 최종 점수와 기구 결함 사례라는 범위를 제시하며 일반화하지 않는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U023",
+    "verdict": "keep",
+    "reason": "직접 작성 의미 변형·설명과 저장 규칙 불일치를 구체적으로 기록했다. 실제 발화·규칙 표현은 그대로 보존한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U024",
+    "verdict": "verify",
+    "reason": "기구 검증 이슈 분류는 적절하나 수정 전후 세션을 합산하지 않는다는 선언은 앞 혼합 집계와 맞춰야 한다.",
+    "finding_ids": [
+      "OA-21"
+    ]
+  },
+  {
+    "id": "F08-U025",
+    "verdict": "keep",
+    "reason": "사례 ID·날짜·개선 배치 이후라는 조건이 제목에 명시돼 있다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U026",
+    "verdict": "keep",
+    "reason": "첫 정리 사례라는 문서화 범위와 읽기 전용 DB 근거를 제시한다. 첫 사람 관찰 전체라고 확대하지 않는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U027",
+    "verdict": "verify",
+    "reason": "1회차 완료와 판 완주를 구분하고 11자 단문 한 건으로 최소 하한을 주장하지 않아야 한다. 실제 제출 인용은 보존한다.",
+    "finding_ids": [
+      "OA-50",
+      "OA-51"
+    ]
+  },
+  {
+    "id": "F08-U028",
+    "verdict": "keep",
+    "reason": "다른 판의 밤 제출 전 이탈을 명시하고 완주율·이탈 지점은 관찰 대상으로만 제시한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U029",
+    "verdict": "verify",
+    "reason": "밤의 추리 제출과 직접 규칙 작성 이벤트가 같은 것인지 확인해 C2 근거를 정확히 연결해야 한다.",
+    "finding_ids": [
+      "OA-52"
+    ]
+  },
+  {
+    "id": "F08-U030",
+    "verdict": "keep",
+    "reason": "Tester 6의 날짜와 5회차 완주를 명확히 표시한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U031",
+    "verdict": "keep",
+    "reason": "판 ID·시각·580건·근거 위치와 기존 6판에 합치지 않는 이유가 구체적이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U032",
+    "verdict": "clarify",
+    "reason": "점수와 텍스트 길이·근거 수를 보존하면서 척도·가중치·단위·게임 총점과 이해도의 관계를 안내한다.",
+    "finding_ids": [
+      "OA-53"
+    ]
+  },
+  {
+    "id": "F08-U033",
+    "verdict": "keep",
+    "reason": "뒤 표의 분모가 규칙 적용 5건임을 명시한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U034",
+    "verdict": "clarify",
+    "reason": "R1–R5 출처와 회차는 명확하나 R5 내용 공란이 의도적 생략인지 표시해야 한다.",
+    "finding_ids": [
+      "OA-54"
+    ]
+  },
+  {
+    "id": "F08-U035",
+    "verdict": "keep",
+    "reason": "AI 3/5·직접 2/5와 질문 15회는 앞 표와 일치하며 기존 6판에 합치지 않았다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U036",
+    "verdict": "keep",
+    "reason": "행동과 기구가 함께 영향을 주는 관찰이라는 해석 범위를 도입한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U037",
+    "verdict": "verify",
+    "reason": "다섯 불릿 모두 검토했다. N=1·부작용 미해결·unknown·단조 잠금 경고는 보존하고 동일 문장·반복 기원 검증과 연결 쉼표만 보완한다.",
+    "finding_ids": [
+      "OA-55",
+      "OA-56"
+    ]
+  },
+  {
+    "id": "F08-U038",
+    "verdict": "keep",
+    "reason": "Tester 7을 표본에서 제외했다는 상태를 제목부터 밝힌다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U039",
+    "verdict": "keep",
+    "reason": "UI 피드백만으로 행동 표본에 넣지 않는 근거와 판 미확정 상태를 정확히 제한한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U040",
+    "verdict": "clarify",
+    "reason": "Tester 2–4 상세 기록의 추가 예정 상태와 현재 표본 명단의 관계·상태 확인일을 보완한다.",
+    "finding_ids": [
+      "OA-58"
+    ]
+  },
+  {
+    "id": "F08-U041",
+    "verdict": "keep",
+    "reason": "사례와 해석 안내를 나누는 구획선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U042",
+    "verdict": "keep",
+    "reason": "연구 결과의 해석 범위를 안내하는 짧은 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F08-U043",
+    "verdict": "clarify",
+    "reason": "자연 관찰과 사전등록 A/B의 차이·인과 금지는 적절하다. 연관성 문장은 현재 결과가 아닌 조건부 예시라고 표시한다.",
+    "finding_ids": [
+      "OA-57"
+    ]
+  }
+]

@@ -1,0 +1,2259 @@
+[
+  {
+    "id": "F09-U001",
+    "verdict": "clarify",
+    "reason": "완료 메타데이터는 유지하되 비열등이 통계 검정이 아닌 문서의 규칙 비교임을 도입에서 밝혀야 한다.",
+    "finding_ids": [
+      "MF-02",
+      "MF-03"
+    ]
+  },
+  {
+    "id": "F09-U002",
+    "verdict": "keep",
+    "reason": "정본 경로·공개 가공 범위·고정 커밋이 명시되어 출처 경계를 잘 드러낸다.",
+    "finding_ids": [
+      "MF-14"
+    ]
+  },
+  {
+    "id": "F09-U003",
+    "verdict": "restructure",
+    "reason": "9월16일 결정 기록과 이후 최종 확정의 관계를 안내해야 한다.",
+    "finding_ids": [
+      "MF-01"
+    ]
+  },
+  {
+    "id": "F09-U004",
+    "verdict": "keep",
+    "reason": "서빙 제약이라는 결정 이유를 드러내는 실제 절 제목이므로 유지한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U005",
+    "verdict": "clarify",
+    "reason": "현재·당시 구성과 advisor 스모크 수치가 압축되어 있어 날짜·역할·단계와 약어 설명이 필요하다.",
+    "finding_ids": [
+      "MF-01",
+      "MF-02",
+      "MF-07"
+    ]
+  },
+  {
+    "id": "F09-U006",
+    "verdict": "keep",
+    "reason": "심사 기간 서비스 접속이라는 외부 API 검토의 조건을 직접 설명한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U007",
+    "verdict": "verify",
+    "reason": "GPU 한 장을 동시 접속 1명 상한으로 단정한 근거와 비용 산정 범위를 확인해야 한다.",
+    "finding_ids": [
+      "MF-04",
+      "MF-05"
+    ]
+  },
+  {
+    "id": "F09-U008",
+    "verdict": "verify",
+    "reason": "변동비 0의 범위를 확인하고 도입부의 반복 대구는 의미를 보존해 줄일 수 있다.",
+    "finding_ids": [
+      "MF-04",
+      "MF-05",
+      "MF-46"
+    ]
+  },
+  {
+    "id": "F09-U009",
+    "verdict": "restructure",
+    "reason": "설정 전환과 로컬 개발 방침은 당시 계획으로 남기고 최신 운영 구성을 연결해야 한다.",
+    "finding_ids": [
+      "MF-01"
+    ]
+  },
+  {
+    "id": "F09-U010",
+    "verdict": "keep",
+    "reason": "비교 대상과 동일 기준이라는 의도를 제목으로 표시한 것은 유용하다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U011",
+    "verdict": "verify",
+    "reason": "동일 러너·문항 유지라는 서술은 표의 러너 정정·judge 교체·표본 변경과 맞춰야 한다.",
+    "finding_ids": [
+      "MF-03",
+      "MF-06",
+      "MF-46"
+    ]
+  },
+  {
+    "id": "F09-U012",
+    "verdict": "verify",
+    "reason": "복수 역할·기준선·표본·재생성 게이트·미측정 누설과 비용 추정이 한 표에 혼재하여 분리 확인해야 한다.",
+    "finding_ids": [
+      "MF-02",
+      "MF-03",
+      "MF-05",
+      "MF-06",
+      "MF-07",
+      "MF-08",
+      "MF-09"
+    ]
+  },
+  {
+    "id": "F09-U013",
+    "verdict": "restructure",
+    "reason": "예상 조합과 실행 규칙은 계획 시점에 고정하고 후속 확정 및 예외 판정을 연결해야 한다.",
+    "finding_ids": [
+      "MF-01",
+      "MF-06"
+    ]
+  },
+  {
+    "id": "F09-U014",
+    "verdict": "keep",
+    "reason": "뒤의 결정 원칙을 안내하는 짧은 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U015",
+    "verdict": "verify",
+    "reason": "정답 표현과 게이트 미달 후보 미채택 단정이 표의 실제 실패·채택 이력과 충돌한다.",
+    "finding_ids": [
+      "MF-08",
+      "MF-46"
+    ]
+  },
+  {
+    "id": "F09-U016",
+    "verdict": "restructure",
+    "reason": "현재라는 표현을 9월15일 당시 정책으로 표시하고 최신 구성으로 연결해야 한다.",
+    "finding_ids": [
+      "MF-01"
+    ]
+  },
+  {
+    "id": "F09-U017",
+    "verdict": "keep",
+    "reason": "옛 정책을 새 정책의 성능 근거로 재사용하지 않는다는 구분은 반드시 유지한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U018",
+    "verdict": "clarify",
+    "reason": "평가 스크립트와 검토 원칙은 좋으며 평가자 종류·독립 검수 여부를 실험별로 연결해야 한다.",
+    "finding_ids": [
+      "MF-09"
+    ]
+  },
+  {
+    "id": "F09-U019",
+    "verdict": "restructure",
+    "reason": "과거 적용 결정이라는 시점이 후속 변경과 연결되어야 한다.",
+    "finding_ids": [
+      "MF-01"
+    ]
+  },
+  {
+    "id": "F09-U020",
+    "verdict": "restructure",
+    "reason": "9월15일 Gemma 적용과 이후 Kanana·외부 API 선택을 날짜별 이력으로 읽히게 해야 한다.",
+    "finding_ids": [
+      "MF-01"
+    ]
+  },
+  {
+    "id": "F09-U021",
+    "verdict": "keep",
+    "reason": "21+20=41 문답과 모델별 공통·추가 표본 구별이 명확하며 지연 합계를 평균으로 잘못 합치지 않았다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U022",
+    "verdict": "keep",
+    "reason": "공통 비교 분모·1회 실행·소스 동일성·API/DB/브라우저 제외와 목표 초과를 명확히 기록한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U023",
+    "verdict": "keep",
+    "reason": "바로 뒤 개선 관측 목록을 안내하는 기능적 문구다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U024",
+    "verdict": "keep",
+    "reason": "직접 응답 인용과 ID·메모리 변경의 관측 범위를 보존해야 한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U025",
+    "verdict": "keep",
+    "reason": "다음의 구체적인 실패 목록을 안내하는 짧은 문구다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U026",
+    "verdict": "keep",
+    "reason": "잔여 오류와 Codex 검토·사람 블라인드 평가 미실행을 솔직히 밝혀 유지한다.",
+    "finding_ids": [
+      "MF-09"
+    ]
+  },
+  {
+    "id": "F09-U027",
+    "verdict": "keep",
+    "reason": "문맥 잘림 원인의 근거 부재와 1024토큰 상한에서의 실패를 분리하고 진단 범위를 한정했다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U028",
+    "verdict": "keep",
+    "reason": "개발 중 반복과 최종 41문답 및 과거 기준선의 비합산 원칙이 명료하다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U029",
+    "verdict": "clarify",
+    "reason": "자료 경로는 유지하되 비공개 입력과 공개 집계로 확인 가능한 재현 범위를 밝혀야 한다.",
+    "finding_ids": [
+      "MF-14"
+    ]
+  },
+  {
+    "id": "F09-U030",
+    "verdict": "keep",
+    "reason": "모델·thinking·반복 수를 명시한 재현 명령은 원형대로 보존한다.",
+    "finding_ids": [
+      "MF-14"
+    ]
+  },
+  {
+    "id": "F09-U031",
+    "verdict": "keep",
+    "reason": "상단 추가 기록과 초기 설계 기록을 구분하는 구분선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U032",
+    "verdict": "clarify",
+    "reason": "기준일·정본·원시 위치는 유용하지만 자립성과 비공개 참조의 관계 및 후속 상태 안내가 필요하다.",
+    "finding_ids": [
+      "MF-01",
+      "MF-14"
+    ]
+  },
+  {
+    "id": "F09-U033",
+    "verdict": "keep",
+    "reason": "메타 설명과 연구 설계 절의 경계를 표시한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U034",
+    "verdict": "keep",
+    "reason": "문서의 목적과 범위를 설명하는 절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U035",
+    "verdict": "keep",
+    "reason": "문서 성격을 직접 묻는 안내 제목으로 유지한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U036",
+    "verdict": "keep",
+    "reason": "재현 가능한 기술 기록이라는 장르와 목적을 명시하여 연구 범위를 과장하지 않는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U037",
+    "verdict": "keep",
+    "reason": "조건·판정·재현의 세 목적은 병렬 목록이 이해에 도움이 된다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U038",
+    "verdict": "keep",
+    "reason": "과장 금지 원칙을 소개하는 실제 소절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U039",
+    "verdict": "keep",
+    "reason": "역할·지표·조건 없는 우열, 다른 하드웨어 비교, 폴백 성공 처리 금지는 핵심 보존 항목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U040",
+    "verdict": "keep",
+    "reason": "시스템의 두 역할과 연구 질문을 연결하는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U041",
+    "verdict": "clarify",
+    "reason": "역할 목록은 유지하되 현행 기준선의 시점과 Core 5역할 중 4역할 측정 범위를 밝혀야 한다.",
+    "finding_ids": [
+      "MF-01",
+      "MF-02",
+      "MF-16"
+    ]
+  },
+  {
+    "id": "F09-U042",
+    "verdict": "verify",
+    "reason": "같은 family 크기 비교의 의도는 유지하되 크기만의 인과가 통제되었는지 근거가 필요하다.",
+    "finding_ids": [
+      "MF-29"
+    ]
+  },
+  {
+    "id": "F09-U043",
+    "verdict": "keep",
+    "reason": "Core 우선 실험의 실패 비용 근거와 E7→E6 순서가 구체적이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U044",
+    "verdict": "keep",
+    "reason": "슬롯 설명과 자원 조건 사이의 구분선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U045",
+    "verdict": "keep",
+    "reason": "자원 예산을 후보 상한으로 정의하는 절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U046",
+    "verdict": "keep",
+    "reason": "실험 장비와 가용량을 구체적으로 명시하며 값 자체는 변경하지 않는다.",
+    "finding_ids": [
+      "MF-10"
+    ]
+  },
+  {
+    "id": "F09-U047",
+    "verdict": "keep",
+    "reason": "상주량 측정일·도구·동시 로드 조건을 제공한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U048",
+    "verdict": "clarify",
+    "reason": "모델 합계 12.66GiB와 오버헤드 약 1.1GiB 산술은 맞으며 모델 상주량과 전체 GPU 사용량을 구별해야 한다.",
+    "finding_ids": [
+      "MF-10",
+      "MF-22"
+    ]
+  },
+  {
+    "id": "F09-U049",
+    "verdict": "keep",
+    "reason": "이어지는 예산 표의 계산 목적을 알리는 짧은 문장이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U050",
+    "verdict": "verify",
+    "reason": "9.5/10.5GiB 예산 산출 시 안전 여유분과 적용 근거가 표에 없다.",
+    "finding_ids": [
+      "MF-10"
+    ]
+  },
+  {
+    "id": "F09-U051",
+    "verdict": "verify",
+    "reason": "디스크 용량 기반 후보 공백으로 실측 VRAM 가능 후보와 E6 선후 손익을 확정할 수 없다.",
+    "finding_ids": [
+      "MF-11"
+    ]
+  },
+  {
+    "id": "F09-U052",
+    "verdict": "keep",
+    "reason": "자원 제약과 Core 설계의 절 경계를 표시한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U053",
+    "verdict": "clarify",
+    "reason": "영문 연구 제목은 유지하고 읽기층에서 Core 역할 선정의 의미를 안내하면 된다.",
+    "finding_ids": [
+      "MF-02"
+    ]
+  },
+  {
+    "id": "F09-U054",
+    "verdict": "keep",
+    "reason": "연구 질문을 묶는 표준 학술 소제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U055",
+    "verdict": "keep",
+    "reason": "RQ 식별자와 선택 질문의 유형을 보존한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U056",
+    "verdict": "clarify",
+    "reason": "5역할 연구 질문과 실제 4역할 정량 비교 범위를 가까이 연결해야 한다.",
+    "finding_ids": [
+      "MF-16"
+    ]
+  },
+  {
+    "id": "F09-U057",
+    "verdict": "keep",
+    "reason": "thinking 효과에 관한 연구 질문을 독립적으로 표시한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U058",
+    "verdict": "keep",
+    "reason": "품질·지연과 모델별 차이를 질문하며 결론을 미리 단정하지 않는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U059",
+    "verdict": "keep",
+    "reason": "온라인과 로컬 비교 질문의 위치를 제공한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U060",
+    "verdict": "restructure",
+    "reason": "현재 운영이라는 표현은 설계 당시 Gemini 상태임을 표시해야 한다.",
+    "finding_ids": [
+      "MF-01"
+    ]
+  },
+  {
+    "id": "F09-U061",
+    "verdict": "keep",
+    "reason": "비대칭 실험 조건을 설명하는 실제 소절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U062",
+    "verdict": "keep",
+    "reason": "thinking 미지원으로 완전 요인 설계가 불가능하다는 설명은 타당한 설계 설명이며 억지로 줄이지 않는다.",
+    "finding_ids": [
+      "MF-46"
+    ]
+  },
+  {
+    "id": "F09-U063",
+    "verdict": "clarify",
+    "reason": "지원 최대 ctx와 실제 실행 문맥, 디스크와 상주 VRAM 및 측정 단위를 구별해야 한다.",
+    "finding_ids": [
+      "MF-02",
+      "MF-12",
+      "MF-22"
+    ]
+  },
+  {
+    "id": "F09-U064",
+    "verdict": "keep",
+    "reason": "VRAM 값의 날짜·stage·API 필드를 명시한 출처 설명이다.",
+    "finding_ids": [
+      "MF-22"
+    ]
+  },
+  {
+    "id": "F09-U065",
+    "verdict": "clarify",
+    "reason": "9셀은 초기 설계이고 Stage0 이후 8셀이라는 시점 구별이 필요하다.",
+    "finding_ids": [
+      "MF-02",
+      "MF-15"
+    ]
+  },
+  {
+    "id": "F09-U066",
+    "verdict": "keep",
+    "reason": "양자화 및 디스크/상주 차이를 소개하는 짧은 도입이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U067",
+    "verdict": "verify",
+    "reason": "디스크 기반 예산 오류를 인정한 점은 유지하되 활성 파라미터만 상주한다는 원인 추정을 확인해야 한다.",
+    "finding_ids": [
+      "MF-11",
+      "MF-12"
+    ]
+  },
+  {
+    "id": "F09-U068",
+    "verdict": "keep",
+    "reason": "후보 제외 근거를 별도로 공개하는 소절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U069",
+    "verdict": "verify",
+    "reason": "예산 초과의 수치가 디스크인지 실측 상주량인지 구별하고 제외 범위를 제한해야 한다.",
+    "finding_ids": [
+      "MF-11"
+    ]
+  },
+  {
+    "id": "F09-U070",
+    "verdict": "keep",
+    "reason": "Core/NPC 모델 공유의 추가 메모리 이점을 제시한 관측은 보존한다.",
+    "finding_ids": [
+      "MF-13"
+    ]
+  },
+  {
+    "id": "F09-U071",
+    "verdict": "verify",
+    "reason": "공유모델을 무한대라 부르는 Pareto 해석과 E6 실패 때만 유효하다는 논리를 정정해야 한다.",
+    "finding_ids": [
+      "MF-13"
+    ]
+  },
+  {
+    "id": "F09-U072",
+    "verdict": "restructure",
+    "reason": "EXAONE은 이 설계 시점의 NPC 기준선임을 밝히고 후속 교체에 연결해야 한다.",
+    "finding_ids": [
+      "MF-01",
+      "MF-13"
+    ]
+  },
+  {
+    "id": "F09-U073",
+    "verdict": "keep",
+    "reason": "실험 고정 조건을 모으는 표준 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U074",
+    "verdict": "clarify",
+    "reason": "조건 변경 시 새 실험이라는 원칙을 단계별 실제 버전 기록과 연결해야 한다.",
+    "finding_ids": [
+      "MF-14"
+    ]
+  },
+  {
+    "id": "F09-U075",
+    "verdict": "clarify",
+    "reason": "현행이라는 값 대신 실행 커밋·프롬프트/하네스·실제 설정을 재현 목록으로 연결해야 한다.",
+    "finding_ids": [
+      "MF-14"
+    ]
+  },
+  {
+    "id": "F09-U076",
+    "verdict": "keep",
+    "reason": "러너 주입과 프로덕션 반영을 구분한 당시 실험 원칙을 유지한다.",
+    "finding_ids": [
+      "MF-14"
+    ]
+  },
+  {
+    "id": "F09-U077",
+    "verdict": "keep",
+    "reason": "모델별 튜닝 결과를 같은 실험에 섞지 않는 원칙은 중요한 통제다.",
+    "finding_ids": [
+      "MF-14"
+    ]
+  },
+  {
+    "id": "F09-U078",
+    "verdict": "clarify",
+    "reason": "Core 4역할 측정 제목은 유지하고 5역할 시스템의 미측정 한 역할을 바로 설명해야 한다.",
+    "finding_ids": [
+      "MF-16"
+    ]
+  },
+  {
+    "id": "F09-U079",
+    "verdict": "copy_edit",
+    "reason": "때린다는 구어를 평가한다로 바꾸고 12+통제4 계획과 실제 통제10의 변경을 연결한다.",
+    "finding_ids": [
+      "MF-15",
+      "MF-40"
+    ]
+  },
+  {
+    "id": "F09-U080",
+    "verdict": "clarify",
+    "reason": "문항 합25는 맞지만 후속 실제31문항과 다른 초기 계획표임을 밝혀야 한다.",
+    "finding_ids": [
+      "MF-15"
+    ]
+  },
+  {
+    "id": "F09-U081",
+    "verdict": "clarify",
+    "reason": "셀·콜·n의 뜻과 계획 단계25콜이라는 범위를 풀어 써야 한다.",
+    "finding_ids": [
+      "MF-02",
+      "MF-15"
+    ]
+  },
+  {
+    "id": "F09-U082",
+    "verdict": "keep",
+    "reason": "manager_paw 제외 이유와 후속 평가 계획을 명시한 제한은 보존한다.",
+    "finding_ids": [
+      "MF-16"
+    ]
+  },
+  {
+    "id": "F09-U083",
+    "verdict": "keep",
+    "reason": "측정 대상과 지표 설계의 경계다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U084",
+    "verdict": "keep",
+    "reason": "지표 정의를 모으는 절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U085",
+    "verdict": "keep",
+    "reason": "판정 근거 원칙을 소개하는 소절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U086",
+    "verdict": "keep",
+    "reason": "후보 답을 정답으로 삼지 않는 원칙을 명확히 한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U087",
+    "verdict": "clarify",
+    "reason": "결정적 게이트와 사전 고정 기대값의 차이를 유지하고 사전등록 의미와 출처를 안내해야 한다.",
+    "finding_ids": [
+      "MF-02"
+    ]
+  },
+  {
+    "id": "F09-U088",
+    "verdict": "keep",
+    "reason": "judge 이해충돌과 반복 일치율 계획을 밝히며 1차 범위를 구분한다.",
+    "finding_ids": [
+      "MF-14"
+    ]
+  },
+  {
+    "id": "F09-U089",
+    "verdict": "keep",
+    "reason": "프로토콜 지표 묶음을 가리키는 실제 학술 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U090",
+    "verdict": "keep",
+    "reason": "SVR 이름과 약어를 정의하는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U091",
+    "verdict": "clarify",
+    "reason": "전체 모델 호출이 문항 요청인지 재생성 시도인지 분모를 고정해야 한다.",
+    "finding_ids": [
+      "MF-15"
+    ]
+  },
+  {
+    "id": "F09-U092",
+    "verdict": "keep",
+    "reason": "폴백률 이름과 약어를 정의하는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U093",
+    "verdict": "clarify",
+    "reason": "전체 호출 분모와 재생성·최종 폴백 결과의 집계 단위를 밝혀야 한다.",
+    "finding_ids": [
+      "MF-15"
+    ]
+  },
+  {
+    "id": "F09-U094",
+    "verdict": "keep",
+    "reason": "재생성 실패 뒤 대체문구 사용을 모델 성공으로 세지 않는 정의가 분명하다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U095",
+    "verdict": "keep",
+    "reason": "위반 종류별 계수 지표를 소개한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U096",
+    "verdict": "keep",
+    "reason": "위반 유형을 합치지 않는 원칙은 원인 분석에 필요하다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U097",
+    "verdict": "keep",
+    "reason": "위반 코드 목록은 구현 식별자이므로 원형대로 보존한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U098",
+    "verdict": "keep",
+    "reason": "planner 전용 LAR 지표임을 명시한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U099",
+    "verdict": "keep",
+    "reason": "행동 수를 분모로 한 LAR 정의 자체는 명료하다.",
+    "finding_ids": [
+      "MF-19"
+    ]
+  },
+  {
+    "id": "F09-U100",
+    "verdict": "verify",
+    "reason": "enum 위반의 원인을 곧바로 어댑터 문제로 확정하지 말고 층별로 조사해야 한다.",
+    "finding_ids": [
+      "MF-19"
+    ]
+  },
+  {
+    "id": "F09-U101",
+    "verdict": "keep",
+    "reason": "advisor 전용 EGR 지표임을 명시하는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U102",
+    "verdict": "clarify",
+    "reason": "detail과 근거의 교집합이라는 정의를 유지하며 응답 분모와 비LLM 응답 포함 여부를 밝혀야 한다.",
+    "finding_ids": [
+      "MF-15",
+      "MF-17"
+    ]
+  },
+  {
+    "id": "F09-U103",
+    "verdict": "verify",
+    "reason": "11/12와10/12는 별도 주변 건수로 보이며 결합 EGR의 회복값으로 쓰려면 원시 교집합 확인이 필요하다.",
+    "finding_ids": [
+      "MF-17"
+    ]
+  },
+  {
+    "id": "F09-U104",
+    "verdict": "keep",
+    "reason": "8셀 모두0.83이라는 관측과 순위 지표 제외 시점을 명시한다.",
+    "finding_ids": [
+      "MF-18"
+    ]
+  },
+  {
+    "id": "F09-U105",
+    "verdict": "keep",
+    "reason": "근거 없는 사건과 meta 비LLM 분기의 차이를 구체적으로 설명한다.",
+    "finding_ids": [
+      "MF-18"
+    ]
+  },
+  {
+    "id": "F09-U106",
+    "verdict": "verify",
+    "reason": "이번 코퍼스에서 구별 못한 사실을 지표 일반의 모델 변별력 부재로 확대하지 않아야 한다.",
+    "finding_ids": [
+      "MF-18"
+    ]
+  },
+  {
+    "id": "F09-U107",
+    "verdict": "keep",
+    "reason": "TFR 적용 대상을 -T로 한정한 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U108",
+    "verdict": "keep",
+    "reason": "-T 셀에서만 집계한다는 적용 범위가 분명하다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U109",
+    "verdict": "clarify",
+    "reason": "실패 종류는 보존하고 전체 호출 및 토큰 상한 도달의 집계 단위를 명시해야 한다.",
+    "finding_ids": [
+      "MF-15"
+    ]
+  },
+  {
+    "id": "F09-U110",
+    "verdict": "keep",
+    "reason": "실패 관측을 특정 모델·날짜에 묶고 근거 부록을 제공한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U111",
+    "verdict": "keep",
+    "reason": "의미 평가 축을 프로토콜 지표와 구별하는 소제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U112",
+    "verdict": "clarify",
+    "reason": "실측 통제10개와 초기계획4개의 변경 및 기대방향·근거ID 평가 규칙을 연결해야 한다.",
+    "finding_ids": [
+      "MF-02",
+      "MF-15",
+      "MF-20"
+    ]
+  },
+  {
+    "id": "F09-U113",
+    "verdict": "keep",
+    "reason": "10개 문항의 기대값과 실제·합성 근거를 대조할 수 있는 핵심 표다.",
+    "finding_ids": [
+      "MF-20"
+    ]
+  },
+  {
+    "id": "F09-U114",
+    "verdict": "keep",
+    "reason": "합성 fixture의 반대 기대 설정을 구체적으로 설명한다.",
+    "finding_ids": [
+      "MF-20"
+    ]
+  },
+  {
+    "id": "F09-U115",
+    "verdict": "verify",
+    "reason": "극성쌍 네 문항 판정과 C4의 두 문항 표기를 러너 기준으로 일치시켜야 한다.",
+    "finding_ids": [
+      "MF-20"
+    ]
+  },
+  {
+    "id": "F09-U116",
+    "verdict": "clarify",
+    "reason": "PCA는 방향 일치율임을 정의하되 통계 약어와 구별하고 근거ID 지표와 관계를 밝혀야 한다.",
+    "finding_ids": [
+      "MF-02",
+      "MF-20"
+    ]
+  },
+  {
+    "id": "F09-U117",
+    "verdict": "keep",
+    "reason": "계산 자원 지표의 묶음을 나타낸다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U118",
+    "verdict": "keep",
+    "reason": "품질과 자원을 분리하되 지연을 강제 게이트로 둔 설계 의도가 명료하다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U119",
+    "verdict": "keep",
+    "reason": "지연 임계치의 사용 맥락을 설명하는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U120",
+    "verdict": "keep",
+    "reason": "플레이어 대기 구간에서 측정한다는 UX 맥락을 제공한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U121",
+    "verdict": "clarify",
+    "reason": "역할별 호출 계획은 유용하나 정답 명제 수와 실제 벽시계 채점 합산 방식을 연결해야 한다.",
+    "finding_ids": [
+      "MF-24"
+    ]
+  },
+  {
+    "id": "F09-U122",
+    "verdict": "keep",
+    "reason": "느린 응답이 게임 흐름을 방해한다는 동기와 인용을 보존한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U123",
+    "verdict": "keep",
+    "reason": "단발 지연과 하네스 전체 시간을 구별하려는 소절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U124",
+    "verdict": "clarify",
+    "reason": "최대 3시도는 유지하되 반복 시도 횟수와 실제 시간 합계를 따로 보고해야 한다.",
+    "finding_ids": [
+      "MF-21"
+    ]
+  },
+  {
+    "id": "F09-U125",
+    "verdict": "keep",
+    "reason": "다음 예시의 날짜와 모델 조건을 표시한다.",
+    "finding_ids": [
+      "MF-21"
+    ]
+  },
+  {
+    "id": "F09-U126",
+    "verdict": "verify",
+    "reason": "다른 역할·단계의27초와약 80초 비교를 재시도만의 인과효과로 쓰지 않아야 한다.",
+    "finding_ids": [
+      "MF-21"
+    ]
+  },
+  {
+    "id": "F09-U127",
+    "verdict": "keep",
+    "reason": "게이트를 코퍼스 p95로 보겠다는 원칙은 유지하되 실제 집계가 이를 따르는지 별도로 확인한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U128",
+    "verdict": "keep",
+    "reason": "저장할 자원 항목을 안내하는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U129",
+    "verdict": "verify",
+    "reason": "상주량/Peak, 문자/토큰, 처리간격/요청지연 및 유도값을 구분해야 한다.",
+    "finding_ids": [
+      "MF-02",
+      "MF-22",
+      "MF-23",
+      "MF-24"
+    ]
+  },
+  {
+    "id": "F09-U130",
+    "verdict": "keep",
+    "reason": "결과 해석 규칙을 모으는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U131",
+    "verdict": "keep",
+    "reason": "임의 가중합을 최종 선정 기준으로 만들지 않는 원칙은 보존한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U132",
+    "verdict": "keep",
+    "reason": "네 결과 형식을 소개하는 짧은 안내다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U133",
+    "verdict": "clarify",
+    "reason": "Pareto와 paired delta를 표준 용어로 유지하고 읽기층에 역할별 비교 의미를 풀어야 한다.",
+    "finding_ids": [
+      "MF-02"
+    ]
+  },
+  {
+    "id": "F09-U134",
+    "verdict": "keep",
+    "reason": "종합 점수가 보조 요약일 뿐이라는 제한을 분명히 한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U135",
+    "verdict": "keep",
+    "reason": "지표 해석과 실험 절차의 구분선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U136",
+    "verdict": "keep",
+    "reason": "실행 절차의 실제 절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U137",
+    "verdict": "keep",
+    "reason": "단계적으로 후보를 줄이는 구조의 표준 용어 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U138",
+    "verdict": "clarify",
+    "reason": "9×25×n은 초기 계획이라는 표기를 붙여 실제31문항 실행과 구별해야 한다.",
+    "finding_ids": [
+      "MF-15"
+    ]
+  },
+  {
+    "id": "F09-U139",
+    "verdict": "verify",
+    "reason": "계획된 차단 조건과 실제 통과 기준, 공존 측정과 peak 정의를 일치시켜야 한다.",
+    "finding_ids": [
+      "MF-02",
+      "MF-15",
+      "MF-22",
+      "MF-26"
+    ]
+  },
+  {
+    "id": "F09-U140",
+    "verdict": "keep",
+    "reason": "프로브 통과와 실제 게임 대체 가능성을 구분하고 Stage4를 요구하는 원칙을 보존한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U141",
+    "verdict": "keep",
+    "reason": "thinking 제어 구현을 소개하는 소제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U142",
+    "verdict": "restructure",
+    "reason": "현재 어댑터·미측정 설명은 이후 기본값 확인과 프로덕션 변경 전의 기록임을 밝혀야 한다.",
+    "finding_ids": [
+      "MF-01"
+    ]
+  },
+  {
+    "id": "F09-U143",
+    "verdict": "keep",
+    "reason": "당시 러너 주입 원칙과 프로덕션 분리 방침이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U144",
+    "verdict": "keep",
+    "reason": "provider별 제어 필드와 코드 표기는 재현 정보이므로 보존한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U145",
+    "verdict": "clarify",
+    "reason": "OFF 검증에서 사용량0의 단위가 provider별 토큰/문자인 점을 밝혀야 한다.",
+    "finding_ids": [
+      "MF-23"
+    ]
+  },
+  {
+    "id": "F09-U146",
+    "verdict": "keep",
+    "reason": "실행 러너를 안내하는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U147",
+    "verdict": "keep",
+    "reason": "모델 목록과 protocol 명령은 원형대로 보존한다.",
+    "finding_ids": [
+      "MF-14"
+    ]
+  },
+  {
+    "id": "F09-U148",
+    "verdict": "restructure",
+    "reason": "protocol만 구현된9월13일 상태와 다음 표의9월14일 완료를 날짜별로 구별해야 한다.",
+    "finding_ids": [
+      "MF-01"
+    ]
+  },
+  {
+    "id": "F09-U149",
+    "verdict": "clarify",
+    "reason": "구현 완료일은 유지하며 thinking 단위와 Peak 수집 정의를 명료하게 해야 한다.",
+    "finding_ids": [
+      "MF-01",
+      "MF-22",
+      "MF-23"
+    ]
+  },
+  {
+    "id": "F09-U150",
+    "verdict": "restructure",
+    "reason": "프로덕션 미변경은 실험 당시 상태이며 §5.3 후속 반영과 연결해야 한다.",
+    "finding_ids": [
+      "MF-01"
+    ]
+  },
+  {
+    "id": "F09-U151",
+    "verdict": "keep",
+    "reason": "엔진 import 및 결과 append라는 실험 변경 범위 원칙을 보존한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U152",
+    "verdict": "keep",
+    "reason": "산출물 위치를 모으는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U153",
+    "verdict": "clarify",
+    "reason": "앱 내부 경로는 보존하고 공개에서 재현·검증 가능한 범위를 설명해야 한다.",
+    "finding_ids": [
+      "MF-14"
+    ]
+  },
+  {
+    "id": "F09-U154",
+    "verdict": "keep",
+    "reason": "YAML 스키마 예시임을 소개하는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U155",
+    "verdict": "clarify",
+    "reason": "가상 레코드 표시와 n/calls 분모, thinking 단위, 비열등 필드 의미가 필요하다.",
+    "finding_ids": [
+      "MF-03",
+      "MF-15",
+      "MF-23",
+      "MF-25",
+      "MF-35"
+    ]
+  },
+  {
+    "id": "F09-U156",
+    "verdict": "clarify",
+    "reason": "stage·라벨 무효화 원칙은 보존하되 같은 runtime 비교와 비열등 규칙 적용 범위를 밝혀야 한다.",
+    "finding_ids": [
+      "MF-03",
+      "MF-14",
+      "MF-23",
+      "MF-25"
+    ]
+  },
+  {
+    "id": "F09-U157",
+    "verdict": "keep",
+    "reason": "산출물과 게이트 절을 나누는 구분선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U158",
+    "verdict": "keep",
+    "reason": "선정 임계값을 모으는 절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U159",
+    "verdict": "clarify",
+    "reason": "실제 채택의 예외가 있으므로 강제 제외 기준의 단계·적용 범위를 표시해야 한다.",
+    "finding_ids": [
+      "MF-26"
+    ]
+  },
+  {
+    "id": "F09-U160",
+    "verdict": "verify",
+    "reason": "C4 문항 집합, size_vram/Peak, C13 p50 유도값과 전체시간 기준을 확인해야 한다.",
+    "finding_ids": [
+      "MF-02",
+      "MF-20",
+      "MF-22",
+      "MF-24",
+      "MF-26",
+      "MF-35"
+    ]
+  },
+  {
+    "id": "F09-U161",
+    "verdict": "keep",
+    "reason": "UX 임계치를 실제 플레이 검증값으로 과장하지 않고 통념 기반이라고 밝힌다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U162",
+    "verdict": "verify",
+    "reason": "온라인 벽시계 판정 원칙과 유도 처리간격 사용이 동일한 측정량인지 확인해야 한다.",
+    "finding_ids": [
+      "MF-24"
+    ]
+  },
+  {
+    "id": "F09-U163",
+    "verdict": "keep",
+    "reason": "보고 필수 항목을 Hard 조건과 나눠 제시한 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U164",
+    "verdict": "clarify",
+    "reason": "C9 라벨 검증과 C10 채택 전 필수조건을 단순 Soft로 부르는 의미 및 runtime 범위를 설명해야 한다.",
+    "finding_ids": [
+      "MF-26",
+      "MF-27",
+      "MF-35"
+    ]
+  },
+  {
+    "id": "F09-U165",
+    "verdict": "clarify",
+    "reason": "Non-inferiority라는 학술 용어를 이 문서의 기술적 판정 정의와 함께 안내해야 한다.",
+    "finding_ids": [
+      "MF-03"
+    ]
+  },
+  {
+    "id": "F09-U166",
+    "verdict": "clarify",
+    "reason": "역할별 게이트·메모리·지연의 논리식을 유지하되 다른runtime 비교 적용 범위를 명시해야 한다.",
+    "finding_ids": [
+      "MF-03",
+      "MF-27"
+    ]
+  },
+  {
+    "id": "F09-U167",
+    "verdict": "keep",
+    "reason": "역할별 비교와 작은 표본에서 통계적 유의성을 주장하지 않는 제한은 핵심이다.",
+    "finding_ids": [
+      "MF-03",
+      "MF-27"
+    ]
+  },
+  {
+    "id": "F09-U168",
+    "verdict": "keep",
+    "reason": "대체 후보 없음도 결과로 기록하는 사전 원칙은 보존한다.",
+    "finding_ids": [
+      "MF-03"
+    ]
+  },
+  {
+    "id": "F09-U169",
+    "verdict": "restructure",
+    "reason": "9월14일 사용자 결정은 당시 채택으로 표시하고 최종 구성에 연결해야 한다.",
+    "finding_ids": [
+      "MF-01"
+    ]
+  },
+  {
+    "id": "F09-U170",
+    "verdict": "keep",
+    "reason": "채택이 문자적 비열등 결론과 다르다고 공개한 점과20MiB 근사 비교는 보존한다.",
+    "finding_ids": [
+      "MF-01",
+      "MF-03",
+      "MF-08",
+      "MF-27"
+    ]
+  },
+  {
+    "id": "F09-U171",
+    "verdict": "verify",
+    "reason": "극성쌍 항목에PC8을 함께 묶은 설명을 실제 네 문항 쌍 판정과 구별해야 한다.",
+    "finding_ids": [
+      "MF-20"
+    ]
+  },
+  {
+    "id": "F09-U172",
+    "verdict": "clarify",
+    "reason": "구현·테스트·실서버 확인을 분리하고 단일 전체loop12.13s와planner p95의 일치를 단정하지 않아야 한다.",
+    "finding_ids": [
+      "MF-27"
+    ]
+  },
+  {
+    "id": "F09-U173",
+    "verdict": "restructure",
+    "reason": "NPC9월14일 채택을 후속 정책과 연결한 이력 제목으로 표시해야 한다.",
+    "finding_ids": [
+      "MF-01"
+    ]
+  },
+  {
+    "id": "F09-U174",
+    "verdict": "restructure",
+    "reason": "Kanana 전환 및 라이선스는 당시 결정으로 표시해야 한다.",
+    "finding_ids": [
+      "MF-01",
+      "MF-28"
+    ]
+  },
+  {
+    "id": "F09-U175",
+    "verdict": "clarify",
+    "reason": "옛 왜=몰라 정책, 라이선스 당시 근거, 자연스러움/관련성의 서로 다른 비교를 유지하며 시점을 표시해야 한다.",
+    "finding_ids": [
+      "MF-28"
+    ]
+  },
+  {
+    "id": "F09-U176",
+    "verdict": "keep",
+    "reason": "한 줄 설정 변경과 실콜 검증의 구체적인 당시 반영 기록이다.",
+    "finding_ids": [
+      "MF-28"
+    ]
+  },
+  {
+    "id": "F09-U177",
+    "verdict": "clarify",
+    "reason": "연구용 롤백·삭제 내역은 보존하고 당시 라이선스 확인일과 최종 구성과의 관계를 밝혀야 한다.",
+    "finding_ids": [
+      "MF-28"
+    ]
+  },
+  {
+    "id": "F09-U178",
+    "verdict": "clarify",
+    "reason": "사실 질문0/21과 평균11.4자의 스모크 분모·출처를 가까이 연결해야 한다.",
+    "finding_ids": [
+      "MF-28"
+    ]
+  },
+  {
+    "id": "F09-U179",
+    "verdict": "keep",
+    "reason": "실험 자체의 성공 조건을 따로 정의한 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U180",
+    "verdict": "keep",
+    "reason": "측정 결과로 조건 중 하나를 말할 수 있어야 한다는 판단 원칙이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U181",
+    "verdict": "clarify",
+    "reason": "예시 결과의 비열등은 규칙 비교라는 정의와 역할별 지표 범위를 유지해야 한다.",
+    "finding_ids": [
+      "MF-03"
+    ]
+  },
+  {
+    "id": "F09-U182",
+    "verdict": "keep",
+    "reason": "부정 결과도 발표한다는 원칙을 짧게 명시한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U183",
+    "verdict": "keep",
+    "reason": "게이트와 그림 계획 절의 경계다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U184",
+    "verdict": "restructure",
+    "reason": "완료 문서에서 그림 목록이 계획인지 실제 산출물인지 제목과 상태로 표시해야 한다.",
+    "finding_ids": [
+      "MF-45"
+    ]
+  },
+  {
+    "id": "F09-U185",
+    "verdict": "clarify",
+    "reason": "7개 그림의 작성 상태·링크·단위·유도값 표시가 필요하다.",
+    "finding_ids": [
+      "MF-02",
+      "MF-22",
+      "MF-24",
+      "MF-45"
+    ]
+  },
+  {
+    "id": "F09-U186",
+    "verdict": "keep",
+    "reason": "역할 수0~4를 서수 요약으로 한정하고 임의 가중합과 구별한다.",
+    "finding_ids": [
+      "MF-45"
+    ]
+  },
+  {
+    "id": "F09-U187",
+    "verdict": "clarify",
+    "reason": "실측만 사용한다는 원칙과effective 유도값 그림을 조정하고 미실행과비해당 표시를 구분해야 한다.",
+    "finding_ids": [
+      "MF-45"
+    ]
+  },
+  {
+    "id": "F09-U188",
+    "verdict": "keep",
+    "reason": "그림 계획과 제약 사이의 구분선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U189",
+    "verdict": "keep",
+    "reason": "제약을 모으는 실제 절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U190",
+    "verdict": "keep",
+    "reason": "미지원·미측정·작은 표본·동시성 범위를 구체적으로 밝히고 기본값 확인일을 기록한다.",
+    "finding_ids": [
+      "MF-16",
+      "MF-44"
+    ]
+  },
+  {
+    "id": "F09-U191",
+    "verdict": "keep",
+    "reason": "E7 제약과 E6 설계 관계를 나누는 구분선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U192",
+    "verdict": "restructure",
+    "reason": "미착수라는 제목은 다음 절의해소 및실행 부록과 충돌하므로 착수 전 설계 기록으로 표시해야 한다.",
+    "finding_ids": [
+      "MF-01"
+    ]
+  },
+  {
+    "id": "F09-U193",
+    "verdict": "keep",
+    "reason": "상위 설계문서 경로와 이 절의 범위를 명시한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U194",
+    "verdict": "keep",
+    "reason": "선택과 크기 비교라는 다른 질문을 소개하는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U195",
+    "verdict": "keep",
+    "reason": "예산 최적화에 따른 설계 방향 전환의 맥락을 남긴다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U196",
+    "verdict": "clarify",
+    "reason": "family내 크기별 비교의 인과적 질문과 실제 통제 가능한 조건을 구별해야 한다.",
+    "finding_ids": [
+      "MF-29"
+    ]
+  },
+  {
+    "id": "F09-U197",
+    "verdict": "clarify",
+    "reason": "선택 결론과 발표용 크기 비교의 목적은 유지하되 인과 입증으로 읽히지 않게 해야 한다.",
+    "finding_ids": [
+      "MF-29"
+    ]
+  },
+  {
+    "id": "F09-U198",
+    "verdict": "restructure",
+    "reason": "착수 전 체크리스트의 해소 시점을 유지하고 최신 실행 결과에 연결해야 한다.",
+    "finding_ids": [
+      "MF-01"
+    ]
+  },
+  {
+    "id": "F09-U199",
+    "verdict": "keep",
+    "reason": "미해결 항목이 러너 구현과 함께 처리된 과거 이력을 설명한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U200",
+    "verdict": "verify",
+    "reason": "양자화 Q8 편차의 방향이 보수적이라고 단정한 근거를 확인하고 thinking 문자 단위를 유지해야 한다.",
+    "finding_ids": [
+      "MF-23",
+      "MF-29"
+    ]
+  },
+  {
+    "id": "F09-U201",
+    "verdict": "keep",
+    "reason": "본문 설계와 실측 부록을 나누는 구분선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U202",
+    "verdict": "keep",
+    "reason": "시간순 실측 이력이라는 부록 제목이 적절하다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U203",
+    "verdict": "keep",
+    "reason": "실험 날짜·역할·폴백 수정 사건을 구체적으로 밝힌다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U204",
+    "verdict": "keep",
+    "reason": "10회 원문 경로와 모델이 특정되어 있으며 비공개 원문은 새로 게시하지 않는다.",
+    "finding_ids": [
+      "MF-14"
+    ]
+  },
+  {
+    "id": "F09-U205",
+    "verdict": "keep",
+    "reason": "같은 12문항을10번 실행했다는 반복 단위를 설명한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U206",
+    "verdict": "keep",
+    "reason": "10회 폴백·위반·detail·근거 건수 표는 유지하며 후속 안정성 서술 정정의 근거가 된다.",
+    "finding_ids": [
+      "MF-17",
+      "MF-30"
+    ]
+  },
+  {
+    "id": "F09-U207",
+    "verdict": "keep",
+    "reason": "초기 전량 폴백과 이후 계약 수정의 관측 이력을 구체적으로 기록한다.",
+    "finding_ids": [
+      "MF-30"
+    ]
+  },
+  {
+    "id": "F09-U208",
+    "verdict": "verify",
+    "reason": "약 4시간0/12 안정이라는 말은 표의 두 차례1/12 폴백과 맞지 않아 관측 요약을 정정해야 한다.",
+    "finding_ids": [
+      "MF-30"
+    ]
+  },
+  {
+    "id": "F09-U209",
+    "verdict": "keep",
+    "reason": "어댑터 교체가 의미 오판 해결 증거가 아니라는 주장을 명확히 한 한계 기록이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U210",
+    "verdict": "keep",
+    "reason": "thinking 기본값 측정 날짜와 목적을 명시한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U211",
+    "verdict": "keep",
+    "reason": "동일 프롬프트·스키마 및 직접 API 호출 조건을 제공한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U212",
+    "verdict": "keep",
+    "reason": "모델별 기본/false의 지연·빈 content 관측을 원형대로 보존한다.",
+    "finding_ids": [
+      "MF-23",
+      "MF-31"
+    ]
+  },
+  {
+    "id": "F09-U213",
+    "verdict": "clarify",
+    "reason": "약 60배는4B에 해당하며 바로 앞0.8B 실패와 분리해 써야 한다.",
+    "finding_ids": [
+      "MF-31"
+    ]
+  },
+  {
+    "id": "F09-U214",
+    "verdict": "keep",
+    "reason": "3역할 지연 측정의 모델·날짜가 명확하다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U215",
+    "verdict": "keep",
+    "reason": "장비·실제 입력·반복3회 및 하네스 전체 시간이라는 측정 범위가 명료하다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U216",
+    "verdict": "keep",
+    "reason": "각 3회 성공·폴백·중앙값·최대·입력 길이를 구별한 표다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U217",
+    "verdict": "verify",
+    "reason": "현재3회 미재현을 구조적으로 완전 차단했다는 일반 결론으로 확장하지 않아야 한다.",
+    "finding_ids": [
+      "MF-19"
+    ]
+  },
+  {
+    "id": "F09-U218",
+    "verdict": "clarify",
+    "reason": "기록된 응답 지연과 추가 페이싱의 결합 방식 및 각 측정 범위를 밝혀야 한다.",
+    "finding_ids": [
+      "MF-24"
+    ]
+  },
+  {
+    "id": "F09-U219",
+    "verdict": "keep",
+    "reason": "9월13일 후보 인벤토리라는 고정 시점 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U220",
+    "verdict": "clarify",
+    "reason": "레지스트리 조회 시점·갱신 기준·디스크와 VRAM 예산 기준을 분리해야 한다.",
+    "finding_ids": [
+      "MF-11",
+      "MF-14"
+    ]
+  },
+  {
+    "id": "F09-U221",
+    "verdict": "clarify",
+    "reason": "수치 단위는 GiB이나 디스크 용량이라는 이름과 상주량 미측정 제외 여부가 필요하다.",
+    "finding_ids": [
+      "MF-11"
+    ]
+  },
+  {
+    "id": "F09-U222",
+    "verdict": "keep",
+    "reason": "당시 공식 라이브러리 범위 및 비공식 GGUF 비교 제한을 명시한 기록이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U223",
+    "verdict": "keep",
+    "reason": "당시 구세대 제외 목록을 남기며 성능 열등이라는 주장으로 강화하지 않는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U224",
+    "verdict": "keep",
+    "reason": "인벤토리와 Stage0 결과를 나누는 구분선이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U225",
+    "verdict": "keep",
+    "reason": "날짜·단계·목적이 구체적인 결과 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U226",
+    "verdict": "clarify",
+    "reason": "비공개 정답을 보호한 설명은 유지하되 통제 버전·기대값 고정 근거를 재현 표로 연결해야 한다.",
+    "finding_ids": [
+      "MF-14"
+    ]
+  },
+  {
+    "id": "F09-U227",
+    "verdict": "clarify",
+    "reason": "13행 관측은 보존하고 thinking 문자/토큰·상주량 단위 및 cold 상태를 표에 밝혀야 한다.",
+    "finding_ids": [
+      "MF-22",
+      "MF-23",
+      "MF-32",
+      "MF-44"
+    ]
+  },
+  {
+    "id": "F09-U228",
+    "verdict": "keep",
+    "reason": "관측 요약을 모으는 반복 소제목은 보고서 기능이 있다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U229",
+    "verdict": "keep",
+    "reason": "off 네 셀의 사용량0이라는 관측과 설정 전달 확인은 표에 근거한다.",
+    "finding_ids": [
+      "MF-32"
+    ]
+  },
+  {
+    "id": "F09-U230",
+    "verdict": "clarify",
+    "reason": "전부 ON의 대상을 thinking 지원4종으로 한정해야 한다.",
+    "finding_ids": [
+      "MF-23",
+      "MF-32"
+    ]
+  },
+  {
+    "id": "F09-U231",
+    "verdict": "keep",
+    "reason": "qwen-T의 해당 프로토콜 탈락과-N 생존을 관측 조건에 묶어 기록한다.",
+    "finding_ids": [
+      "MF-23",
+      "MF-32"
+    ]
+  },
+  {
+    "id": "F09-U232",
+    "verdict": "verify",
+    "reason": "디스크와 실제 상주 차이를 인정한 원칙을 초기 예산 제외 목록에도 반영해야 한다.",
+    "finding_ids": [
+      "MF-11",
+      "MF-12"
+    ]
+  },
+  {
+    "id": "F09-U233",
+    "verdict": "keep",
+    "reason": "관측과 결론을 구분하는 표제는 유익하다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U234",
+    "verdict": "keep",
+    "reason": "n=1 프로토콜 결과를 품질 판정으로 인용하지 않는 제한이 명시되어 있다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U235",
+    "verdict": "keep",
+    "reason": "부가 관측을 묶는 소제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U236",
+    "verdict": "keep",
+    "reason": "경고와 cold-start 추정을 단정하지 않고 관측/가능성으로 남겼다.",
+    "finding_ids": [
+      "MF-44"
+    ]
+  },
+  {
+    "id": "F09-U237",
+    "verdict": "keep",
+    "reason": "Stage0 진출 상태를 명확히 안내한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U238",
+    "verdict": "keep",
+    "reason": "지원 불가/실패/통과를 조건별로 구분하고 기준선을 표시한 표다.",
+    "finding_ids": [
+      "MF-32"
+    ]
+  },
+  {
+    "id": "F09-U239",
+    "verdict": "keep",
+    "reason": "9셀 중 1탈락으로8생존이라는 집계가 표와 맞는다.",
+    "finding_ids": [
+      "MF-32"
+    ]
+  },
+  {
+    "id": "F09-U240",
+    "verdict": "keep",
+    "reason": "Stage0와 Stage1 결과의 경계다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U241",
+    "verdict": "keep",
+    "reason": "Stage1이 advisor만 측정한 스모크임을 정확히 드러낸다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U242",
+    "verdict": "clarify",
+    "reason": "8×22=176은 맞지만 콜의 정의와 초기25계획에서 변경된 문항 수를 연결해야 한다.",
+    "finding_ids": [
+      "MF-14",
+      "MF-15"
+    ]
+  },
+  {
+    "id": "F09-U243",
+    "verdict": "clarify",
+    "reason": "원값은 보존하고 EGR/PCA/PC근거의 분모, thinking 단위, raw 지연 기준을 범례로 밝혀야 한다.",
+    "finding_ids": [
+      "MF-02",
+      "MF-07",
+      "MF-18",
+      "MF-22",
+      "MF-23",
+      "MF-33",
+      "MF-34"
+    ]
+  },
+  {
+    "id": "F09-U244",
+    "verdict": "keep",
+    "reason": "통제별 O/X 상세표의 위치를 안내한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U245",
+    "verdict": "keep",
+    "reason": "각 행 O 개수는 PCA0.70/0.90/0.70/0.70/0.80/0.50/1.00/1.00과 맞으며 원문항을 보존한다.",
+    "finding_ids": [
+      "MF-20"
+    ]
+  },
+  {
+    "id": "F09-U246",
+    "verdict": "keep",
+    "reason": "Stage1 관측 해석 묶음을 제시하는 기능적 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U247",
+    "verdict": "verify",
+    "reason": "비용만 늘린다는 말은 e4b PCA 상승과 상충하므로 모델별 효과로 정정해야 한다.",
+    "finding_ids": [
+      "MF-33"
+    ]
+  },
+  {
+    "id": "F09-U248",
+    "verdict": "clarify",
+    "reason": "C11은 여기서 raw 참고 판정임을 표시하고 Gemini의 effective 탈락과 구별해야 한다.",
+    "finding_ids": [
+      "MF-24",
+      "MF-34"
+    ]
+  },
+  {
+    "id": "F09-U249",
+    "verdict": "verify",
+    "reason": "품질 이득 없다는 첫 문장과 e4b 이득 인정이 충돌하여 측정한 모델별 결과를 직접 써야 한다.",
+    "finding_ids": [
+      "MF-33"
+    ]
+  },
+  {
+    "id": "F09-U250",
+    "verdict": "clarify",
+    "reason": "PC8 unknown 판정 실패를 극성쌍 PC3/PC4·SPC1/SPC2와 별도로 설명해야 한다.",
+    "finding_ids": [
+      "MF-20"
+    ]
+  },
+  {
+    "id": "F09-U251",
+    "verdict": "keep",
+    "reason": "측정한 셀 중 극성쌍을 통과한 로컬 후보가 하나라는 표의 관측을 보존한다.",
+    "finding_ids": [
+      "MF-20"
+    ]
+  },
+  {
+    "id": "F09-U252",
+    "verdict": "clarify",
+    "reason": "PC근거1.00이 해당 통제의 기대 ID 선택이라는 범위와 명제 방향 판정을 구별해야 한다.",
+    "finding_ids": [
+      "MF-18"
+    ]
+  },
+  {
+    "id": "F09-U253",
+    "verdict": "keep",
+    "reason": "qwen의 단계별 탈락 사유 PCA·지연·JSON 실패를 구체적으로 기록한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U254",
+    "verdict": "verify",
+    "reason": "통제 지표 동일함을 품질 손실 없는 운영 전환으로 일반화하지 않아야 한다.",
+    "finding_ids": [
+      "MF-33"
+    ]
+  },
+  {
+    "id": "F09-U255",
+    "verdict": "keep",
+    "reason": "스모크 한계를 분리한 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U256",
+    "verdict": "verify",
+    "reason": "후속 응답7.7초와 다른 절 effective6초의 기준 시각·처리 간격/응답 시간 정의를 확인해야 한다.",
+    "finding_ids": [
+      "MF-24",
+      "MF-34"
+    ]
+  },
+  {
+    "id": "F09-U257",
+    "verdict": "keep",
+    "reason": "n=1로 순위를 확정하지 않고 n=3 공식 단계를 구분한다.",
+    "finding_ids": [
+      "MF-34"
+    ]
+  },
+  {
+    "id": "F09-U258",
+    "verdict": "keep",
+    "reason": "Stage2 진출 결정을 공개하는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U259",
+    "verdict": "verify",
+    "reason": "C11 통과와 FBR만 쓴 진출 규칙이 effective Gemini 탈락·초기 SVR 규칙과 어떻게 조화되는지 밝혀야 한다.",
+    "finding_ids": [
+      "MF-26",
+      "MF-34"
+    ]
+  },
+  {
+    "id": "F09-U260",
+    "verdict": "clarify",
+    "reason": "raw 기준 진출 예외 및 advisor 품질 한정이 필요하며40% 지연·59% 메모리 감소 근사는 맞는다.",
+    "finding_ids": [
+      "MF-26",
+      "MF-34"
+    ]
+  },
+  {
+    "id": "F09-U261",
+    "verdict": "keep",
+    "reason": "8→4 집계와4개 탈락 셀은 목록과 맞으며 실제 단계 이력을 보존한다.",
+    "finding_ids": [
+      "MF-26",
+      "MF-34"
+    ]
+  },
+  {
+    "id": "F09-U262",
+    "verdict": "keep",
+    "reason": "스모크와 formal 결과를 구분한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U263",
+    "verdict": "keep",
+    "reason": "공식 단계의4역할·n=3이라는 실험 조건을 보존한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U264",
+    "verdict": "verify",
+    "reason": "372는4×31문항×3반복이며 현재 곱셈 표현에는 역할당 문항 수와 요청 단위가 빠졌다.",
+    "finding_ids": [
+      "MF-14",
+      "MF-15",
+      "MF-35"
+    ]
+  },
+  {
+    "id": "F09-U265",
+    "verdict": "clarify",
+    "reason": "핵심 수치는 보존하고 역할 약어·ms·분모·누락된 게이트별 상세 집계로 연결해야 한다.",
+    "finding_ids": [
+      "MF-02",
+      "MF-07",
+      "MF-22",
+      "MF-24",
+      "MF-35",
+      "MF-37",
+      "MF-38"
+    ]
+  },
+  {
+    "id": "F09-U266",
+    "verdict": "keep",
+    "reason": "반복 통과율 표라는 집계 형식을 명시한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U267",
+    "verdict": "keep",
+    "reason": "10개 통제의0/1 행합은 공식 PCA와 일치하며 반복 관측 자체를 보존한다.",
+    "finding_ids": [
+      "MF-20",
+      "MF-36"
+    ]
+  },
+  {
+    "id": "F09-U268",
+    "verdict": "verify",
+    "reason": "n=3 일치를 우연 배제나 모델의 일반 성질로 해석한 부분을 관측 범위로 제한해야 한다.",
+    "finding_ids": [
+      "MF-36"
+    ]
+  },
+  {
+    "id": "F09-U269",
+    "verdict": "keep",
+    "reason": "effective 기준 판정임을 구분하는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U270",
+    "verdict": "clarify",
+    "reason": "C13은 evaluator p50×10과 맞는 유도값이며 전체 채점 실측 시간과 다름을 표시해야 한다.",
+    "finding_ids": [
+      "MF-24",
+      "MF-37"
+    ]
+  },
+  {
+    "id": "F09-U271",
+    "verdict": "keep",
+    "reason": "공식 결과 요약을 모으는 기능적 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U272",
+    "verdict": "verify",
+    "reason": "품질 전 지표1위는 PC근거0.90과 맞지 않고60초는 유도 근사라는 범위가 필요하다.",
+    "finding_ids": [
+      "MF-24",
+      "MF-37"
+    ]
+  },
+  {
+    "id": "F09-U273",
+    "verdict": "verify",
+    "reason": "오류가 발생하지 않는다는 일반화, PC8의 극성 분류, 같은 비용의 역할 범위를 정정해야 한다.",
+    "finding_ids": [
+      "MF-20",
+      "MF-36"
+    ]
+  },
+  {
+    "id": "F09-U274",
+    "verdict": "keep",
+    "reason": "역할 하락이 있으면 합산 성과로 비열등을 선언할 수 없다는 자체 규칙을 분명히 적용한다.",
+    "finding_ids": [
+      "MF-03",
+      "MF-38"
+    ]
+  },
+  {
+    "id": "F09-U275",
+    "verdict": "verify",
+    "reason": "e4b 품질 동등은 PCA에 한정되며 evaluator 하락을 함께 써야 한다. 44/51/47%와 VRAM41% 계산은 맞는다.",
+    "finding_ids": [
+      "MF-38"
+    ]
+  },
+  {
+    "id": "F09-U276",
+    "verdict": "verify",
+    "reason": "372개 문항 실행의 폴백0을 모든 원인 해소·의미 입력 소화로 확장하지 않고 SVR/재생성/역할 범위를 확인해야 한다.",
+    "finding_ids": [
+      "MF-15",
+      "MF-19",
+      "MF-35"
+    ]
+  },
+  {
+    "id": "F09-U277",
+    "verdict": "keep",
+    "reason": "통제 타당성 문제를 별도로 공개한 실제 소절 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U278",
+    "verdict": "keep",
+    "reason": "3케이스 중 1케이스가3반복 모두 불일치했다는 분모 설명이 명료하다.",
+    "finding_ids": [
+      "MF-39"
+    ]
+  },
+  {
+    "id": "F09-U279",
+    "verdict": "keep",
+    "reason": "시나리오 비공개 내용을 보호하면서 기대와 실제 판정의 차이를 보존한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U280",
+    "verdict": "clarify",
+    "reason": "작성자·사전 고정·독립 검수·대표성을 각각 설명하고 자작 여부만으로 증거 등급을 정하지 않아야 한다.",
+    "finding_ids": [
+      "MF-39"
+    ]
+  },
+  {
+    "id": "F09-U281",
+    "verdict": "keep",
+    "reason": "프롬프트 동의어 계약에 따른 다른 해석 가능성을 유보하여 남긴다.",
+    "finding_ids": [
+      "MF-39"
+    ]
+  },
+  {
+    "id": "F09-U282",
+    "verdict": "copy_edit",
+    "reason": "주목할 점이라는 강조를 걷고 해당 통제의 판정 방향을 직접 쓰되 과거 위험 기록은 보존한다.",
+    "finding_ids": [
+      "MF-40"
+    ]
+  },
+  {
+    "id": "F09-U283",
+    "verdict": "keep",
+    "reason": "실플레이 제출문으로 교체하는 조치와 이전 자료 규모를 투명하게 기록한다.",
+    "finding_ids": [
+      "MF-39"
+    ]
+  },
+  {
+    "id": "F09-U284",
+    "verdict": "keep",
+    "reason": "A.7 측정 제약을 별도로 모은 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U285",
+    "verdict": "clarify",
+    "reason": "n=3·자작 통제·유도 effective·미측정을 유지하고 Stage3/4 미실행은 당시 상태임을 안내해야 한다.",
+    "finding_ids": [
+      "MF-01",
+      "MF-16",
+      "MF-24",
+      "MF-36",
+      "MF-44"
+    ]
+  },
+  {
+    "id": "F09-U286",
+    "verdict": "keep",
+    "reason": "통제 교체가 후속 보강 실험임을 날짜와 함께 분명히 한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U287",
+    "verdict": "clarify",
+    "reason": "4×14×3=168은 맞으며 정답 세트·실행 버전과4개 원제출문에서 파생된 구조를 연결해야 한다.",
+    "finding_ids": [
+      "MF-14",
+      "MF-15",
+      "MF-39"
+    ]
+  },
+  {
+    "id": "F09-U288",
+    "verdict": "clarify",
+    "reason": "4개 원제출문·14케이스·기대 범주4/5/5를 유지하고 단일 저자 고정·독립 검수 상태를 가까이 밝혀야 한다.",
+    "finding_ids": [
+      "MF-14",
+      "MF-39"
+    ]
+  },
+  {
+    "id": "F09-U289",
+    "verdict": "keep",
+    "reason": "후속 실험 결과표를 안내하는 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U290",
+    "verdict": "clarify",
+    "reason": "기대 일치율은 케이스표와 검산되지만 n/N·flip 정의·ms·C13 유도값 표시를 추가해야 한다.",
+    "finding_ids": [
+      "MF-02",
+      "MF-07",
+      "MF-24",
+      "MF-35",
+      "MF-41"
+    ]
+  },
+  {
+    "id": "F09-U291",
+    "verdict": "keep",
+    "reason": "번개는 반복 뒤집힘의 범례로 쓰인 정보 기호이므로 장식 이모지 규칙으로 삭제하지 않는다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U292",
+    "verdict": "keep",
+    "reason": "14행 기대값과4모델 판정은 집계 검산 근거이므로 표와 O/오답·뒤집힘 표기를 보존한다.",
+    "finding_ids": [
+      "MF-41",
+      "MF-42",
+      "MF-43"
+    ]
+  },
+  {
+    "id": "F09-U293",
+    "verdict": "keep",
+    "reason": "실플레이 통제 관측 요약을 모으는 실제 제목이다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U294",
+    "verdict": "verify",
+    "reason": "기준선보다 높은 셀은12b뿐이 아니라 세 후보 모두이며12b가 최고라는 표현으로 구별해야 한다.",
+    "finding_ids": [
+      "MF-03",
+      "MF-41"
+    ]
+  },
+  {
+    "id": "F09-U295",
+    "verdict": "keep",
+    "reason": "A1·A5·B2·D1의 오판 방향을 구체적으로 짚고 앞선 엄격성 해석의 변화를 드러낸다.",
+    "finding_ids": [
+      "MF-42"
+    ]
+  },
+  {
+    "id": "F09-U296",
+    "verdict": "verify",
+    "reason": "partial60회0관측을 프롬프트 단일 원인·모든 모델 일반 성질로 확장하지 않아야 한다.",
+    "finding_ids": [
+      "MF-42"
+    ]
+  },
+  {
+    "id": "F09-U297",
+    "verdict": "verify",
+    "reason": "D1 네 모델·C1 두 모델 관측에서 어떤 모델도 해결 못한다거나 입력 차단이 유일 해법이라고 단정하지 않아야 한다.",
+    "finding_ids": [
+      "MF-43"
+    ]
+  },
+  {
+    "id": "F09-U298",
+    "verdict": "clarify",
+    "reason": "결정적이라는 모델 성질 대신56케이스-셀 중 55개 반복 일치와1건 flip이라는 관측으로 써야 한다.",
+    "finding_ids": [
+      "MF-36"
+    ]
+  },
+  {
+    "id": "F09-U299",
+    "verdict": "keep",
+    "reason": "A.8 후속 실험의 제약을 따로 표시한다.",
+    "finding_ids": []
+  },
+  {
+    "id": "F09-U300",
+    "verdict": "verify",
+    "reason": "단일 저자 기대값·비열등 미선언은 보존하고 thought_signature 해석은 usage 근거로 확인하며 과거 미실행을 표시해야 한다.",
+    "finding_ids": [
+      "MF-01",
+      "MF-03",
+      "MF-39",
+      "MF-41",
+      "MF-42",
+      "MF-44"
+    ]
+  }
+]

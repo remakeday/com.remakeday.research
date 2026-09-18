@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Derive public figure data from the immutable research Markdown.
+"""Derive public figure data from the versioned research Markdown.
 
 The checked-in JSON is the only numeric input used by the figure includes. Run
 without arguments to refresh it, or with --check to fail when the public source
@@ -111,7 +111,7 @@ def parse_human_observations(text: str) -> dict[str, Any]:
         raise SourceError("public source changed: Tester 6 trajectory must contain rounds 1–5")
 
     tester_rules = require(
-        r"이 판에서는 AI 계열 (\d+)/(\d+), 직접 작성 (\d+)/(\d+)다",
+        r"이 판의 적용 규칙 \d+건에서는 AI 계열 (\d+)/(\d+), 직접 작성 (\d+)/(\d+)다",
         tester_text,
         "Tester 6 rule-selection counts",
     )
@@ -120,12 +120,12 @@ def parse_human_observations(text: str) -> dict[str, Any]:
     )
     if tester_denominator != tester_custom_denominator:
         raise SourceError("source denominator mismatch: Tester 6 rows use different totals")
-    same_text = require(
-        r"(\d+)~(\d+)회차 제출문은 같은 (\d+)자였고",
+    equal_length = require(
+        r"(\d+)~(\d+)회차 제출문 길이는 모두 (\d+)자였고",
         tester_text,
         "Tester 6 repeated-submission caveat",
     )
-    same_text_start, same_text_end, same_text_length = map(int, same_text.groups())
+    equal_length_start, equal_length_end, submission_length = map(int, equal_length.groups())
     if "단조 잠금" not in tester_text:
         raise SourceError("public source changed: Tester 6 scoring caveat is missing")
 
@@ -153,9 +153,10 @@ def parse_human_observations(text: str) -> dict[str, Any]:
             "ai_selections": tester_ai,
             "custom_selections": tester_custom,
             "trajectory": trajectory,
-            "same_text_rounds": list(range(same_text_start, same_text_end + 1)),
-            "same_text_length": same_text_length,
-            "monotonic_scoring_lock": True,
+            "equal_length_rounds": list(range(equal_length_start, equal_length_end + 1)),
+            "submission_length": submission_length,
+            "content_identity_verified": False,
+            "monotonic_scoring_lock": "conditional",
             "source_anchor": "case--tester-6-2026-09-16--5회차-완주",
         },
     }
@@ -175,7 +176,7 @@ def parse_embedding(text: str) -> dict[str, Any]:
     )
     preliminary_repetitions = int(
         require(
-            r"\*\*반복 n=(\d+)\(1차 골든, 조용한 GPU\)",
+            r"\*\*(?:초기 30문장 )?반복 n=(\d+)\((?:1차 골든|검수 22문장과 별도), 조용한 GPU\)",
             reviewed,
             "preliminary embedding repetition count",
         ).group(1)

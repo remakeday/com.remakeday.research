@@ -1,0 +1,571 @@
+{
+  "research_commit": "ff6afd0b3d0625b443cabbf5a2e9be34f9ac1037",
+  "source_check_mode": "git_baseline",
+  "files": 26,
+  "units": 775,
+  "source_hashes_match": true,
+  "nonblank_line_coverage_exactly_once": true,
+  "ledger_ids_complete_unique": true,
+  "bidirectional_finding_links_valid": true,
+  "quoted_before_text_matches_source": true,
+  "findings": 182,
+  "priorities": {
+    "high": 59,
+    "medium": 107,
+    "low": 16
+  },
+  "categories": {
+    "structure": 23,
+    "readability": 32,
+    "claim": 72,
+    "data": 50,
+    "style": 5
+  },
+  "verification": {
+    "public_document": 79,
+    "needs_source": 92,
+    "raw_checked": 11
+  },
+  "verdicts": {
+    "clarify": 185,
+    "keep": 411,
+    "restructure": 33,
+    "verify": 135,
+    "copy_edit": 11
+  },
+  "by_file": [
+    {
+      "file": "index.md",
+      "lines": 85,
+      "units": 20,
+      "scope": "article",
+      "verdicts": {
+        "clarify": 2,
+        "keep": 12,
+        "verify": 5,
+        "copy_edit": 1
+      },
+      "finding_ids": [
+        "OA-01",
+        "OA-02",
+        "OA-03",
+        "OA-04",
+        "OA-10",
+        "OA-16",
+        "OA-56"
+      ]
+    },
+    {
+      "file": "statement.md",
+      "lines": 52,
+      "units": 16,
+      "scope": "article",
+      "verdicts": {
+        "keep": 8,
+        "verify": 7,
+        "clarify": 1
+      },
+      "finding_ids": [
+        "OA-01",
+        "OA-05",
+        "OA-06",
+        "OA-07",
+        "OA-08",
+        "OA-09",
+        "OA-10",
+        "OA-11",
+        "OA-56"
+      ]
+    },
+    {
+      "file": "testbed.md",
+      "lines": 121,
+      "units": 29,
+      "scope": "article",
+      "verdicts": {
+        "keep": 16,
+        "clarify": 7,
+        "verify": 6
+      },
+      "finding_ids": [
+        "OA-02",
+        "OA-03",
+        "OA-04",
+        "OA-09",
+        "OA-10",
+        "OA-11",
+        "OA-12",
+        "OA-13",
+        "OA-14",
+        "OA-15",
+        "OA-16",
+        "OA-56"
+      ]
+    },
+    {
+      "file": "plain-summary.md",
+      "lines": 59,
+      "units": 14,
+      "scope": "article",
+      "verdicts": {
+        "clarify": 5,
+        "keep": 7,
+        "copy_edit": 1,
+        "verify": 1
+      },
+      "finding_ids": [
+        "OA-08",
+        "OA-09",
+        "OA-17",
+        "OA-18",
+        "OA-19",
+        "OA-56"
+      ]
+    },
+    {
+      "file": "limitations.md",
+      "lines": 74,
+      "units": 25,
+      "scope": "article",
+      "verdicts": {
+        "keep": 17,
+        "clarify": 5,
+        "verify": 2,
+        "restructure": 1
+      },
+      "finding_ids": [
+        "OA-01",
+        "OA-10",
+        "OA-20",
+        "OA-21",
+        "OA-22",
+        "OA-23",
+        "OA-24"
+      ]
+    },
+    {
+      "file": "prereg.md",
+      "lines": 129,
+      "units": 36,
+      "scope": "article",
+      "verdicts": {
+        "clarify": 9,
+        "verify": 8,
+        "keep": 19
+      },
+      "finding_ids": [
+        "OA-25",
+        "OA-26",
+        "OA-27",
+        "OA-28",
+        "OA-29",
+        "OA-30",
+        "OA-31",
+        "OA-32",
+        "OA-57"
+      ]
+    },
+    {
+      "file": "lab-notes.md",
+      "lines": 114,
+      "units": 19,
+      "scope": "article",
+      "verdicts": {
+        "keep": 10,
+        "verify": 5,
+        "clarify": 4
+      },
+      "finding_ids": [
+        "OA-10",
+        "OA-11",
+        "OA-14",
+        "OA-23",
+        "OA-33",
+        "OA-34",
+        "OA-35",
+        "OA-36",
+        "OA-37",
+        "OA-38",
+        "OA-39",
+        "OA-40",
+        "OA-41",
+        "OA-42",
+        "OA-50",
+        "OA-51",
+        "OA-56",
+        "OA-59"
+      ]
+    },
+    {
+      "file": "experiments/human-observations.md",
+      "lines": 167,
+      "units": 43,
+      "scope": "article",
+      "verdicts": {
+        "clarify": 10,
+        "keep": 22,
+        "copy_edit": 2,
+        "verify": 9
+      },
+      "finding_ids": [
+        "OA-01",
+        "OA-02",
+        "OA-21",
+        "OA-43",
+        "OA-44",
+        "OA-45",
+        "OA-46",
+        "OA-47",
+        "OA-48",
+        "OA-49",
+        "OA-50",
+        "OA-51",
+        "OA-52",
+        "OA-53",
+        "OA-54",
+        "OA-55",
+        "OA-56",
+        "OA-57",
+        "OA-58"
+      ]
+    },
+    {
+      "file": "experiments/model-selection.md",
+      "lines": 1811,
+      "units": 526,
+      "scope": "article",
+      "verdicts": {
+        "clarify": 135,
+        "keep": 269,
+        "restructure": 26,
+        "verify": 91,
+        "copy_edit": 5
+      },
+      "finding_ids": [
+        "MF-01",
+        "MF-02",
+        "MF-03",
+        "MF-04",
+        "MF-05",
+        "MF-06",
+        "MF-07",
+        "MF-08",
+        "MF-09",
+        "MF-10",
+        "MF-11",
+        "MF-12",
+        "MF-13",
+        "MF-14",
+        "MF-15",
+        "MF-16",
+        "MF-17",
+        "MF-18",
+        "MF-19",
+        "MF-20",
+        "MF-21",
+        "MF-22",
+        "MF-23",
+        "MF-24",
+        "MF-25",
+        "MF-26",
+        "MF-27",
+        "MF-28",
+        "MF-29",
+        "MF-30",
+        "MF-31",
+        "MF-32",
+        "MF-33",
+        "MF-34",
+        "MF-35",
+        "MF-36",
+        "MF-37",
+        "MF-38",
+        "MF-39",
+        "MF-40",
+        "MF-41",
+        "MF-42",
+        "MF-43",
+        "MF-44",
+        "MF-45",
+        "MF-46",
+        "MD-01",
+        "MD-02",
+        "MD-03",
+        "MD-04",
+        "MD-05",
+        "MD-06",
+        "MD-07",
+        "MD-08",
+        "MD-09",
+        "MD-10",
+        "MD-11",
+        "MD-12",
+        "MD-13",
+        "MD-14",
+        "MD-15",
+        "MD-16",
+        "MD-17",
+        "MD-18",
+        "MD-19",
+        "MD-20",
+        "MD-21",
+        "MD-22",
+        "MD-23",
+        "MD-24",
+        "MD-25",
+        "MD-26",
+        "MD-27",
+        "MD-28",
+        "MD-29",
+        "MD-30",
+        "MD-31",
+        "MD-32",
+        "MD-33",
+        "MD-34",
+        "MD-35",
+        "MD-36",
+        "MD-37",
+        "MD-38",
+        "MD-39",
+        "MD-40",
+        "MD-41",
+        "MD-42",
+        "MD-43",
+        "MD-44",
+        "MD-45",
+        "MD-46",
+        "MD-47",
+        "MD-48",
+        "MD-49",
+        "MD-50",
+        "MD-51",
+        "MD-52",
+        "MD-53",
+        "MD-54",
+        "MD-55",
+        "MD-56",
+        "MD-57",
+        "MD-58",
+        "MD-59",
+        "MD-60",
+        "MD-61",
+        "MD-62",
+        "MD-63",
+        "MD-64",
+        "MD-65",
+        "MD-66",
+        "MD-67",
+        "MD-68"
+      ]
+    },
+    {
+      "file": "_data/reading.yml",
+      "lines": 120,
+      "units": 9,
+      "scope": "presentation",
+      "verdicts": {
+        "keep": 6,
+        "clarify": 2,
+        "restructure": 1
+      },
+      "finding_ids": [
+        "PR-01",
+        "PR-02",
+        "PR-03",
+        "PR-08"
+      ]
+    },
+    {
+      "file": "_data/nav.yml",
+      "lines": 15,
+      "units": 1,
+      "scope": "presentation",
+      "verdicts": {
+        "keep": 1
+      },
+      "finding_ids": []
+    },
+    {
+      "file": "_data/research_figures.json",
+      "lines": 213,
+      "units": 1,
+      "scope": "presentation",
+      "verdicts": {
+        "keep": 1
+      },
+      "finding_ids": []
+    },
+    {
+      "file": "_config.yml",
+      "lines": 50,
+      "units": 7,
+      "scope": "presentation",
+      "verdicts": {
+        "copy_edit": 1,
+        "keep": 6
+      },
+      "finding_ids": [
+        "PR-09"
+      ]
+    },
+    {
+      "file": "_layouts/default.html",
+      "lines": 27,
+      "units": 1,
+      "scope": "presentation",
+      "verdicts": {
+        "keep": 1
+      },
+      "finding_ids": []
+    },
+    {
+      "file": "_layouts/page.html",
+      "lines": 40,
+      "units": 2,
+      "scope": "presentation",
+      "verdicts": {
+        "keep": 1,
+        "restructure": 1
+      },
+      "finding_ids": [
+        "PR-06"
+      ]
+    },
+    {
+      "file": "_includes/head.html",
+      "lines": 11,
+      "units": 1,
+      "scope": "presentation",
+      "verdicts": {
+        "keep": 1
+      },
+      "finding_ids": []
+    },
+    {
+      "file": "_includes/footer.html",
+      "lines": 5,
+      "units": 1,
+      "scope": "presentation",
+      "verdicts": {
+        "keep": 1
+      },
+      "finding_ids": []
+    },
+    {
+      "file": "_includes/sidebar.html",
+      "lines": 13,
+      "units": 1,
+      "scope": "presentation",
+      "verdicts": {
+        "restructure": 1
+      },
+      "finding_ids": [
+        "PR-06"
+      ]
+    },
+    {
+      "file": "assets/js/app.js",
+      "lines": 132,
+      "units": 8,
+      "scope": "presentation",
+      "verdicts": {
+        "keep": 6,
+        "restructure": 2
+      },
+      "finding_ids": [
+        "PR-06"
+      ]
+    },
+    {
+      "file": "_includes/research/figures/human-observations.html",
+      "lines": 59,
+      "units": 2,
+      "scope": "presentation",
+      "verdicts": {
+        "clarify": 2
+      },
+      "finding_ids": [
+        "PR-03",
+        "PR-05",
+        "PR-08"
+      ]
+    },
+    {
+      "file": "_includes/research/figures/model-selection.html",
+      "lines": 35,
+      "units": 2,
+      "scope": "presentation",
+      "verdicts": {
+        "restructure": 1,
+        "verify": 1
+      },
+      "finding_ids": [
+        "PR-01",
+        "PR-02",
+        "PR-04",
+        "PR-05"
+      ]
+    },
+    {
+      "file": "_includes/research/figures/prereg-ab.html",
+      "lines": 19,
+      "units": 1,
+      "scope": "presentation",
+      "verdicts": {
+        "copy_edit": 1
+      },
+      "finding_ids": [
+        "PR-05",
+        "PR-07"
+      ]
+    },
+    {
+      "file": "_includes/research/figures/system-loop.html",
+      "lines": 13,
+      "units": 1,
+      "scope": "presentation",
+      "verdicts": {
+        "clarify": 1
+      },
+      "finding_ids": [
+        "PR-05"
+      ]
+    },
+    {
+      "file": "_includes/research/glossary.html",
+      "lines": 15,
+      "units": 1,
+      "scope": "presentation",
+      "verdicts": {
+        "clarify": 1
+      },
+      "finding_ids": [
+        "PR-02"
+      ]
+    },
+    {
+      "file": "_includes/research/home.html",
+      "lines": 42,
+      "units": 5,
+      "scope": "presentation",
+      "verdicts": {
+        "keep": 4,
+        "clarify": 1
+      },
+      "finding_ids": [
+        "PR-05"
+      ]
+    },
+    {
+      "file": "_includes/research/overview.html",
+      "lines": 18,
+      "units": 3,
+      "scope": "presentation",
+      "verdicts": {
+        "keep": 3
+      },
+      "finding_ids": []
+    }
+  ],
+  "note": "Reading coverage and report integrity, not validation of every underlying experiment."
+}

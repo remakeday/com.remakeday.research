@@ -15,6 +15,29 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import refresh_research_data as research_data  # noqa: E402
 
 
+class SubmissionEvidenceTests(unittest.TestCase):
+    def test_clarified_repeat_caption_stays_with_the_initial_30_items(self):
+        text = (ROOT / "experiments/model-selection.md").read_text()
+        text = text.replace(
+            "**반복 n=3(1차 골든, 조용한 GPU)",
+            "**초기 30문장 반복 n=3(검수 22문장과 별도, 조용한 GPU)",
+        )
+        repeat = research_data.parse_embedding(text)["repeat_check"]
+        self.assertEqual(repeat["items"], 30)
+        self.assertEqual(repeat["repetitions"], 3)
+        self.assertFalse(repeat["applies_to_reviewed_table"])
+
+    def test_equal_lengths_do_not_become_verified_identical_content(self):
+        text = (ROOT / "experiments/human-observations.md").read_text()
+        tester = research_data.parse_human_observations(text)["tester6"]
+
+        self.assertEqual(tester["equal_length_rounds"], [3, 4, 5])
+        self.assertEqual(tester["submission_length"], 266)
+        self.assertFalse(tester["content_identity_verified"])
+        self.assertEqual(tester["monotonic_scoring_lock"], "conditional")
+        self.assertNotIn("same_text_rounds", tester)
+
+
 class ResearchDataTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

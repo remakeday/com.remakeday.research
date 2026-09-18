@@ -1,13 +1,13 @@
 {% assign prereg = site.data.research_figures.preregistration %}
 <figure class="research-figure" aria-labelledby="prereg-title">
-  <p class="figure-eyebrow">FIGURE 05 · PREREGISTERED DESIGN</p>
-  <h3 class="figure-title" id="prereg-title">결과를 보기 전에 고정한 두 조건</h3>
+  <p class="figure-eyebrow">SUMMARY S5 · PREREGISTERED DESIGN</p>
+  <h3 class="figure-title" id="prereg-title">실행 전 설계한 두 조건</h3>
   <div class="ab-flow" aria-label="참가자를 무작위 배정해 A 또는 B 조건을 보여 준 뒤 AI 제안 수용률을 측정하는 설계">
     <div class="ab-flow__node ab-flow__start"><small>PARTICIPANTS</small><strong>참가자</strong></div>
     <span class="ab-flow__arrow" aria-hidden="true">↓ 무작위 배정</span>
     <div class="ab-flow__branches">
       {% for condition in prereg.conditions %}
-      <div class="ab-flow__node"><small>CONDITION {{ condition.id }}</small><strong>{{ condition.label }}</strong><span>rationale {{ condition.rationale }}</span></div>
+      <div class="ab-flow__node"><small>CONDITION {{ condition.id }}</small><strong>{{ condition.label }}</strong><span>이유 설명 {% if condition.rationale == "present" %}있음{% else %}없음{% endif %}</span></div>
       {% endfor %}
     </div>
     <span class="ab-flow__arrow" aria-hidden="true">↓ 두 조건을 같은 기준으로 측정</span>
@@ -15,5 +15,5 @@
   </div>
   <p class="figure-caution">아직 측정값이 없습니다. NOT RUN을 0%나 효과 없음으로 읽지 마세요.</p>
   <p class="figure-source"><a href="{{ '/prereg/' | relative_url }}#{{ prereg.source_anchor }}">출처: 사전등록 · Anchor Experiment 설계</a></p>
-  <figcaption><strong>그림 5.</strong> 무작위로 배정할 A/B 조건과 주요 결과값만 보여 줍니다. 결과 막대와 효과 크기는 실험 실행 뒤에만 추가할 수 있습니다.</figcaption>
+  <figcaption><strong>요약 그림 S5.</strong> 무작위로 배정할 A/B 조건과 주요 결과값만 보여 줍니다. 결과 막대와 효과 크기는 실험 실행 뒤에만 추가할 수 있습니다.</figcaption>
 </figure>

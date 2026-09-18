@@ -1,0 +1,1820 @@
+[
+  {
+    "id": "F01-U001",
+    "file": "index.md",
+    "start": 1,
+    "end": 8,
+    "kind": "metadata",
+    "text": "---\ntitle: \"AI 제안 수용 측정을 위한 게임 기반 Human–AI 상호작용 실험환경의 설계 및 검증\"\nshort_title: \"REMAKE DAY Research\"\npermalink: /\neyebrow: \"Research Report · 작성 중\"\nstatus: \"Exploratory · 사람 세션 7판\"\ndescription: \"REMAKE DAY: A Game-Based Testbed for Measuring Human Reliance on AI Suggestions in Iterative Failure-Recovery Loops\"\n---",
+    "sha256": "f6d17396341663e23519e4cf326eafefff0234d9418184b1b83c124857469acc"
+  },
+  {
+    "id": "F01-U002",
+    "file": "index.md",
+    "start": 10,
+    "end": 10,
+    "kind": "heading",
+    "text": "## Abstract",
+    "sha256": "266c21b810ae65751fa70f388a867e94d180e79fd15c69ed54dae7df1d29166b"
+  },
+  {
+    "id": "F01-U003",
+    "file": "index.md",
+    "start": 12,
+    "end": 14,
+    "kind": "paragraph",
+    "text": "Agentic systems increasingly place humans in loops where AI suggests interventions\nand humans accept, reject, or revise them. However, this reliance is difficult\nto observe repeatedly under controlled and reproducible conditions.",
+    "sha256": "e6c1bd313b45813c711e9bfaf623cee6c947e33fc93554fa7325ab4d8841fbae"
+  },
+  {
+    "id": "F01-U004",
+    "file": "index.md",
+    "start": 16,
+    "end": 19,
+    "kind": "paragraph",
+    "text": "We introduce **REMAKE DAY**, a game-based experimental testbed that reproduces an\nexecution–failure–explanation–revision loop. The environment records human choices\nbetween AI-generated and self-written interventions, explanation exposure,\nside-effect recognition, and subsequent understanding.",
+    "sha256": "53dc6cc000100b6a15aef8750348539f8296c83d76176605e7885323724c6ae9"
+  },
+  {
+    "id": "F01-U005",
+    "file": "index.md",
+    "start": 21,
+    "end": 22,
+    "kind": "paragraph",
+    "text": "We demonstrate how a game environment can function not only as an AI product, but\nas a **reproducible behavioral testbed** for studying human–AI decision making.",
+    "sha256": "fd079d1b45c18346cd6b87846cab063f3dae208a9f92c17f41a5f668dc1ca652"
+  },
+  {
+    "id": "F01-U006",
+    "file": "index.md",
+    "start": 24,
+    "end": 24,
+    "kind": "paragraph",
+    "text": "---",
+    "sha256": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b"
+  },
+  {
+    "id": "F01-U007",
+    "file": "index.md",
+    "start": 26,
+    "end": 26,
+    "kind": "heading",
+    "text": "## 포지셔닝",
+    "sha256": "502071dacb4c7933342eeb11cee0050f6e73da2ecf111554fbf96a4ea8972706"
+  },
+  {
+    "id": "F01-U008",
+    "file": "index.md",
+    "start": 28,
+    "end": 28,
+    "kind": "paragraph",
+    "text": "이 프로젝트가 보여주려는 것은 \"AI를 이용해 게임을 만들었다\"가 아니다.",
+    "sha256": "12c74e6f7832282eafdc39d774d9f3b596ab19a1fc0458cb9802a19060b211e5"
+  },
+  {
+    "id": "F01-U009",
+    "file": "index.md",
+    "start": 30,
+    "end": 31,
+    "kind": "quote",
+    "text": "> **AI Agent가 개입하는 반복적 실패–수정 환경을 만들고, 그 안에서 사람이 AI의 제안을\n> 어떻게 판단하는지를 실제 행동 데이터로 측정했다.**",
+    "sha256": "2130b76e9979a0a182ea157dc70f402dc00c2ad92a2cf179ee462bd1de74ffd9"
+  },
+  {
+    "id": "F01-U010",
+    "file": "index.md",
+    "start": 33,
+    "end": 34,
+    "kind": "quote",
+    "text": "> *We did not build a game only to demonstrate an AI agent. We built a reproducible\n> environment in which human decisions about AI-generated interventions can be measured.*",
+    "sha256": "0795ecca6a899b5f1e169f3f1431654d0d0d83e92416133014ba79724c87896e"
+  },
+  {
+    "id": "F01-U011",
+    "file": "index.md",
+    "start": 36,
+    "end": 57,
+    "kind": "code_or_diagram",
+    "text": "```text\n                    REMAKE DAY\n\n┌──────────────────────────────────────────┐\n│ 1. GAME                                  │\n│ 실제 플레이 가능한 제품                  │\n└──────────────────────────────────────────┘\n                    │\n                    ▼\n┌──────────────────────────────────────────┐\n│ 2. EXPERIMENT DASHBOARD                  │\n│ Acceptance / Rationale / Understanding   │\n│ Side-effect / Question Quality           │\n└──────────────────────────────────────────┘\n                    │\n                    ▼\n┌──────────────────────────────────────────┐\n│ 3. RESEARCH REPORT                       │\n│ Question → Hypothesis → Method           │\n│ → Results → Limitations                  │\n└──────────────────────────────────────────┘\n```",
+    "sha256": "f76b724b8f7f4924aad2367d5c6fc2f9265f3ca26e99dc46f6d82a7de9031880"
+  },
+  {
+    "id": "F01-U012",
+    "file": "index.md",
+    "start": 59,
+    "end": 59,
+    "kind": "paragraph",
+    "text": "---",
+    "sha256": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b"
+  },
+  {
+    "id": "F01-U013",
+    "file": "index.md",
+    "start": 61,
+    "end": 61,
+    "kind": "heading",
+    "text": "## Contributions",
+    "sha256": "9ba44af6aa0d7281c553a21c3069959afb99e723695f1bcc77f039ce1d8e23da"
+  },
+  {
+    "id": "F01-U014",
+    "file": "index.md",
+    "start": 63,
+    "end": 64,
+    "kind": "paragraph",
+    "text": "**C1 — Experimental Environment.** 실패 → 설명 → AI 제안 → Human Approval → 규칙 수정 →\n재실행을 반복 가능한 게임환경으로 operationalize했다.",
+    "sha256": "4c5afe50662b574c6c5952a537c8c21792c52049480bea7b0507a8c311f68435"
+  },
+  {
+    "id": "F01-U015",
+    "file": "index.md",
+    "start": 66,
+    "end": 68,
+    "kind": "paragraph",
+    "text": "**C2 — Behavioral Measurement.** AI 제안 수락/거부, 직접 작성, explanation exposure,\n질문 품질, 이해 변화, 부작용 인지를 event-level trace로 측정한다.\n사람 테스터 세션이 이벤트 단위로 기록되어 있다.",
+    "sha256": "9f61e4ed3a7c2c240906ee1a4daa87900e52b5388f8fe321b16aa5302a09a04a"
+  },
+  {
+    "id": "F01-U016",
+    "file": "index.md",
+    "start": 70,
+    "end": 71,
+    "kind": "paragraph",
+    "text": "**C3 — Reproducible Evaluation.** LLM 판단과 deterministic domain logic을 분리하고\n동일 trace에서 system evaluation과 human behavioral evaluation을 재현한다.",
+    "sha256": "0b65a3984c744882a97cf0e623778f7354a4881b79036d9731198f8a9649f4a5"
+  },
+  {
+    "id": "F01-U017",
+    "file": "index.md",
+    "start": 73,
+    "end": 73,
+    "kind": "paragraph",
+    "text": "---",
+    "sha256": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b"
+  },
+  {
+    "id": "F01-U018",
+    "file": "index.md",
+    "start": 75,
+    "end": 75,
+    "kind": "heading",
+    "text": "## 현재 상태",
+    "sha256": "05eab7a152e547c1456f5469e2c326eb13f1d7252c5f650438a36b83f4d97f03"
+  },
+  {
+    "id": "F01-U019",
+    "file": "index.md",
+    "start": 77,
+    "end": 82,
+    "kind": "table",
+    "text": "| 트랙 | 상태 | 페이지 |\n|---|---|---|\n| System Evaluation — 모델 선정 (E7/E6) | **완료**: Funnel 5단계 실측, Core·NPC 슬롯 채택 | [Exp 1]({{ '/experiments/model-selection/' | relative_url }}) |\n| System Evaluation — 외부 API 서빙 (A.19) | **완료**: 같은 러너·게이트로 비열등 판정, 제출 조합 Core Sonnet 5 · NPC Haiku 4.5 확정 | [Exp 1 · A.19]({{ '/experiments/model-selection/' | relative_url }}) |\n| Behavioral Observation — 사람 플레이 | **진행 중**: DB 전수 판별로 사람 세션 6판 분리·RQ1 예비 집계, 9/16 테스터6 5회차 완주 판 케이스 추가 | [Exp 2]({{ '/experiments/human-observations/' | relative_url }}) |\n| Rationale A/B (Anchor Experiment) | **사전등록**: 설계 고정, 미실행 | [사전등록]({{ '/prereg/' | relative_url }}) |",
+    "sha256": "15f2744d918ea3ced9a47e6322c7bd8892ea74dafdb1474e439626f7d75cf3bf"
+  },
+  {
+    "id": "F01-U020",
+    "file": "index.md",
+    "start": 84,
+    "end": 85,
+    "kind": "paragraph",
+    "text": "이 사이트의 원칙은 하나다. **측정하지 않은 것은 주장하지 않는다.**\n미측정 항목은 `NOT RUN`으로 표기하고 표본이 작으면 작다고 쓴다.",
+    "sha256": "4491d93673275fdbdcaa5fcd3278c7e1ac1e524a53d1c8565d6b090436a048f2"
+  },
+  {
+    "id": "F02-U001",
+    "file": "statement.md",
+    "start": 1,
+    "end": 6,
+    "kind": "metadata",
+    "text": "---\ntitle: \"Statement — 왜 게임인가\"\npermalink: /statement/\neyebrow: \"프로젝트 스테이트먼트 · 제출문\"\ndescription: 저희는 AI로 게임을 만든 것이 아니라, AI 제안에 대한 사람의 수용을 측정하는 실험환경을 게임의 형태로 설계하고 검증했습니다.\n---",
+    "sha256": "87ef5492e9c60831232659c499d1d2afdc1bcdfad5810899699006e760982725"
+  },
+  {
+    "id": "F02-U002",
+    "file": "statement.md",
+    "start": 8,
+    "end": 9,
+    "kind": "quote",
+    "text": "> 저희는 AI로 게임을 만든 것이 아니라, **AI 제안에 대한 사람의 수용을 측정하는\n> 실험환경을 게임의 형태로 설계하고 검증했습니다.**",
+    "sha256": "59a764c0da3b0d13ac31a27f2ce9086361ec6c923982ce7697da6c0892c8e2f2"
+  },
+  {
+    "id": "F02-U003",
+    "file": "statement.md",
+    "start": 11,
+    "end": 11,
+    "kind": "heading",
+    "text": "## 실제 문제",
+    "sha256": "d1eed461ec88480f97e97a7d745893a5658983e5d8cbccc634e74080146b52bb"
+  },
+  {
+    "id": "F02-U004",
+    "file": "statement.md",
+    "start": 13,
+    "end": 16,
+    "kind": "paragraph",
+    "text": "AI 에이전트가 제안하고 사람이 승인하는 루프는 이제 코드 리뷰, 업무 자동화, 에이전트\n운영 등 어디에나 생기고 있습니다. 그런데 정작 **사람이 언제 AI의 제안을 믿고 언제\n거부하는지를 반복 가능한 조건에서 측정할 방법이 없습니다.** 이것이 저희가 정의한\n실제 문제입니다.",
+    "sha256": "20fa1e23d7292a5a58517667afb4d29c9b29ab9b3c980e1c8a213d16108942b7"
+  },
+  {
+    "id": "F02-U005",
+    "file": "statement.md",
+    "start": 18,
+    "end": 18,
+    "kind": "heading",
+    "text": "## 만든 것",
+    "sha256": "d21695481acaebeb3a91269cca98bf345d30be74d8da8887db99aaaff285ca8c"
+  },
+  {
+    "id": "F02-U006",
+    "file": "statement.md",
+    "start": 20,
+    "end": 22,
+    "kind": "paragraph",
+    "text": "REMAKE DAY는 실패→설명→AI 제안→사람의 승인→규칙 수정→재실행 루프를 가진 추리\n게임이며, 동시에 이 루프 안의 모든 판단을 이벤트 단위로 기록하는 **재현 가능한\nHuman–AI Interaction 실험환경**입니다.",
+    "sha256": "693c621f0c3cadc930aa9cfea6d7daeb3fa7512300c7e28851c2f9e1ae82dd46"
+  },
+  {
+    "id": "F02-U007",
+    "file": "statement.md",
+    "start": 24,
+    "end": 25,
+    "kind": "paragraph",
+    "text": "게임은 포장이 아니라 실험기구 자체입니다. 사람들이 자발적으로, 반복해서, 몰입한\n상태로 AI와의 판단 루프에 들어오게 하는 가장 빠른 방법이 게임이었습니다.",
+    "sha256": "c01bc3583b4ac64bb7ebac9dca1ce4d9b506406b510334a4819b720a902293c0"
+  },
+  {
+    "id": "F02-U008",
+    "file": "statement.md",
+    "start": 27,
+    "end": 27,
+    "kind": "heading",
+    "text": "## 실제로 수행한 검증",
+    "sha256": "b9962ff0af579355df3108a65af5e12a49abc418d7185ff604d1fac82548a87b"
+  },
+  {
+    "id": "F02-U009",
+    "file": "statement.md",
+    "start": 29,
+    "end": 29,
+    "kind": "paragraph",
+    "text": "이 환경으로 두 층의 검증을 실측으로 수행했습니다.",
+    "sha256": "6896d7115dae0757a5bd56e6c638271fa2c930230be88e09172a34d0ed6a6cb0"
+  },
+  {
+    "id": "F02-U010",
+    "file": "statement.md",
+    "start": 31,
+    "end": 33,
+    "kind": "paragraph",
+    "text": "**① 시스템 검증**: 16GB GPU 예산 안에서 로컬 모델 후보를 5단계 게이트(스키마\n통과율·폴백률·지연 p95·동시 상주·루프 완주)로 실측해 Core/NPC 모델 채택을\n결정했습니다. → [Exp 1]({{ '/experiments/model-selection/' | relative_url }})",
+    "sha256": "643340be2a8a9ec982ef738d3602cae0e2e6d945d610e838b4f0a4332cdff937"
+  },
+  {
+    "id": "F02-U011",
+    "file": "statement.md",
+    "start": 35,
+    "end": 38,
+    "kind": "paragraph",
+    "text": "**② 행동 관찰**: 실제 테스터들의 플레이 세션 6판을 이벤트 단위 로그로 보존·분리해\nAI 제안 수용 vs 직접 작성 선택을 관찰하고 있습니다 (예비 집계: AI 계열 70% ·\n직접 작성 30%, N이 작은 탐색적 수치).\n→ [Exp 2]({{ '/experiments/human-observations/' | relative_url }})",
+    "sha256": "cd4852bb510e423d9e0272c8eb1a95ef2c9f3a69e14320bf20ddd5b6fb4588b5"
+  },
+  {
+    "id": "F02-U012",
+    "file": "statement.md",
+    "start": 40,
+    "end": 40,
+    "kind": "paragraph",
+    "text": "원칙은 하나입니다: **측정하지 않은 것은 주장하지 않는다.**",
+    "sha256": "760c8ea5d1be84abb4ebd448f6425007f5d67406d1d8a0bd7baf1c5294623fa2"
+  },
+  {
+    "id": "F02-U013",
+    "file": "statement.md",
+    "start": 42,
+    "end": 42,
+    "kind": "heading",
+    "text": "## 게임은 AI를 가장 빠르게 검증하는 환경이다",
+    "sha256": "c18530d0bf4f2f7cc94284012dc5f9737a0e30e2fbac0305bc54f0bc6a284491"
+  },
+  {
+    "id": "F02-U014",
+    "file": "statement.md",
+    "start": 44,
+    "end": 46,
+    "kind": "paragraph",
+    "text": "새 모델이 나올 때마다 \"우리 서비스에 충분한가?\"를 판단하는 비용은 계속 커집니다.\n저희는 게임이라는 반복 루프를 검증 벤치로 사용해 모델 교체 결정(Core `gemma4:12b`\n채택, NPC `kanana` → `gemma4:12b` 교체)을 **하루 단위 실측으로** 내렸습니다.",
+    "sha256": "10bcb1c730a58537ba07b0f24ce89b5795919e91f98cab2f237b3521e84c9a05"
+  },
+  {
+    "id": "F02-U015",
+    "file": "statement.md",
+    "start": 48,
+    "end": 50,
+    "kind": "paragraph",
+    "text": "심사용 서빙을 외부 API로 옮길 때도 같은 벤치를 다시 썼습니다. 러너와 게이트는 그대로\n두고 모델만 바꿔 하루 저녁 안에 비열등을 판정했고, 제출 조합(Core Sonnet 5 · NPC\nHaiku 4.5)을 정했습니다. → [Exp 1 · A.19]({{ '/experiments/model-selection/' | relative_url }})",
+    "sha256": "4128edeb2c673158dba0d1d86ae08f9271e1d7f4b156799d0a129b8e3e3ddb29"
+  },
+  {
+    "id": "F02-U016",
+    "file": "statement.md",
+    "start": 52,
+    "end": 52,
+    "kind": "paragraph",
+    "text": "게임은 AI를 가장 빠르게, 그리고 **사람을 포함해서** 검증하는 환경입니다.",
+    "sha256": "e204e71aac2422f1702d6ff1a42165e0cc3387ce8c54eccb52e2d6b41af60f26"
+  },
+  {
+    "id": "F03-U001",
+    "file": "testbed.md",
+    "start": 1,
+    "end": 6,
+    "kind": "metadata",
+    "text": "---\ntitle: \"Testbed — 실험환경으로서의 REMAKE DAY\"\npermalink: /testbed/\neyebrow: \"System Design\"\ndescription: 게임은 연구를 보여주기 위한 포장물이 아니라 실험환경 자체다. 반복 가능한 실패–수정 루프와 측정 인프라.\n---",
+    "sha256": "7a98a601192169fadeda7894d8ef36d758fb3f10ccdff36258f1f63af48dddd0"
+  },
+  {
+    "id": "F03-U002",
+    "file": "testbed.md",
+    "start": 8,
+    "end": 8,
+    "kind": "heading",
+    "text": "## 게임과 연구의 관계",
+    "sha256": "fac2ea87ed9ee3c26866362bc59cfb801dfd6f62327f9bc9966e6d235b3fe276"
+  },
+  {
+    "id": "F03-U003",
+    "file": "testbed.md",
+    "start": 10,
+    "end": 22,
+    "kind": "code_or_diagram",
+    "text": "```text\nREMAKE DAY\n│\n├─ Game\n│  └─ 실제로 플레이 가능한 추리·대화형 게임\n│\n├─ Experimental Testbed\n│  └─ 반복 가능한 실패·수정 환경\n│\n└─ Behavioral Measurement\n   └─ AI 제안 수용, 직접 작성, 이해도 변화,\n      부작용 인지, 질문 품질 등을 계측\n```",
+    "sha256": "cee85fe7368180e8e092d132a86451d95e23769b5d910a82408f71f2cfdcd421"
+  },
+  {
+    "id": "F03-U004",
+    "file": "testbed.md",
+    "start": 24,
+    "end": 24,
+    "kind": "paragraph",
+    "text": "즉, **게임은 연구를 보여주기 위한 포장물이 아니라 실험환경 자체**다.",
+    "sha256": "44f8f106c9f7ebc360f648ba2123cd8487fc2ae3725f207d6e45ccce84fa02e3"
+  },
+  {
+    "id": "F03-U005",
+    "file": "testbed.md",
+    "start": 26,
+    "end": 26,
+    "kind": "paragraph",
+    "text": "REMAKE DAY의 정의:",
+    "sha256": "2d8ffa3a2c3db5431d9a74da3d14eb2b7528bd266d766614ab10e8d41fcb4faf"
+  },
+  {
+    "id": "F03-U006",
+    "file": "testbed.md",
+    "start": 28,
+    "end": 30,
+    "kind": "quote",
+    "text": "> REMAKE DAY는 반복적인 실패–설명–수정–재실행 과정에서 사람이 AI의 제안을 언제 수용하고\n> 언제 거부하며, 그 선택이 이후의 문제 이해와 어떤 관계인지를 측정하는\n> **게임 기반 Human–AI Interaction Testbed**다.",
+    "sha256": "41d603b1270b73ba655dc7cf9f20c1a6c9fba4664ef1478c541087674226260a"
+  },
+  {
+    "id": "F03-U007",
+    "file": "testbed.md",
+    "start": 32,
+    "end": 32,
+    "kind": "paragraph",
+    "text": "---",
+    "sha256": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b"
+  },
+  {
+    "id": "F03-U008",
+    "file": "testbed.md",
+    "start": 34,
+    "end": 34,
+    "kind": "heading",
+    "text": "## Figure 1 — System Loop",
+    "sha256": "c4ea7e7079567be790a56888aa838b9c1ed4037f4c79c23caeeb5906d4c45000"
+  },
+  {
+    "id": "F03-U009",
+    "file": "testbed.md",
+    "start": 36,
+    "end": 52,
+    "kind": "code_or_diagram",
+    "text": "```text\nHuman Player\n    ↓\nObserve / Talk / Infer\n    ↓\nExplain Failure\n    ↓\nAI Advisor\n    ↓\nAccept / Reject / Write\n    ↓\nApply Rule\n    ↓\nRe-execute\n    ↓\nNext Loop\n```",
+    "sha256": "d9995f39c0d0a42b19ec4f28cb73c2710f9b6bb538e34af08bb3f0ee5be0242f"
+  },
+  {
+    "id": "F03-U010",
+    "file": "testbed.md",
+    "start": 54,
+    "end": 54,
+    "kind": "paragraph",
+    "text": "플레이어가 매 회차 마주하는 선택 구조 (신의개입):",
+    "sha256": "9fdb412e8019995b750c03648b828168b6f9f1f9befddaee61905de0e5d8c6bd"
+  },
+  {
+    "id": "F03-U011",
+    "file": "testbed.md",
+    "start": 56,
+    "end": 61,
+    "kind": "code_or_diagram",
+    "text": "```text\nAI Option 1\nAI Option 2\nAI Option 3\nHuman-written Rule\n```",
+    "sha256": "b717e575287a81622feeec750725c6b18fa3f3a70493ca32425aff11e74d5125"
+  },
+  {
+    "id": "F03-U012",
+    "file": "testbed.md",
+    "start": 63,
+    "end": 65,
+    "kind": "paragraph",
+    "text": "이 선택 하나하나가 event-level trace로 기록된다: `monkey_paw_offer`,\n`intervention_options`, `answer_scored`, `intervention_question`,\n`rule_applied`, `session_end`.",
+    "sha256": "4ba2a79264fec77553e315a12098819d281873309e1bbb074ec461953a4e7443"
+  },
+  {
+    "id": "F03-U013",
+    "file": "testbed.md",
+    "start": 67,
+    "end": 67,
+    "kind": "paragraph",
+    "text": "---",
+    "sha256": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b"
+  },
+  {
+    "id": "F03-U014",
+    "file": "testbed.md",
+    "start": 69,
+    "end": 69,
+    "kind": "heading",
+    "text": "## 시스템 구성",
+    "sha256": "dda5c138df15e221792b9cf5ceff8a121dcb432c8841f158993c55fce104c06f"
+  },
+  {
+    "id": "F03-U015",
+    "file": "testbed.md",
+    "start": 71,
+    "end": 80,
+    "kind": "table",
+    "text": "| 구성 | 역할 |\n|---|---|\n| Planner | 하루 전체 행동 구조 생성 |\n| Agent / NPC | 인물 발화 |\n| Manager | 비트 진행 판정 · 원숭이손 제안 |\n| Advisor | 밤 질문 응답, 근거 기반 억제 |\n| Evaluator | 의미 동치 판정 · 채점 |\n| Domain Logic | deterministic, LLM 판단과 분리 |\n| Trace | 모든 이벤트 append-only 기록 |\n| Harness | 스키마 검증 · 재생성 · 위반 계측 |",
+    "sha256": "3562d513c1567a56e2f71b85abe906f62dccf9f51bcf27ffba1fb536036c1e82"
+  },
+  {
+    "id": "F03-U016",
+    "file": "testbed.md",
+    "start": 82,
+    "end": 82,
+    "kind": "heading",
+    "text": "### 모델 구성 — 평가 구성과 서빙 구성",
+    "sha256": "81865e28b395adfdb28bc90569ac6f4a1290a1c1202a8a7d3439830b6662b910"
+  },
+  {
+    "id": "F03-U017",
+    "file": "testbed.md",
+    "start": 84,
+    "end": 85,
+    "kind": "paragraph",
+    "text": "LLM은 어댑터 뒤에 있어 provider 전환은 설정 두 줄(provider·모델 이름)로 끝나고 엔진\n코드는 바뀌지 않는다. 그래서 같은 러너·같은 게이트로 로컬 모델과 외부 API를 나란히 잴 수 있다.",
+    "sha256": "5f2e8a94638d657e5580859b09939c8c561975db20694a4a1b53c6e78973aa41"
+  },
+  {
+    "id": "F03-U018",
+    "file": "testbed.md",
+    "start": 87,
+    "end": 90,
+    "kind": "table",
+    "text": "| 슬롯 | 로컬 채택 구성 (개발·평가) | 제출 서빙 구성 (2026-09-17 확정) |\n|---|---|---|\n| Core (채점·관리자 검사·신의 질문·계획·발화 분류) | `ollama:gemma4:12b` (think off) | `anthropic:claude-sonnet-5` |\n| NPC (인물 대화) | `ollama:kanana1.5:8b` | `anthropic:claude-haiku-4-5` |",
+    "sha256": "53a2ceb659a26ae94ed65a3073003dd1687eb40e491f14a024261ad7f8ff0317"
+  },
+  {
+    "id": "F03-U019",
+    "file": "testbed.md",
+    "start": 92,
+    "end": 94,
+    "kind": "paragraph",
+    "text": "서빙 구성을 따로 둔 것은 모델 품질 때문이 아니다. 심사 기간의 서빙 제약 때문이다.\nGPU 1장에서는 동시 접속이 1명으로 묶이고 홈서버는 가용성이 약하다. 근거와 비열등 판정은\n[Exp 1 · A.19]({{ '/experiments/model-selection/' | relative_url }})에 있다.",
+    "sha256": "628f781fecc593a65c0abdc4122217b7019e990bd7f9821ff225b5f2836d16b9"
+  },
+  {
+    "id": "F03-U020",
+    "file": "testbed.md",
+    "start": 96,
+    "end": 96,
+    "kind": "paragraph",
+    "text": "---",
+    "sha256": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b"
+  },
+  {
+    "id": "F03-U021",
+    "file": "testbed.md",
+    "start": 98,
+    "end": 98,
+    "kind": "heading",
+    "text": "## Evaluation은 두 층으로 분리한다",
+    "sha256": "b05e982f371e1dee3a4cdedb811bbd3b644762b9e7630d8b0ea700ba7185e9b0"
+  },
+  {
+    "id": "F03-U022",
+    "file": "testbed.md",
+    "start": 100,
+    "end": 100,
+    "kind": "heading",
+    "text": "### 1층 — System Evaluation",
+    "sha256": "e68a10eeba4d58e50b5ca9fa1b1709995f9ca432fca776e269af579c16c18358"
+  },
+  {
+    "id": "F03-U023",
+    "file": "testbed.md",
+    "start": 102,
+    "end": 102,
+    "kind": "quote",
+    "text": "> **실험기구가 제대로 작동하는가?**",
+    "sha256": "77b8e5855655618fe2a940d43e38216a03640638931b6b90b3754d1feb078408"
+  },
+  {
+    "id": "F03-U024",
+    "file": "testbed.md",
+    "start": 104,
+    "end": 105,
+    "kind": "paragraph",
+    "text": "Schema pass rate · Fallback rate · Latency · Identity leak · Judge consistency 등.\n→ [Exp 1 — 모델 선정]({{ '/experiments/model-selection/' | relative_url }})에서 실측 완료.",
+    "sha256": "423fed1035cd47deeb7f661dc8d6e7c7a99d651ef10943df90adbc993a0a50a8"
+  },
+  {
+    "id": "F03-U025",
+    "file": "testbed.md",
+    "start": 107,
+    "end": 107,
+    "kind": "heading",
+    "text": "### 2층 — Behavioral Evaluation",
+    "sha256": "575d6e28d8db39785da7878f597bc525fe10591641f9dc9d4c3f807f331505fc"
+  },
+  {
+    "id": "F03-U026",
+    "file": "testbed.md",
+    "start": 109,
+    "end": 109,
+    "kind": "quote",
+    "text": "> **그 실험기구 안에서 실제 사람에게 어떤 행동이 관찰되는가?**",
+    "sha256": "bb9c1e386f29aa710f27efed683ea2956b2437b8e630703f796f3a08065d2e75"
+  },
+  {
+    "id": "F03-U027",
+    "file": "testbed.md",
+    "start": 111,
+    "end": 113,
+    "kind": "paragraph",
+    "text": "AI suggestion acceptance · Custom rule rate · Rationale effect · Side-effect\nrecognition · Question quality · Understanding trajectory.\n→ [Exp 2 — 행동 관찰]({{ '/experiments/human-observations/' | relative_url }})에서 적립 중.",
+    "sha256": "cfcfca545b9d874dac5af92fad3722371f93f1eced8f6f555e89a86eb0784327"
+  },
+  {
+    "id": "F03-U028",
+    "file": "testbed.md",
+    "start": 115,
+    "end": 119,
+    "kind": "code_or_diagram",
+    "text": "```text\nInstrument Validation\n        ↓\nBehavioral Experiment\n```",
+    "sha256": "754dd4061eb6276de39ec358ce9a30ca42565e07457fad4afd7ce59e4df6f3e6"
+  },
+  {
+    "id": "F03-U029",
+    "file": "testbed.md",
+    "start": 121,
+    "end": 121,
+    "kind": "paragraph",
+    "text": "기구 검증 없이 행동 결과를 주장하지 않는다. 순서가 곧 방법론이다.",
+    "sha256": "0ba71cddfebd26eeaf901b83b3fc44ff646dc08cd66896fd46ec28c08b266071"
+  },
+  {
+    "id": "F04-U001",
+    "file": "plain-summary.md",
+    "start": 1,
+    "end": 7,
+    "kind": "metadata",
+    "text": "---\ntitle: \"Plain-Language Summary — 비유로 읽는 요약\"\nshort_title: \"Plain Summary\"\npermalink: /plain-summary/\neyebrow: \"부록 · 비전문가 요약\"\ndescription: 전문 용어 없이 비유 하나로 이 연구를 요약한다. Cochrane·PLOS의 Plain-Language Summary 관례를 따른 부록이다.\n---",
+    "sha256": "3558470401f47a216dfbcb85040d57552a55baa384bbc5b8035d48cff0ccad7e"
+  },
+  {
+    "id": "F04-U002",
+    "file": "plain-summary.md",
+    "start": 9,
+    "end": 14,
+    "kind": "paragraph",
+    "text": "<div class=\"callout\">\n  <div class=\"callout__title\">이 문서의 위치</div>\n  <p>학술 출판에서 논문 뒤에 붙이는 <strong>Plain-Language Summary</strong>(비전문가 요약)\n  관례를 따른 부록이다. 본편의 주장·수치와 어긋나는 내용은 없으며, 표현만 비유로 바꿨다.\n  정확한 정의와 근거는 본편 각 페이지를 따른다.</p>\n</div>",
+    "sha256": "d5b83acb940d68b0f4fa9ce5fcbdb45b6d92bbada6059e9776731029dc51d005"
+  },
+  {
+    "id": "F04-U003",
+    "file": "plain-summary.md",
+    "start": 16,
+    "end": 16,
+    "kind": "heading",
+    "text": "## 한 문장 요약",
+    "sha256": "b9dd36da5499a00901c20e473fbb105bbf2865928339e65d5778e9a23baf10a9"
+  },
+  {
+    "id": "F04-U004",
+    "file": "plain-summary.md",
+    "start": 18,
+    "end": 19,
+    "kind": "paragraph",
+    "text": "이 연구는 사람들이 AI의 제안을 언제 받아들이고 언제 받아들이지 않는지를,\n반복 가능한 게임 안에서 측정한다.",
+    "sha256": "cbbec3ab039ea93f914d2f30b90a047239a663fee45aba459603bdeda8ffd35e"
+  },
+  {
+    "id": "F04-U005",
+    "file": "plain-summary.md",
+    "start": 21,
+    "end": 21,
+    "kind": "heading",
+    "text": "## 비유 — 무너지는 블록탑",
+    "sha256": "a9df9b34752480451646a3392b15e19d9f5d72c9766f4f72ec3930db92aeb819"
+  },
+  {
+    "id": "F04-U006",
+    "file": "plain-summary.md",
+    "start": 23,
+    "end": 23,
+    "kind": "paragraph",
+    "text": "이 연구의 구조는 블록탑 쌓기에 비유할 수 있다.",
+    "sha256": "e591ebb14ba1c9145948ab8f8e3021130c84925d8fa877a934a863dac17b8598"
+  },
+  {
+    "id": "F04-U007",
+    "file": "plain-summary.md",
+    "start": 25,
+    "end": 27,
+    "kind": "paragraph",
+    "text": "무너질 때마다 처음부터 다시 쌓아야 하는 블록탑이 있다. 쌓는 사람 옆에는 로봇이\n하나 있는데, 탑이 무너질 때마다 \"다음에는 이렇게 쌓아 보라\"는 카드를 내민다.\n쌓는 사람은 그 카드를 받아들 수도 있고, 무시하고 자기 방식대로 쌓을 수도 있다.",
+    "sha256": "bf8f62ff7395ecf212492b041c56a73a841b81f915a04104fca1d1e139f5719b"
+  },
+  {
+    "id": "F04-U008",
+    "file": "plain-summary.md",
+    "start": 29,
+    "end": 32,
+    "kind": "paragraph",
+    "text": "우리가 만든 것은 이 놀이터 전체다. 게임(REMAKE DAY)은 무너지는 탑이고 AI는\n카드를 내미는 로봇이며 플레이어는 쌓는 사람이다. 그리고 놀이터 구석에는 공책이\n한 권 있다. 누가 언제 카드를 받았는지, 언제 거절했는지, 그다음 탑이 얼마나\n튼튼해졌는지를 빠짐없이 적는다. 이 공책이 본편에서 말하는 event-level trace다.",
+    "sha256": "4cb6c90912f878a0d8ac7832e7fd89f43822d37662fb2cf72d738931c38daddc"
+  },
+  {
+    "id": "F04-U009",
+    "file": "plain-summary.md",
+    "start": 34,
+    "end": 36,
+    "kind": "paragraph",
+    "text": "같은 놀이를 여러 사람과 반복하면 공책에는 \"사람은 언제 로봇을 믿는가\"라는\n질문에 답할 재료가 쌓인다. 게임은 이 관찰을 위한 포장이 아니라 관찰 도구\n그 자체다.",
+    "sha256": "7870e86ec4a0d500da4e90341f0bdce4f7a08263fa98dab41d0b266d8060c19a"
+  },
+  {
+    "id": "F04-U010",
+    "file": "plain-summary.md",
+    "start": 38,
+    "end": 38,
+    "kind": "heading",
+    "text": "## 지금까지 센 것",
+    "sha256": "005330c016fa527677fb4cf6bab3bd33e5468358b7a99de5aea683ae3130d38c"
+  },
+  {
+    "id": "F04-U011",
+    "file": "plain-summary.md",
+    "start": 40,
+    "end": 45,
+    "kind": "paragraph",
+    "text": "여섯 판을 관찰했다. 규칙을 정한 스무 번 가운데 로봇의 카드를 받은 것이 열네 번,\n자기 방식대로 쌓은 것이 여섯 번이었다. 여섯 판은 경향을 말하기에 너무 적은\n수이므로 이 숫자는 \"이렇게 셀 수 있다\"는 확인까지만 의미가 있다.\n그 뒤 다섯 번째 탑까지 끝까지 쌓은 판이 하나 더 들어왔다. 그사이 놀이터 규칙이\n조금 바뀌었기 때문에 이 판은 여섯 판과 섞지 않고 따로 적었다.\n공책에 적힌 만큼만 말한다. 이것이 본편 전체를 관통하는 원칙이다.",
+    "sha256": "90a1a2df87765f228b5e7862bc9da761f6c71ac07b05eca8754d15ca5a94e4a5"
+  },
+  {
+    "id": "F04-U012",
+    "file": "plain-summary.md",
+    "start": 47,
+    "end": 47,
+    "kind": "heading",
+    "text": "## 비유 대응표",
+    "sha256": "75a353adaf4c017387ca93825e48d841d0a7fe6ed9a998564d7135f425bc056d"
+  },
+  {
+    "id": "F04-U013",
+    "file": "plain-summary.md",
+    "start": 49,
+    "end": 56,
+    "kind": "table",
+    "text": "| 비유 | 본편 용어 |\n|---|---|\n| 무너질 때마다 다시 쌓는 블록탑 | 실패를 반복하는 게임 루프 (REMAKE DAY) |\n| 로봇이 내미는 카드 | AI가 제안하는 개입 (원숭이손) |\n| 무시하고 자기 방식대로 쌓기 | 직접 작성 규칙 |\n| 구석의 공책 | event-level trace |\n| 같은 놀이의 반복 | 재현 가능한 실험환경 (testbed) |\n| 공책에 적힌 만큼만 말하기 | 측정하지 않은 것은 주장하지 않는다 |",
+    "sha256": "683662e824dfb7d2e698f7cdea348eb4d4860f13b0aac77867421e50f80a31b9"
+  },
+  {
+    "id": "F04-U014",
+    "file": "plain-summary.md",
+    "start": 58,
+    "end": 59,
+    "kind": "paragraph",
+    "text": "본편으로: [실험환경 설계]({{ '/testbed/' | relative_url }}) ·\n[여섯 판의 실제 집계]({{ '/experiments/human-observations/' | relative_url }})",
+    "sha256": "f5376738da1e489b60fb690587066cdae973a8f561e1477664ed2e9b8950a37d"
+  },
+  {
+    "id": "F05-U001",
+    "file": "limitations.md",
+    "start": 1,
+    "end": 6,
+    "kind": "metadata",
+    "text": "---\ntitle: \"Limitations & Reproducibility\"\npermalink: /limitations/\neyebrow: \"부록\"\ndescription: 이 연구가 주장할 수 없는 것들과, 같은 결과를 다시 만드는 방법.\n---",
+    "sha256": "199307578102b806a4a2f75a20cd03d2422ae79e73fa6987a6082d0a0e653a21"
+  },
+  {
+    "id": "F05-U002",
+    "file": "limitations.md",
+    "start": 8,
+    "end": 8,
+    "kind": "heading",
+    "text": "## Limitations",
+    "sha256": "639d5ea4c0ebc26cff8d87ece75a70c8e899a2690feafaa3debe78c91fccbe9e"
+  },
+  {
+    "id": "F05-U003",
+    "file": "limitations.md",
+    "start": 10,
+    "end": 10,
+    "kind": "heading",
+    "text": "### Small Sample Size",
+    "sha256": "69f93d972df65ce6b2f100f7fdaaed81b5af356039e88c669aac4a6878907481"
+  },
+  {
+    "id": "F05-U004",
+    "file": "limitations.md",
+    "start": 12,
+    "end": 12,
+    "kind": "paragraph",
+    "text": "해커톤 기간 내 제한된 참가자 수 (세션 5건 이상 수준). 모든 행동 결과는 exploratory다.",
+    "sha256": "12997077b68cf8a1f765d470d0ae5f02092d06c9e95669d638662439c40f5a41"
+  },
+  {
+    "id": "F05-U005",
+    "file": "limitations.md",
+    "start": 14,
+    "end": 14,
+    "kind": "heading",
+    "text": "### Selection Bias",
+    "sha256": "0e306ead36458940b4dd5a3802c7625d1589389003a965b4bb03a60f7bbefa0c"
+  },
+  {
+    "id": "F05-U006",
+    "file": "limitations.md",
+    "start": 16,
+    "end": 17,
+    "kind": "paragraph",
+    "text": "AI 제안 선택 vs 직접 작성은 참가자의 자발적 선택이다. 랜덤 배정된 Rationale 축 외에는\n인과 해석을 하지 않는다.",
+    "sha256": "9304cbe41f825f397f71a4dd51fc9a77fc5e66e0065cb74111c7d62df05a88c3"
+  },
+  {
+    "id": "F05-U007",
+    "file": "limitations.md",
+    "start": 19,
+    "end": 19,
+    "kind": "heading",
+    "text": "### Synthetic Agents Are Not Human Simulators",
+    "sha256": "e1bedcdc1d35305567b7553f8a7e0651cf4dd0ef6b540d0a0246a83562ad16e4"
+  },
+  {
+    "id": "F05-U008",
+    "file": "limitations.md",
+    "start": 21,
+    "end": 22,
+    "kind": "paragraph",
+    "text": "일반 LLM self-play는 인간 대체 모델로 검증되지 않았다. 가설 생성과 시스템\n스트레스 테스트 용도로만 쓴다.",
+    "sha256": "10dc4c3676ee2d7017561a1e9cb1573cf7d92ff161f43c111e2fb34556e15d29"
+  },
+  {
+    "id": "F05-U009",
+    "file": "limitations.md",
+    "start": 24,
+    "end": 24,
+    "kind": "heading",
+    "text": "### Single Scenario",
+    "sha256": "0c4bc1e590ab1320597143e90cb1220d2a87a63c4fd8b7c17cd3a2f9b1b36d41"
+  },
+  {
+    "id": "F05-U010",
+    "file": "limitations.md",
+    "start": 26,
+    "end": 26,
+    "kind": "paragraph",
+    "text": "한 시나리오에서 관찰된 패턴이 다른 도메인으로 일반화되는지는 미검증이다.",
+    "sha256": "37094d81b7817038e25dc0ac9663dafabe9d51fd511338c76759b5217715d31b"
+  },
+  {
+    "id": "F05-U011",
+    "file": "limitations.md",
+    "start": 28,
+    "end": 28,
+    "kind": "heading",
+    "text": "### Repeated-game Learning",
+    "sha256": "63cfe8584ee783adba6c79580b22d09b48d099a91ca6c8943d572a48947f1941"
+  },
+  {
+    "id": "F05-U012",
+    "file": "limitations.md",
+    "start": 30,
+    "end": 30,
+    "kind": "paragraph",
+    "text": "후반 회차 행동에는 treatment뿐 아니라 학습 효과가 섞일 수 있다.",
+    "sha256": "03c4ad9b41ee5c9fd975239b4fc5edb0e13001bb02d775a929b5a8bd7daf1782"
+  },
+  {
+    "id": "F05-U013",
+    "file": "limitations.md",
+    "start": 32,
+    "end": 32,
+    "kind": "heading",
+    "text": "### Instrument Changes During Observation",
+    "sha256": "cac48057b679caa15469aa6ac98ec8e2c52f878c16d447a4b97608e3a9e975aa"
+  },
+  {
+    "id": "F05-U014",
+    "file": "limitations.md",
+    "start": 34,
+    "end": 35,
+    "kind": "paragraph",
+    "text": "관찰 기간 중 실험기구(모델·프롬프트·채점기)가 수정되었다. 수정 전후 세션은\n합산하지 않고 각 세션에 당시 기구 버전을 병기한다.",
+    "sha256": "d6c0cbf1b349a696c31192b68824c1abe6ad112d0bd4214c3c32ae8c62a354e8"
+  },
+  {
+    "id": "F05-U015",
+    "file": "limitations.md",
+    "start": 37,
+    "end": 37,
+    "kind": "heading",
+    "text": "### Serving Configuration ≠ Observation Configuration",
+    "sha256": "226e4c36093ee174513c77748f5986b6f52d8d58b4d03870ae6d95e41cb6113c"
+  },
+  {
+    "id": "F05-U016",
+    "file": "limitations.md",
+    "start": 39,
+    "end": 43,
+    "kind": "paragraph",
+    "text": "사람 세션은 로컬 모델 구성(ollama, NPC 모델은 시기에 따라 다름)에서 수집됐다.\n제출·심사 서빙은 외부 API(Core `claude-sonnet-5` · NPC `claude-haiku-4-5`)로 한다.\n외부 API는 같은 러너·같은 게이트로 비열등을 확인했지만(Exp 1 A.19) 게이트 통과가\n사람 행동의 동일성을 보장하지는 않는다. 서빙 구성에서 들어온 세션은 로컬 구성 세션과\n합산하지 않는다.",
+    "sha256": "2f9dfdfbf5eb5b972e5c95030d6a2b431ae9d627352b89312ba543ab8de2a7df"
+  },
+  {
+    "id": "F05-U017",
+    "file": "limitations.md",
+    "start": 45,
+    "end": 45,
+    "kind": "heading",
+    "text": "### Judge Model Change",
+    "sha256": "0c15372e17d65289a6df4a0f57326926292e42865ea6ff8cc39c97bc05d54c50"
+  },
+  {
+    "id": "F05-U018",
+    "file": "limitations.md",
+    "start": 47,
+    "end": 48,
+    "kind": "paragraph",
+    "text": "7세 정책 채점기를 2026-09-16에 `gemma3:12b`에서 `gemma4:12b`(think off)로 바꿨다.\n두 채점기의 일치율은 19/20(95%)이다. 교체 전후 수치는 채점기를 병기해 따로 읽는다.",
+    "sha256": "3d3e01ee993ef0bcd74d296a2a596a96e8b172f8a7aac61c61bcbd52b4d76724"
+  },
+  {
+    "id": "F05-U019",
+    "file": "limitations.md",
+    "start": 50,
+    "end": 50,
+    "kind": "heading",
+    "text": "### Cost Figures Are Estimates",
+    "sha256": "28197c7d501d67658e7350b1b3d990c0bf30c5d2cd2e50d3264d4e5fc3b9bf17"
+  },
+  {
+    "id": "F05-U020",
+    "file": "limitations.md",
+    "start": 52,
+    "end": 53,
+    "kind": "paragraph",
+    "text": "외부 API 판당 비용($0.68~0.97, 사람 5회차 완주 판 기준)은 입출력 문자 수에 단가를\n곱한 추정이다. 어댑터가 `response.usage`를 기록하지 않아 실측 토큰 정산은 아직 없다.",
+    "sha256": "146608ecd32981fbdb6ead8fee43002179a1f5bfe5da1cc757f6224044729fbb"
+  },
+  {
+    "id": "F05-U021",
+    "file": "limitations.md",
+    "start": 55,
+    "end": 55,
+    "kind": "paragraph",
+    "text": "---",
+    "sha256": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b"
+  },
+  {
+    "id": "F05-U022",
+    "file": "limitations.md",
+    "start": 57,
+    "end": 57,
+    "kind": "heading",
+    "text": "## Reproducibility",
+    "sha256": "378c2cd46ce42124a9ce71c6d44f43a62005c446a58b63f8371fffefc3e028b5"
+  },
+  {
+    "id": "F05-U023",
+    "file": "limitations.md",
+    "start": 59,
+    "end": 68,
+    "kind": "table",
+    "text": "| 대상 | 위치 |\n|---|---|\n| 시스템 평가 러너 | `com.remakeday/backend/scripts/run_core_selection.py` |\n| NPC 대화 평가 | `com.remakeday/backend/scripts/run_npc_dialogue_check.py` |\n| NPC 7세 정책 평가 | `com.remakeday/backend/scripts/run_age7_check.py` |\n| 종단간 self-play | `com.remakeday/backend/scripts/run_selfplay.py` |\n| 외부 API 비용 추정 | `com.remakeday/docs/apiscenario.md` |\n| 수치 적립 | `com.remakeday/docs/metrics.yml` |\n| 원문 raw | `com.remakeday/docs/review-verification/<date>-<experiment>/` |\n| 모델 평가 정본 | `com.remakeday/docs/model_evaluation.md` |",
+    "sha256": "47e07a8526edd4e815fabeb84cf7542dde5fae9d8263924b1a8c227f5d3f6888"
+  },
+  {
+    "id": "F05-U024",
+    "file": "limitations.md",
+    "start": 70,
+    "end": 70,
+    "kind": "paragraph",
+    "text": "재현 원칙:",
+    "sha256": "87047c97d8f0089b887761cd24ee4d6b11913ef7fbe49bdd6534b66c7c78b518"
+  },
+  {
+    "id": "F05-U025",
+    "file": "limitations.md",
+    "start": 72,
+    "end": 74,
+    "kind": "list",
+    "text": "- 조건(provider·모델·양자화·thinking·프롬프트·채점기)을 하나라도 바꾸면 새 실험이다.\n- 후보 모델의 답을 Ground Truth로 쓰지 않는다. 결정적 게이트와 사전등록 통제로만 판정한다.\n- `NOT RUN`은 부끄러운 표기가 아니라 이 사이트의 신뢰 단위다.",
+    "sha256": "de4a73b4ff83efaab8ade9d3e3120322439ac45195cc01f37a82113610269c8c"
+  },
+  {
+    "id": "F06-U001",
+    "file": "prereg.md",
+    "start": 1,
+    "end": 7,
+    "kind": "metadata",
+    "text": "---\ntitle: \"사전등록 — Rationale → Acceptance\"\npermalink: /prereg/\neyebrow: \"Preregistration · 설계 고정\"\nstatus: \"미실행\"\ndescription: \"결과를 보기 전에 가설·조건·측정값·판정 기준을 고정해 공개한다. Anchor Experiment: AI 제안에 이유(rationale)를 붙이면 수용률이 달라지는가.\"\n---",
+    "sha256": "5ad8ec89324ec8ee08f8889105a06525f80bf0d3e7f36ed9b389d1418d6fbab0"
+  },
+  {
+    "id": "F06-U002",
+    "file": "prereg.md",
+    "start": 9,
+    "end": 14,
+    "kind": "paragraph",
+    "text": "<div class=\"callout\">\n  <div class=\"callout__title\">사전등록의 의미</div>\n  <p>이 페이지는 <strong>데이터를 보기 전에</strong> 실험 설계를 고정해 공개하는 기록이다.\n  이후 결과가 어떻게 나오든 이 설계를 바꾸지 않으며 바뀌면 새 실험으로 등록한다.\n  게시일 기준으로 본 실험은 <strong>미실행(NOT RUN)</strong> 상태다.</p>\n</div>",
+    "sha256": "a9d38ebf5ae2bedf3642a549a8592f5053cf447ec23e6f3077d173e392865d3e"
+  },
+  {
+    "id": "F06-U003",
+    "file": "prereg.md",
+    "start": 16,
+    "end": 16,
+    "kind": "heading",
+    "text": "## Research Questions",
+    "sha256": "46e1a5a489eba7398304e02671783cf0d2003d279e653d2ddad11ac93b1453c5"
+  },
+  {
+    "id": "F06-U004",
+    "file": "prereg.md",
+    "start": 18,
+    "end": 18,
+    "kind": "heading",
+    "text": "### RQ1 — Human Approval",
+    "sha256": "53be645667cd81d9c11b22722be0c0c63a0c92d98071717ef8399fe26fdf2e0b"
+  },
+  {
+    "id": "F06-U005",
+    "file": "prereg.md",
+    "start": 20,
+    "end": 21,
+    "kind": "quote",
+    "text": "> When humans receive AI-generated intervention suggestions after failure, how often\n> do they accept the suggestions rather than create their own?",
+    "sha256": "7d9450673c0f160a3e6d4152fff31e98c68b039699ac07a2926a1536499f5e88"
+  },
+  {
+    "id": "F06-U006",
+    "file": "prereg.md",
+    "start": 23,
+    "end": 23,
+    "kind": "heading",
+    "text": "### RQ2 — Explanation Effect *(Anchor Experiment)*",
+    "sha256": "1daef959a8fe50a724a8f62d4f8c5d4aa6f2fc772eb9987d1032d48515af0801"
+  },
+  {
+    "id": "F06-U007",
+    "file": "prereg.md",
+    "start": 25,
+    "end": 26,
+    "kind": "quote",
+    "text": "> Does providing an explanation for an AI suggestion change the probability that\n> humans accept it?",
+    "sha256": "0f2c0744cffbc32f49c7b5713ad14ac3a67e65fdd201153869868799e8f9d859"
+  },
+  {
+    "id": "F06-U008",
+    "file": "prereg.md",
+    "start": 28,
+    "end": 28,
+    "kind": "heading",
+    "text": "### RQ3 — Decision Quality",
+    "sha256": "19f0be4b0becdefcc2ab32507fbe1130f9669327131a08a09cfb18738fc61b13"
+  },
+  {
+    "id": "F06-U009",
+    "file": "prereg.md",
+    "start": 30,
+    "end": 31,
+    "kind": "quote",
+    "text": "> How are different intervention strategies associated with subsequent understanding\n> and side-effect recognition?",
+    "sha256": "b2a9b55a165c5a37e1b06f9eaaf40611126106444d1a51c63117ff1c3071cfb4"
+  },
+  {
+    "id": "F06-U010",
+    "file": "prereg.md",
+    "start": 33,
+    "end": 33,
+    "kind": "paragraph",
+    "text": "---",
+    "sha256": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b"
+  },
+  {
+    "id": "F06-U011",
+    "file": "prereg.md",
+    "start": 35,
+    "end": 35,
+    "kind": "heading",
+    "text": "## Anchor Experiment 설계",
+    "sha256": "d0c9506711dce9a4bc21b029549856c4279dd336b76924fb3072b8a33ab1795f"
+  },
+  {
+    "id": "F06-U012",
+    "file": "prereg.md",
+    "start": 37,
+    "end": 37,
+    "kind": "heading",
+    "text": "### Independent Variable",
+    "sha256": "c469b0121036b1d37d791ab2a3bf2a139515bbe15e3fb53acc2c3427a888c746"
+  },
+  {
+    "id": "F06-U013",
+    "file": "prereg.md",
+    "start": 39,
+    "end": 43,
+    "kind": "code_or_diagram",
+    "text": "```text\nRationale\nA = absent   (AI suggestion only)\nB = present  (AI suggestion + rationale)\n```",
+    "sha256": "bb0743521f4b30cca4f826212d8198782daf24cfd5981e036c62573c0500c71b"
+  },
+  {
+    "id": "F06-U014",
+    "file": "prereg.md",
+    "start": 45,
+    "end": 45,
+    "kind": "heading",
+    "text": "### Primary Outcome",
+    "sha256": "a6eac809c8dee85a66925e90bb2e74dbb727570c49b2dcd3fde8d4be1bf5b61a"
+  },
+  {
+    "id": "F06-U015",
+    "file": "prereg.md",
+    "start": 47,
+    "end": 49,
+    "kind": "code_or_diagram",
+    "text": "```text\nAI suggestion acceptance rate\n```",
+    "sha256": "3b04463b9f8275ef7aeab27640b7e8465bd6821a911431f03924ab87c71ecd36"
+  },
+  {
+    "id": "F06-U016",
+    "file": "prereg.md",
+    "start": 51,
+    "end": 51,
+    "kind": "heading",
+    "text": "### Secondary Outcomes",
+    "sha256": "f0749db38f1614b341ba60cdf430a4414a0545bbb549fc6684955c62b021311f"
+  },
+  {
+    "id": "F06-U017",
+    "file": "prereg.md",
+    "start": 53,
+    "end": 58,
+    "kind": "code_or_diagram",
+    "text": "```text\nΔ Understanding Score\nSide-effect Recognition\nCustom Rule Selection\nCause-chain Question Hit Rate\n```",
+    "sha256": "87b6f1dfe0086ee308a4f3bb34219c7d22a0a156791500394fc10fd0fd489209"
+  },
+  {
+    "id": "F06-U018",
+    "file": "prereg.md",
+    "start": 60,
+    "end": 60,
+    "kind": "heading",
+    "text": "### 배정",
+    "sha256": "2f6af13f3ccb00b09a7e86d84508c8507e50851887690dc32a2af1ca8d06806b"
+  },
+  {
+    "id": "F06-U019",
+    "file": "prereg.md",
+    "start": 62,
+    "end": 77,
+    "kind": "code_or_diagram",
+    "text": "```text\nParticipants\n    │\nRandom Assignment\n    │\n┌───┴───┐\n│       │\nA       B\n│       │\nNo      With\nReason  Reason\n│       │\n└───┬───┘\n    ↓\nAcceptance Rate\n```",
+    "sha256": "fa160172713859f798252c387afaaeb080d4c654615a38d69c5d1714b72a89b1"
+  },
+  {
+    "id": "F06-U020",
+    "file": "prereg.md",
+    "start": 79,
+    "end": 79,
+    "kind": "paragraph",
+    "text": "표본이 작으면 억지로 유의성을 주장하지 않는다. 예: `N = 24, exploratory result`.",
+    "sha256": "36418c8de1d78fcde66349e6d3f6bb5d4398f656bb7684c73efdf4e284f9c7ef"
+  },
+  {
+    "id": "F06-U021",
+    "file": "prereg.md",
+    "start": 81,
+    "end": 81,
+    "kind": "heading",
+    "text": "### 필수 로그",
+    "sha256": "e4f1fe1071822f4616e9c3c5891fbde240e1e8c086bae82732786572f73d2520"
+  },
+  {
+    "id": "F06-U022",
+    "file": "prereg.md",
+    "start": 83,
+    "end": 86,
+    "kind": "code_or_diagram",
+    "text": "```text\nmonkey_paw_offer · intervention_options · answer_scored\nintervention_question · rule_applied · session_end\n```",
+    "sha256": "d8bb483f3b2a46a058423cad3da93ffa9aad525d289b0f02fbfa9374a59b19fd"
+  },
+  {
+    "id": "F06-U023",
+    "file": "prereg.md",
+    "start": 88,
+    "end": 88,
+    "kind": "paragraph",
+    "text": "---",
+    "sha256": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b"
+  },
+  {
+    "id": "F06-U024",
+    "file": "prereg.md",
+    "start": 90,
+    "end": 90,
+    "kind": "heading",
+    "text": "## 사전등록 통제 (advisor_answer 의미 축)",
+    "sha256": "d95d241a75cd116634adac4f6befe6238617e2947fe405c0ca7809d3e9bfa995"
+  },
+  {
+    "id": "F06-U025",
+    "file": "prereg.md",
+    "start": 92,
+    "end": 94,
+    "kind": "paragraph",
+    "text": "기대 방향을 실험 전에 고정해 둔 통제 문항으로 기계 채점한다.\n특히 **극성 쌍(PC3·PC4, SPC1·SPC2)은 반드시 함께 판정한다.** 한쪽만 통과하면\n모델이 기록이 아니라 질문 표면을 읽고 있다는 뜻이다.",
+    "sha256": "771f3b2ca9249e6273ac31b934a5cba018b0e29e11cd6ce8d1f8d75985f5ebac"
+  },
+  {
+    "id": "F06-U026",
+    "file": "prereg.md",
+    "start": 96,
+    "end": 101,
+    "kind": "table",
+    "text": "| 통제 | 기대 | 성격 |\n|---|---|---|\n| PC1·PC2·PC5 | supported | 기록에 있는 사실 |\n| PC3 / PC4 | contradicted / supported | **극성 쌍**: 같은 사건, 반대 질문 |\n| PC6·PC7·PC8 | unknown | 기록에 없는 것: 모른다고 답해야 함 |\n| SPC1 / SPC2 | supported / contradicted | **합성 극성 쌍**: 기록을 뒤집은 fixture |",
+    "sha256": "03fe2487852a947e559aec49ff3afaca3ef899f4a33c9c14f63d8e8b4809f504"
+  },
+  {
+    "id": "F06-U027",
+    "file": "prereg.md",
+    "start": 103,
+    "end": 105,
+    "kind": "code_or_diagram",
+    "text": "```text\nPCA = 기대 방향과 일치한 통제 수 / 통제 문항 수\n```",
+    "sha256": "2c6c4dca1c8c28b36d728b4c857aea6a22b3a72f5121a0fd604ad7e9f2eff931"
+  },
+  {
+    "id": "F06-U028",
+    "file": "prereg.md",
+    "start": 107,
+    "end": 108,
+    "kind": "paragraph",
+    "text": "이 통제 세트는 [Exp 1]({{ '/experiments/model-selection/' | relative_url }})의\n시스템 평가에서 이미 사용·검증되었다 (2026-09-09 코퍼스).",
+    "sha256": "95f845e2149ffede2484fe568e751c3f196b37bd9f1c9fca880daf3156b9488e"
+  },
+  {
+    "id": "F06-U029",
+    "file": "prereg.md",
+    "start": 110,
+    "end": 110,
+    "kind": "paragraph",
+    "text": "---",
+    "sha256": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b"
+  },
+  {
+    "id": "F06-U030",
+    "file": "prereg.md",
+    "start": 112,
+    "end": 112,
+    "kind": "heading",
+    "text": "## 해석 원칙 (미리 고정)",
+    "sha256": "e97aac86eddcfe4c599eeefd67f3e17c289baa76731929fd74a38416fccae04e"
+  },
+  {
+    "id": "F06-U031",
+    "file": "prereg.md",
+    "start": 114,
+    "end": 118,
+    "kind": "list",
+    "text": "- 인과 표현 금지: 랜덤 배정된 Rationale 축 외에는 전부 연관성으로 서술한다.\n- 폴백은 성공으로 집계하지 않는다.\n- 효과가 관찰되지 않으면 그대로 쓴다.\n  *\"We did not observe meaningful evidence that rationale presentation increased\n  acceptance in our sample.\"* 이것도 결과다.",
+    "sha256": "9a7485f9922bde392969adf6917f4eee94c261ca11492a1a62c231dc9495bb95"
+  },
+  {
+    "id": "F06-U032",
+    "file": "prereg.md",
+    "start": 120,
+    "end": 120,
+    "kind": "paragraph",
+    "text": "---",
+    "sha256": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b"
+  },
+  {
+    "id": "F06-U033",
+    "file": "prereg.md",
+    "start": 122,
+    "end": 122,
+    "kind": "heading",
+    "text": "## Synthetic → Human (P1, 선택)",
+    "sha256": "6fc76ab12c155eb974a4b9d5b66ff4f15331ac956b7f277f5f6eb1df1b12ede0"
+  },
+  {
+    "id": "F06-U034",
+    "file": "prereg.md",
+    "start": 124,
+    "end": 124,
+    "kind": "paragraph",
+    "text": "가능하다면 사람 실험 전에 LLM 플레이어로 in-silico pilot을 돌려 가설 후보를 생성한다.",
+    "sha256": "9b068cc6332818ecf8aaecd5a4e25f545cd3ae4ec4d70f87859143c76d6542fe"
+  },
+  {
+    "id": "F06-U035",
+    "file": "prereg.md",
+    "start": 126,
+    "end": 127,
+    "kind": "quote",
+    "text": "> Synthetic agents were used for hypothesis generation and system stress-testing,\n> **not** as validated substitutes for human participants.",
+    "sha256": "f048589b33e34405de490e6b2458c6aa2a305b6ad568c90ccaca8272bd3c0117"
+  },
+  {
+    "id": "F06-U036",
+    "file": "prereg.md",
+    "start": 129,
+    "end": 129,
+    "kind": "paragraph",
+    "text": "비교 대상은 수치의 일치가 아니라 **방향성(directional regularity)의 보존**이다.",
+    "sha256": "8fc9e45c4c6d19add0d410c23957a488cbcb0c08c7911741f1b30b469e9a9d93"
+  },
+  {
+    "id": "F07-U001",
+    "file": "lab-notes.md",
+    "start": 1,
+    "end": 6,
+    "kind": "metadata",
+    "text": "---\ntitle: \"Lab Notes\"\npermalink: /lab-notes/\neyebrow: \"부록 · 날짜별 기록\"\ndescription: 실험·측정·결정의 날짜별 적립. 최신이 위.\n---",
+    "sha256": "b8a785cb0cfa3a6ce34c1d6b7085ac704186086c7b5360bd8588b3ef3aab3055"
+  },
+  {
+    "id": "F07-U002",
+    "file": "lab-notes.md",
+    "start": 8,
+    "end": 8,
+    "kind": "heading",
+    "text": "## 2026-09-18",
+    "sha256": "e8eda3a31a99f4e3849a9742d62e6594a409400c8690d9468827eea33fcb81c1"
+  },
+  {
+    "id": "F07-U003",
+    "file": "lab-notes.md",
+    "start": 10,
+    "end": 31,
+    "kind": "list",
+    "text": "- **임베딩 슬롯 — 왜 비교가 없었는지 먼저 적었다(A.20)**: Core·NPC는 로컬·외부 모두\n  평가했는데 임베딩만 로컬 대 외부 비교가 없었다. 코드·DB 실사 결과 호출 0 — 누락이\n  아니라 **09-06 채점 밸런스 조정에서 임베딩 top-3 절단 경로를 제거**했기 때문이다\n  (절단이 \"정답에 도달해도 21~42%\"의 원인, 8개 전부 심판에게 주니 골든 정답형\n  65.3→100.0). 두 번째 용도(노트 검색)는 미구현. 비교 대상이 먼저 사라진 것.\n- **한 자리에만 되살리고 3모델을 같은 기준으로 평가(A.21)**: 신의 개입에서 직접 쓴\n  규칙이 거부됐을 때 주는 대안 3개의 순위 — 플레이어가 고르는 추천이라 틀려도 채점·\n  게이트에 무해, 실패 시 어간 겹침 폴백. 골든은 초안 30문장을 Scenario Director가\n  검수해 22문장(뜻이 다른 8문장 제외). top-1: 어간 겹침 0.364 / Qwen3-Embedding-4B\n  0.909 / bge-m3 0.909 / gemini-embedding-001 **0.955**(1024~3072 전 차원 동일).\n  top-3는 임베딩 전 셀 1.000. 반복 n=3 적중률·오답 집합 완전 동일(결정론).\n- **모델 간 \"같은 결과\"는 벡터가 아니라 순위로 쟀다**: 차원이 같아도 공간이 다르다.\n  Kendall τ — Qwen↔Gemini 0.31~0.36, **bge-m3↔Gemini 0.59~0.63**, Qwen 2560↔1536\n  0.90(MRL 절단 무해). 여섯 셀이 공통으로 틀린 문장 1개(\"본 대로 얘기하게\" → 전부\n  \"들은 것을 그대로 전한다\")는 모델 공통 한계.\n- **GPU 동주가 결정을 갈랐다**: 16GB에서 로컬 Core+NPC(13.4GB)에 Qwen 4B(실상주\n  4.4GB)를 더하면 두 LLM이 모두 축출됐다(2/2). bge-m3(0.66GB)는 셋 다 상주·축출 0.\n  **채택: 서빙은 Gemini@2560, 로컬 개발·롤백은 bge-m3@1024.** 서버 실경로에서\n  임베딩 순위·폴백(200)까지 확인.\n- **A.19 후속 과제 닫음**: Anthropic 구조화 출력이 배열 상한·숫자 범위를 못 받아 planner\n  가 재생성되던 결함을 엔진 쪽 결정적 절단으로 해소(advisor 목록 2필드 포함). 남은\n  제출 조합 평가(원숭이손·채점 캘리브레이션·누설)는 최종 시나리오 뒤 마지막에 한 번.",
+    "sha256": "2a29ca02c5e2a140831ea68c4aace8101749bc17e89877aac6e76566cb392cfc"
+  },
+  {
+    "id": "F07-U004",
+    "file": "lab-notes.md",
+    "start": 33,
+    "end": 33,
+    "kind": "heading",
+    "text": "## 2026-09-17",
+    "sha256": "72da9f4e9db9cc4845ba22ab6bbe8e0e4d6cbd603a5c7d74d5e34d68038d1576"
+  },
+  {
+    "id": "F07-U005",
+    "file": "lab-notes.md",
+    "start": 35,
+    "end": 43,
+    "kind": "list",
+    "text": "- **제출 서빙 조합 확정 — Core `claude-sonnet-5` · NPC `claude-haiku-4-5`**: 조합 확인\n  self-play 5회차 1판(`305d77a6`) 완주. 점수 11.7→11.7→16.0→24.8→29.8(n=1, 순위 근거\n  아님), 261.5초, 크래시·폴백 0, NPC 발화 100건 메타 표현 0건. planner가 5회차에\n  `beats` 7개(상한 6)로 1회 재생성 후 복구, A.19와 같은 구조화 출력 상한 문제다.\n- **판당 비용 재계산 (추정, 실측 토큰 아님)**: 하네스 기록의 호출 수·입출력 문자 × 단가.\n  사람 5회차 완주 판(테스터6 `2338ec9f` 기준) **$0.68~0.97**, self-play 판 $0.54~0.78.\n  비용의 87~94%가 Core이고 그중 관리자 검사가 Core 입력의 56~68%다. thinking 토큰·\n  재생성·임베딩은 넣지 않았다(어댑터가 `response.usage`를 기록하지 않음).\n- 제출 전까지 개발은 로컬 구성(Core `gemma4:12b` · NPC `kanana1.5:8b`)으로 계속한다.",
+    "sha256": "dee89e8c80a530e3ae07a50e44d4b8f3ba2c030484fa28b55ee123611aed7033"
+  },
+  {
+    "id": "F07-U006",
+    "file": "lab-notes.md",
+    "start": 45,
+    "end": 45,
+    "kind": "heading",
+    "text": "## 2026-09-16",
+    "sha256": "96fda84b7626b7bcd7c52dbb82add62df8c1d62bca3ead9860d0b205af5dfee3"
+  },
+  {
+    "id": "F07-U007",
+    "file": "lab-notes.md",
+    "start": 47,
+    "end": 67,
+    "kind": "list",
+    "text": "- **외부 API 서빙 평가 (Exp 1 부록 A.19)**: 로컬 채택 구성은 그대로 두고, 심사 기간\n  서빙 제약(GPU 1장이라 동시 접속 1명, 홈서버 가용성) 때문에 외부 API를 **같은 러너·\n  같은 게이트의 비열등 판정**으로 평가했다.\n  - Core: PCA·극성·eval 게이트는 Sonnet 5(n=3 PCA 0.9667·eval 0.7143)와 Opus 5(n=1\n    eval 0.5714, 경계값) 모두 통과. 지연 게이트는 Sonnet이 n=1과 n=3 사이에서 뒤집히는\n    경계이고, Opus는 advisor p95가 로컬보다 38% 높아 미달.\n  - NPC 의미 품질: Haiku 4.5·Sonnet 5 모두 구조 실패 0. 로컬 모델의 지속 약점이던\n    \"방금 들음 vs 기억\" 구분을 둘 다 통과해 비열등 이상으로 판단(사람 검토 10케이스).\n  - Gemini 무료 키는 **하루 20요청 상한**(80턴 중 14턴 성공)으로 NPC 후보에서 제외.\n- **채점기 교체 `gemma3:12b` → `gemma4:12b`(think off)**: 16 GiB GPU에서 채점기와\n  백엔드 모델이 스와핑하며 평가가 40분 넘게 멈춘 것이 계기. 같은 발화 20건 재채점에서\n  두 채점기 일치 19/20(95%), 파싱 실패 0. 재측정한 7세 정책은 kanana·Haiku·Sonnet\n  **전부 4/5 통과**. 1차(gemma3) Haiku 2/5·3/5는 VRAM 경합 잡음으로 판단.\n  공통 약점은 항목 3(3턴 망각). Sonnet은 \"유저가\"라는 메타 표현 누출이 1건 있었다.\n- **테스터6 사람 세션** (`2338ec9f`, 09:48~11:06): 5회차 완주. 점수 8.8→64.2→94.2×3,\n  side_effect 셀은 끝까지 0. 피드백 11건을 DB와 대조했다. 추천 규칙이 이미 하는\n  행동을 제안한 사례(F5)가 있었고, 신의 질문 15문답은 전부 `unknown`, 원숭이손 부작용은\n  불분명했다(F11). 기구 수정 5건(F1·F3~F6)은 세션 뒤에 반영.\n  → [Exp 2 케이스]({{ '/experiments/human-observations/' | relative_url }})\n- **테스터7**: UI 피드백 2건(출력 텍스트 선택 방지, 장면에 없는 NPC 딤 처리)만\n  기록했다. 판 완주·확정이 미확인이라 표본에 넣지 않는다.",
+    "sha256": "8022f4987445de9cdd62bc7501bd7d727df3dea0f54268274d513346630ee7fb"
+  },
+  {
+    "id": "F07-U008",
+    "file": "lab-notes.md",
+    "start": 69,
+    "end": 69,
+    "kind": "heading",
+    "text": "## 2026-09-15",
+    "sha256": "54395a69fd0f52492cc2819e2fe1b879e976c932d7f4854df26195f9fa1c9fb1"
+  },
+  {
+    "id": "F07-U009",
+    "file": "lab-notes.md",
+    "start": 71,
+    "end": 85,
+    "kind": "list",
+    "text": "- **DB 세션 전수 판별 + RQ1 예비 집계**: attempt 248판을 문서 대조·셀프플레이 로그·\n  행동 시그니처(이벤트 간격 CV) 3축으로 판별. 사람 세션 확정 5판 + 유력 1판(테스터2\n  `e84af6ab`, 준비 문서의 사전 식별 규칙으로 사후 판별). 확정+유력 6판에서 규칙 20건:\n  AI 계열 70%(원숭이손 수락 6/9 포함) vs 직접 작성 30%. 5회차 점수 하락은 판정 요동\n  (동일 제출 67.9→53.3 문서화 사례)과 섞여 있어 경향 주장 보류.\n- **개선 배치 3/3 이후 첫 실플레이 2판**: DB 이벤트 근거. 판 0468b70c 완주\n  (원숭이손 제안 거절 · 신의 질문 미사용 · 11자 단문 제출 → 총점 8.8 fail, 최소 제출\n  하한 실측), 판 806122f3 밤 제출 없이 이탈. 같은 날 attempts 121건 중 실플레이는\n  2판. 로드 즉시 세션 생성이 빈 판을 다량 적립함을 확인.\n- **NPC 모델 교체 `kanana` → `gemma4:12b`** (`think=off`, temperature 0.3): 정책\n  `npc-dialogue-2` 기준 재평가. Gemma 41문답 실패·재생성 0, 중간값 2.599초·p95\n  3.053초(초기 목표 3초 소폭 초과). 전언 출처 구분·행동 근거 답변의 정확성을 근거로\n  교체하되, 최초 의미 품질 목표(중요 모순 0·관련성 90%)에는 미달임을 그대로 기록.\n  `think=true`는 1024토큰 상한에서 3건 전부 답변 실패로 미적용.\n- research.remakeday.com 사이트 개설: 리서치 허브 구조(옵션 B)로 스캐폴딩.",
+    "sha256": "cf52ef1c285f2d6e228d52183d2c36e20d6dad0ebe6a623d1b813dff63380d31"
+  },
+  {
+    "id": "F07-U010",
+    "file": "lab-notes.md",
+    "start": 87,
+    "end": 87,
+    "kind": "heading",
+    "text": "## 2026-09-14",
+    "sha256": "87ae78cd8fade8cb1a46333da27c142932b8e75e782b3c6f3c9b48da608f3d4e"
+  },
+  {
+    "id": "F07-U011",
+    "file": "lab-notes.md",
+    "start": 89,
+    "end": 93,
+    "kind": "list",
+    "text": "- **Core 슬롯 `gemma4:12b-N` 채택**: Funnel Stage 0~4 실측 근거. 극성쌍(RM1) 통과는\n  측정된 로컬 셀 중 유일.\n- **NPC 슬롯 `kanana1.5:8b-q4km` 채택**: 상업 라이선스(Apache 2.0)가 결정 축.\n  교체 전 루프 스모크 통과 (크래시 0 · 폴백 0/16).\n- E6 formal: 정책 ON/OFF × 5모델 × n=5.",
+    "sha256": "d0082628e9531d9e48a4cb86648690425fc8aaee57ac264595498c5908865c7d"
+  },
+  {
+    "id": "F07-U012",
+    "file": "lab-notes.md",
+    "start": 95,
+    "end": 95,
+    "kind": "heading",
+    "text": "## 2026-09-13",
+    "sha256": "f0e64eee889372774bb82511c5da252199b16e350886770200cd09236854b418"
+  },
+  {
+    "id": "F07-U013",
+    "file": "lab-notes.md",
+    "start": 97,
+    "end": 99,
+    "kind": "list",
+    "text": "- E7 설계 확정: 비대칭 요인 설계 9셀, Hard 게이트 C1~C13.\n- Stage 0 (프로토콜 호환) · Stage 1 (smoke) 실측.\n- `gemma4:e4b` 발견: 디스크 8.95 GiB, 실상주 3.06 GiB. 예산 판정을 실측 VRAM으로 전환.",
+    "sha256": "719a895f6192fb9c5b67b782da8c709feeaf7812095375873545ba17c3fcfadb"
+  },
+  {
+    "id": "F07-U014",
+    "file": "lab-notes.md",
+    "start": 101,
+    "end": 101,
+    "kind": "heading",
+    "text": "## 2026-09-10",
+    "sha256": "aee7b21145aa1681bc188874a00b6703bdaae983424d52a169c3554f7b81a687"
+  },
+  {
+    "id": "F07-U015",
+    "file": "lab-notes.md",
+    "start": 103,
+    "end": 103,
+    "kind": "list",
+    "text": "- 5-loop 종단간 게임플레이 검증.",
+    "sha256": "9dceb4d5a570d4fe06b83f015235f45c49e936a391e00239712f519eff72122e"
+  },
+  {
+    "id": "F07-U016",
+    "file": "lab-notes.md",
+    "start": 105,
+    "end": 105,
+    "kind": "heading",
+    "text": "## 2026-09-09",
+    "sha256": "c69327066c253513e20ca44c79e2c65468c79a0c702caf4668fc3262640c428e"
+  },
+  {
+    "id": "F07-U017",
+    "file": "lab-notes.md",
+    "start": 107,
+    "end": 109,
+    "kind": "list",
+    "text": "- **Tester 1 · Tester 2 사람 플레이 세션**: event-level DB 로그 보존.\n  직접 작성 규칙의 의미 변형, 원숭이손 설명-저장 규칙 불일치 등 instrument 이슈 발견.\n- Core `advisor_answer` 폴백 붕괴(EGR 0/12)와 코드 수정 후 회복(11/12) 기록.",
+    "sha256": "54ac27956869826b857d4add8020b765afec30824990924466d9e3c24c744776"
+  },
+  {
+    "id": "F07-U018",
+    "file": "lab-notes.md",
+    "start": 111,
+    "end": 111,
+    "kind": "heading",
+    "text": "## 2026-09-08",
+    "sha256": "0e5aff2d4275fac427cec473ef2af7cb709ad43a0422eddc671c0f61d9d34539"
+  },
+  {
+    "id": "F07-U019",
+    "file": "lab-notes.md",
+    "start": 113,
+    "end": 114,
+    "kind": "list",
+    "text": "- 게임 리뷰 검증: DB 스냅샷 집계 (attempt 66 / loop 81 / 밤 제출 65, 통과율 3.1%).\n  \"채점기 문제\" 등 리뷰 결론 일부는 근거 부족으로 기각.",
+    "sha256": "cf9d819c9470abfcc95376ba59b0faa02a693e54ede4ce642c6386b5904043c7"
+  },
+  {
+    "id": "F08-U001",
+    "file": "experiments/human-observations.md",
+    "start": 1,
+    "end": 7,
+    "kind": "metadata",
+    "text": "---\ntitle: \"Exp 2 — Human Behavioral Observations\"\npermalink: /experiments/human-observations/\neyebrow: \"Behavioral Evaluation · 진행 중\"\nstatus: \"Exploratory · N=5+\"\ndescription: 사람 플레이 세션의 event-level trace에서 AI 제안 수용·직접 작성·이해도 변화를 관찰하는 탐색적 기록. 통계적 유의성을 주장하지 않는다.\n---",
+    "sha256": "ba28aa6cd31fc81d1d28606fbf5aab422763d91d555a9a86da42a7104cba5ceb"
+  },
+  {
+    "id": "F08-U002",
+    "file": "experiments/human-observations.md",
+    "start": 9,
+    "end": 16,
+    "kind": "paragraph",
+    "text": "<div class=\"callout\">\n  <div class=\"callout__title\">이 페이지의 지위</div>\n  <p><strong>탐색적(exploratory) 관찰 기록이다.</strong> DB 전수 판별로 확정·유력\n  사람 세션 6판을 분리했다 (문서 대조 5판 + 정황 유력 1판, 신원 미상 사람 시그니처\n  5판은 별도 보류). 이후 들어온 9/16 테스터6 완주 판 1건은 기구 버전이 달라 합산하지 않고 케이스로 따로 적었다. 통계적 유의성을 주장하지 않는다. AI 선택과 직접 작성은 참가자의 자발적 선택이므로\n  selection bias가 존재한다. 인과가 아니라 <strong>연관성</strong>만 서술한다.\n  현재 세션 데이터 이관·정리 작업이 진행 중이며 집계 수치는 정리가 끝난 항목부터 채운다.</p>\n</div>",
+    "sha256": "bc9c7ee333258649e5656ff94287cede2b9ff8cbebaffc4a4996c34c523608bf"
+  },
+  {
+    "id": "F08-U003",
+    "file": "experiments/human-observations.md",
+    "start": 18,
+    "end": 18,
+    "kind": "heading",
+    "text": "## 연구 질문 (관찰 대상)",
+    "sha256": "68d4919bf1bb41f338f728280f8cfa66a33a2f57a4b55f6c0c5d7e58da07ba05"
+  },
+  {
+    "id": "F08-U004",
+    "file": "experiments/human-observations.md",
+    "start": 20,
+    "end": 21,
+    "kind": "quote",
+    "text": "> 반복적인 실패–수정 과정에서 인간은 AI가 제안한 개입을 언제 수용하고 언제 직접\n> 수정하며, 그 선택은 이후 문제 이해와 어떤 관계인가?",
+    "sha256": "7345aa7d0446f41c994417e9e00ecba3151e96d4141211d5d5a3b3db81493365"
+  },
+  {
+    "id": "F08-U005",
+    "file": "experiments/human-observations.md",
+    "start": 23,
+    "end": 23,
+    "kind": "paragraph",
+    "text": "측정값:",
+    "sha256": "25b63c79dec7dfe71e6e86b136b96d5feffdb88df11c499a0c6ee580f0af9d78"
+  },
+  {
+    "id": "F08-U006",
+    "file": "experiments/human-observations.md",
+    "start": 25,
+    "end": 28,
+    "kind": "list",
+    "text": "- AI 제안 선택 비율 vs 직접 작성 비율\n- 회차별(초반/후반) 선택 변화\n- 다음 회차 이해도 변화 (Δ Understanding)\n- 부작용 인지율 · 질문의 질 · 최종 이해도",
+    "sha256": "a88768b98740ce9fd3a3f6d13d1d6bab20a3fdc12c321ce4d9136a11389fdf67"
+  },
+  {
+    "id": "F08-U007",
+    "file": "experiments/human-observations.md",
+    "start": 30,
+    "end": 30,
+    "kind": "paragraph",
+    "text": "---",
+    "sha256": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b"
+  },
+  {
+    "id": "F08-U008",
+    "file": "experiments/human-observations.md",
+    "start": 32,
+    "end": 32,
+    "kind": "heading",
+    "text": "## 세션 분리 — DB 전수 판별 (2026-09-15)",
+    "sha256": "2223bf884d850909620f18ad94d151c1ad9837f782eab8f91475674b6091d515"
+  },
+  {
+    "id": "F08-U009",
+    "file": "experiments/human-observations.md",
+    "start": 34,
+    "end": 37,
+    "kind": "paragraph",
+    "text": "게임 DB를 읽기 전용으로 전수 조회했다 (attempt 248판). 판별 축은 세 가지다.\n① 문서 대조(테스터 기록·핸드오프의 판 ID), ② 셀프플레이 로그(`.selfplay_attempts.log`)\n제외, ③ 행동 시그니처다. 행동 시그니처는 이벤트 간격 변동계수(CV)로 보는데,\n사람은 생각하는 동안 간격이 불규칙하고(CV ≥ 1.5) 자동 실행은 균일하다(CV ≈ 1.0).",
+    "sha256": "1b13a694ad8e0ccb5f1ac31f0041fdb7374e0f4b63c33674470cdbb44e46cdfb"
+  },
+  {
+    "id": "F08-U010",
+    "file": "experiments/human-observations.md",
+    "start": 39,
+    "end": 46,
+    "kind": "table",
+    "text": "| 분류 | 판수 | 근거 |\n|---|---:|---|\n| **사람 · 문서 대조 확정** | 5 | 테스터1 `b56dca9d`(9/09) · 테스터3 `f7f2e402`(9/10) · 9/14 실플레이 `da38de28`(피드백 6건 접수) · 9/15 `0468b70c`·`806122f3` |\n| **사람 · 정황 유력** | 1 | 테스터2 `e84af6ab`: 준비 문서의 식별 규칙(\"9/09 17:17 이후 새 attempt\")에 부합, 접속 확인 2분 뒤(17:30) 생성. 3루프 · 자유서술 677자 |\n| 사람 시그니처 · 신원 미상 | 5 | `bdf80b97`·`7718dbd0`·`c36e842b`(9/09 밤~10 새벽) · `bba17899`(9/10) · `80ff8d0d`(9/14), CV 1.6~3.9 |\n| 자동 추정 | 9 | 셀프플레이 로그 2판 + 9/06 균일 페이싱 클러스터 7판 (CV 0.9~1.1, 동일 프로파일 5루프 일괄 실행) |\n| 초기 개발기 · 미분류 | 나머지 활동 판 | 9/05~07 개발 중 플레이, 사람/자동 판별 보류 |\n| 빈 판 | 178 | `/play` 로드 즉시 세션 생성 구조가 적립. 루프 0 · 이벤트 ≤ 1 |",
+    "sha256": "18efd01f5c27147d3d252de0e6d1a454a1561537b81d876785e65ea962892c2e"
+  },
+  {
+    "id": "F08-U011",
+    "file": "experiments/human-observations.md",
+    "start": 48,
+    "end": 50,
+    "kind": "paragraph",
+    "text": "테스터2 준비 문서는 \"표본 미수집\"으로 끝나 있었지만, 문서에 적힌 식별 규칙을\nDB에 적용하자 해당 판이 나왔다. **사전에 고정해 둔 식별 규칙이 사후 판별을\n가능하게 만든 사례**다.",
+    "sha256": "15ec93bf0a7bb46a6ab1c02073a784c77f178d446c071e4921b615cb4c0bab41"
+  },
+  {
+    "id": "F08-U012",
+    "file": "experiments/human-observations.md",
+    "start": 52,
+    "end": 52,
+    "kind": "paragraph",
+    "text": "---",
+    "sha256": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b"
+  },
+  {
+    "id": "F08-U013",
+    "file": "experiments/human-observations.md",
+    "start": 54,
+    "end": 54,
+    "kind": "heading",
+    "text": "## 집계 결과 (확정 + 유력 6판, exploratory)",
+    "sha256": "062a40f5d6e515b05b8b981ea0df453a93ec95d571a1fe0fb71f209ed773ef22"
+  },
+  {
+    "id": "F08-U014",
+    "file": "experiments/human-observations.md",
+    "start": 56,
+    "end": 56,
+    "kind": "paragraph",
+    "text": "규칙 적용 20건의 출처 분해 (`rules.source` 기준):",
+    "sha256": "be4670b96e36616c3feb4075fe2980b1a7f95e6bb4400512a6baea076c8149f5"
+  },
+  {
+    "id": "F08-U015",
+    "file": "experiments/human-observations.md",
+    "start": 58,
+    "end": 65,
+    "kind": "table",
+    "text": "| 측정값 | 값 |\n|---|---|\n| AI 계열 규칙 선택 | **14/20 (70%)**: 원숭이손 수락 6 + AI 추천 옵션 선택 8 |\n| 직접 작성 규칙 | **6/20 (30%)** |\n| 원숭이손 제안 수락률 | **6/9 (67%)**: 9/15 개선 배치 이후 2판은 모두 거절 |\n| 신의 질문 사용 | 9/09~14 완주 판은 12회 소진, 9/15 판은 0회 |\n| 회차별 점수 궤적 | 5루프 완주 3판 모두 중반 상승 후 5회차 하락 (아래 주의) |\n| 부작용 인지율 | NOT RUN (이벤트 정의 확정 후 집계) |",
+    "sha256": "817b7cde18708e6c5d65dbb26d7fe4d7ff98cf03d86049659885bb5b79b2ed32"
+  },
+  {
+    "id": "F08-U016",
+    "file": "experiments/human-observations.md",
+    "start": 67,
+    "end": 70,
+    "kind": "paragraph",
+    "text": "**5회차 하락은 행동으로 단정할 수 없다.** 테스터3의 4→5회차는 자유서술 md5가\n동일한 제출이 67.9 → 53.3으로 채점된 **판정 요동 사례**로 문서화되어 있다\n(temperature 0에서도 provider 비결정성이 남는다). 이 구간은 행동 신호와 기구\n노이즈가 섞여 있다.",
+    "sha256": "bd59ecc9ddfb19e732273a4cf7e0ba06cf4f69690b305c213ff6e138d5bf350e"
+  },
+  {
+    "id": "F08-U017",
+    "file": "experiments/human-observations.md",
+    "start": 72,
+    "end": 73,
+    "kind": "paragraph",
+    "text": "**기구 버전 혼재 주의.** 9/15 두 판은 개선 배치 3/3 이후, 나머지는 이전 판이다.\n위 집계는 전 기간 합산이므로 경향 주장에 쓰지 않고, 버전별 분리 집계를 후속으로 남긴다.",
+    "sha256": "e959b6d21548055536be1eb87394ebfc64c4ca3746cfbb933365337ad9e7a2c9"
+  },
+  {
+    "id": "F08-U018",
+    "file": "experiments/human-observations.md",
+    "start": 75,
+    "end": 75,
+    "kind": "paragraph",
+    "text": "---",
+    "sha256": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b"
+  },
+  {
+    "id": "F08-U019",
+    "file": "experiments/human-observations.md",
+    "start": 77,
+    "end": 77,
+    "kind": "heading",
+    "text": "## 케이스 기록 (정성 관찰)",
+    "sha256": "7c042942f303dc160b91a451328fad1f8bd5f83e5e5b406ee594d53fde5ce9a7"
+  },
+  {
+    "id": "F08-U020",
+    "file": "experiments/human-observations.md",
+    "start": 79,
+    "end": 80,
+    "kind": "paragraph",
+    "text": "N이 작을 때 가장 정직한 형식은 통계가 아니라 케이스 기록이다.\n각 세션은 \"무엇을 했고 → 무엇이 관찰됐고 → 무엇이 어긋났나\"로 남긴다.",
+    "sha256": "cc95bc73b87a368d42835e89a05d13255dbf5c55529d65fa97f68237b982f397"
+  },
+  {
+    "id": "F08-U021",
+    "file": "experiments/human-observations.md",
+    "start": 82,
+    "end": 82,
+    "kind": "heading",
+    "text": "### Case — Tester 1 (2026-09-09) 발췌",
+    "sha256": "4f4fc0797b4495095e406dfe99b39e3bcc43f93649b0518c9324612ef5af97d8"
+  },
+  {
+    "id": "F08-U022",
+    "file": "experiments/human-observations.md",
+    "start": 84,
+    "end": 84,
+    "kind": "paragraph",
+    "text": "판 `b56dca9d` 완주, 최종 47.9점. 실험기구 자체의 결함이 행동 관찰에서 드러난 사례:",
+    "sha256": "18bfeca051fb65fc93a5d87e0a78074609766ad103128cbc680f07f77986de78"
+  },
+  {
+    "id": "F08-U023",
+    "file": "experiments/human-observations.md",
+    "start": 86,
+    "end": 89,
+    "kind": "list",
+    "text": "- 직접 작성 규칙 3건에서 **의미 변형**이 발생했다. \"답한다\"를 요청했는데 \"질문한다\"로\n  바뀌면서 기존 원숭이손의 질문 금지와 충돌했다.\n- 3회차 원숭이손의 **설명과 저장된 규칙이 달랐다.** 설명은 검진을 통한 건강 확인을\n  말하지만 저장된 규칙은 검진 금지였다.",
+    "sha256": "3ce6e30c1ce5793c8ef3e7a794c963db7be2a0ef2adf048d48de4a3c9a46fc13"
+  },
+  {
+    "id": "F08-U024",
+    "file": "experiments/human-observations.md",
+    "start": 91,
+    "end": 92,
+    "kind": "paragraph",
+    "text": "이 발견들은 행동 결과이기 전에 **instrument validation 이슈**로 분류되며 수정 후\n세션과 수정 전 세션을 합산하지 않는다.",
+    "sha256": "305d7f54e836ea29103f51887da26a563273e38aee13e34e3ba958cfd6bc5c20"
+  },
+  {
+    "id": "F08-U025",
+    "file": "experiments/human-observations.md",
+    "start": 94,
+    "end": 94,
+    "kind": "heading",
+    "text": "### Case — 실플레이 판 0468b70c (2026-09-15, 개선 배치 3/3 이후)",
+    "sha256": "12375b319752191e28cfa2f32fce98310dd8fa9f18cbca0f427980a311b70168"
+  },
+  {
+    "id": "F08-U026",
+    "file": "experiments/human-observations.md",
+    "start": 96,
+    "end": 96,
+    "kind": "paragraph",
+    "text": "RQ1 관련 이벤트가 실제로 관찰된 첫 정리 사례. 게임 DB 읽기 전용 조회 근거.",
+    "sha256": "56033ee202e2fcaefdc7e5f1a17a8621bc7599b42ff94ff771731d8844ca846b"
+  },
+  {
+    "id": "F08-U027",
+    "file": "experiments/human-observations.md",
+    "start": 98,
+    "end": 102,
+    "kind": "list",
+    "text": "- 1회차 완주 (09:30~09:37). 낮 발화 26건.\n- **원숭이손(AI 개입) 1회 제안 → 거절.** 신의 질문 3회는 전부 미사용.\n- 밤 제출은 \"채연이 아픈거 같아,\" **11자 단문** → cause-1만 confirmed(25.0),\n  나머지 셀 0으로 **총점 8.8 · fail**. 단서를 탭하지 않고 한 문장만 쓴\n  **최소 제출의 하한 실측**이다.",
+    "sha256": "20bed06cfab317301005cbb751434b5b0f31d09836473040f59c427ffd7326bf"
+  },
+  {
+    "id": "F08-U028",
+    "file": "experiments/human-observations.md",
+    "start": 104,
+    "end": 105,
+    "kind": "paragraph",
+    "text": "같은 날 판 806122f3은 낮 3비트·발화 26건까지 진행 후 밤 제출 없이 이탈했다.\n완주율·이탈 지점도 관찰 대상이다.",
+    "sha256": "4df4350f30fa88e1e83196512bcc7ec319b835c6fc2b13695472ef888b77105e"
+  },
+  {
+    "id": "F08-U029",
+    "file": "experiments/human-observations.md",
+    "start": 107,
+    "end": 109,
+    "kind": "paragraph",
+    "text": "N=1 이벤트에서 어떤 경향도 주장하지 않는다. 다만 이 판은 **AI 제안 거절과 직접\n작성(초단문)이 event-level로 구분 기록됨**을 실플레이로 확인한 사례다. C2 기여\n주장의 실증이기도 하다.",
+    "sha256": "b930b802aa89fa51125b694661c6b89b3e2789ea4268833e679cb2c1ce430eb3"
+  },
+  {
+    "id": "F08-U030",
+    "file": "experiments/human-observations.md",
+    "start": 111,
+    "end": 111,
+    "kind": "heading",
+    "text": "### Case — Tester 6 (2026-09-16) · 5회차 완주",
+    "sha256": "c8bf60375e63fa99406994d46d1396f8b1368cecd87def9c85fd84838d22be1e"
+  },
+  {
+    "id": "F08-U031",
+    "file": "experiments/human-observations.md",
+    "start": 113,
+    "end": 115,
+    "kind": "paragraph",
+    "text": "판 `2338ec9f` (09:48~11:06). 당일 이벤트가 가장 많은 판(580건)이다. 테스터 기록\n(`review-verification/2026-09-16-tester6`)과 DB `events` 읽기 전용 조회로 확인했다.\n위 6판 집계 **이후**에 들어온 판이고 기구 버전도 다르므로 집계에 합산하지 않고 따로 적는다.",
+    "sha256": "b701d184f3a342dc40ca936ee84447225b4a4632a03b1ad5085e59f3733810a5"
+  },
+  {
+    "id": "F08-U032",
+    "file": "experiments/human-observations.md",
+    "start": 117,
+    "end": 123,
+    "kind": "table",
+    "text": "| 회차 | 총점 | cause | motive | identity | side_effect | 제출문 | 탭한 근거 |\n|---|---:|---:|---:|---:|---:|---:|---:|\n| 1 | 8.8 | 25.0 | 0 | 0 | 0 | 136자 | 7 |\n| 2 | 64.2 | 100 | 83.3 | 0 | 0 | 249자 | 12 |\n| 3 | 94.2 | 100 | 83.3 | 100 | 0 | 266자 | 12 |\n| 4 | 94.2 | 100 | 83.3 | 100 | 0 | 266자 | 16 |\n| 5 | 94.2 | 100 | 83.3 | 100 | 0 | 266자 | 18 |",
+    "sha256": "1c2ddd0a183b7bde79af371adfbb8bd89d0ee53104a423af2d47c0a3825beda6"
+  },
+  {
+    "id": "F08-U033",
+    "file": "experiments/human-observations.md",
+    "start": 125,
+    "end": 125,
+    "kind": "paragraph",
+    "text": "규칙 적용 5건의 출처:",
+    "sha256": "37520d437f79a9c169ae350b661900e41228cb3f9ddfc75763cabaa2e863f72c"
+  },
+  {
+    "id": "F08-U034",
+    "file": "experiments/human-observations.md",
+    "start": 127,
+    "end": 133,
+    "kind": "table",
+    "text": "| 규칙 | 회차 | 출처 |\n|---|---|---|\n| R1 `채연: 검진을 받는다` | 1 | 직접 작성 |\n| R2 `준: 가진 것을 보여준다` | 2 | 직접 작성 |\n| R3 원숭이손 (\"채연이 직접 한 일을 말로 설명\") | 3 | AI 개입 수락 (제안 2회 중 1회 수락) |\n| R4 `준: 손목띠를 만진다` | 3 | AI 추천 옵션 선택 |\n| R5 | 4 | AI 추천 옵션 선택 |",
+    "sha256": "a81440a523fb816b2d06a55d84600f4f6b1d6dc44dfa5e572421c63174bf08e7"
+  },
+  {
+    "id": "F08-U035",
+    "file": "experiments/human-observations.md",
+    "start": 135,
+    "end": 135,
+    "kind": "paragraph",
+    "text": "이 판에서는 AI 계열 3/5, 직접 작성 2/5다. 신의 질문은 15회 썼다.",
+    "sha256": "8390b4582497f585ed1733329175a8b27c895c0d7775e279c30f48593b6d2437"
+  },
+  {
+    "id": "F08-U036",
+    "file": "experiments/human-observations.md",
+    "start": 137,
+    "end": 137,
+    "kind": "paragraph",
+    "text": "관찰 — 행동과 기구가 맞물린 지점:",
+    "sha256": "93325e5a3aed3fe50d2f94105ece01bee8eb25b4ef80b1693311ae2ab8f700ef"
+  },
+  {
+    "id": "F08-U037",
+    "file": "experiments/human-observations.md",
+    "start": 139,
+    "end": 151,
+    "kind": "list",
+    "text": "- **추천 옵션이 이미 하는 행동을 제안했다.** `채연: 배급을 남긴다`가 1~4회차 추천에\n  매번 들어 있었지만 채연은 규칙 없이도 매 회차 배급을 남긴다. 테스터는 4회 중 2회를\n  직접 작성으로 우회했다. 추천 옵션의 질과 직접 작성 선택이 연관될 가능성을 보여 주는\n  사례지만 N=1이므로 인과로 읽지 않는다. 이 필터(F5)는 세션 뒤에 기구에 반영됐다.\n- **side_effect 셀이 5회차 내내 0점이었다.** 원숭이손 부작용은 고정 1종(발화 예산 -1)이고\n  제안 문구에 대가가 드러나지 않는다(F11). 부작용 인지율을 이 기구로 측정할 수 있는지부터\n  미해결이며, \"플레이어가 부작용을 인지하지 못했다\"는 행동 결론으로 쓰지 않는다.\n- **신의 질문 15문답이 전부 `status: unknown`이었다.** 답 뒤에 붙는 해금 단서가 질문과\n  무관하게 회차 순서대로 붙었다(F7·F9). 이후 판정·근거·조언 3부 고정형으로 재설계됐다.\n- 3~5회차 제출문은 같은 266자였고 점수도 94.2로 같았다. 09-14에 도입한 단조 잠금이\n  같은 문장의 하향을 막으므로 **채점기 안정성의 증거로 쓰지 않는다.**\n- 관찰 기록 264건 중 서로 다른 문장은 87건이었다. 목록의 약 2/3가 이전 회차의 반복이다.\n  근거 탐색 행동을 해석할 때 UI 부담을 고려해야 한다(F6, 세션 뒤 중복 제거 반영).",
+    "sha256": "fd61f370586fc658a643e57c143f6c0a3ed1b4f03d48b935bd63873f1179e055"
+  },
+  {
+    "id": "F08-U038",
+    "file": "experiments/human-observations.md",
+    "start": 153,
+    "end": 153,
+    "kind": "heading",
+    "text": "### Tester 7 (2026-09-16) — 표본 미포함",
+    "sha256": "146ec2748cccf3b68f5abfac9def72d97084348083a2294ad9b2489a98ab9be5"
+  },
+  {
+    "id": "F08-U039",
+    "file": "experiments/human-observations.md",
+    "start": 155,
+    "end": 156,
+    "kind": "paragraph",
+    "text": "UI 피드백 2건만 기록됐다(출력 텍스트 드래그 선택 방지, 장면에 없는 NPC 딤 처리).\n후보 판 `e7aa6a4f`의 완주·확정 여부가 미확인이라 행동 표본으로 쓰지 않는다.",
+    "sha256": "78067b7b2ba6a3dc68d4b411ba2e7219a3d13d51b90407df83ca0766581976bc"
+  },
+  {
+    "id": "F08-U040",
+    "file": "experiments/human-observations.md",
+    "start": 158,
+    "end": 158,
+    "kind": "paragraph",
+    "text": "*(Tester 2–4 케이스는 데이터 정리 후 추가)*",
+    "sha256": "b61202612d2ed113ce0887f217077a37ea7dfafd6c0de34b4d2c5483299d1fc0"
+  },
+  {
+    "id": "F08-U041",
+    "file": "experiments/human-observations.md",
+    "start": 160,
+    "end": 160,
+    "kind": "paragraph",
+    "text": "---",
+    "sha256": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b"
+  },
+  {
+    "id": "F08-U042",
+    "file": "experiments/human-observations.md",
+    "start": 162,
+    "end": 162,
+    "kind": "heading",
+    "text": "## 읽는 법",
+    "sha256": "d2ae67ba721310885c0cb5203b4f40402a3a6bdfae24a0674fdad7f23313ad2d"
+  },
+  {
+    "id": "F08-U043",
+    "file": "experiments/human-observations.md",
+    "start": 164,
+    "end": 167,
+    "kind": "list",
+    "text": "- 이 실험의 결과는 [사전등록]({{ '/prereg/' | relative_url }})된 Rationale A/B와 다르다.\n  여기는 통제 없는 자연 관찰(naturalistic observation)이다.\n- \"직접 작성이 더 효과적이었다\" 같은 인과 표현은 쓰지 않는다.\n  \"직접 작성 선택과 이후 이해도 상승 사이에 더 큰 연관성이 관찰되었다\"처럼 쓴다.",
+    "sha256": "e519c561a71e133da11bc22dd8f69488b11ed8295a2cdb6dffed77798da0bc87"
+  }
+]

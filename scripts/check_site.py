@@ -4,6 +4,7 @@
 python3 scripts/check_site.py /tmp/research-redesign-site \
     --baseline /tmp/research-baseline-site
 The optional baseline is a build from before a presentation-only change.
+Use --anchor-baseline for content corrections that must keep historic links.
 """
 import argparse
 import collections
@@ -72,7 +73,9 @@ def page_path(url):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("site", type=Path)
-    parser.add_argument("--baseline", type=Path)
+    baselines = parser.add_mutually_exclusive_group()
+    baselines.add_argument("--baseline", type=Path)
+    baselines.add_argument("--anchor-baseline", type=Path)
     args = parser.parse_args()
     errors = []
     cache = {}
@@ -101,14 +104,20 @@ def main():
             errors.append(f"missing or duplicated original article: {relative}")
             continue
         baseline_links = set()
-        if args.baseline:
-            old = document(args.baseline / relative)
-            old_content = next(node for node in old.walk() if "content" in node.attrs.get("class", "").split())
-            if normalized(old_content.text()) != normalized(originals[0].text()):
+        baseline = args.baseline or args.anchor_baseline
+        if baseline:
+            old = document(baseline / relative)
+            old_content = next(
+                node for node in old.walk()
+                if "data-original-content" in node.attrs
+                or "content" in node.attrs.get("class", "").split()
+            )
+            if args.baseline and normalized(old_content.text()) != normalized(originals[0].text()):
                 errors.append(f"original rendered text changed: {source.relative_to(ROOT)}")
             old_ids = {node.attrs["id"] for node in old_content.walk() if "id" in node.attrs}
             errors.extend(f"lost original anchor: {relative} #{key}" for key in old_ids - ids.keys())
-            baseline_links = {node.attrs["href"] for node in old.walk() if "href" in node.attrs}
+            if args.baseline:
+                baseline_links = {node.attrs["href"] for node in old.walk() if "href" in node.attrs}
         for node in nodes:
             if node.tag == "img" and not node.attrs.get("alt"):
                 errors.append(f"image missing alt: {relative} {node.attrs.get('src')}")
@@ -137,7 +146,9 @@ def main():
     if errors:
         print("\n".join(errors), file=sys.stderr)
         return 1
-    preservation = "original text/anchors preserved" if args.baseline else "original records present"
+    preservation = "original text/anchors preserved" if args.baseline else (
+        "historic anchors preserved" if args.anchor_baseline else "original records present"
+    )
     print(f"PASS {len(pages)} pages: {preservation}, local links, alt text, publication scope")
     return subprocess.run([sys.executable, str(ROOT / "scripts/refresh_research_data.py"), "--check"], cwd=ROOT).returncode
 

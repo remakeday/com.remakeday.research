@@ -1,0 +1,563 @@
+{
+  "app_head": "f92001a7c1bbfdb8e85038eb59aad9cbae32198c",
+  "public_snapshot_app_commit": "1568438",
+  "scope": "연결된 로컬 집계·선택 행·측정 스크립트 대조. 실험 재실행이나 모든 원시 이벤트/비공개 자료 검증이 아니다.",
+  "records": [
+    {
+      "id": "RAW-01",
+      "artifacts": [
+        {
+          "path": "docs/review-verification/2026-09-13-core-selection/stage1-smoke-advisor-20260913T124645Z.json",
+          "sha256": "70cc0a82a40d360305a000f4c8d00f4a3b34c7f696263b2656ea4f8d48b0ae27",
+          "bytes": 198306,
+          "tracked": true
+        },
+        {
+          "path": "docs/review-verification/2026-09-13-core-selection/stage2-formal-20260914T021635Z.json",
+          "sha256": "fa85cbe48ad4c8ef42486e36a6f7c390466cd31536d83523c9ed167e4ef648a7",
+          "bytes": 98658,
+          "tracked": true
+        }
+      ],
+      "observed": {
+        "model": "gemma4:12b",
+        "think": "off",
+        "advisor": {
+          "calls": 22,
+          "latency_p50_ms": 2918,
+          "latency_p95_ms": 4231
+        },
+        "evaluator": {
+          "calls": 42,
+          "latency_p50_ms": 2179,
+          "latency_p95_ms": 2735
+        }
+      },
+      "conclusion": "공개 비교표의 evaluator 2,918ms는 advisor 원시 집계와 일치하고, 연결된 evaluator 원시 집계는 2,179ms다.",
+      "limit": "다른 날짜의 별도 측정값을 의도했을 가능성은 작성자가 확인해야 한다. 역할·실행 식별자 확인 없이 숫자만 자동 교체하지 않는다."
+    },
+    {
+      "id": "RAW-02",
+      "artifacts": [
+        {
+          "path": "output/rule-alternatives-2026-09-18/rule-alternatives-20260918T021836Z.json",
+          "sha256": "f1cb41964ac1c573ec9e6624d85be9986e184fbed02c5df9c995ceb766d03060",
+          "bytes": 98347,
+          "tracked": false
+        }
+      ],
+      "observed": {
+        "n_items": 22,
+        "cells": {
+          "stem": {
+            "items": 22,
+            "ok": 22,
+            "hit1": 8,
+            "hit3": 18,
+            "model": "-",
+            "dims": null,
+            "top1": 0.3636,
+            "top3": 0.8182,
+            "latency_p50_ms": 0.0,
+            "latency_p95_ms": 0.0
+          },
+          "qwen2560": {
+            "items": 22,
+            "ok": 22,
+            "hit1": 20,
+            "hit3": 22,
+            "model": "qwen3-embedding:4b",
+            "dims": 2560,
+            "top1": 0.9091,
+            "top3": 1.0,
+            "latency_p50_ms": 85.9,
+            "latency_p95_ms": 100.2
+          },
+          "qwen1536": {
+            "items": 22,
+            "ok": 22,
+            "hit1": 18,
+            "hit3": 22,
+            "model": "qwen3-embedding:4b",
+            "dims": 1536,
+            "top1": 0.8182,
+            "top3": 1.0,
+            "latency_p50_ms": 84.2,
+            "latency_p95_ms": 90.3
+          },
+          "bge": {
+            "items": 22,
+            "ok": 22,
+            "hit1": 20,
+            "hit3": 22,
+            "model": "bge-m3",
+            "dims": 1024,
+            "top1": 0.9091,
+            "top3": 1.0,
+            "latency_p50_ms": 108.5,
+            "latency_p95_ms": 125.4
+          },
+          "gemini": {
+            "items": 22,
+            "ok": 22,
+            "hit1": 21,
+            "hit3": 22,
+            "model": "gemini-embedding-001",
+            "dims": 1536,
+            "top1": 0.9545,
+            "top3": 1.0,
+            "latency_p50_ms": 417.8,
+            "latency_p95_ms": 452.0
+          },
+          "gemini2560": {
+            "items": 22,
+            "ok": 22,
+            "hit1": 21,
+            "hit3": 22,
+            "model": "gemini-embedding-001",
+            "dims": 2560,
+            "top1": 0.9545,
+            "top3": 1.0,
+            "latency_p50_ms": 406.8,
+            "latency_p95_ms": 429.6
+          }
+        }
+      },
+      "conclusion": "그림의 검수 22문장 적중 수 8·20·18·20·21·21은 개별 행에서 다시 센 값과 일치한다. Qwen1536은 Qwen2560보다 이 세트에서 두 문장을 덜 맞혔다.",
+      "limit": "검수자의 판단 자체를 독립 재검수한 것은 아니다. 원시 입력 문장·정답·후보 대사는 보고서에 복사하지 않았다."
+    },
+    {
+      "id": "RAW-03",
+      "artifacts": [
+        {
+          "path": "output/rule-alternatives-2026-09-18/rule-alternatives-rep1.json",
+          "sha256": "8906d1b2fa1cfeafb7d1bdfd5cd65de9ba0e778d301fd34b94e86d649ed26686",
+          "bytes": 131019,
+          "tracked": false
+        },
+        {
+          "path": "output/rule-alternatives-2026-09-18/rule-alternatives-rep2.json",
+          "sha256": "721436bb3089946f25cbfcd3a21f2aa0acb1cd7a97fc9e140de2355723d80ced",
+          "bytes": 131016,
+          "tracked": false
+        },
+        {
+          "path": "output/rule-alternatives-2026-09-18/rule-alternatives-rep3.json",
+          "sha256": "b58f101b85b53ac3662688f21be9735b4ee3e60be8c4ea06d1c111ffddc23680",
+          "bytes": 131013,
+          "tracked": false
+        }
+      ],
+      "observed": {
+        "n_items_per_run": [
+          30,
+          30,
+          30
+        ],
+        "runs": 3,
+        "comparisons": [
+          {
+            "cell": "stem",
+            "top1": [
+              0.3,
+              0.3,
+              0.3
+            ],
+            "top3": [
+              0.8333,
+              0.8333,
+              0.8333
+            ],
+            "same_wrong_item_indices": true,
+            "same_item_order": true
+          },
+          {
+            "cell": "qwen2560",
+            "top1": [
+              0.9333,
+              0.9333,
+              0.9333
+            ],
+            "top3": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "same_wrong_item_indices": true,
+            "same_item_order": true
+          },
+          {
+            "cell": "qwen1536",
+            "top1": [
+              0.8667,
+              0.8667,
+              0.8667
+            ],
+            "top3": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "same_wrong_item_indices": true,
+            "same_item_order": true
+          },
+          {
+            "cell": "bge",
+            "top1": [
+              0.9,
+              0.9,
+              0.9
+            ],
+            "top3": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "same_wrong_item_indices": true,
+            "same_item_order": true
+          },
+          {
+            "cell": "gemini",
+            "top1": [
+              0.9667,
+              0.9667,
+              0.9667
+            ],
+            "top3": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "same_wrong_item_indices": true,
+            "same_item_order": true
+          },
+          {
+            "cell": "gemini2560",
+            "top1": [
+              0.9667,
+              0.9667,
+              0.9667
+            ],
+            "top3": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "same_wrong_item_indices": true,
+            "same_item_order": true
+          }
+        ]
+      },
+      "conclusion": "반복 3회 파일은 모두 초기 30문장 세트다. 같은 문장 순서에서 적중률과 top-1 오답 위치가 동일했다. 검수 22문장 반복 결과로 표기하면 안 된다.",
+      "limit": "세 번의 일치를 확률적 변동 부재나 전체 모델의 불변 성질로 확대하지 않는다."
+    },
+    {
+      "id": "RAW-04",
+      "artifacts": [
+        {
+          "path": "output/rule-alternatives-2026-09-18/rule-alternatives-20260918T012519Z.json",
+          "sha256": "e8d194ed00088caac164143f2520db37c4e45b89c47c088a3664ab418a721063",
+          "bytes": 109203,
+          "tracked": false
+        },
+        {
+          "path": "output/rule-alternatives-2026-09-18/rule-alternatives-20260918T014146Z.json",
+          "sha256": "dddce64bf56ac85b1f7db378c5f888176963c1a583d63e5ad9f7124a4de58d6e",
+          "bytes": 101880,
+          "tracked": false
+        },
+        {
+          "path": "output/rule-alternatives-2026-09-18/rule-alternatives-20260918T014215Z.json",
+          "sha256": "339ac98012458c93964295fdc748c78e03a69cf9b083003a5a3b1ca660e095fe",
+          "bytes": 43597,
+          "tracked": false
+        },
+        {
+          "path": "output/rule-alternatives-2026-09-18/rule-alternatives-20260918T021836Z.json",
+          "sha256": "f1cb41964ac1c573ec9e6624d85be9986e184fbed02c5df9c995ceb766d03060",
+          "bytes": 98347,
+          "tracked": false
+        },
+        {
+          "path": "output/rule-alternatives-2026-09-18/rule-alternatives-20260918T022248Z.json",
+          "sha256": "81f05abaa657f56cd934b773f2ac3afa94c6fac40747cebf27d1f90049ab93ba",
+          "bytes": 65708,
+          "tracked": false
+        },
+        {
+          "path": "output/rule-alternatives-2026-09-18/rule-alternatives-rep1.json",
+          "sha256": "8906d1b2fa1cfeafb7d1bdfd5cd65de9ba0e778d301fd34b94e86d649ed26686",
+          "bytes": 131019,
+          "tracked": false
+        },
+        {
+          "path": "output/rule-alternatives-2026-09-18/rule-alternatives-rep2.json",
+          "sha256": "721436bb3089946f25cbfcd3a21f2aa0acb1cd7a97fc9e140de2355723d80ced",
+          "bytes": 131016,
+          "tracked": false
+        },
+        {
+          "path": "output/rule-alternatives-2026-09-18/rule-alternatives-rep3.json",
+          "sha256": "b58f101b85b53ac3662688f21be9735b4ee3e60be8c4ea06d1c111ffddc23680",
+          "bytes": 131013,
+          "tracked": false
+        }
+      ],
+      "observed": [
+        {
+          "file": "rule-alternatives-20260918T012519Z.json",
+          "n_items": 30,
+          "dimensions_by_cell": {
+            "stem": null,
+            "qwen2560": 2560,
+            "qwen1536": 1536,
+            "bge": 1024,
+            "gemini": 1536
+          }
+        },
+        {
+          "file": "rule-alternatives-20260918T014146Z.json",
+          "n_items": 30,
+          "dimensions_by_cell": {
+            "qwen2560": 2560,
+            "qwen1536": 1536,
+            "gemini": 1536,
+            "gemini2560": 2560,
+            "gemini3072": 3072
+          }
+        },
+        {
+          "file": "rule-alternatives-20260918T014215Z.json",
+          "n_items": 30,
+          "dimensions_by_cell": {
+            "qwen2560": 2560,
+            "gemini2560": 2560
+          }
+        },
+        {
+          "file": "rule-alternatives-20260918T021836Z.json",
+          "n_items": 22,
+          "dimensions_by_cell": {
+            "stem": null,
+            "qwen2560": 2560,
+            "qwen1536": 1536,
+            "bge": 1024,
+            "gemini": 1536,
+            "gemini2560": 2560
+          }
+        },
+        {
+          "file": "rule-alternatives-20260918T022248Z.json",
+          "n_items": 22,
+          "dimensions_by_cell": {
+            "bge": 1024,
+            "gemini1024": 1024,
+            "gemini": 1536,
+            "qwen2560": 2560
+          }
+        },
+        {
+          "file": "rule-alternatives-rep1.json",
+          "n_items": 30,
+          "dimensions_by_cell": {
+            "stem": null,
+            "qwen2560": 2560,
+            "qwen1536": 1536,
+            "bge": 1024,
+            "gemini": 1536,
+            "gemini2560": 2560
+          }
+        },
+        {
+          "file": "rule-alternatives-rep2.json",
+          "n_items": 30,
+          "dimensions_by_cell": {
+            "stem": null,
+            "qwen2560": 2560,
+            "qwen1536": 1536,
+            "bge": 1024,
+            "gemini": 1536,
+            "gemini2560": 2560
+          }
+        },
+        {
+          "file": "rule-alternatives-rep3.json",
+          "n_items": 30,
+          "dimensions_by_cell": {
+            "stem": null,
+            "qwen2560": 2560,
+            "qwen1536": 1536,
+            "bge": 1024,
+            "gemini": 1536,
+            "gemini2560": 2560
+          }
+        }
+      ],
+      "conclusion": "확인한 8개 결과 파일의 측정 조건은 1024·1536·2560·3072 중 일부다. 128차원 측정은 이 파일들에 없고 22문장과30문장 조건도 다르다.",
+      "limit": "저장소 밖의 추가 파일이 전혀 없다고 단정하지 않는다. 지원 범위를 전 구간 실측으로 쓰려면 추가 근거가 필요하다."
+    },
+    {
+      "id": "RAW-05",
+      "artifacts": [
+        {
+          "path": "output/model-eval-2026-09-16-anthropic/stage2-formal-20260916T121314Z.json",
+          "sha256": "71f7ee3f5424b35627fc19755797e00c3558a5798ab826018f04ca2eae4cb39f",
+          "bytes": 67712,
+          "tracked": false
+        },
+        {
+          "path": "output/model-eval-2026-09-16-anthropic/stage2-formal-20260916T143841Z.json",
+          "sha256": "88a99e5fa64db4cd95cb57ef1ed2ac4b5d7711db51c6414b50fad3ae1abdf630",
+          "bytes": 95465,
+          "tracked": false
+        }
+      ],
+      "observed": [
+        {
+          "file": "stage2-formal-20260916T121314Z.json",
+          "n": 1,
+          "cells": [
+            {
+              "model": "claude-sonnet-5",
+              "n": 1,
+              "roles": [
+                "advisor",
+                "evaluator"
+              ]
+            },
+            {
+              "model": "claude-opus-5",
+              "n": 1,
+              "roles": [
+                "advisor",
+                "evaluator"
+              ]
+            }
+          ]
+        },
+        {
+          "file": "stage2-formal-20260916T143841Z.json",
+          "n": 3,
+          "cells": [
+            {
+              "model": "claude-sonnet-5",
+              "n": 3,
+              "roles": [
+                "advisor",
+                "evaluator"
+              ]
+            }
+          ]
+        }
+      ],
+      "conclusion": "확인한 n=1 파일은 Sonnet5·Opus5, n=3 파일은 Sonnet5만 포함한다. 두 모델 모두 n=3을 통과했다는 설명에는 Opus5의 별도 근거가 필요하다.",
+      "limit": "이 두 파일 밖에 Opus5 n=3 측정이 존재하지 않는다는 단정은 하지 않는다."
+    },
+    {
+      "id": "RAW-06",
+      "artifacts": [
+        {
+          "path": "docs/review-verification/2026-09-14-npc-descent/npc-quality-ab-20260914T112712Z.json",
+          "sha256": "76de08a155deba60245da11c15d708b1a1ea8a92f0f7ed3b3ebb7c4caeda829d",
+          "bytes": 21046,
+          "tracked": true
+        }
+      ],
+      "observed": {
+        "한국어_자연스러움": {
+          "a_wins": 9,
+          "b_wins": 7,
+          "ties": 0,
+          "invalid": 9,
+          "valid_pairs": 16
+        },
+        "7세_말투": {
+          "a_wins": 0,
+          "b_wins": 21,
+          "ties": 0,
+          "invalid": 4,
+          "valid_pairs": 21
+        },
+        "페르소나_적합": {
+          "a_wins": 7,
+          "b_wins": 4,
+          "ties": 1,
+          "invalid": 13,
+          "valid_pairs": 12
+        },
+        "질문_관련성": {
+          "a_wins": 14,
+          "b_wins": 5,
+          "ties": 1,
+          "invalid": 5,
+          "valid_pairs": 20
+        }
+      },
+      "conclusion": "A.17의 페르소나·관련성 행에는 무승부가 각각1개 빠져 있다. 각행25쌍은 승A+승B+무승부+invalid로 합산해야 한다.",
+      "limit": "유효쌍과 판정불가를 분리해야 하며 invalid를 패배로 재분류하지 않는다."
+    },
+    {
+      "id": "RAW-07",
+      "artifacts": [
+        {
+          "path": "docs/review-verification/2026-09-16-tester6/tester6.md",
+          "sha256": "5f863954fedb7029b65c9b7efc5128a9e34bf71a2d9bc73d63ceff04e5214840",
+          "bytes": 17453,
+          "tracked": true
+        }
+      ],
+      "observed": {
+        "public_round_scores": [
+          8.8,
+          64.2,
+          94.2,
+          94.2,
+          94.2
+        ],
+        "public_same_text_length": 266,
+        "public_same_text_rounds": [
+          3,
+          4,
+          5
+        ]
+      },
+      "conclusion": "Tester6의 공개5회 총점과 동일 제출문 길이는 앱 저장소의 DB 집계 보고서와 일치한다.",
+      "limit": "DB에 다시 접속해 원시 이벤트를 조회한 검증은 아니다. 기존6판 전체의 참여자 분류·CV·작성 이벤트 분류는 확인 자료가 더 필요하다."
+    },
+    {
+      "id": "RAW-08",
+      "artifacts": [
+        {
+          "path": "backend/scripts/run_rule_alternatives_eval.py",
+          "sha256": "e5d93377360a5ae87d75069a49aae24deeed7ae6c0b2e1de07c54edfc32300c6",
+          "bytes": 11342,
+          "tracked": true
+        }
+      ],
+      "observed": {
+        "timer": "perf_counter",
+        "summary_latency_decimals": 1,
+        "stem_p50_ms": 0.0
+      },
+      "conclusion": "어간 겹침 기준선도 실행 시간을 측정한다. 0.0ms는 한 자리 반올림된 요약값이며 시간 측정 생략이나 정확한0을 뜻하지 않는다.",
+      "limit": "이 값으로 타이머의 실제 유효 분해능이나 다른 환경의 성능까지 추정하지 않는다."
+    }
+  ],
+  "external_sources": [
+    {
+      "id": "LIT-01",
+      "url": "https://arxiv.org/abs/2102.09692",
+      "authors": "Buçinca, Malaya & Gajos",
+      "year": 2021,
+      "finding": "N=199 실험에서 AI 제안 과수용과 설명·인지적 개입 조건을 비교했다."
+    },
+    {
+      "id": "LIT-02",
+      "url": "https://arxiv.org/abs/1811.07901",
+      "authors": "Lai & Tan",
+      "year": 2019,
+      "finding": "속임수 탐지 실험환경에서 모델의 예측과 설명을 제시하는 조건을 비교해 인간 판단을 관찰했다."
+    }
+  ],
+  "literature_limit": "논문 초록과 저자·연도·출판정보를 확인한 두 선행사례다. 체계적 문헌 고찰이나 REMAKE DAY와 동일한 게임기구의 존재 증명은 아니다."
+}

@@ -100,6 +100,19 @@ try {
       assert.ok(await evaluate(`document.querySelectorAll('[data-outline-links] a').length > 10`));
       assert.equal(await evaluate(`Array.from(document.querySelectorAll('[data-outline-links] a')).every(a => document.getElementById(decodeURIComponent(a.hash.slice(1))))`), true);
     });
+    await check('four model reading routes lead to visible evidence sections', async () => {
+      await navigate('/experiments/model-selection/');
+      assert.equal(await evaluate(`document.querySelectorAll('[data-model-routes] a').length`), 4);
+      assert.equal(await evaluate(`Array.from(document.querySelectorAll('[data-model-routes] a')).every(a => { const target = document.getElementById(decodeURIComponent(a.hash.slice(1))); return target && target.checkVisibility(); })`), true);
+      assert.equal(await evaluate(`document.querySelector('#current-models').checkVisibility()`), true);
+    });
+    await check('protocol reading notes stay outside the frozen original', async () => {
+      await navigate('/prereg/');
+      assert.equal(await evaluate(`document.querySelector('#prereg-reading-notes').checkVisibility()`), true);
+      assert.equal(await evaluate(`document.querySelector('[data-original-content]').contains(document.querySelector('#prereg-reading-notes'))`), false);
+      await navigate('/experiments/human-observations/');
+      assert.equal(await evaluate(`document.querySelector('#prereg-reading-notes') === null`), true);
+    });
     await check('local CSS and JavaScript URLs carry the current build version', async () => {
       await navigate('/');
       const assets = await evaluate(`({css:document.querySelector('link[href*="/assets/css/style.css"]').href,js:document.querySelector('script[src*="/assets/js/app.js"]').src})`);

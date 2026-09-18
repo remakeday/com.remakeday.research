@@ -1,0 +1,1171 @@
+[
+  {
+    "id": "MF-01",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "최신 역할별 구성과 날짜별 유효 시점 안내를 도입·역사 절에 배치했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MF-02",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "Core/NPC/셀/PCA/p50/p95/raw/effective와 단위를 도입에서 정의했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MF-03",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "비열등을 통계검정이 아닌 역할별 기술적 규칙으로 구분했다.",
+    "evidence_remaining": [
+      "동시 사용자 부하시험, 외부 의미 평가자의 독립 검토 기록, 비용 usage와 실행별 완전한 freeze manifest는 미확보."
+    ]
+  },
+  {
+    "id": "MF-04",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "GPU 순차 추론을 동시 사용자 1명 상한으로 해석한 문구를 제거했다.",
+    "evidence_remaining": [
+      "동시 사용자 부하시험, 외부 의미 평가자의 독립 검토 기록, 비용 usage와 실행별 완전한 freeze manifest는 미확보."
+    ]
+  },
+  {
+    "id": "MF-05",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "로컬 0을 API 호출료로 한정하고 계획비용과 부분 추정의 출처 한계를 명시했다.",
+    "evidence_remaining": [
+      "동시 사용자 부하시험, 외부 의미 평가자의 독립 검토 기록, 비용 usage와 실행별 완전한 freeze manifest는 미확보."
+    ]
+  },
+  {
+    "id": "MF-06",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "외부 비교표에 실제 역할/문항/반복·러너 변경·게이트 미충족을 명시했다.",
+    "evidence_remaining": [
+      "동시 사용자 부하시험, 외부 의미 평가자의 독립 검토 기록, 비용 usage와 실행별 완전한 freeze manifest는 미확보."
+    ]
+  },
+  {
+    "id": "MF-07",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "advisor A.6과 evaluator A.8의 지연 기준을 역할·단계별로 표시했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MF-08",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "로컬 정답/무예외 채택 주장을 기준선과 게이트 예외를 포함한 결정으로 바꿨다.",
+    "evidence_remaining": [
+      "동시 사용자 부하시험, 외부 의미 평가자의 독립 검토 기록, 비용 usage와 실행별 완전한 freeze manifest는 미확보."
+    ]
+  },
+  {
+    "id": "MF-09",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "사람 검토의 신원·독립성 미확인을 명시하고 Codex 검토와 합치지 않았다.",
+    "evidence_remaining": [
+      "동시 사용자 부하시험, 외부 의미 평가자의 독립 검토 기록, 비용 usage와 실행별 완전한 freeze manifest는 미확보."
+    ]
+  },
+  {
+    "id": "MF-10",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "계획 메모리 예산 산식·단순 차감값과 미확인 안전 여유를 구분했다.",
+    "evidence_remaining": [
+      "안전 여유분 결정 기록, 제외 후보의 실행 상주량·컨텍스트·GPU 배치 기록 필요."
+    ]
+  },
+  {
+    "id": "MF-11",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "디스크 인벤토리 사전 선별을 실제 상주/공존 가능성 판정과 구분했다.",
+    "evidence_remaining": [
+      "안전 여유분 결정 기록, 제외 후보의 실행 상주량·컨텍스트·GPU 배치 기록 필요."
+    ]
+  },
+  {
+    "id": "MF-12",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "e4b 디스크/상주 차이의 원인은 미확인으로 한정했다.",
+    "evidence_remaining": [
+      "안전 여유분 결정 기록, 제외 후보의 실행 상주량·컨텍스트·GPU 배치 기록 필요."
+    ]
+  },
+  {
+    "id": "MF-13",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "EXAONE Core 제외를 범위 선택으로 밝히고 Pareto 무한대 오류를 바로잡았다.",
+    "evidence_remaining": [
+      "안전 여유분 결정 기록, 제외 후보의 실행 상주량·컨텍스트·GPU 배치 기록 필요."
+    ]
+  },
+  {
+    "id": "MF-14",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "실행별 freeze manifest의 누락 필드와 원자료 접근 제한을 밝혔다.",
+    "evidence_remaining": [
+      "실행별 완전한 provenance, 동일 조건 재시도 시간, 실제 페이싱 벽시계와 독립 의미 검수는 남는다."
+    ]
+  },
+  {
+    "id": "MF-15",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "25문항 계획과 31문항 실행, 372행/360최초요청/369attempts/meta12건을 구분했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MF-16",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "Core 정량 4역할과 manager_paw 창작 품질 미측정을 도입/RQ에 밝혔다.",
+    "evidence_remaining": [
+      "동시 사용자 부하시험, 외부 의미 평가자의 독립 검토 기록, 비용 usage와 실행별 완전한 freeze manifest는 미확보."
+    ]
+  },
+  {
+    "id": "MF-17",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "EGR의 detail11/12·evidence10/12 주변합과 교집합10/12를 구분했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MF-18",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "EGR 변별력 부재를 이번 코퍼스로 한정하고 PC근거의 집합 포함 규칙을 정의했다.",
+    "evidence_remaining": [
+      "실행별 완전한 provenance, 동일 조건 재시도 시간, 실제 페이싱 벽시계와 독립 의미 검수는 남는다."
+    ]
+  },
+  {
+    "id": "MF-19",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "enum 계약 위반의 원인 층을 미확인으로 두고 무실패 3/36회 관측만 주장했다.",
+    "evidence_remaining": [
+      "실행별 완전한 provenance, 동일 조건 재시도 시간, 실제 페이싱 벽시계와 독립 의미 검수는 남는다."
+    ]
+  },
+  {
+    "id": "MF-20",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "C4를 실제/합성 두 극성쌍의 AND로 정리하고 PC8 unknown을 분리했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MF-21",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "서로 다른 역할의 27초/약80초를 재시도 3배 인과로 사용하지 않도록 수정했다.",
+    "evidence_remaining": [
+      "실행별 완전한 provenance, 동일 조건 재시도 시간, 실제 페이싱 벽시계와 독립 의미 검수는 남는다."
+    ]
+  },
+  {
+    "id": "MF-22",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "size_vram을 모델 GPU 상주량으로 명명하고 장치 전체 peak와 구분했다.",
+    "evidence_remaining": [
+      "실행별 완전한 provenance, 동일 조건 재시도 시간, 실제 페이싱 벽시계와 독립 의미 검수는 남는다."
+    ]
+  },
+  {
+    "id": "MF-23",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "Ollama thinking 문자와 Gemini thinking 토큰 및 호환 키를 구분했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MF-24",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "effective를 처리간격 근사로, C13을 p50×10 추정으로 표시했다.",
+    "evidence_remaining": [
+      "실행별 완전한 provenance, 동일 조건 재시도 시간, 실제 페이싱 벽시계와 독립 의미 검수는 남는다."
+    ]
+  },
+  {
+    "id": "MF-25",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "metrics.yml 코드블록을 가상 형식 예시로 명시했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MF-26",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "Stage1의 raw 진출·Gemini 예외·SVR 확인 공백과 C9/C10 유효성 조건을 구분했다.",
+    "evidence_remaining": [
+      "실행별 완전한 provenance, 동일 조건 재시도 시간, 실제 페이싱 벽시계와 독립 의미 검수는 남는다."
+    ]
+  },
+  {
+    "id": "MF-27",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "C8 runtime 범위와 loop12.13초/planner p95의 서로 다른 집계를 설명했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MF-28",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "9월14일 NPC 채택의 정책·라이선스·스모크 시점을 명시했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MF-29",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "크기 비교에 학습/구조/양자화 교란을 남기고 보수적 방향 단정을 제거했다.",
+    "evidence_remaining": [
+      "실행별 완전한 provenance, 동일 조건 재시도 시간, 실제 페이싱 벽시계와 독립 의미 검수는 남는다."
+    ]
+  },
+  {
+    "id": "MF-30",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "A.1의 회복 9회 중 7회 무폴백·2회 각1/12로 연속 안정성 요약을 정정했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MF-31",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "약60배 지연비를 4B의29558/491ms로 귀속하고 0.8B 실패와 구분했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MF-32",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "기본 thinking ON을 Stage0 thinking 지원4종에 한정했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MF-33",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "thinking 품질 효과를 모델별 PCA 변화와 지연 실패로 분리했다.",
+    "evidence_remaining": [
+      "통계적 일반화·독립 정답 검수·원인별 통제실험·완전한 SVR/TFR 집계와 thinking 경고 해석은 추가 자료 필요."
+    ]
+  },
+  {
+    "id": "MF-34",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "A.6 C11 열을 raw 참고 판정으로 명명하고 effective 실패를 명시했다.",
+    "evidence_remaining": [
+      "통계적 일반화·독립 정답 검수·원인별 통제실험·완전한 SVR/TFR 집계와 thinking 경고 해석은 추가 자료 필요."
+    ]
+  },
+  {
+    "id": "MF-35",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "공식 요약표의 최초시도 SVR/TFR·manager 의미 정확도 공백을 명시했다.",
+    "evidence_remaining": [
+      "통계적 일반화·독립 정답 검수·원인별 통제실험·완전한 SVR/TFR 집계와 thinking 경고 해석은 추가 자료 필요."
+    ]
+  },
+  {
+    "id": "MF-36",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "n=3 판정 동일 관측을 모델의 불변 성질·우연 배제 주장과 구분했다.",
+    "evidence_remaining": [
+      "통계적 일반화·독립 정답 검수·원인별 통제실험·완전한 SVR/TFR 집계와 thinking 경고 해석은 추가 자료 필요."
+    ]
+  },
+  {
+    "id": "MF-37",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "Gemini 우위를 advisor raw p95/PCA로 한정하고 PC근거0.90을 함께 보고했다.",
+    "evidence_remaining": [
+      "통계적 일반화·독립 정답 검수·원인별 통제실험·완전한 SVR/TFR 집계와 thinking 경고 해석은 추가 자료 필요."
+    ]
+  },
+  {
+    "id": "MF-38",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "e4b의 PCA 동률과 evaluator0.67 대 기준선1.00을 함께 기술했다.",
+    "evidence_remaining": [
+      "통계적 일반화·독립 정답 검수·원인별 통제실험·완전한 SVR/TFR 집계와 thinking 경고 해석은 추가 자료 필요."
+    ]
+  },
+  {
+    "id": "MF-39",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "A.7 저자 작성3건과 A.8 제출문4건 파생14케이스의 독립성 한계를 밝혔다.",
+    "evidence_remaining": [
+      "통계적 일반화·독립 정답 검수·원인별 통제실험·완전한 SVR/TFR 집계와 thinking 경고 해석은 추가 자료 필요."
+    ]
+  },
+  {
+    "id": "MF-40",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "advisor만 때린다/주목할 점은 방향이다를 역할·관측 중심 문장으로 고쳤다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MF-41",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "A.8 세 후보 모두 기준선 초과로 수정하고 15/24/20/21 대42 분모를 병기했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MF-42",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "partial 미출력60회를 프롬프트 원인 확정과 분리했다.",
+    "evidence_remaining": [
+      "통계적 일반화·독립 정답 검수·원인별 통제실험·완전한 SVR/TFR 집계와 thinking 경고 해석은 추가 자료 필요."
+    ]
+  },
+  {
+    "id": "MF-43",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "덩어리 입력 문제를 시험한4모델 관측과 후속 전처리/모델검증 과제로 한정했다.",
+    "evidence_remaining": [
+      "통계적 일반화·독립 정답 검수·원인별 통제실험·완전한 SVR/TFR 집계와 thinking 경고 해석은 추가 자료 필요."
+    ]
+  },
+  {
+    "id": "MF-44",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "thought_signature 경고42회를 실제 thinking 사용 증거로 해석하지 않았다.",
+    "evidence_remaining": [
+      "통계적 일반화·독립 정답 검수·원인별 통제실험·완전한 SVR/TFR 집계와 thinking 경고 해석은 추가 자료 필요."
+    ]
+  },
+  {
+    "id": "MF-45",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "F1~F7을 원문 미작성 계획으로 표시하고 유도/실측 및N=0 표시 규칙을 명시했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MF-46",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "외부 API 전환의 반복 정당화 문구를 서빙 제약과 역할별 비교 목적으로 정리했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-01",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "상주/축출 용어와 교대6스냅샷의 단기 관측 범위를 명시했다.",
+    "evidence_remaining": [
+      "첫 e4b 실행의 종료 상태·폴백 확인과 다른 로드 순서·장기 부하 검증 필요."
+    ]
+  },
+  {
+    "id": "MD-02",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "초기 NPC1회 재로드와 스케줄러 원인 가설·미측정 로드순서를 분리했다.",
+    "evidence_remaining": [
+      "첫 e4b 실행의 종료 상태·폴백 확인과 다른 로드 순서·장기 부하 검증 필요."
+    ]
+  },
+  {
+    "id": "MD-03",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "Core debug시도14/15와 서버논리17·전체시도17/19를 구분했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-04",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "외부 E6 설계 절과 A.21 절 및 생략 원자료 파일명을 구분했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-05",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "첫 수집실패와 재실행 정본을 분리하고 첫 e4b 확인 근거의 공백을 밝혔다.",
+    "evidence_remaining": [
+      "첫 e4b 실행의 종료 상태·폴백 확인과 다른 로드 순서·장기 부하 검증 필요."
+    ]
+  },
+  {
+    "id": "MD-06",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "40요청429부재에서 Tier/RPM을 추론하지 않고 유료여부는 사용자 확인으로 분리했다.",
+    "evidence_remaining": [
+      "정확한 실행 시간대·무료 키 날짜, 당시 콘솔 한도, 장시간 운영 부하시험 필요."
+    ]
+  },
+  {
+    "id": "MD-07",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "30RPM을 산식상의 검토값으로 한정하고 운영안전 보장을 제거했다.",
+    "evidence_remaining": [
+      "정확한 실행 시간대·무료 키 날짜, 당시 콘솔 한도, 장시간 운영 부하시험 필요."
+    ]
+  },
+  {
+    "id": "MD-08",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "20~28초/5초를4~5.6배로 정정하고 초소형 호출과advisor p95를 구분했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-09",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "일요일/2026-09-14 월요일 충돌을 기록하고 미확인 시간대·날짜를 남겼다.",
+    "evidence_remaining": [
+      "정확한 실행 시간대·무료 키 날짜, 당시 콘솔 한도, 장시간 운영 부하시험 필요."
+    ]
+  },
+  {
+    "id": "MD-10",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "무료키 제외를 당시 프로젝트의 생성모델/Core·NPC 조건으로 한정했다.",
+    "evidence_remaining": [
+      "정확한 실행 시간대·무료 키 날짜, 당시 콘솔 한도, 장시간 운영 부하시험 필요."
+    ]
+  },
+  {
+    "id": "MD-11",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "Q8_0 혼재가 크기 효과에 미치는 방향을 미검증으로 수정했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-12",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "E6 rate/items/판정4항목/누설10/D3 25발화×3/스키마35 분모를 설명했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-13",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "정책OFF를5셀로 바로잡고 ON/OFF 전체10셀과 구분했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-14",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "연령표현을 운영분류로 한정하고2B/4B 관측을 일반 하한과 구분했다.",
+    "evidence_remaining": [
+      "독립 아동 문체 검증, 블라인드 검수자 기록, 동일 양자화·길이 통제 및 게이트 변경 승인 기록은 미확보."
+    ]
+  },
+  {
+    "id": "MD-15",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "기준선1항목 유지 규칙이 후보를 충분히 구별하지 못한다는 말로 풀었다.",
+    "evidence_remaining": [
+      "독립 아동 문체 검증, 블라인드 검수자 기록, 동일 양자화·길이 통제 및 게이트 변경 승인 기록은 미확보."
+    ]
+  },
+  {
+    "id": "MD-16",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "전사문 검토를 정책기준 검사로 한정하고 아동 문체 타당성으로 확대하지 않았다.",
+    "evidence_remaining": [
+      "독립 아동 문체 검증, 블라인드 검수자 기록, 동일 양자화·길이 통제 및 게이트 변경 승인 기록은 미확보."
+    ]
+  },
+  {
+    "id": "MD-17",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "A.12/A.14 한자2/25를 동일 응답 재집계로 명시했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-18",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "순서교환 불일치를 위치편향 확정 대신 제외규칙으로 보고했다.",
+    "evidence_remaining": [
+      "독립 아동 문체 검증, 블라인드 검수자 기록, 동일 양자화·길이 통제 및 게이트 변경 승인 기록은 미확보."
+    ]
+  },
+  {
+    "id": "MD-19",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "발화 우세를25쌍 중 유효승수와 무효/무승부 범위로 기술했다.",
+    "evidence_remaining": [
+      "독립 아동 문체 검증, 블라인드 검수자 기록, 동일 양자화·길이 통제 및 게이트 변경 승인 기록은 미확보."
+    ]
+  },
+  {
+    "id": "MD-20",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "응답길이와 말투 승수의 연관을 길이 인과로 단정하지 않았다.",
+    "evidence_remaining": [
+      "독립 아동 문체 검증, 블라인드 검수자 기록, 동일 양자화·길이 통제 및 게이트 변경 승인 기록은 미확보."
+    ]
+  },
+  {
+    "id": "MD-21",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "EXAONE collapse=toddler와 어른화 관련 항목 미달을 함께 표시했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-22",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "왜=몰라 원식별자에v2 정의를 붙이고 관대해진을 개정한으로 바꿨다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-23",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "A.16 비교가능성을ON 항목2로 한정하고 기존OFF v1 차이를 명시했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-24",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "두 EXAONE 크기 관측을 패밀리 성질이나 최초 양방향 유형으로 확장하지 않았다.",
+    "evidence_remaining": [
+      "독립 아동 문체 검증, 블라인드 검수자 기록, 동일 양자화·길이 통제 및 게이트 변경 승인 기록은 미확보."
+    ]
+  },
+  {
+    "id": "MD-25",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "ON/OFF 항목수 동률을 정책 효과부재 증명과 구분했다.",
+    "evidence_remaining": [
+      "독립 아동 문체 검증, 블라인드 검수자 기록, 동일 양자화·길이 통제 및 게이트 변경 승인 기록은 미확보."
+    ]
+  },
+  {
+    "id": "MD-26",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "A.16 두 비교의 원자료 ties/invalid를 복원하여 각행25쌍을 완성했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-27",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "라이선스 분류를 당시 조사로 한정하고 공식URL·리비전 누락을 밝혔다.",
+    "evidence_remaining": [
+      "공식 LICENSE 고정 리비전, 21발화 수집 경로·플레이어 제외/회피 판정 기록 필요."
+    ]
+  },
+  {
+    "id": "MD-28",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "항목1만 미달을 판정항목 범위로 한정하고 관측항목3 미달을 병기했다.",
+    "evidence_remaining": [
+      "공식 LICENSE 고정 리비전, 21발화 수집 경로·플레이어 제외/회피 판정 기록 필요."
+    ]
+  },
+  {
+    "id": "MD-29",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "A.17 무승부0/0/1/1을 복원하여 각행25쌍을 완성했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-30",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "자연스러움9:7·무효9를 동등성 입증으로 부르지 않도록 수정했다.",
+    "evidence_remaining": [
+      "공식 LICENSE 고정 리비전, 21발화 수집 경로·플레이어 제외/회피 판정 기록 필요."
+    ]
+  },
+  {
+    "id": "MD-31",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "Core로드전 warm스냅샷 아티팩트를 A.9 실제 NPC언로드와 구분했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-32",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "A.18의21발화 목록과 서버16논리콜·agent3콜을 구분하고 수집범위 미확인을 밝혔다.",
+    "evidence_remaining": [
+      "공식 LICENSE 고정 리비전, 21발화 수집 경로·플레이어 제외/회피 판정 기록 필요."
+    ]
+  },
+  {
+    "id": "MD-33",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "접근제한 output집계가 완전한 재현 원자료는 아님을 명시했다.",
+    "evidence_remaining": [
+      "초기 selfplay 플레이어 설정, Kanana 82턴의 추가 2턴, 평가자 독립성, judge 비교 반복 선택, 전체 비용 usage, 동일 버전 전 축 재실험 필요."
+    ]
+  },
+  {
+    "id": "MD-34",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "역할혼입된 로컬 evaluator2918→2179ms와C13 21790ms·외부46%/44%를 정정했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-35",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "Sonnet n=1/n=3와 Opus n=1 근거만 있다고 수정했다.",
+    "evidence_remaining": [
+      "보존 작업공간 밖 Opus n=3의 존재 여부는 확인하지 않음."
+    ]
+  },
+  {
+    "id": "MD-36",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "외부지연의 모델원인 단정을 제거하고 동시작업·API·네트워크 교란을 남겼다.",
+    "evidence_remaining": [
+      "초기 selfplay 플레이어 설정, Kanana 82턴의 추가 2턴, 평가자 독립성, judge 비교 반복 선택, 전체 비용 usage, 동일 버전 전 축 재실험 필요."
+    ]
+  },
+  {
+    "id": "MD-37",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "C13 합성지표와 미구현 묶음호출 설계안을 분리했다.",
+    "evidence_remaining": [
+      "초기 selfplay 플레이어 설정, Kanana 82턴의 추가 2턴, 평가자 독립성, judge 비교 반복 선택, 전체 비용 usage, 동일 버전 전 축 재실험 필요."
+    ]
+  },
+  {
+    "id": "MD-38",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "Core/NPC/플레이어 역할과 알려진 설정·미확인 초기플레이어 설정을 구분했다.",
+    "evidence_remaining": [
+      "초기 selfplay 플레이어 설정, Kanana 82턴의 추가 2턴, 평가자 독립성, judge 비교 반복 선택, 전체 비용 usage, 동일 버전 전 축 재실험 필요."
+    ]
+  },
+  {
+    "id": "MD-39",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "첫 Gemma Core실행 advisor재생성2와 후속 Gemma-player실행0을 분리했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-40",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "선별10케이스 의미개선 관찰과 재생성0 게이트 미충족을 함께 보고했다.",
+    "evidence_remaining": [
+      "초기 selfplay 플레이어 설정, Kanana 82턴의 추가 2턴, 평가자 독립성, judge 비교 반복 선택, 전체 비용 usage, 동일 버전 전 축 재실험 필요."
+    ]
+  },
+  {
+    "id": "MD-41",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "20케이스×2턴×2반복80과 이전82턴/분류기시도/재생성을 구분했다.",
+    "evidence_remaining": [
+      "초기 selfplay 플레이어 설정, Kanana 82턴의 추가 2턴, 평가자 독립성, judge 비교 반복 선택, 전체 비용 usage, 동일 버전 전 축 재실험 필요."
+    ]
+  },
+  {
+    "id": "MD-42",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "재채점/단발성공에서VRAM·어댑터 원인을 확정하지 않도록 수정했다.",
+    "evidence_remaining": [
+      "초기 selfplay 플레이어 설정, Kanana 82턴의 추가 2턴, 평가자 독립성, judge 비교 반복 선택, 전체 비용 usage, 동일 버전 전 축 재실험 필요."
+    ]
+  },
+  {
+    "id": "MD-43",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "모델당40원시판정과20자기/모델간 비교쌍을 구분했다.",
+    "evidence_remaining": [
+      "초기 selfplay 플레이어 설정, Kanana 82턴의 추가 2턴, 평가자 독립성, judge 비교 반복 선택, 전체 비용 usage, 동일 버전 전 축 재실험 필요."
+    ]
+  },
+  {
+    "id": "MD-44",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "정책4/5항목 기준통과와누설조건 미측정을 분리했다.",
+    "evidence_remaining": [
+      "초기 selfplay 플레이어 설정, Kanana 82턴의 추가 2턴, 평가자 독립성, judge 비교 반복 선택, 전체 비용 usage, 동일 버전 전 축 재실험 필요."
+    ]
+  },
+  {
+    "id": "MD-45",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "어댑터/응답위반/평가러너/selfplay입력 결함을 표로 나누고 당시SDK 조건을 명시했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-46",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "정지시도 비용포함을 유지하면서1.06달러를 부분추정으로 한정했다.",
+    "evidence_remaining": [
+      "초기 selfplay 플레이어 설정, Kanana 82턴의 추가 2턴, 평가자 독립성, judge 비교 반복 선택, 전체 비용 usage, 동일 버전 전 축 재실험 필요."
+    ]
+  },
+  {
+    "id": "MD-47",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "예산 주체·기록날짜·코드리뷰 등급과 Scenario Director 역할을 명시했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-48",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "임베딩제거 근거를당시 top3절단과전체8주장 전달 비교에 한정했다.",
+    "evidence_remaining": [
+      "검수의 블라인드·개별 승인 기록, 22문장 n=3, 지연 소수값 실행 출처 대조, 30건 차원 순위 재집계, 오추천 UX 검증과 일일 API 한도는 남는다."
+    ]
+  },
+  {
+    "id": "MD-49",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "A.20 두슬롯·A.21 중간차원결정을 역사로 표시하고최종3슬롯을 먼저 안내했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-50",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "추천의 코드직접 격리와 오추천 사용자경험의 미검증을 구분했다.",
+    "evidence_remaining": [
+      "검수의 블라인드·개별 승인 기록, 22문장 n=3, 지연 소수값 실행 출처 대조, 30건 차원 순위 재집계, 오추천 UX 검증과 일일 API 한도는 남는다."
+    ]
+  },
+  {
+    "id": "MD-51",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "30→22를사후 시나리오저자 검수로 명시하고독립성·블라인드 공백을 남겼다.",
+    "evidence_remaining": [
+      "검수의 블라인드·개별 승인 기록, 22문장 n=3, 지연 소수값 실행 출처 대조, 30건 차원 순위 재집계, 오추천 UX 검증과 일일 API 한도는 남는다."
+    ]
+  },
+  {
+    "id": "MD-52",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "30요청429부재를전역풀 원인단정과 구분했다.",
+    "evidence_remaining": [
+      "검수의 블라인드·개별 승인 기록, 22문장 n=3, 지연 소수값 실행 출처 대조, 30건 차원 순위 재집계, 오추천 UX 검증과 일일 API 한도는 남는다."
+    ]
+  },
+  {
+    "id": "MD-53",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "적중률/top1일치/Jaccard/τ의 분모·문장별평균·동률처리를 설명했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-54",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "qwen절단에서 top1이28/30→26/30으로 줄었음을 본문/이력에 반영했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-55",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "top3적중률동일을추천목록/순서동일과 구분했다.",
+    "evidence_remaining": [
+      "검수의 블라인드·개별 승인 기록, 22문장 n=3, 지연 소수값 실행 출처 대조, 30건 차원 순위 재집계, 오추천 UX 검증과 일일 API 한도는 남는다."
+    ]
+  },
+  {
+    "id": "MD-56",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "stem의낮은 모델간일치를 순서무의미로 해석하지 않았다.",
+    "evidence_remaining": [
+      "검수의 블라인드·개별 승인 기록, 22문장 n=3, 지연 소수값 실행 출처 대조, 30건 차원 순위 재집계, 오추천 UX 검증과 일일 API 한도는 남는다."
+    ]
+  },
+  {
+    "id": "MD-57",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "A.21 판정을실험·구현검증·당시후보로 구분하고960테스트를성능점수와 분리했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-58",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "제출Sonnet/Haiku 후속3축의 미확인을 유지하고잘못된A.22예정번호를 제거했다.",
+    "evidence_remaining": [
+      "검수의 블라인드·개별 승인 기록, 22문장 n=3, 지연 소수값 실행 출처 대조, 30건 차원 순위 재집계, 오추천 UX 검증과 일일 API 한도는 남는다."
+    ]
+  },
+  {
+    "id": "MD-59",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "차원일치도n15는503중단공통성공분이며n30재실행적중표와 다르다고 명시했다.",
+    "evidence_remaining": [
+      "검수의 블라인드·개별 승인 기록, 22문장 n=3, 지연 소수값 실행 출처 대조, 30건 차원 순위 재집계, 오추천 UX 검증과 일일 API 한도는 남는다."
+    ]
+  },
+  {
+    "id": "MD-60",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "Gemini22문장1024/1536/2560과30문장1536/2560/3072를 분리하고전지원범위 주장을 제거했다.",
+    "evidence_remaining": [
+      "검수의 블라인드·개별 승인 기록, 22문장 n=3, 지연 소수값 실행 출처 대조, 30건 차원 순위 재집계, 오추천 UX 검증과 일일 API 한도는 남는다."
+    ]
+  },
+  {
+    "id": "MD-61",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md",
+      "docs/metrics.yml"
+    ],
+    "summary": "초기30문장n3와검수22문장단일실행을 분리하고6개metrics 반복메타데이터를 제거했다.",
+    "evidence_remaining": [
+      "검수22문장 n=3 artifact 세트 미확보. 기존 latency 소수값이 두 JSON 중 어느 실행에서 왔는지 별도 대조 필요."
+    ]
+  },
+  {
+    "id": "MD-62",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "qwen최적을top1동률·단독p50우위로 한정하고상주선택bge를 구분했다.",
+    "evidence_remaining": [
+      "검수의 블라인드·개별 승인 기록, 22문장 n=3, 지연 소수값 실행 출처 대조, 30건 차원 순위 재집계, 오추천 UX 검증과 일일 API 한도는 남는다."
+    ]
+  },
+  {
+    "id": "MD-63",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "장치MiB와모델GiB/GB를구분하고여유2124MiB≈2.07GiB로 정정했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-64",
+    "status": "qualified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "qwen축출을이번2/2조건으로 한정하고bge예산추정과후속실측을 구분했다.",
+    "evidence_remaining": [
+      "검수의 블라인드·개별 승인 기록, 22문장 n=3, 지연 소수값 실행 출처 대조, 30건 차원 순위 재집계, 오추천 UX 검증과 일일 API 한도는 남는다."
+    ]
+  },
+  {
+    "id": "MD-65",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "서버사례를배선·순위반환검사로 명시하고의미정답 검사와 분리했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-66",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "bge요청2560/실반환1024와provider한줄변경의코드기준을 명시했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-67",
+    "status": "clarified",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "기록추가순임을밝히고최종구성과사후산술/주장정정 이력행을 추가했다.",
+    "evidence_remaining": []
+  },
+  {
+    "id": "MD-68",
+    "status": "corrected",
+    "files": [
+      "docs/model_evaluation.md"
+    ],
+    "summary": "실제발화인용을보존하면서상주관측문장의연결어미뒤쉼표를 국소삭제했다.",
+    "evidence_remaining": []
+  }
+]
