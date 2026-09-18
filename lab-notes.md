@@ -43,6 +43,13 @@ description: 실험·측정·결정의 날짜별 적립. 최신이 위.
   **남은 평가: 원숭이손·채점 캘리브레이션·누설.** 최종 시나리오 확정 뒤 실행 예정이며
   코드 수정 완료를 이 평가의 완료로 읽지 않는다.
   → [Exp 1 · A.19]({{ '/experiments/model-selection/' | relative_url }}#a19)
+- **정본 재확인 — 내용 변동 없음**: 앱 저장소 `main` 최신 커밋(`dd7f6d8`)까지
+  `docs/model_evaluation.md`·`docs/metrics.yml`을 직전 스냅샷 기준
+  (`docs/research-review-20260918` `00d4f86`)과 다시 대조했다. 그 사이 두
+  파일 모두 바이트 단위로 변경이 없어, 스냅샷 갱신 라벨만 `dd7f6d8`로 다시
+  찍었다(`scripts/snapshot_model_eval.py --ref dd7f6d8`). `check_public.py`
+  금지어 0건, `refresh_research_data.py --check`·유닛 테스트 16건 통과.
+  → [Exp 1 · 최종 구성과 증거 범위]({{ '/experiments/model-selection/' | relative_url }})
 
 ## 2026-09-17
 

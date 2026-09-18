@@ -12,7 +12,7 @@ description: Core·NPC·임베딩 모델의 역할별 측정과 채택 근거를
   이 페이지는 <strong>공개용으로 가공한 스냅샷</strong>입니다. 공개한 절의 수치·판정·결정은 아래 기준 커밋의 정본을 따릅니다.
   시나리오 결말을 드러내는 문장과 운영 세부(설정 키·포트·로그인 경로 등)는 가리거나 뺐고,
   공개 검토 전인 후속 추록은 포함하지 않았습니다. 앱 저장소 문서는 링크 대신 경로로 적었습니다.<br>
-  <strong>스냅샷 기준:</strong> 앱 저장소 <code>docs/research-review-20260918</code> <code>00d4f86</code></p>
+  <strong>스냅샷 기준:</strong> 앱 저장소 <code>dd7f6d8</code> <code>dd7f6d8</code></p>
 </div>
 
 ## 최종 구성과 증거 범위 — 2026-09-18 문서 검토
