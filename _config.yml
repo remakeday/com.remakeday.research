@@ -41,5 +41,10 @@ exclude:
   - vendor
   - README.md
   - .github
+  - docs
+  - scripts
+  - tests
+  - artwork
+  - .superpowers
   - "REMAKE_DAY_*"   # 기획서 원문 — 비공개
   - "TalkFile_*"     # 대화 원문 노트 — 비공개

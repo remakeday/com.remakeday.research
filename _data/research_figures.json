@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "path": "testbed.md",
+      "sha256": "ce52b1ff2e6ecc3ef781e3fa8de001d2be754049852e4d7159c54d5278fa653a"
+    },
+    {
+      "path": "prereg.md",
+      "sha256": "08009848cc8c18d3c406786858af6daa6a9face4b7ba250509ee0c670cbb6ab7"
+    },
+    {
+      "path": "experiments/model-selection.md",
+      "sha256": "dbe2ec03aa0d86559e0fcf027cc1a89bfd5d5b3bf67e069aa2a4bdc98f423d23"
+    },
+    {
+      "path": "experiments/human-observations.md",
+      "sha256": "ccef72f16dfd12db7e33db29a128bc5616d6d1991505a54d394fd9025c6b1397"
+    }
+  ],
+  "system_loop": {
+    "source_path": "testbed.md",
+    "source_anchor": "figure-1--system-loop",
+    "steps": [
+      "관찰·대화·추론",
+      "실패 설명",
+      "AI 조언",
+      "수용·거부·직접 작성",
+      "규칙 적용",
+      "재실행"
+    ]
+  },
+  "model_selection": {
+    "source_path": "experiments/model-selection.md",
+    "stages": [
+      {
+        "number": 0,
+        "id": "protocol",
+        "label": "응답 형식 확인"
+      },
+      {
+        "number": 1,
+        "id": "smoke",
+        "label": "기본 동작 확인"
+      },
+      {
+        "number": 2,
+        "id": "formal",
+        "label": "역할별 정식 평가"
+      },
+      {
+        "number": 3,
+        "id": "concurrency",
+        "label": "메모리에 함께 올리기"
+      },
+      {
+        "number": 4,
+        "id": "loop",
+        "label": "실제 게임 실행"
+      }
+    ],
+    "stages_source_anchor": "41-funnel",
+    "embedding": {
+      "source_path": "experiments/model-selection.md",
+      "source_anchor": "6-정본-수치--scenario-director-검수-골든22문장--반복-n3--서버-실경로--vram-동주",
+      "source_section": "A.21 §6",
+      "measured_on": "2026-09-18",
+      "reviewed_items": 22,
+      "repeat_check": {
+        "items": 30,
+        "review_status": "unreviewed",
+        "repetitions": 3,
+        "applies_to_reviewed_table": false
+      },
+      "conditions": [
+        {
+          "id": "stem",
+          "label": "어간 겹침",
+          "dimensions": null,
+          "top1_correct": 8,
+          "top1_rate": 0.364,
+          "latency_p50_ms": 0.0
+        },
+        {
+          "id": "qwen-2560",
+          "label": "Qwen",
+          "dimensions": 2560,
+          "top1_correct": 20,
+          "top1_rate": 0.909,
+          "latency_p50_ms": 86.0
+        },
+        {
+          "id": "qwen-1536",
+          "label": "Qwen",
+          "dimensions": 1536,
+          "top1_correct": 18,
+          "top1_rate": 0.818,
+          "latency_p50_ms": 84.0
+        },
+        {
+          "id": "bge-1024",
+          "label": "bge-m3",
+          "dimensions": 1024,
+          "top1_correct": 20,
+          "top1_rate": 0.909,
+          "latency_p50_ms": 109.0
+        },
+        {
+          "id": "gemini-1536",
+          "label": "Gemini",
+          "dimensions": 1536,
+          "top1_correct": 21,
+          "top1_rate": 0.955,
+          "latency_p50_ms": 418.0
+        },
+        {
+          "id": "gemini-2560",
+          "label": "Gemini",
+          "dimensions": 2560,
+          "top1_correct": 21,
+          "top1_rate": 0.955,
+          "latency_p50_ms": 407.0
+        }
+      ],
+      "latency_context": "후보 문구를 미리 준비한 뒤, 대안 순서를 한 번 계산하는 시간"
+    }
+  },
+  "human_observations": {
+    "source_path": "experiments/human-observations.md",
+    "aggregate": {
+      "group": "six-session-aggregate",
+      "measured_on": "2026-09-15",
+      "sessions": 6,
+      "denominator": 20,
+      "ai_total": 14,
+      "instrument_versions": "mixed",
+      "selections": [
+        {
+          "id": "intervention",
+          "label": "AI 개입 수락",
+          "count": 6
+        },
+        {
+          "id": "recommendation",
+          "label": "AI 추천 선택",
+          "count": 8
+        },
+        {
+          "id": "custom",
+          "label": "직접 작성",
+          "count": 6
+        }
+      ],
+      "source_anchor": "집계-결과-확정--유력-6판-exploratory"
+    },
+    "tester6": {
+      "group": "separate-case",
+      "measured_on": "2026-09-16",
+      "session_id": "2338ec9f",
+      "denominator": 5,
+      "ai_selections": 3,
+      "custom_selections": 2,
+      "trajectory": [
+        {
+          "round": 1,
+          "score": 8.8
+        },
+        {
+          "round": 2,
+          "score": 64.2
+        },
+        {
+          "round": 3,
+          "score": 94.2
+        },
+        {
+          "round": 4,
+          "score": 94.2
+        },
+        {
+          "round": 5,
+          "score": 94.2
+        }
+      ],
+      "same_text_rounds": [
+        3,
+        4,
+        5
+      ],
+      "same_text_length": 266,
+      "monotonic_scoring_lock": true,
+      "source_anchor": "case--tester-6-2026-09-16--5회차-완주"
+    }
+  },
+  "preregistration": {
+    "status": "NOT RUN",
+    "conditions": [
+      {
+        "id": "A",
+        "rationale": "absent",
+        "label": "AI 제안만"
+      },
+      {
+        "id": "B",
+        "rationale": "present",
+        "label": "AI 제안 + 이유"
+      }
+    ],
+    "primary_outcome": "AI 제안 수용률",
+    "source_path": "prereg.md",
+    "source_anchor": "anchor-experiment-설계"
+  }
+}

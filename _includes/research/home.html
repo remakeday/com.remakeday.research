@@ -1,0 +1,42 @@
+<header class="paper-head paper-head--home">
+  <div class="eyebrow"><span class="status-dot" aria-hidden="true"></span>REMAKE DAY RESEARCH <span class="eyebrow-divider">/</span> HUMAN–AI INTERACTION</div>
+  <div class="paper-kicker"><span>게임으로 관찰하는 사람과 AI</span><span class="status-badge">진행 중인 연구</span></div>
+  <h1 id="paper-title">AI 제안 수용 측정을 위한<br class="desktop-break"> 게임 기반 Human–AI 상호작용<br class="desktop-break"> 실험환경의 설계 및 검증</h1>
+  <p class="home-question">사람은 언제 AI의 제안을 받아들일까요?</p>
+  <p class="paper-lead">실패하고 다시 도전하는 게임 속에서, 사람이 AI의 제안을<br class="desktop-break"> 선택하거나 직접 수정하는 순간을 기록합니다.</p>
+  <div class="hero-actions"><a class="button button--primary" href="#research-abstract">연구 요약 읽기 <span aria-hidden="true">↓</span></a><a class="text-link" href="{{ '/plain-summary/' | relative_url }}">비유로 먼저 이해하기 <span aria-hidden="true">↗</span></a></div>
+</header>
+
+<figure class="instrument-figure" id="research-instrument" aria-labelledby="instrument-caption">
+  <div class="figure-topline"><span>FIGURE 01</span><span>반복되는 선택, 쌓이는 관찰</span></div>
+  <img src="{{ '/assets/images/research-instrument.webp' | relative_url }}" width="1600" height="1000" alt="게임 공간, AI 제안 카드, 사람의 선택, 기록 장치를 순서대로 배치한 실험환경의 3D 개념 모형" fetchpriority="high">
+  <ol class="instrument-labels"><li><span>01</span><strong>게임에서 관찰</strong><small>단서를 보고 질문합니다</small></li><li><span>02</span><strong>AI가 제안</strong><small>다음 방법을 제시합니다</small></li><li><span>03</span><strong>사람이 선택</strong><small>수용하거나 직접 씁니다</small></li><li><span>04</span><strong>선택을 기록</strong><small>수정하고 다시 관찰합니다</small></li></ol>
+  <figcaption id="instrument-caption"><strong>그림 1. 게임이 실험환경이 되는 과정.</strong> 선택과 규칙 적용을 기록하고 다음 회차에서 다시 관찰합니다. 작동 원리를 설명하는 개념 모형입니다. <a href="{{ '/testbed/' | relative_url }}">실험환경 자세히 읽기 ↗</a></figcaption>
+</figure>
+
+<section class="abstract-section" id="research-abstract" aria-labelledby="abstract-heading">
+  <div class="section-heading"><div><span class="eyebrow">01 / ABSTRACT</span><h2 id="abstract-heading">이 연구가 묻는 것</h2></div><span class="section-note">배경지식 없이 읽는 요약</span></div>
+  <p class="abstract-lead">AI가 방법을 제안해도, 마지막 선택은 사람이 합니다.<br class="desktop-break"> 그 선택을 반복해서 관찰할 수 있을까요?</p>
+  <p>REMAKE DAY는 실패, 설명, 제안, 선택, 재실행이 이어지는 게임입니다. 플레이어가 AI의 제안을 받아들이는지, 직접 규칙을 쓰는지, 이후 어떤 설명을 적는지를 기록합니다. 게임을 실제로 작동하는 <strong>사람–AI 상호작용 실험환경</strong>으로 설계했습니다.</p>
+  <p>먼저 AI 모델과 측정 도구가 제대로 작동하는지 평가하고, 그 환경에서 실제 사람의 플레이를 관찰했습니다. 현재 행동 관찰은 적은 사례를 살펴보는 초기 단계입니다. <strong>AI의 설명이 선택에 영향을 주는지는 아직 실험하지 않았습니다.</strong></p>
+  <a class="text-link" href="#original-record">정식 Abstract와 전체 연구 설명 읽기 <span aria-hidden="true">↗</span></a>
+</section>
+
+<section class="contributions-section" id="research-contributions" aria-labelledby="contributions-heading">
+  <div class="section-heading"><div><span class="eyebrow">02 / CONTRIBUTIONS</span><h2 id="contributions-heading">무엇을 만들고 검증했나</h2></div></div>
+  <div class="contribution-list">
+    <a href="{{ '/testbed/' | relative_url }}"><span class="contribution-id">C1</span><div><h3>반복해서 실험할 수 있는 게임</h3><p>실패 → AI 제안 → 사람의 선택 → 규칙 수정 → 재실행의 과정을 구성했습니다.</p><span class="contribution-type">Experimental environment · 실험환경</span></div><span class="row-arrow" aria-hidden="true">↗</span></a>
+    <a href="{{ '/experiments/human-observations/' | relative_url }}"><span class="contribution-id">C2</span><div><h3>선택을 확인할 수 있는 행동 기록</h3><p>AI 제안을 고른 순간과 직접 작성한 순간을 구분하고, 실제 플레이 사례로 확인했습니다.</p><span class="contribution-type">Behavioral measurement · 행동 측정</span></div><span class="row-arrow" aria-hidden="true">↗</span></a>
+    <a href="{{ '/experiments/model-selection/' | relative_url }}"><span class="contribution-id">C3</span><div><h3>같은 기준으로 다시 평가하는 방법</h3><p>모델의 판단과 고정된 게임 규칙을 분리하고, 평가 절차와 채택 근거를 기록했습니다.</p><span class="contribution-type">Reproducible evaluation · 재현 가능한 평가</span></div><span class="row-arrow" aria-hidden="true">↗</span></a>
+  </div>
+</section>
+
+<section class="evidence-section" id="research-evidence" aria-labelledby="evidence-heading">
+  <div class="section-heading"><div><span class="eyebrow">03 / EVIDENCE</span><h2 id="evidence-heading">지금까지 확인한 범위</h2></div></div>
+  <div class="evidence-grid">
+    <a class="evidence-card" href="{{ '/experiments/model-selection/' | relative_url }}"><span class="status-badge status-badge--measured">시스템 · 실측 기록</span><span class="evidence-number">01</span><h3>어떤 AI를<br>사용할 것인가</h3><p>정해진 형식, 판단 품질, 응답 시간과 실제 게임 실행을 평가했습니다.</p><span class="card-link">모델 선정 근거 <span aria-hidden="true">↗</span></span></a>
+    <a class="evidence-card" href="{{ '/experiments/human-observations/' | relative_url }}"><span class="status-badge status-badge--observed">행동 · 탐색적 관찰</span><span class="evidence-number">02</span><h3>사람은 무엇을<br>선택했는가</h3><p>실제 선택을 기록했습니다. 표본이 작고 실험환경이 바뀌어 해석에 제한이 있습니다.</p><span class="card-link">선택과 사례 기록 <span aria-hidden="true">↗</span></span></a>
+    <a class="evidence-card" href="{{ '/prereg/' | relative_url }}"><span class="status-badge status-badge--planned">다음 실험 · 미실행</span><span class="evidence-number">03</span><h3>이유를 설명하면<br>선택이 달라질까</h3><p>설명이 있는 조건과 없는 조건을 비교할 방법을 미리 정했습니다. 결과는 아직 없습니다.</p><span class="card-link">사전등록된 설계 <span aria-hidden="true">↗</span></span></a>
+  </div>
+  <div class="research-principle"><span class="principle-mark" aria-hidden="true">↳</span><div><strong>측정하지 않은 것은 주장하지 않는다.</strong><p>관찰한 사실, 아직 모르는 것, 실험환경의 한계를 함께 기록합니다.</p></div><a href="{{ '/limitations/' | relative_url }}">한계 읽기 ↗</a></div>
+</section>

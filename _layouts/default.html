@@ -2,19 +2,26 @@
 <html lang="{{ site.lang }}">
 <head>{% include head.html %}</head>
 <body>
-<div class="shell">
-  {% include sidebar.html %}
-  <div class="main">
-    <div class="topbar">
-      <button class="menu-btn" data-menu-toggle aria-label="메뉴 열기">☰</button>
-      <span class="topbar__title">{{ page.short_title | default: page.title | default: "REMAKE DAY Research" }}</span>
-      <span class="topbar__spacer"></span>
-      {% if page.status %}<span class="pill pill--accent">{{ page.status }}</span>{% endif %}
-    </div>
-    {{ content }}
-    {% include footer.html %}
+<a class="skip-link" href="#main-content">본문으로 바로 가기</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="REMAKE DAY Research 홈"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>REMAKE DAY <small>Research</small></span></a>
+    <nav class="primary-nav" aria-label="주요 메뉴">
+      <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>연구 개요</a>
+      <a href="{{ '/experiments/model-selection/' | relative_url }}"{% if page.url contains '/experiments/' %} aria-current="true"{% endif %}>실험과 결과</a>
+      <a href="{{ '/testbed/' | relative_url }}"{% if page.url == '/testbed/' or page.url == '/limitations/' or page.url == '/prereg/' %} aria-current="true"{% endif %}>방법과 한계</a>
+      <a href="{{ '/lab-notes/' | relative_url }}"{% if page.url == '/lab-notes/' %} aria-current="page"{% endif %}>연구 기록</a>
+    </nav>
+    <a class="development-link" href="{{ site.project.hub_site }}">개발 이야기 <span aria-hidden="true">↗</span></a>
+    <button class="menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-navigation">메뉴 <span aria-hidden="true">☰</span></button>
   </div>
-</div>
-<script src="{{ '/assets/js/app.js' | relative_url }}"></script>
+  <nav class="mobile-navigation" id="mobile-navigation" aria-label="전체 연구 메뉴">
+    {% for group in site.data.nav %}<div><p class="nav-group-label">{{ group.section }}</p>{% for item in group.items %}<a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}><span>{{ item.title }}</span><small>{{ item.subtitle }}</small></a>{% endfor %}</div>{% endfor %}
+    <a href="{{ site.project.hub_site }}">개발 이야기 ↗</a>
+  </nav>
+</header>
+<main id="main-content" tabindex="-1">{{ content }}</main>
+{% include footer.html %}
+<script src="{{ '/assets/js/app.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 </body>
 </html>

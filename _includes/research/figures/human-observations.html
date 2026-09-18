@@ -1,0 +1,59 @@
+{% assign human = site.data.research_figures.human_observations %}
+{% assign aggregate = human.aggregate %}
+{% assign tester = human.tester6 %}
+{% assign ai_total = aggregate.ai_total %}
+{% capture selection_aria %}{% for selection in aggregate.selections %}{{ selection.label }} {{ selection.count }}회{% unless forloop.last %}, {% endunless %}{% endfor %}{% endcapture %}
+<figure class="research-figure" aria-labelledby="selection-title">
+  <p class="figure-eyebrow">FIGURE 04A · {{ aggregate.measured_on }} 집계</p>
+  <h3 class="figure-title" id="selection-title">{{ aggregate.sessions }}판에서 기록된 규칙 선택 {{ aggregate.denominator }}회</h3>
+  <div class="selection-grid" role="img" aria-label="{{ selection_aria }}">
+    {% for selection in aggregate.selections %}
+      {% for i in (1..selection.count) %}<span class="selection-tile{% if selection.id == 'recommendation' %} selection-tile--recommended{% elsif selection.id == 'custom' %} selection-tile--custom{% endif %}" title="{{ selection.label }}" aria-hidden="true"></span>{% endfor %}
+    {% endfor %}
+  </div>
+  <p class="figure-legend">
+    {% for selection in aggregate.selections %}<span><i class="selection-tile{% if selection.id == 'recommendation' %} selection-tile--recommended{% elsif selection.id == 'custom' %} selection-tile--custom{% endif %}"></i>{{ selection.label }} {{ selection.count }}회</span>{% endfor %}
+  </p>
+  <p class="figure-caution">확정·유력 사람 세션 {{ aggregate.sessions }}판의 탐색적 집계입니다. 관찰 기간의 기구 버전이 섞였고, 선택은 무작위 배정이 아닙니다.</p>
+  <p class="figure-source"><a href="{{ '/experiments/human-observations/' | relative_url }}#{{ aggregate.source_anchor }}">출처: Exp 2 · 집계 결과</a></p>
+  <figcaption><strong>그림 4A · {{ aggregate.measured_on }}.</strong> AI 계열 선택 {{ ai_total }}회는 {{ aggregate.selections[0].label }} {{ aggregate.selections[0].count }}회와 {{ aggregate.selections[1].label }} {{ aggregate.selections[1].count }}회를 합친 값입니다. {{ aggregate.selections[2].label }}은 {{ aggregate.selections[2].count }}회였습니다.</figcaption>
+</figure>
+
+{% assign same_text_start = tester.same_text_rounds | first %}
+{% assign same_text_end = tester.same_text_rounds | last %}
+<figure class="research-figure" aria-labelledby="tester6-title">
+  <p class="figure-eyebrow">FIGURE 04B · {{ tester.measured_on }} 별도 사례</p>
+  <h3 class="figure-title" id="tester6-title">Tester 6의 회차별 관찰 점수</h3>
+  <svg class="trajectory-chart" viewBox="0 0 560 280" role="img" aria-labelledby="tester6-chart-title tester6-chart-desc">
+    <title id="tester6-chart-title">Tester 6의 {{ tester.trajectory.size }}회차 관찰 점수 선 그래프</title>
+    <desc id="tester6-chart-desc">점수는 차례로 {% for point in tester.trajectory %}{{ point.score }}점{% unless forloop.last %}, {% endunless %}{% endfor %}입니다. {{ same_text_start }}회차부터 {{ same_text_end }}회차까지는 같은 제출문이며 단조 잠금이 적용됐습니다.</desc>
+    <rect class="trajectory-lock-area" x="245" y="10" width="270" height="220" rx="8" fill="#eef2e8" opacity="0.8"></rect>
+    <g class="trajectory-grid" aria-hidden="true">
+      <line x1="58" y1="20" x2="530" y2="20" stroke="#d7ddd1"></line>
+      <line x1="58" y1="120" x2="530" y2="120" stroke="#d7ddd1"></line>
+      <line x1="58" y1="220" x2="530" y2="220" stroke="#aeb9a8"></line>
+      <text x="48" y="25" text-anchor="end" fill="#68736a">100</text>
+      <text x="48" y="125" text-anchor="end" fill="#68736a">50</text>
+      <text x="48" y="225" text-anchor="end" fill="#68736a">0</text>
+    </g>
+    <text class="trajectory-lock-label" x="380" y="247" text-anchor="middle" fill="#65735f">{{ same_text_start }}–{{ same_text_end }}회차: 같은 글 · 단조 잠금</text>
+    <polyline class="trajectory-line" fill="none" stroke="#637b58" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="{% for point in tester.trajectory %}{% assign x = forloop.index0 | times: 105 | plus: 78 %}{% assign y = 100 | minus: point.score | times: 2 | plus: 20 %}{{ x }},{{ y }} {% endfor %}"></polyline>
+    {% for point in tester.trajectory %}
+      {% assign x = forloop.index0 | times: 105 | plus: 78 %}
+      {% assign y = 100 | minus: point.score | times: 2 | plus: 20 %}
+      <g class="trajectory-point" aria-hidden="true">
+        <circle cx="{{ x }}" cy="{{ y }}" r="6" fill="#fff" stroke="#637b58" stroke-width="3"></circle>
+        <text x="{{ x }}" y="{{ y | minus: 13 }}" text-anchor="middle" fill="#26342c">{{ point.score }}</text>
+        <text x="{{ x }}" y="268" text-anchor="middle" fill="#4f5e54">{{ point.round }}회차</text>
+      </g>
+    {% endfor %}
+  </svg>
+  <ol class="trajectory-values" aria-label="Tester 6의 정확한 {{ tester.trajectory.size }}회차 총점">
+    {% for point in tester.trajectory %}
+    <li><strong>{{ point.round }}회차</strong> {{ point.score }}점{% if point.round >= same_text_start %} <small>같은 {{ tester.same_text_length }}자 제출문</small>{% endif %}</li>
+    {% endfor %}
+  </ol>
+  <p class="figure-caution">이 사례는 위 {{ aggregate.sessions }}판 집계에 포함하지 않았습니다. {{ same_text_start }}–{{ same_text_end }}회차는 같은 글을 제출했고 단조 잠금이 점수 하락을 막았으므로, 상승 뒤 정체를 학습이나 채점기 안정성으로 해석할 수 없습니다.</p>
+  <p class="figure-source"><a href="{{ '/experiments/human-observations/' | relative_url }}#{{ tester.source_anchor }}">출처: Exp 2 · Case — Tester 6</a></p>
+  <figcaption><strong>그림 4B · {{ tester.measured_on }}.</strong> 다른 기구 버전에서 수집된 단일 완주 사례입니다. 원문에 기록된 당시 총점을 그대로 표시합니다.</figcaption>
+</figure>

@@ -1,17 +1,15 @@
-- section: "개요"
+- section: "연구 이해하기"
   items:
-    - { title: "홈 · Abstract",      url: "/",              icon: "◈" }
-    - { title: "Statement",          url: "/statement/",    icon: "❝" }
-    - { title: "Testbed",            url: "/testbed/",      icon: "⟳" }
-
-- section: "실험"
+    - { title: "연구 개요", subtitle: "Abstract", url: "/", icon: "01" }
+    - { title: "왜 게임인가", subtitle: "Statement", url: "/statement/", icon: "02" }
+    - { title: "실험환경 설계", subtitle: "Methods", url: "/testbed/", icon: "03" }
+- section: "실험과 근거"
   items:
-    - { title: "Exp 1 · 모델 선정",  url: "/experiments/model-selection/",    icon: "01" }
-    - { title: "Exp 2 · 행동 관찰",  url: "/experiments/human-observations/", icon: "02" }
-    - { title: "사전등록",           url: "/prereg/",       icon: "◎" }
-
-- section: "부록"
+    - { title: "AI 모델 선정", subtitle: "Experiment 1", url: "/experiments/model-selection/", icon: "04" }
+    - { title: "사람의 선택 관찰", subtitle: "Experiment 2", url: "/experiments/human-observations/", icon: "05" }
+    - { title: "다음 실험의 설계", subtitle: "Preregistration", url: "/prereg/", icon: "06" }
+- section: "더 깊이 읽기"
   items:
-    - { title: "Plain Summary",      url: "/plain-summary/", icon: "◌" }
-    - { title: "Limitations",        url: "/limitations/",  icon: "△" }
-    - { title: "Lab Notes",          url: "/lab-notes/",    icon: "✎" }
+    - { title: "비유로 읽는 연구", subtitle: "Plain summary", url: "/plain-summary/", icon: "07" }
+    - { title: "한계와 재현 방법", subtitle: "Limitations", url: "/limitations/", icon: "08" }
+    - { title: "날짜별 연구 기록", subtitle: "Lab notes", url: "/lab-notes/", icon: "09" }

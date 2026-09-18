@@ -1,0 +1,18 @@
+<section class="reading-overview" aria-labelledby="reading-overview-title">
+  <h2 id="reading-overview-title">{{ include.reading.overview_title | default: "먼저 읽을 내용" }}</h2>
+  {% if include.reading.findings %}
+  <ul class="reading-findings">
+    {% for finding in include.reading.findings %}<li>{{ finding }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+
+  {% case include.reading.figure %}
+    {% when "system-loop" %}{% include research/figures/system-loop.html %}
+    {% when "model-selection" %}{% include research/figures/model-selection.html %}
+    {% when "human-observations" %}{% include research/figures/human-observations.html %}
+    {% when "prereg-ab" %}{% include research/figures/prereg-ab.html %}
+  {% endcase %}
+
+  <p class="reading-caution"><strong>해석 주의.</strong> {{ include.reading.caution }}</p>
+  <p class="figure-source"><a href="#original-record">전체 연구 기록과 근거 표 보기 ↓</a></p>
+</section>

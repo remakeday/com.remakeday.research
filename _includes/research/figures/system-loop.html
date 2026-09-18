@@ -1,0 +1,13 @@
+{% assign loop = site.data.research_figures.system_loop %}
+<figure class="research-figure" aria-labelledby="system-loop-title">
+  <p class="figure-eyebrow">FIGURE 02 · SYSTEM LOOP</p>
+  <h3 class="figure-title" id="system-loop-title">실패를 설명하고 규칙을 바꿔 다시 실행하는 순환</h3>
+  <ol class="flow-steps" aria-label="실험환경의 여섯 단계">
+    {% for step in loop.steps %}
+    <li><small>STEP {{ forloop.index }}</small><strong>{{ step }}</strong><span class="flow-arrow{% if forloop.last %} flow-arrow--loop{% endif %}" aria-hidden="true">{% if forloop.last %}↺{% else %}→{% endif %}</span></li>
+    {% endfor %}
+  </ol>
+  <p class="figure-caution">각 선택은 이벤트로 기록되지만, 기록만으로 플레이어의 마음이나 인과관계를 단정하지 않습니다.</p>
+  <p class="figure-source"><a href="{{ '/testbed/' | relative_url }}#{{ loop.source_anchor }}">출처: Testbed · Figure 1 — System Loop</a></p>
+  <figcaption><strong>그림 2.</strong> 플레이어의 선택이 다음 실행으로 이어지는 실험환경의 기본 단위입니다. 마지막 재실행은 다시 첫 단계로 연결됩니다.</figcaption>
+</figure>

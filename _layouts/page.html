@@ -1,19 +1,40 @@
 ---
 layout: default
 ---
-<div class="container">
-  <header class="page-head">
-    {% if page.eyebrow %}<div class="page-head__eyebrow">{{ page.eyebrow }}</div>{% endif %}
-    <h1>{{ page.title }}</h1>
-    {% if page.description %}<p>{{ page.description }}</p>{% endif %}
-    {% if page.owner %}
-      {% assign _o = site.data.team | where: "key", page.owner | first %}
-      <p style="margin-top:10px">
-        <span class="pill"><span class="avatar avatar--sm" style="background:{{ _o.color }}">{{ _o.initial }}</span> 담당 {{ _o.name }}</span>
-      </p>
+{% assign reading = site.data.reading[page.url] %}
+<div class="paper-shell{% if page.url == '/' %} paper-shell--home{% endif %}">
+  <article class="paper" aria-labelledby="paper-title">
+    {% if page.url == '/' %}
+      {% include research/home.html %}
+    {% else %}
+      <header class="paper-head">
+        <div class="eyebrow"><a href="{{ '/' | relative_url }}">RESEARCH</a><span aria-hidden="true">/</span>{{ reading.section | default: page.eyebrow }}</div>
+        <p class="paper-category">{{ reading.label | default: page.short_title }}</p>
+        <h1 id="paper-title">{{ reading.question | default: page.title }}</h1>
+        <p class="formal-title">{{ page.title }}</p>
+        <p class="paper-lead">{{ reading.summary | default: page.description }}</p>
+      </header>
+      {% if reading %}{% include research/overview.html reading=reading %}{% endif %}
     {% endif %}
-  </header>
-  <div class="content">
-    {{ content }}
-  </div>
+    {% include research/glossary.html %}
+    {% if page.url == '/' %}
+    <details class="source-disclosure" id="original-record">
+      <summary><span><span class="eyebrow">FULL RECORD</span><strong>연구 전문과 English Abstract</strong></span><span class="disclosure-indicator" aria-hidden="true">+</span></summary>
+      <div class="prose original-content" data-original-content>{{ content }}</div>
+    </details>
+    {% else %}
+    <section class="source-record" id="original-record" aria-labelledby="record-heading">
+      <div class="section-heading"><div><span class="eyebrow">FULL RECORD</span><h2 id="record-heading">상세 연구 기록</h2></div><a class="back-to-summary" href="#paper-title">요약으로 ↑</a></div>
+      <p class="record-intro">방법, 수치, 판단 근거와 당시의 한계를 담은 전체 기록입니다. 먼저 위의 설명을 읽고, 필요한 절을 목차에서 찾아보세요.</p>
+      <div class="prose original-content" data-original-content>{{ content }}</div>
+    </section>
+    {% endif %}
+    <nav class="continue-reading" aria-label="이어 읽기">
+      <span class="eyebrow">CONTINUE READING</span>
+      {% if page.url == '/experiments/model-selection/' %}<a href="{{ '/experiments/human-observations/' | relative_url }}">실제 사람에게는 어떤 행동이 관찰됐을까요? <span aria-hidden="true">↗</span></a>
+      {% elsif page.url == '/experiments/human-observations/' or page.url == '/prereg/' %}<a href="{{ '/limitations/' | relative_url }}">이 결과는 어디까지 해석할 수 있을까요? <span aria-hidden="true">↗</span></a>
+      {% else %}<a href="{{ '/experiments/model-selection/' | relative_url }}">어떤 기준으로 AI 모델을 선택했을까요? <span aria-hidden="true">↗</span></a>{% endif %}
+    </nav>
+  </article>
+  {% include sidebar.html %}
 </div>

@@ -14,3 +14,8 @@ TalkFile_*
 
 # 공개 범위 규칙(스포일러·운영 금지어 포함) — 비공개
 _private/
+
+# Local Python tooling caches
+__pycache__/
+*.pyc
+*.blend[0-9]

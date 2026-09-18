@@ -116,7 +116,14 @@ def main() -> int:
     PAGE.write_text(HEAD.format(ref=args.ref, commit=commit) + "\n" + body)
     print(f"스냅샷 갱신: {PAGE.relative_to(ROOT)} ← {args.ref} {commit}")
 
-    return subprocess.run([sys.executable, str(ROOT / "scripts" / "check_public.py")]).returncode
+    public_check = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "check_public.py")]
+    ).returncode
+    if public_check:
+        return public_check
+    return subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "refresh_research_data.py")]
+    ).returncode
 
 
 if __name__ == "__main__":

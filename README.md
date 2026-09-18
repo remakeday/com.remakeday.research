@@ -21,14 +21,64 @@ lab-notes.md                          날짜별 실험 로그
 
 ```bash
 bundle install
+python3 scripts/refresh_research_data.py
 bundle exec jekyll serve
 ```
+
+## 읽기 화면과 시각화
+
+원문 Markdown은 전체 연구 기록으로 유지한다. `_data/reading.yml`과
+`_includes/research/`가 쉬운 질문·설명·그림을 원문 앞에 붙이고,
+`_layouts/page.html`이 원문을 그대로 표시한다. 홈의 전체 기록은 펼쳐 읽을 수 있고
+기존 절 링크로 들어오면 해당 기록이 열린다. 사전등록 원문도 별도로 수정하지 않는다.
+
+- UI: `assets/css/style.scss`, `assets/js/app.js`. Jekyll/Liquid와 기본 브라우저 기능을 사용한다.
+- 읽기 요약: `_data/reading.yml`. 측정 조건·한계와 원문의 최신 상태를 함께 확인한다.
+- 차트 데이터: `_data/research_figures.json`. 직접 수정하지 않는다.
+  `python3 scripts/refresh_research_data.py`가 공개 Markdown의 표에서 수치를 읽는다.
+- 원문 표의 형식이나 실험 조건이 바뀌면 생성기가 중단한다. 새 조건에 맞게 추출기와
+  설명·캡션을 함께 검토한다. 여섯 판 집계/별도 사례, 검수 22문장/초기 30문장 반복은
+  합치지 않는다. 생성 후 `--check`로 현재 원문과의 일치를 확인한다.
+- 블렌더 그림: `assets/images/research-instrument.webp`. 재생성 방법과 편집 가능한
+  장면은 [그림 제작 기록](docs/research-figures.md)에 있다. 그림의 설명은 웹 텍스트로 제공한다.
+
+변경 검증:
+
+```bash
+python3 scripts/refresh_research_data.py --check
+python3 -m unittest discover -s tests -p 'test_*.py'
+python3 scripts/check_public.py
+bundle exec jekyll build
+python3 scripts/check_site.py _site
+```
+
+화면만 변경할 때는 변경 전 빌드를 남겨 원문과 기존 앵커의 보존을 대조할 수 있다.
+
+```bash
+python3 scripts/check_site.py _site --baseline /tmp/research-baseline-site
+```
+
+브라우저 검사는 Node 20 이상과 Chrome을 사용한다. 별도 npm 패키지는 필요하지 않다.
+검사 전 `_site`를 `127.0.0.1:4173`에 제공하고, 전용 Chrome 프로필로 DevTools 포트를 연다.
+Chrome의 기존 개인 프로필을 사용하지 않는다.
+
+```bash
+python3 -m http.server 4173 --bind 127.0.0.1 --directory _site
+# 별도 터미널
+google-chrome --headless --remote-debugging-port=9223 --user-data-dir=/tmp/research-browser-check
+# 별도 터미널
+node --experimental-websocket tests/browser.mjs
+```
+
+검사는 메뉴·원문 링크·모바일 목차·가로 넘침·JavaScript 없는 화면·인쇄를 확인하며,
+화면 캡처를 `/tmp/research-ui-shots/`에 저장한다. `docs/`, `scripts/`, `tests/`,
+`artwork/`는 사이트 빌드에서 제외된다.
 
 ## 운영 규칙
 
 - Exp 1은 `com.remakeday/docs/model_evaluation.md`가 정본이고 이 사이트는 **공개용 가공 스냅샷**.
   정본 갱신 시 손으로 복사하지 말고 `python3 scripts/snapshot_model_eval.py`로 다시 뜬다
-  (앱 저장소 `main` 기준, 제목 단계 조정·링크를 경로로·공개 범위 규칙 적용·금지어 검사까지 한 번에).
+  (앱 저장소 `main` 기준, 제목 단계 조정·링크를 경로로·공개 범위 규칙 적용·금지어 검사·그림 데이터 갱신까지 한 번에).
 
 ## 공개 범위 (2026-09-17 확정)
 

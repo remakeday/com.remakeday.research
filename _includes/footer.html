@@ -1,11 +1,5 @@
-<footer class="footer">
-  <div>
-    <strong>REMAKE DAY Research</strong> — {{ site.tagline }}
-  </div>
-  <div style="margin-top:6px">
-    앱·API 레포 <a href="{{ site.project.repo_app }}">com.remakeday</a> ·
-    개발 허브 <a href="{{ site.project.hub_site }}">blog.remakeday.com</a> ·
-    이 사이트 <a href="{{ site.project.repo_site }}">research.remakeday.com</a>
-  </div>
-  <div style="margin-top:6px">최종 빌드 {{ site.time | date: "%Y-%m-%d %H:%M" }} KST</div>
-</footer>
+<footer class="site-footer"><div class="site-footer__inner">
+  <div><a class="footer-brand" href="{{ '/' | relative_url }}">REMAKE DAY <span>Research</span></a><p>실험을 기록하고, 판단의 근거를 남깁니다.</p></div>
+  <nav aria-label="관련 사이트"><a href="{{ site.project.hub_site }}">개발 이야기 ↗</a><a href="{{ site.project.repo_app }}">앱 저장소 ↗</a><a href="{{ site.project.repo_site }}">연구 사이트 저장소 ↗</a></nav>
+  <div class="footer-note">측정하지 않은 것은 주장하지 않는다.<br><span>사이트 빌드 {{ site.time | date: "%Y.%m.%d" }} · 연구별 측정일은 본문에 표기</span></div>
+</div></footer>
