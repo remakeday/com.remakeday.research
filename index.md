@@ -3,15 +3,14 @@ title: "AI 제안 수용 측정을 위한 게임 기반 Human–AI 상호작용 
 short_title: "REMAKE DAY Research"
 permalink: /
 eyebrow: "Research Report · 작성 중"
-status: "탐색적 관찰 · 기존 집계 6판(확정 5·유력 1), 후속 사례 1판 별도"
+status: "탐색적 관찰 · 사람 판 14판(5회차 완주 10판) 2026-09-18 재집계, 기존 6판 집계 병기"
 description: "REMAKE DAY: A Game-Based Testbed for Measuring Human Reliance on AI Suggestions in Iterative Failure-Recovery Loops"
 ---
 
 ## Abstract
 
-규칙 선택 출처는 기존 6판의 적용 규칙 20건을 집계했고 게임 점수는 사례로 제시했다.
-부작용 인지율은 `NOT RUN`이며 측정 가능성부터 미해결이다. Rationale A/B는 사전등록·미실행이고
-질문 품질·이해도 변화는 조작적 정의와 분석이 아직 확정되지 않았다.
+사람 판 14판(2026-09-18 재집계)에서 적용 규칙 60건의 출처를 집계했다(AI 계열 48·직접 작성 12).
+5회차 완주 10판의 회차별 게임 점수를 기록했다. 기존 6판·20건 집계는 병기한다.
 
 Agentic systems increasingly place humans in loops where AI suggests interventions
 and humans accept, reject, or revise them. However, this reliance is difficult
@@ -20,8 +19,9 @@ to observe repeatedly under controlled and reproducible conditions.
 We introduce **REMAKE DAY**, a game-based experimental testbed that reproduces an
 execution–failure–explanation–revision loop. The environment records defined
 choice, submission, and rule-application events.
-We report exploratory counts of applied-rule sources and game-score case records.
-Rationale effects, side-effect recognition, question quality, and understanding
+We report exploratory counts of applied-rule sources (48 of 60 AI-linked across
+14 human sessions, 10 of which completed all five rounds) and per-round game-score
+records. Rationale effects, side-effect recognition, question quality, and understanding
 change remain unmeasured or require operational definitions.
 
 The game supports repeated execution and behavioral recording for studying
@@ -72,7 +72,7 @@ validation of psychological measures remain to be established.
 
 **C2 — Behavioral Measurement.** 정의한 선택·제출·규칙 적용을
 event-level trace(이벤트별 기록)로 남겼다. AI 계열 규칙과 직접 작성 규칙의 출처를
-6판 20건에서 집계했다. explanation exposure(설명 표시 여부)는 향후 Rationale A/B의
+14판 60건에서 집계했다(기존 6판 20건 병기). explanation exposure(설명 표시 여부)는 향후 Rationale A/B의
 조건이며 질문 품질·이해 변화·부작용 인지는 로그 보유만으로 측정 완료라고 하지 않는다.
 
 **C3 — Reproducible Evaluation.** LLM 판단과 deterministic domain logic(같은 입력에
@@ -82,13 +82,18 @@ event-level trace(이벤트별 기록)로 남겼다. AI 계열 규칙과 직접 
 
 ---
 
+## 미측정 항목
+
+부작용 인지율은 `NOT RUN`이며 측정 가능성부터 미해결이다. Rationale A/B는 사전등록·미실행이고
+질문 품질·이해도 변화는 조작적 정의와 분석이 아직 확정되지 않았다.
+
 ## 현재 상태
 
 | 트랙 | 상태 | 페이지 |
 |---|---|---|
 | System Evaluation — 모델 선정 (E7/E6) | **역할별 실측·채택**: Funnel 5단계 실행과 Core·NPC 채택 기록. manager_paw 등 미측정 축은 Exp 1에서 별도 확인 | [Exp 1]({{ '/experiments/model-selection/' | relative_url }}) |
 | System Evaluation — 외부 API 서빙 (A.19) | **2026-09-17 채택**: Core Sonnet 5 · NPC Haiku 4.5. 측정한 의미 품질 게이트 통과, 지연 게이트는 1회·3회 반복에서 엇갈림. 남은 평가: 원숭이손·채점 캘리브레이션·누설 | [Exp 1 · A.19]({{ '/experiments/model-selection/' | relative_url }}#a19) |
-| Behavioral Observation — 사람 플레이 | **진행 중**: 기존 집계 6판(확정 5·유력 1, 기구 버전 혼재), 9/16 후속 5회차 완주 사례 1판 별도. 판수는 고유 참가자 수가 아님 | [Exp 2]({{ '/experiments/human-observations/' | relative_url }}) |
+| Behavioral Observation — 사람 플레이 | **2026-09-18 재집계**: 사람 판 14판(5회차 완주 10판), 규칙 출처 AI 계열 48/60. 기존 6판 집계 병기, 기구 버전 혼재. 판수는 고유 참가자 수가 아님 | [Exp 2]({{ '/experiments/human-observations/' | relative_url }}) |
 | Rationale A/B (Anchor Experiment) | **사전등록·미실행**: 공개 원문 고정, 배정·분모·분석 등 미정 항목은 읽기 안내 참조 | [사전등록]({{ '/prereg/' | relative_url }}) |
 
 이 사이트의 원칙은 하나다. **측정하지 않은 것은 주장하지 않는다.**
